@@ -1,0 +1,30 @@
+# Ignore WordPress uploads
+/uploads/
+
+# Plugin Ignore
+/plugins/woocommerce/
+
+# Ignore cache/logs
+cache/
+*.log
+
+# Ignore node/npm
+**/node_modules/
+**/npm-debug.log/
+**/yarn-error.log
+
+# Ignore build artefacts
+**/dist/
+**/build/
+
+# Ignore Composer vendor directories
+**/vendor/
+
+# Ignore OS/editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Ignore default WordPress themes
+themes/twentytwenty*/
