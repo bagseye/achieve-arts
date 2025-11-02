@@ -3,6 +3,7 @@
 
 # Plugin Ignore
 /plugins/woocommerce/
+/plugins/advanced-custom-fields-pro/
 
 # Ignore cache/logs
 cache/
