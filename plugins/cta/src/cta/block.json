@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bwp/cta",
+	"version": "0.1.0",
+	"title": "CTA",
+	"category": "design",
+	"icon": "controls-volumeon",
+	"description": "Displays a Call to Action",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "cta",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
