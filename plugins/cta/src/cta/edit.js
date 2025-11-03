@@ -66,13 +66,15 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody>
+				<PanelBody title={ __( 'Media', 'cta' ) }>
 					<MediaUploadCheck>
 						<MediaUpload
 							onSelect={ ( media ) => {
 								setAttributes( {
 									mediaId: media.id,
-									mediaUrl: media.url,
+									mediaUrl:
+										media?.sizes?.cta?.source_url ??
+										media.url,
 									mediaAlt: media.alt,
 								} );
 							} }
@@ -103,55 +105,51 @@ export default function Edit( { attributes, setAttributes } ) {
 			<section { ...blockProps }>
 				<div className={ `${ blockname }__inner` }>
 					<div className={ `${ blockname }__container` }>
-						<div className={ `${ blockname }__container` }>
-							<div className={ `${ blockname }__items` }>
-								<div className={ `${ blockname }__item` }>
-									<header
-										className={ `${ blockname }__header` }
-									>
-										<RichText
-											tagName="p"
-											className={ `${ blockname }__tab` }
-											value={ tab }
-											allowedFormats={ [
-												'core/bold',
-												'core/italic',
-											] }
-											onChange={ ( val ) =>
-												setAttributes( { tab: val } )
-											}
-											placeholder={ __( 'Tab...' ) }
-										/>
-										<RichText
-											tagName="h2"
-											className={ `${ blockname }__heading` }
-											value={ heading }
-											allowedFormats={ [
-												'core/bold',
-												'core/italic',
-											] }
-											onChange={ ( val ) =>
-												setAttributes( {
-													heading: val,
-												} )
-											}
-											placeholder={ __( 'Heading...' ) }
-										/>
-									</header>
-									<div { ...innerBlocksProps } />
-								</div>
-								{ mediaId && mediaUrl ? (
-									<div className={ `${ blockname }__media` }>
-										<picture>
-											<img
-												className={ `wp-image-${ mediaId }` }
-												src={ mediaUrl }
-												alt={ mediaAlt }
-											/>
-										</picture>
-									</div>
-								) : null }
+						<div className={ `${ blockname }__items` }>
+							<div className={ `${ blockname }__item` }>
+								<header className={ `${ blockname }__header` }>
+									<RichText
+										tagName="p"
+										className={ `${ blockname }__tab` }
+										value={ tab }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( { tab: val } )
+										}
+										placeholder={ __( 'Tab...' ) }
+									/>
+									<RichText
+										tagName="h2"
+										className={ `${ blockname }__heading` }
+										value={ heading }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( {
+												heading: val,
+											} )
+										}
+										placeholder={ __( 'Heading...' ) }
+									/>
+								</header>
+								<div { ...innerBlocksProps } />
 							</div>
+							{ mediaId && mediaUrl ? (
+								<div className={ `${ blockname }__media` }>
+									<picture>
+										<img
+											className={ `wp-image-${ mediaId }` }
+											src={ mediaUrl }
+											alt={ mediaAlt }
+										/>
+									</picture>
+								</div>
+							) : null }
 						</div>
 					</div>
 				</div>

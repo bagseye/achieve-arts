@@ -32,35 +32,33 @@ export default function save( { attributes } ) {
 		<section { ...blockProps }>
 			<div className={ `${ blockname }__inner` }>
 				<div className={ `${ blockname }__container` }>
-					<div className={ `${ blockname }__container` }>
-						<div className={ `${ blockname }__items` }>
-							<div className={ `${ blockname }__item` }>
-								<header className={ `${ blockname }__header` }>
-									<RichText.Content
-										tagName="p"
-										value={ tab }
-										className={ `${ blockname }__tab` }
-									/>
-									<RichText.Content
-										tagName="h2"
-										value={ heading }
-										className={ `${ blockname }__heading` }
-									/>
-								</header>
-								<div { ...innerBlocksProps } />
-							</div>
-							{ mediaId && mediaUrl ? (
-								<div className={ `${ blockname }__media` }>
-									<picture>
-										<img
-											className={ `wp-image-${ mediaId }` }
-											src={ mediaUrl }
-											alt={ mediaAlt }
-										/>
-									</picture>
-								</div>
-							) : null }
+					<div className={ `${ blockname }__items` }>
+						<div className={ `${ blockname }__item` }>
+							<header className={ `${ blockname }__header` }>
+								<RichText.Content
+									tagName="p"
+									value={ tab }
+									className={ `${ blockname }__tab` }
+								/>
+								<RichText.Content
+									tagName="h2"
+									value={ heading }
+									className={ `${ blockname }__heading` }
+								/>
+							</header>
+							<div { ...innerBlocksProps } />
 						</div>
+						{ mediaId && mediaUrl ? (
+							<div className={ `${ blockname }__media` }>
+								<picture>
+									<img
+										className={ `wp-image-${ mediaId }` }
+										src={ mediaUrl }
+										alt={ mediaAlt }
+									/>
+								</picture>
+							</div>
+						) : null }
 					</div>
 				</div>
 			</div>
