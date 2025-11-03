@@ -11,7 +11,16 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { Button, PanelBody } from '@wordpress/components';
+import {
+	useBlockProps,
+	RichText,
+	InnerBlocks,
+	useInnerBlocksProps,
+	MediaUpload,
+	MediaUploadCheck,
+	InspectorControls,
+} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,10 +38,122 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+const blockname = 'c-cta';
+const ALLOWED_BLOCKS = [ 'core/buttons', 'core/paragraph' ];
+const ALLOWED_MEDIA_TYPES = [ 'image' ];
+
+export default function Edit( { attributes, setAttributes } ) {
+	const { heading, tab, mediaId, mediaUrl, mediaAlt } = attributes;
+
+	const blockProps = useBlockProps( { className: blockname } );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `${ blockname }__content`,
+		},
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+		}
+	);
+
+	function handleRemoveMedia() {
+		setAttributes( {
+			mediaId: 0,
+			mediaUrl: '',
+			mediaAlt: '',
+		} );
+	}
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'CTA – hello from the editor!', 'cta' ) }
-		</p>
+		<>
+			<InspectorControls>
+				<PanelBody title={ __( 'Media', 'cta' ) }>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={ ( media ) => {
+								setAttributes( {
+									mediaId: media.id,
+									mediaUrl:
+										media?.sizes?.cta?.source_url ??
+										media.url,
+									mediaAlt: media.alt,
+								} );
+							} }
+							allowedTypes={ ALLOWED_MEDIA_TYPES }
+							value={ mediaId }
+							render={ ( { open } ) => (
+								<Button
+									onClick={ open }
+									variant="primary"
+									style={ { marginRight: '6px' } }
+								>
+									{ mediaId && mediaUrl ? 'Edit ' : 'Add ' }
+									Media
+								</Button>
+							) }
+						/>
+						{ mediaId ? (
+							<Button
+								onClick={ handleRemoveMedia }
+								variant="secondary"
+							>
+								Remove Image
+							</Button>
+						) : null }
+					</MediaUploadCheck>
+				</PanelBody>
+			</InspectorControls>
+			<section { ...blockProps }>
+				<div className={ `${ blockname }__inner` }>
+					<div className={ `${ blockname }__container` }>
+						<div className={ `${ blockname }__items` }>
+							<div className={ `${ blockname }__item` }>
+								<header className={ `${ blockname }__header` }>
+									<RichText
+										tagName="p"
+										className={ `${ blockname }__tab` }
+										value={ tab }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( { tab: val } )
+										}
+										placeholder={ __( 'Tab...' ) }
+									/>
+									<RichText
+										tagName="h2"
+										className={ `${ blockname }__heading` }
+										value={ heading }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( {
+												heading: val,
+											} )
+										}
+										placeholder={ __( 'Heading...' ) }
+									/>
+								</header>
+								<div { ...innerBlocksProps } />
+							</div>
+							{ mediaId && mediaUrl ? (
+								<div className={ `${ blockname }__media` }>
+									<picture>
+										<img
+											className={ `wp-image-${ mediaId }` }
+											src={ mediaUrl }
+											alt={ mediaAlt }
+										/>
+									</picture>
+								</div>
+							) : null }
+						</div>
+					</div>
+				</div>
+			</section>
+		</>
 	);
 }
