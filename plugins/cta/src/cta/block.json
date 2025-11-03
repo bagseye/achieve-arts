@@ -19,6 +19,18 @@
 		"tab": {
 			"type": "string",
 			"default": ""
+		},
+		"mediaId": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaAlt": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "cta",

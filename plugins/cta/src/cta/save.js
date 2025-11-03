@@ -23,7 +23,7 @@ import {
 const blockname = 'c-cta';
 
 export default function save( { attributes } ) {
-	const { heading, tab } = attributes;
+	const { heading, tab, mediaId, mediaUrl, mediaAlt } = attributes;
 	const blockProps = useBlockProps.save( { className: blockname } );
 	const innerBlocksProps = useInnerBlocksProps.save( {
 		className: `${ blockname }__content`,
@@ -49,6 +49,17 @@ export default function save( { attributes } ) {
 								</header>
 								<div { ...innerBlocksProps } />
 							</div>
+							{ mediaId && mediaUrl ? (
+								<div className={ `${ blockname }__media` }>
+									<picture>
+										<img
+											className={ `wp-image-${ mediaId }` }
+											src={ mediaUrl }
+											alt={ mediaAlt }
+										/>
+									</picture>
+								</div>
+							) : null }
 						</div>
 					</div>
 				</div>
