@@ -11,7 +11,12 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	RichText,
+	InnerBlocks,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,10 +34,63 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+const blockname = 'c-cta';
+const ALLOWED_BLOCKS = [ 'core/buttons', 'core/paragraph' ];
+
+export default function Edit( { attributes, setAttributes } ) {
+	const { heading, tab } = attributes;
+
+	const blockProps = useBlockProps( { className: blockname } );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `${ blockname }__content`,
+		},
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+		}
+	);
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'CTA – hello from the editor!', 'cta' ) }
-		</p>
+		<section { ...blockProps }>
+			<div className={ `${ blockname }__inner` }>
+				<div className={ `${ blockname }__container` }>
+					<div className={ `${ blockname }__container` }>
+						<div className={ `${ blockname }__items` }>
+							<div className={ `${ blockname }__item` }>
+								<header className={ `${ blockname }__header` }>
+									<RichText
+										tagName="p"
+										className={ `${ blockname }__tab` }
+										value={ tab }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( { tab: val } )
+										}
+										placeholder={ __( 'Tab...' ) }
+									/>
+									<RichText
+										tagName="h2"
+										className={ `${ blockname }__heading` }
+										value={ heading }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( { heading: val } )
+										}
+										placeholder={ __( 'Heading...' ) }
+									/>
+								</header>
+								<div { ...innerBlocksProps } />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 	);
 }

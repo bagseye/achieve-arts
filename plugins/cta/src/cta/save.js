@@ -4,7 +4,11 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	useInnerBlocksProps,
+	RichText,
+} from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -15,10 +19,40 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save() {
+
+const blockname = 'c-cta';
+
+export default function save( { attributes } ) {
+	const { heading, tab } = attributes;
+	const blockProps = useBlockProps.save( { className: blockname } );
+	const innerBlocksProps = useInnerBlocksProps.save( {
+		className: `${ blockname }__content`,
+	} );
 	return (
-		<p { ...useBlockProps.save() }>
-			{ 'CTA – hello from the saved content!' }
-		</p>
+		<section { ...blockProps }>
+			<div className={ `${ blockname }__inner` }>
+				<div className={ `${ blockname }__container` }>
+					<div className={ `${ blockname }__container` }>
+						<div className={ `${ blockname }__items` }>
+							<div className={ `${ blockname }__item` }>
+								<header className={ `${ blockname }__header` }>
+									<RichText.Content
+										tagName="p"
+										value={ tab }
+										className={ `${ blockname }__tab` }
+									/>
+									<RichText.Content
+										tagName="h2"
+										value={ heading }
+										className={ `${ blockname }__heading` }
+									/>
+								</header>
+								<div { ...innerBlocksProps } />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 	);
 }
