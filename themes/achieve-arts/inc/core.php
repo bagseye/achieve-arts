@@ -49,7 +49,7 @@ function getBuildTimeStamp()
 		if (is_readable($build_file_path)) {
 			$buildFile = file_get_contents($build_file_path);
 			$buildData = json_decode($buildFile, true);
-			if ($buildData['build']) {
+			if (isset($buildData['build'])) {
 				$buildNo = $buildData['build'];
 			}
 		}
