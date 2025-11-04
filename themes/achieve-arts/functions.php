@@ -17,6 +17,5 @@ require_once BWP_THEME_INC . 'post-types.php';
 // require_once BWP_THEME_INC . 'no-comments.php';
 // require_once BWP_THEME_INC . 'disable-emojis.php';
 require_once BWP_THEME_INC . 'menu-functions.php';
-require_once BWP_THEME_INC . 'media-functions.php';
 // require_once BWP_THEME_CLASSES . 'class-add-nav-toggle-walker.php';
 
