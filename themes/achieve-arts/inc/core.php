@@ -1,5 +1,55 @@
 <?php 
 
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ */
+if (!function_exists('bwp_theme_setup')) {
+
+	function bwp_theme_setup()
+	{
+		add_theme_support('title-tag');
+		add_theme_support('post-thumbnails');
+		// Add support for an additonial stylesheet for the block editor
+		add_theme_support('editor-styles');
+		// Set the location of the editor stylesheet
+		add_editor_style('assets/editor.css');
+		add_theme_support(
+			'html5',
+			array(
+				'search-form',
+				'gallery',
+			)
+		);
+		// Remove block patterns for core blocks
+		remove_theme_support('core-block-patterns');
+		// by adding the `theme.json` file block templates automatically get enabled.
+		// because the template editor will need additional QA and work to get right
+		// the default is to disable this feature.
+		remove_theme_support('block-templates');
+
+		add_image_size( 'cta', 1000 );
+	}
+}
+add_action('after_setup_theme', 'bwp_theme_setup');
+
+
+if (!function_exists('bwp_init')) {
+
+	function bwp_init()
+	{
+		// Remove the version number from <head>
+		remove_action('wp_head', 'wp_generator');
+		// Remove global-styles-inline-css from <head> 
+		remove_action('wp_enqueue_scripts', 'wp_enqueue_global_styles');
+		// Remove Windows Live Writer Manifest link from <head>
+		remove_action('wp_head', 'wlwmanifest_link');
+		// Remove xmlrpc.php?rsd link from <head>
+		remove_action('wp_head', 'rsd_link');
+	}
+}
+add_action('init', 'bwp_init');
+
+
 if (!function_exists('bwp_scripts')) {
 
 	function bwp_scripts()
@@ -34,6 +84,40 @@ if (!function_exists('bwp_scripts')) {
 	}
 }
 add_action('wp_enqueue_scripts', 'bwp_scripts');
+
+
+/**
+ * Remove block styles of core blocks within the editor
+ * 
+ * https://fullsiteediting.com/lessons/how-to-remove-default-block-styles/
+ * 
+ * This does not solve the 'issue' of inline styles being applied
+ * Solution still required for this
+ * @TODO - Fix inline css loading of core blocks to prevent styling overrides
+ * 
+ */
+if (!function_exists('bwp_remove_editor_core_block_styles')) {
+	function bwp_remove_editor_core_block_styles($styles)
+	{
+		/* Create an array with the two handles wp-block-library and
+		 * wp-block-library-theme.
+		 */
+		$handles = ['wp-block-library', 'wp-block-library-theme'];
+
+		foreach ($handles as $handle) {
+			// Search and compare with the list of registered style handles:
+			$style = $styles->query($handle, 'registered');
+			if (! $style) {
+				continue;
+			}
+			// Remove the style
+			$styles->remove($handle);
+			// Remove path and dependencies
+			$styles->add($handle, false, []);
+		}
+	}
+}
+add_action('wp_default_styles', 'bwp_remove_editor_core_block_styles', PHP_INT_MAX);
 
 
 /**
