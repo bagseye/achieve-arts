@@ -11,7 +11,7 @@ define( 'BWP_THEME_INC', BWP_THEME_PATH . 'inc/' );
 define( 'BWP_THEME_CLASSES', BWP_THEME_PATH . 'classes/' );
 
 // require_once BWP_THEME_INC . 'allowed-blocks.php';
-// require_once BWP_THEME_INC . 'core.php';
+require_once BWP_THEME_INC . 'core.php';
 // require_once BWP_THEME_INC . 'helper-functions.php';
 require_once BWP_THEME_INC . 'post-types.php';
 // require_once BWP_THEME_INC . 'no-comments.php';

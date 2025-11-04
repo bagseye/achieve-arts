@@ -1,3 +1,5 @@
+@use './defaults/site-defaults';
+@use './helper/tab';
 @use './components/alert';
 @use './components/header';
 @use './components/footer';

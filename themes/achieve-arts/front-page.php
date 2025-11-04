@@ -3,7 +3,7 @@
 <main class="main-content p-front-page">
     <div class="p-front-page__inner">
         <div class="p-front-page__container">
-            <div class="p-front-page__items">
+            <div class="p-front-page__items d-content-area">
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
                         <?php the_content(); ?>
