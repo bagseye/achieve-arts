@@ -1,0 +1,28 @@
+.c-alert {
+  height: 2.75rem;
+
+  &__inner {
+    background-color: var(--brand-1);
+    color: #fff;
+    height: 100%;
+  }
+
+  &__container {
+    height: inherit;
+    padding-left: var(--container-padding-content);
+    padding-right: var(--container-padding-content);
+  }
+
+  &__items {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item {
+    text-align: center;
+    font-size: 1rem;
+  }
+}
