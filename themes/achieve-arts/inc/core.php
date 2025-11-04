@@ -9,7 +9,7 @@ if (!function_exists('bwp_theme_setup')) {
 	{
 		add_theme_support('title-tag');
 		add_theme_support('post-thumbnails');
-		// Add support for an additonial stylesheet for the block editor
+		// Add support for an additional stylesheet for the block editor
 		add_theme_support('editor-styles');
 		// Set the location of the editor stylesheet
 		add_editor_style('assets/editor.css');
