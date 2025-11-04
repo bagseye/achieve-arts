@@ -1,0 +1,25 @@
+%button {
+  min-height: 3.125rem;
+  min-width: 11.25rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3rem;
+  font-size: var(--text-button);
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: var(--padding-button);
+}
+
+.h-button {
+  &__link {
+    @extend %button;
+  }
+}
+
+// WP Core Buttons
+.wp-block-button {
+  .wp-block-button__link {
+    @extend %button;
+  }
+}
