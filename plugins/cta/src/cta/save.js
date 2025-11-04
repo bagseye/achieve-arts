@@ -35,11 +35,12 @@ export default function save( { attributes } ) {
 					<div className={ `${ blockname }__items` }>
 						<div className={ `${ blockname }__item` }>
 							<header className={ `${ blockname }__header` }>
+								<span className={`${ blockname }__tab h-tab`}>
 								<RichText.Content
 									tagName="p"
 									value={ tab }
-									className={ `${ blockname }__tab` }
 								/>
+								</span>
 								<RichText.Content
 									tagName="h2"
 									value={ heading }

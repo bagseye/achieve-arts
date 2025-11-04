@@ -108,6 +108,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						<div className={ `${ blockname }__items` }>
 							<div className={ `${ blockname }__item` }>
 								<header className={ `${ blockname }__header` }>
+									<span className='h-tab'>
 									<RichText
 										tagName="p"
 										className={ `${ blockname }__tab` }
@@ -121,6 +122,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										}
 										placeholder={ __( 'Tab...' ) }
 									/>
+									</span>
 									<RichText
 										tagName="h2"
 										className={ `${ blockname }__heading` }
