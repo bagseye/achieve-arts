@@ -1,0 +1,55 @@
+@use '../mixins/breakpoints' as mixin;
+
+.c-hamburger {
+  --hamburger-backing: #000;
+  --hamburger-line: #fff;
+  font-size: 1.875rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  p {
+    padding-right: 1.125rem;
+
+    @include mixin.respond-to('tablet') { 
+      display: none;
+    }
+  }
+
+  &__backing {
+    display: block;
+    background-color: var(--hamburger-backing);
+    width: var(--hamburger);
+    height: var(--hamburger);
+    border-radius: 50%;
+    position: relative;
+  }
+
+  &__line {
+    display: block;
+    width: 1.375rem;
+    height: 0.125rem;
+    border-radius: 1rem;
+    background-color: var(--hamburger-line);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:nth-child(1) {
+      transform: translateY(calc(-50% - 0.5rem));
+    }
+
+    &:nth-child(3) {
+      transform: translateY(calc(-50% + 0.5rem));
+    }
+  }
+}

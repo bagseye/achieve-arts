@@ -1,0 +1,27 @@
+$breakpoints: (
+  'mobile': 35rem,
+  'tablet': 47.5rem,
+  'laptop': 66.25rem,
+  'desktop': 78.75rem,
+  'wide': 91.25rem
+);
+
+@mixin respond-to($name, $type: 'max') {
+  $value: map-get($breakpoints, $name);
+
+  @if $value {
+    @if $type == 'min' {
+      @media (min-width: $value) {
+        @content;
+      }
+    } @else if $type == 'max' {
+      @media (max-width: $value) {
+        @content;
+      }
+    } @else {
+      @warn "Unknown media type '#{$type}'. Use 'min' or 'max'.";
+    }
+  } @else {
+    @warn "No breakpoint found for '#{$name}'.";
+  }
+}

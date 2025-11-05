@@ -1,0 +1,60 @@
+@use '../mixins/breakpoints' as mixin;
+
+.c-header {
+  &__inner {
+    padding-left: var(--container-padding-content);
+    padding-right: var(--container-padding-content);
+  }
+
+  &__items {
+    padding-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__item {
+    flex: 1;
+
+    &--centre {
+      display: flex;
+      justify-content: center;
+    }
+
+    &--right {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__cta {
+    &--mobile {
+      display: none;
+
+      @include mixin.respond-to('tablet') { 
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--hamburger);
+        height: var(--hamburger);
+        background-color: var(--brand-2);
+        border-radius: 50%;
+      }
+    }
+
+    &--desktop {
+      .h-button__link {
+        svg {
+          margin-left: 0.75rem;
+          width: 1.5rem;
+          height: 1.5rem;
+          fill: var(--brand-3);
+        }
+      }
+
+      @include mixin.respond-to('tablet') { 
+        display: none;
+      }
+    }
+  }
+}
