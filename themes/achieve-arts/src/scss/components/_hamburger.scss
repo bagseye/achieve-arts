@@ -1,8 +1,8 @@
-@use '../mixins/breakpoints' as mixin;
+@use '../abstracts';
 
 .c-hamburger {
-  --hamburger-backing: #000;
-  --hamburger-line: #fff;
+  --hamburger-backing: #fff;
+  --hamburger-line: #000;
   font-size: 1.875rem;
   text-transform: uppercase;
   font-weight: 800;
@@ -12,11 +12,12 @@
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+  color: var(--hamburger-backing);
 
   p {
     padding-right: 1.125rem;
 
-    @include mixin.respond-to('tablet') { 
+    @include abstracts.respond-to('tablet') { 
       display: none;
     }
   }

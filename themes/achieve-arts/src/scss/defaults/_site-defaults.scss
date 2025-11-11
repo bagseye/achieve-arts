@@ -1,3 +1,5 @@
+@use '../abstracts';
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -22,6 +24,10 @@
   --text-tab-margin-bottom: 0.625rem;
   --font-heading: trade-gothic-next, sans-serif;
   --font-body: tome-sans-variable, sans-serif;
+  --font-hero-home-heading: 4.625rem;
+  --font-hero-home-heading-sub: 1.75rem;
+  --font-hero-home-intro: 1.313rem;
+  --font-hero-home-scroller-item-heading: 2.375rem;
   --heading-cta: 3.875rem;
   --max-width-cta: 75rem;
   --border-radius-cta: 2.5rem;
@@ -30,6 +36,30 @@
   --text-button: 1.5rem;
   --padding-button: 0.75rem 1.75rem;
   --hamburger: 3.375rem;
+
+  @include abstracts.respond-to('wide') { 
+    --font-hero-home-heading: 4rem;
+  }
+
+  @include abstracts.respond-to('desktop') { 
+    --font-hero-home-heading: 3.5rem;
+  }
+
+  @include abstracts.respond-to('laptop') { 
+    --font-hero-home-heading: 3rem;
+    --font-hero-home-heading-sub: 1.063rem;
+    --font-hero-home-intro: var(--font-hero-home-heading-sub);
+    --font-hero-home-scroller-item-heading: 1.75rem;
+  }
+
+  @include abstracts.respond-to('tablet') { 
+    --font-hero-home-heading: 2.5rem;
+  }
+
+  @include abstracts.respond-to('mobile') { 
+    --font-hero-home-heading: 2rem;
+
+  }
 }
 
 %heading-style {
@@ -55,5 +85,15 @@ h2,
 h3,
 h4 {
   @extend %heading-style;
+}
+
+.no-padding {
+  &__left {
+    padding-left: 0;
+  }
+
+  &__right {
+    padding-right: 0;
+  }
 }
 

@@ -1,8 +1,13 @@
-@use './mixins/breakpoints';
+// Import everything from abstracts and expose globally
+@use 'abstracts' as *;
+
+@use './third-party/splide';
+
 @use './defaults/site-defaults';
 @use './helper/tab';
 @use './helper/button';
 @use './components/alert';
 @use './components/hamburger';
 @use './components/header';
+@use './components/hero-home';
 @use './components/footer';

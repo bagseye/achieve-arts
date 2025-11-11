@@ -1,0 +1,11 @@
+$root-font-size: 16px;
+
+@function px-to-rem($value) {
+  @if unitless($value) {
+    @return ($value / strip-unit($root-font-size)) * 1rem;
+  } @else if unit($value) == 'px' {
+    @return ($value / $root-font-size) * 1rem;
+  } @else {
+    @error "px-to-rem() expects a px or unitless value, got `#{$value}`.";
+  }
+}

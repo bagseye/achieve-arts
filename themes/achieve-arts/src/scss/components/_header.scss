@@ -1,6 +1,12 @@
-@use '../mixins/breakpoints' as mixin;
+@use '../abstracts';
 
 .c-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
   &__inner {
     padding-left: var(--container-padding-content);
     padding-right: var(--container-padding-content);
@@ -31,7 +37,7 @@
     &--mobile {
       display: none;
 
-      @include mixin.respond-to('tablet') { 
+      @include abstracts.respond-to('tablet') { 
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -52,7 +58,7 @@
         }
       }
 
-      @include mixin.respond-to('tablet') { 
+      @include abstracts.respond-to('tablet') { 
         display: none;
       }
     }

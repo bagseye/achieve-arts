@@ -25,3 +25,8 @@ $breakpoints: (
     @warn "No breakpoint found for '#{$name}'.";
   }
 }
+
+// Usage: @include rem-prop(font-size, 24px);
+@mixin rem-prop($property, $value) {
+  #{$property}: px-to-rem($value);
+}
