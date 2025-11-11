@@ -24,10 +24,14 @@
   --text-tab-margin-bottom: 0.625rem;
   --font-heading: trade-gothic-next, sans-serif;
   --font-body: tome-sans-variable, sans-serif;
+  --font-h2: 5.5rem;
   --font-hero-home-heading: 4.625rem;
   --font-hero-home-heading-sub: 1.75rem;
   --font-hero-home-intro: 1.313rem;
   --font-hero-home-scroller-item-heading: 2.375rem;
+  --font-team-members-item-heading: 1.875rem;
+  --font-team-members-item-role: 1.063rem;
+  --font-insta-follow: 2.5rem;
   --heading-cta: 3.875rem;
   --max-width-cta: 75rem;
   --border-radius-cta: 2.5rem;
@@ -36,6 +40,8 @@
   --text-button: 1.5rem;
   --padding-button: 0.75rem 1.75rem;
   --hamburger: 3.375rem;
+  --spacing-block: 4.125rem;
+  --spacing-header: 2.875rem;
 
   @include abstracts.respond-to('wide') { 
     --font-hero-home-heading: 4rem;
@@ -87,6 +93,10 @@ h4 {
   @extend %heading-style;
 }
 
+h2 {
+  font-size: var(--font-h2);
+}
+
 .no-padding {
   &__left {
     padding-left: 0;
@@ -94,6 +104,16 @@ h4 {
 
   &__right {
     padding-right: 0;
+  }
+}
+
+.margin-block {
+  &__top {
+    margin-top: var(--spacing-block);
+  }
+
+  &__bottom {
+    margin-bottom: var(--spacing-block);
   }
 }
 

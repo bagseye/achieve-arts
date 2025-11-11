@@ -1,0 +1,101 @@
+@use '../abstracts';
+
+.c-insta {
+  &__container {
+    max-width: 1340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__item {
+    &--feed {
+      display: flex;
+      gap: 8px;
+
+      @include abstracts.respond-to('tablet') { 
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+    }
+
+    &--follow {
+      max-width: 750px;
+      height: 96px;
+      border-radius: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: var(--brand-6);
+      color: #fff;
+      font-size: var(--font-insta-follow);
+      font-family: var(--font-heading);
+      text-transform: uppercase;
+      font-weight: 800;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      text-align: center;
+
+      a {
+        text-decoration: none;
+        color: var(--brand-2);
+      }
+    }
+  }
+
+  &__card {
+    aspect-ratio: 3 / 3.5;
+    border-radius: 2.5rem;
+    overflow: hidden;
+
+    @include abstracts.respond-to('desktop') { 
+      border-radius: 2rem;
+    }
+
+    @include abstracts.respond-to('tablet') { 
+      width: calc(50% - 2px);
+      border-radius: 1.5rem;
+    }
+
+    picture,
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__icon {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 78px;
+    height: 78px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+    &--left {
+            
+      svg {
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+
+    &--right {
+
+      background-color: var(--brand-2);
+
+      svg {
+        width: 40px;
+        height: 40px;
+        fill: #fff;
+      }
+    }
+
+
+  }
+}

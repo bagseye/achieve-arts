@@ -1,0 +1,24 @@
+.c-arrows {
+  .c-arrows__arrow {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+    background-color: var(--brand-2);
+
+    svg {
+      fill: #fff;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.c-arrows__arrow--prev {
+      left: -40px;
+    }
+
+    &.c-arrows__arrow--next {
+      right: -40px;
+    }
+  }
+}
