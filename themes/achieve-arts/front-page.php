@@ -159,6 +159,109 @@
 
                     </section>
 
+                    <section class="c-news-feed splide js-carousel__news-feed margin-block__top margin-block__bottom no-padding__left no-padding__right">
+                        <div class="c-news-feed__inner padding-block__top padding-block__bottom">
+                            <div class="c-news-feed__container">
+                                <div class="c-news-feed__items">
+                                    <div class="c-news-feed__item c-news-feed__item--content">
+                                        <header class="c-news-feed__header">
+                                            <h2 class="c-news-feed__heading">News & Announcements</h2>
+                                        </header>
+                                    </div>
+                                    <div class="c-news-feed__item c-news-feed__item--feed splide__track">
+                                        <div class="c-news-feed__scroller splide__list">
+                                            <article class="splide__slide c-news-feed__card">
+                                                <a href="">
+                                                    <div class="c-news-feed__card--inner">
+                                                        <div class="c-news-feed__card--container">
+                                                            <div class="c-news-feed__card--media">
+                                                                <picture>
+                                                                    <img src="<?= get_template_directory_uri() ?>/images/jpg/achieve-arts-in-schools.jpg"/>
+                                                                </picture>
+                                                            </div>
+                                                            <div class="c-news-feed__card--content">
+                                                                <header class="c-news-feed__card--header">
+                                                                    <h3 class="c-news-feed__card--heading">Florence Stars in Harry Potter at the West End</h3>
+                                                                </header>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </article>
+    
+                                            <article class="splide__slide c-news-feed__card">
+                                                <a href="">
+                                                    <div class="c-news-feed__card--inner">
+                                                        <div class="c-news-feed__card--container">
+                                                            <div class="c-news-feed__card--media">
+                                                                <picture>
+                                                                    <img src="<?= get_template_directory_uri() ?>/images/jpg/achieve-arts-in-schools.jpg"/>
+                                                                </picture>
+                                                            </div>
+                                                            <div class="c-news-feed__card--content">
+                                                                <header class="c-news-feed__card--header">
+                                                                    <h3 class="c-news-feed__card--heading">Florence Stars in Harry Potter at the West End</h3>
+                                                                </header>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </article>
+    
+                                            <article class="splide__slide c-news-feed__card">
+                                                <a href="">
+                                                    <div class="c-news-feed__card--inner">
+                                                        <div class="c-news-feed__card--container">
+                                                            <div class="c-news-feed__card--media">
+                                                                <picture>
+                                                                    <img src="<?= get_template_directory_uri() ?>/images/jpg/achieve-arts-in-schools.jpg"/>
+                                                                </picture>
+                                                            </div>
+                                                            <div class="c-news-feed__card--content">
+                                                                <header class="c-news-feed__card--header">
+                                                                    <h3 class="c-news-feed__card--heading">Florence Stars in Harry Potter at the West End</h3>
+                                                                </header>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </article>
+    
+                                            <article class="splide__slide c-news-feed__card">
+                                                <a href="">
+                                                    <div class="c-news-feed__card--inner">
+                                                        <div class="c-news-feed__card--container">
+                                                            <div class="c-news-feed__card--media">
+                                                                <picture>
+                                                                    <img src="<?= get_template_directory_uri() ?>/images/jpg/achieve-arts-in-schools.jpg"/>
+                                                                </picture>
+                                                                <span class="c-news-feed__card--tab h-tab">
+                                                                    <p>Client Success</p>
+                                                                </span>
+                                                            </div>
+                                                            <div class="c-news-feed__card--content">
+                                                                <header class="c-news-feed__card--header">
+                                                                    <h3 class="c-news-feed__card--heading">Florence Stars in Harry Potter at the West End</h3>
+                                                                </header>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </article>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="c-news-feed__gradient"></span>
+                        </div>
+                    </section>
+
                     <section class="c-insta margin-block__top margin-block__bottom">
                         <div class="c-insta__inner">
                             <div class="c-insta__container">

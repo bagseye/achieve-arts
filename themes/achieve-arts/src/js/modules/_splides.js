@@ -3,15 +3,37 @@ import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 let $carousels;
 let $teamcarousels;
+let $newsfeedcarousels;
 
 function cacheDOM() {
   $carousels = [...document.querySelectorAll('.splide.js-carousel')];
   $teamcarousels = [...document.querySelectorAll('.splide.js-carousel__team')];
+  $newsfeedcarousels = [...document.querySelectorAll('.splide.js-carousel__news-feed')];
 }
 
 function bindCarousels($carousel) {
     var splide = new Splide( $carousel, {
       gap: 16,
+      type: 'loop',
+      autoWidth: true,
+      focus: 'center',
+      pagination: false,
+      arrows: false,
+      breakpoints: {
+        760: {
+          gap: 12
+        }
+      },
+      autoScroll: {
+        speed: 0.75
+      }
+    } );
+    splide.mount({AutoScroll});
+}
+
+function bindNewsFeedCarousels($carousel) {
+    var splide = new Splide( $carousel, {
+      gap: 12,
       type: 'loop',
       autoWidth: true,
       focus: 'center',
@@ -59,6 +81,12 @@ export default function init() {
   if($teamcarousels.length) {
     $teamcarousels.forEach(teamcarousel => {
       bindTeamCarousels(teamcarousel);
+    });
+  }
+
+  if($newsfeedcarousels.length) {
+    $newsfeedcarousels.forEach(newsfeedcarousel => {
+      bindNewsFeedCarousels(newsfeedcarousel);
     });
   }
 }
