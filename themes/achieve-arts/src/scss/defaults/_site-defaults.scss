@@ -35,6 +35,10 @@
   --font-news-feed-heading: 3.75rem;
   --font-news-feed-item-heading: 1.375rem;
   --font-news-feed-item-content: 1.063rem;
+  --font-footer-heading: 56px;
+  --font-footer-intro: 20px;
+  --font-footer-email: 22px;
+  --font-footer-copy: 15px;
   --heading-cta: 3.875rem;
   --max-width-cta: 75rem;
   --border-radius-cta: 2.5rem;
@@ -45,6 +49,7 @@
   --hamburger: 3.375rem;
   --spacing-block: 4.125rem;
   --spacing-header: 2.875rem;
+  --spacing-para: 2rem;
 
   @include abstracts.respond-to('wide') { 
     --font-hero-home-heading: 4rem;
@@ -59,10 +64,12 @@
     --font-hero-home-heading-sub: 1.063rem;
     --font-hero-home-intro: var(--font-hero-home-heading-sub);
     --font-hero-home-scroller-item-heading: 1.75rem;
+    --font-footer-email: 17px;
   }
 
   @include abstracts.respond-to('tablet') { 
     --font-hero-home-heading: 2.5rem;
+    --font-footer-email: 1rem;
   }
 
   @include abstracts.respond-to('mobile') { 

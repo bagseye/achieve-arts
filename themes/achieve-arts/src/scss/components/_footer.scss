@@ -1,0 +1,237 @@
+@use '../abstracts';
+
+.c-footer {
+  background-color: #000;
+  color: #fff;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  position: relative;
+  overflow: hidden;
+
+  &__icons {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__inner {
+    padding-left: var(--container-padding-content);
+    padding-right: var(--container-padding-content);
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1220px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__cta {
+    .h-button__link {
+      svg {
+        margin-left: 0.75rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: var(--brand-3);
+        transition: fill 0.25s ease-in-out;
+      }
+
+      &:hover {
+        svg {
+          fill: #D2BC74;
+        }
+      }
+    }
+  }
+
+  &__items {
+    padding-top: 120px;
+  }
+
+  &__item {
+    &--top {
+      display: flex;
+      justify-content: space-between;
+
+      &-left {
+        width: 710px;
+      }
+    }
+
+    &--socials {
+      padding: 0;
+      display: flex;
+      list-style: none;
+    }
+
+    &--social {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--brand-2);
+      flex-shrink: 0;
+      flex-grow: 0;
+      margin-right: 12px;
+
+      @include abstracts.respond-to('tablet') { 
+        width: 40px;
+        height: 40px;
+        margin-right: 8px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: inherit;
+        height: inherit;
+      }
+
+      svg {
+        fill: #fff;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &--emails {
+      padding: 0;
+      display: flex;
+      list-style: none;
+      padding-top: var(--spacing-block);
+      padding-bottom: var(--spacing-block);
+
+      @include abstracts.respond-to('tablet') { 
+        flex-direction: column;
+      }
+    }
+
+    &--email {
+      display: flex;
+      flex-direction: column;
+      font-size: var(--font-footer-email);
+      font-weight: 400;
+      padding-right: 100px;
+
+      @include abstracts.respond-to('desktop') { 
+        padding-right: 30px;
+      }
+
+      @include abstracts.respond-to('tablet') { 
+        padding-right: 0;
+        margin-bottom: var(--spacing-para);
+      }
+
+      &:last-child {
+        padding-right: 0;
+        margin-bottom: 0;
+      }
+
+      a {
+        color: var(--brand-5);
+        text-decoration: none;
+      }
+    }
+
+    &--menus {
+      margin-top: var(--spacing-block);
+      padding-top: var(--spacing-block);
+      border-top: 1px solid #938AB9;
+      display: flex;
+
+      @include abstracts.respond-to('tablet') { 
+        flex-direction: column;
+      }
+    }
+
+    &--base {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--font-footer-copy);
+      padding-top: var(--spacing-block);
+      padding-bottom: var(--spacing-block);
+
+      @include abstracts.respond-to('tablet') { 
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      p {
+        a {
+          color: #fff;
+          transition: color 0.25s ease-in-out;
+
+          &:hover {
+            color: var(--brand-2);
+          }
+        }
+      }
+    }
+  }
+
+  .c-footer__heading {
+    font-size: var(--font-footer-heading);
+    font-weight: 800;
+
+    span {
+      color: var(--brand-5);
+    }
+  }
+
+  .c-footer__intro {
+    font-size: var(--font-footer-intro);
+    font-weight: 400;
+    margin-bottom: var(--spacing-para);
+  }
+
+  &__menu {
+    margin-right: 100px;
+
+    @include abstracts.respond-to('desktop') { 
+      margin-right: 50px;
+    }
+
+    @include abstracts.respond-to('tablet') { 
+      margin-right: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--items {
+      list-style: none;
+      padding: 0;
+
+      li {
+        a {
+          display: block;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          color: #fff;
+          text-decoration: none;
+          transition: color 0.25s ease-in-out;
+
+          @include abstracts.respond-to('tablet') { 
+            padding-top: 5px;
+            padding-bottom: 5px;
+          }
+        }
+
+        &:hover {
+          >a {
+            color: var(--brand-2);
+          }
+        }
+      }
+    }
+  }
+}
