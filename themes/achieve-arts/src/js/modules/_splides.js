@@ -1,14 +1,19 @@
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import { Video } from '@splidejs/splide-extension-video';
 
 let $carousels;
 let $teamcarousels;
 let $newsfeedcarousels;
+let $mediatextcarousels;
+let $videocarousels;
 
 function cacheDOM() {
   $carousels = [...document.querySelectorAll('.splide.js-carousel')];
   $teamcarousels = [...document.querySelectorAll('.splide.js-carousel__team')];
   $newsfeedcarousels = [...document.querySelectorAll('.splide.js-carousel__news-feed')];
+  $mediatextcarousels = [...document.querySelectorAll('.splide.js-carousel__media-text')];
+  $videocarousels = [...document.querySelectorAll('.splide.js-carousel__video')];
 }
 
 function bindCarousels($carousel) {
@@ -69,6 +74,38 @@ function bindTeamCarousels($teamcarousel) {
     splide.mount();
 }
 
+function bindMediaTextCarousels($mediatextcarousel) {
+    var splide = new Splide( $mediatextcarousel, {
+      perPage: 1,
+      type: 'loop',
+      autoWidth: false,
+      focus: 'center',
+      pagination: false,
+      arrows: true,
+    } );
+    splide.mount();
+}
+
+function bindVideoCarousels($videocarousel) {
+    var splide = new Splide( $videocarousel, {
+      perPage: 1,
+      type: 'loop',
+      gap: 16,
+      autoWidth: false,
+      focus: 'center',
+      pagination: true,
+      arrows: false,
+      video: {
+        autoplay: true,
+        loop: true,
+        mute: true,
+        disableOverlayUI: true,
+        hideControls: true
+      },
+    } );
+    splide.mount({Video});
+}
+
 export default function init() {
   cacheDOM();
 
@@ -87,6 +124,18 @@ export default function init() {
   if($newsfeedcarousels.length) {
     $newsfeedcarousels.forEach(newsfeedcarousel => {
       bindNewsFeedCarousels(newsfeedcarousel);
+    });
+  }
+
+  if($mediatextcarousels.length) {
+    $mediatextcarousels.forEach(mediatextcarousel => {
+      bindMediaTextCarousels(mediatextcarousel);
+    });
+  }
+
+  if($videocarousels.length) {
+    $videocarousels.forEach(videocarousel => {
+      bindVideoCarousels(videocarousel);
     });
   }
 }

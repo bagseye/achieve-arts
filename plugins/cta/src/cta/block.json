@@ -31,6 +31,14 @@
 		"mediaAlt": {
 			"type": "string",
 			"default": ""
+		},
+		"topmargin": {
+			"type": "boolean",
+			"default": false
+		},
+				"bottommargin": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"textdomain": "cta",

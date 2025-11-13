@@ -25,6 +25,7 @@
   --font-heading: trade-gothic-next, sans-serif;
   --font-body: tome-sans-variable, sans-serif;
   --font-h2: 5.5rem;
+  --font-h3: 4.875rem;
   --font-hero-home-heading: 4.625rem;
   --font-hero-home-heading-sub: 1.75rem;
   --font-hero-home-intro: 1.313rem;
@@ -53,10 +54,12 @@
 
   @include abstracts.respond-to('wide') { 
     --font-hero-home-heading: 4rem;
+    --container-padding-cta: 50px 60px;
   }
 
   @include abstracts.respond-to('desktop') { 
     --font-hero-home-heading: 3.5rem;
+    --container-padding-cta: 50px 45px;
   }
 
   @include abstracts.respond-to('laptop') { 
@@ -70,10 +73,13 @@
   @include abstracts.respond-to('tablet') { 
     --font-hero-home-heading: 2.5rem;
     --font-footer-email: 1rem;
+    --font-h2: 3rem;
+    --container-padding-cta: 50px 35px;
   }
 
   @include abstracts.respond-to('mobile') { 
     --font-hero-home-heading: 2rem;
+    --container-padding-cta: 40px 25px;
 
   }
 }

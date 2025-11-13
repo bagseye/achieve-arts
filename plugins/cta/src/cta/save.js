@@ -23,8 +23,8 @@ import {
 const blockname = 'c-cta';
 
 export default function save( { attributes } ) {
-	const { heading, tab, mediaId, mediaUrl, mediaAlt } = attributes;
-	const blockProps = useBlockProps.save( { className: blockname } );
+	const { heading, tab, mediaId, mediaUrl, mediaAlt, topmargin, bottommargin } = attributes;
+	const blockProps = useBlockProps.save( { className: `${blockname} ${topmargin ? 'margin-block__top' : ''} ${bottommargin ? 'margin-block__bottom' : ''}` } );
 	const innerBlocksProps = useInnerBlocksProps.save( {
 		className: `${ blockname }__content`,
 	} );

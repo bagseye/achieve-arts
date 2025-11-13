@@ -28,6 +28,7 @@
     "dependencies": {
         "@splidejs/splide": "^4.1.4",
         "@splidejs/splide-extension-auto-scroll": "^0.5.3",
+        "@splidejs/splide-extension-video": "^0.8.0",
         "autoprefixer": "^10.4.15",
         "postcss-preset-env": "^10.0.7",
         "sass": "^1.77.5"

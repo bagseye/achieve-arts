@@ -5,6 +5,8 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+@use '../../../../themes/achieve-arts/src/scss/abstracts';
+
 .c-cta {
 	&__inner {
 		background-color: var(--brand-1);
@@ -39,10 +41,37 @@
 
 	.c-cta__content {
 		font-weight: 400;
+
+		>* {
+			margin-bottom: var(--spacing-para);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+		}
+
+
+	}
+
+	&__items {
+		@include abstracts.respond-to('tablet') { 
+			display: flex;
+			flex-direction: column-reverse;
+    }
 	}
 
 	&__item {
-		max-width: 40.625rem;
+		max-width: 35rem;
+		width: 55%;
+
+		@include abstracts.respond-to('laptop') { 
+      width: 50%;
+    }
+
+		@include abstracts.respond-to('tablet') { 
+			width: 100%;
+    }
 	}
 
 	&__media {
@@ -52,6 +81,20 @@
 		transform: translateY(-50%);
 		height: calc(100% + 5rem);
 		width: 30%;
+
+		@include abstracts.respond-to('desktop') { 
+      width: 35%;
+    }
+
+		@include abstracts.respond-to('laptop') { 
+      width: 40%;
+    }
+
+		@include abstracts.respond-to('tablet') { 
+      position: static;
+			width: 100%;
+			transform: translateY(0);
+    }
 
 		picture,
 		img {

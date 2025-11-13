@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { Button, PanelBody } from '@wordpress/components';
+import { Button, PanelBody, ToggleControl } from '@wordpress/components';
 import {
 	useBlockProps,
 	RichText,
@@ -43,9 +43,9 @@ const ALLOWED_BLOCKS = [ 'core/buttons', 'core/paragraph' ];
 const ALLOWED_MEDIA_TYPES = [ 'image' ];
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { heading, tab, mediaId, mediaUrl, mediaAlt } = attributes;
+	const { heading, tab, mediaId, mediaUrl, mediaAlt, topmargin, bottommargin } = attributes;
 
-	const blockProps = useBlockProps( { className: blockname } );
+	const blockProps = useBlockProps( { className: `${blockname} ${topmargin ? 'margin-block__top' : ''} ${bottommargin ? 'margin-block__bottom' : ''}` } );
 	const innerBlocksProps = useInnerBlocksProps(
 		{
 			className: `${ blockname }__content`,
@@ -100,6 +100,34 @@ export default function Edit( { attributes, setAttributes } ) {
 							</Button>
 						) : null }
 					</MediaUploadCheck>
+				</PanelBody>
+				<PanelBody title={ __( 'Margin Controls', 'cta' ) }>
+       <ToggleControl
+            __nextHasNoMarginBottom
+            label="Margin Top"
+            help={
+                topmargin
+                    ? 'Has top margin.'
+                    : 'No top margin.'
+            }
+            checked={ topmargin }
+            onChange={ (val) => {
+                setAttributes( {topmargin: val} );
+            } }
+        />
+				       <ToggleControl
+            __nextHasNoMarginBottom
+            label="Margin Bottom"
+            help={
+                bottommargin
+                    ? 'Has bottom margin.'
+                    : 'No bottom margin.'
+            }
+            checked={ bottommargin }
+            onChange={ (val) => {
+                setAttributes( {bottommargin: val} );
+            } }
+        />
 				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>

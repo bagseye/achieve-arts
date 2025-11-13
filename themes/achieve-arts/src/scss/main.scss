@@ -2,6 +2,7 @@
 @use 'abstracts' as *;
 
 @use './third-party/splide';
+@use './third-party/splide-video';
 
 @use './defaults/site-defaults';
 @use './helper/tab';
@@ -11,7 +12,9 @@
 @use './components/header';
 @use './components/hero-home';
 @use './components/team-members';
+@use './components/video-carousel';
 @use './components/arrows';
 @use './components/insta';
+@use './components/media-text';
 @use './components/news-feed';
 @use './components/footer';

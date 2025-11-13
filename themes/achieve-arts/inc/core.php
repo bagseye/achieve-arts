@@ -85,6 +85,21 @@ if (!function_exists('bwp_scripts')) {
 }
 add_action('wp_enqueue_scripts', 'bwp_scripts');
 
+/**
+ * Custom scripts for the block editor
+ * Used to add new options in the sidebar
+ * Also removes basic functionality added by WP
+ * 
+*/
+function bwp_block_additional_styles_enqueue() {
+	wp_enqueue_script( 
+		'bwp-block-additonal-styles-script', 
+		get_template_directory_uri() . '/bwp-block-additional-styles.js', 
+		array('wp-blocks', 'wp-dom-ready', 'wp-edit-post')
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'bwp_block_additional_styles_enqueue' );
+
 
 /**
  * Remove block styles of core blocks within the editor
