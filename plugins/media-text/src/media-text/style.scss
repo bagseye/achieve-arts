@@ -1,0 +1,115 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+@use '../../../../themes/achieve-arts/src/scss/abstracts';
+
+.c-media-text {
+
+  &__inner {
+    background-color: #000;
+    color: #fff;
+    border-radius: 60px;
+    max-width: 1340px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  &__gradient {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle,rgba(107, 15, 219, 1) 0%, rgba(131, 15, 219, 0) 100%);
+    opacity: 0.4;
+  }
+
+  &__container {
+    padding: 100px 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+
+    .c-media-text__alt-layout & {
+      flex-direction: row-reverse;
+    }
+
+    @include abstracts.respond-to('tablet') { 
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    width: 55%;
+
+    @include abstracts.respond-to('tablet') { 
+      width: 100%;
+    }
+
+    &--media {
+      width: 45%;
+      position: relative;
+
+      @include abstracts.respond-to('tablet') { 
+        width: 100%;
+      }
+
+      picture {
+        aspect-ratio: 1 / 1;
+        border-radius: 40px;
+        overflow: hidden;
+
+        @include abstracts.respond-to('tablet') { 
+          border-radius: 26px;
+        }
+      }
+
+      picture,
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .c-media-text__track {
+    height: 100%;
+  }
+
+	.c-media-text__content-area {
+		>* {
+			margin-bottom: var(--spacing-para);
+			
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+  .c-media-text__arrows {
+    // position: absolute;
+    // bottom: 0;
+
+    .c-arrows__arrow.c-arrows__arrow--prev {
+      top: 100%;
+      left: calc(50% - 62px);
+    }
+
+    .c-arrows__arrow.c-arrows__arrow--next {
+      top: 100%;
+      right: calc(50% - 62px);
+    }
+  }
+}

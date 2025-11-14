@@ -6,6 +6,7 @@
   align-items: center;
   border-radius: 3rem;
   font-size: var(--text-button);
+  font-family: var(--font-heading);
   font-weight: 800;
   text-transform: uppercase;
   padding: var(--padding-button);
@@ -19,6 +20,11 @@
 %button-white {
   background-color: #fff;
   color: var(--brand-1);
+}
+
+%button-dark {
+  color: #fff;
+  background-color: var(--brand-6);
 }
 
 .h-button {
@@ -36,6 +42,29 @@
   &.is-style-white {
     .wp-block-button__link {
       @extend %button-white;
+    }
+  }
+
+  &.is-style-dark {
+    .wp-block-button__link {
+      @extend %button-dark;
+    }
+  }
+}
+
+.wp-block-buttons {
+  &.is-layout-flex.wp-block-buttons-is-layout-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px;
+
+    &.is-nowrap {
+      flex-wrap: nowrap;
+    }
+
+    &.is-vertical {
+      flex-direction: column;
     }
   }
 }

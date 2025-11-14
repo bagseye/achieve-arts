@@ -127,11 +127,11 @@ export default function init() {
     });
   }
 
-  if($mediatextcarousels.length) {
-    $mediatextcarousels.forEach(mediatextcarousel => {
-      bindMediaTextCarousels(mediatextcarousel);
-    });
-  }
+  // if($mediatextcarousels.length) {
+  //   $mediatextcarousels.forEach(mediatextcarousel => {
+  //     bindMediaTextCarousels(mediatextcarousel);
+  //   });
+  // }
 
   if($videocarousels.length) {
     $videocarousels.forEach(videocarousel => {

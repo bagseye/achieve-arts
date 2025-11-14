@@ -1,11 +1,46 @@
 @use '../abstracts';
 
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 * {
   margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+#root, #__next {
+  isolation: isolate;
 }
 
 :root {
@@ -22,7 +57,7 @@
   --text-tab-padding: 0.25rem 1.5rem;
   --text-tab-letter-spacing: 0.063rem;
   --text-tab-margin-bottom: 0.625rem;
-  --font-heading: trade-gothic-next, sans-serif;
+  --font-heading: trade-gothic-next-condensed, sans-serif;
   --font-body: tome-sans-variable, sans-serif;
   --font-h2: 5.5rem;
   --font-h3: 4.875rem;
@@ -86,6 +121,9 @@
 
 %heading-style {
   font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 0.95;
+  margin-bottom: var(--spacing-para);
 }
 
 body {
