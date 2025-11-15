@@ -17,7 +17,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  */
 const BLOCKNAME = 'c-team-members-item';
 export default function save( { attributes } ) {
-	const { name, role } = attributes;
+	const { name, role, mediaId, mediaUrl, mediaAlt } = attributes;
 
 	const blockProps = useBlockProps.save( {
 		className: `${ BLOCKNAME } splide__slide`,
@@ -42,6 +42,15 @@ export default function save( { attributes } ) {
 							</header>
 						</div>
 						<div className={ `${ BLOCKNAME }__media` }>
+							{ mediaId && mediaUrl ? (
+								<picture>
+									<img
+										className={ `wp-image-${ mediaId }` }
+										src={ mediaUrl }
+										alt={ mediaAlt }
+									/>
+								</picture>
+							) : null }
 							<span
 								className={ `${ BLOCKNAME }__overlay` }
 							></span>

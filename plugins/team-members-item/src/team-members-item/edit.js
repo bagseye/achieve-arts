@@ -11,7 +11,14 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { Button, PanelBody } from '@wordpress/components';
+import {
+	useBlockProps,
+	RichText,
+	MediaUpload,
+	MediaUploadCheck,
+	InspectorControls,
+} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,13 +37,60 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 const BLOCKNAME = 'c-team-members-item';
+const ALLOWED_MEDIA_TYPES = [ 'image' ];
 export default function Edit( { attributes, setAttributes } ) {
-	const { name, role } = attributes;
+	const { name, role, mediaId, mediaUrl, mediaAlt } = attributes;
 	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
 
 	const blockProps = useBlockProps( { className: classes } );
+
+	function handleRemoveMedia() {
+		setAttributes( {
+			mediaId: 0,
+			mediaUrl: '',
+			mediaAlt: '',
+		} );
+	}
+
 	return (
 		<>
+			<InspectorControls>
+				<PanelBody title={ __( 'Media', 'team-members-item' ) }>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={ ( media ) => {
+								setAttributes( {
+									mediaId: media.id,
+									mediaUrl:
+										media?.sizes?.cta?.source_url ??
+										media.url,
+									mediaAlt: media.alt,
+								} );
+							} }
+							allowedTypes={ ALLOWED_MEDIA_TYPES }
+							value={ mediaId }
+							render={ ( { open } ) => (
+								<Button
+									onClick={ open }
+									variant="primary"
+									style={ { marginRight: '6px' } }
+								>
+									{ mediaId && mediaUrl ? 'Edit ' : 'Add ' }
+									Media
+								</Button>
+							) }
+						/>
+						{ mediaId ? (
+							<Button
+								onClick={ handleRemoveMedia }
+								variant="secondary"
+							>
+								Remove Image
+							</Button>
+						) : null }
+					</MediaUploadCheck>
+				</PanelBody>
+			</InspectorControls>
 			<article { ...blockProps }>
 				<div className={ `${ BLOCKNAME }__inner` }>
 					<div className={ `${ BLOCKNAME }__container` }>
@@ -74,6 +128,15 @@ export default function Edit( { attributes, setAttributes } ) {
 						</header>
 					</div>
 					<div className={ `${ BLOCKNAME }__media` }>
+						{ mediaId && mediaUrl ? (
+							<picture>
+								<img
+									className={ `wp-image-${ mediaId }` }
+									src={ mediaUrl }
+									alt={ mediaAlt }
+								/>
+							</picture>
+						) : null }
 						<span className={ `${ BLOCKNAME }__overlay` }></span>
 					</div>
 				</div>
