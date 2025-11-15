@@ -33,7 +33,8 @@ function cacheDOM() {
 function bindMediaTextCarousels( $mediatextcarousel ) {
 	var splide = new Splide( $mediatextcarousel, {
 		perPage: 1,
-		type: 'loop',
+		type: 'fade',
+		rewind: true,
 		autoWidth: false,
 		focus: 'center',
 		pagination: false,

@@ -4,6 +4,17 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-bwp-media-text {
-	border: 1px dotted #f00;
+.c-media-text {
+	&.c-media-text__variant--carousel {
+		.c-media-text__item--media {
+			transform: rotate(0);
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 4px;
+
+			picture {
+				border-radius: 4px;
+			}
+		}
+	}
 }

@@ -39,7 +39,7 @@ export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save( {
 		className: `${ BLOCKNAME } ${
 			variant === 'media-text-media-carousel'
-				? 'splide js-carousel__media-text'
+				? 'c-media-text__variant--carousel splide js-carousel__media-text'
 				: ''
 		} ${ altlayout ? `${ BLOCKNAME }__alt-layout` : '' } ${
 			topmargin ? 'margin-block__top' : ''

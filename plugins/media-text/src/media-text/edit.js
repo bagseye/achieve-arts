@@ -58,10 +58,12 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const blockProps = useBlockProps( {
 		className: `${ BLOCKNAME } ${
-			altlayout ? `${ BLOCKNAME }__alt-layout` : ''
-		} ${ topmargin ? 'margin-block__top' : '' } ${
-			bottommargin ? 'margin-block__bottom' : ''
-		}`,
+			variant === 'media-text-media-carousel'
+				? 'c-media-text__variant--carousel'
+				: ''
+		} ${ altlayout ? `${ BLOCKNAME }__alt-layout` : '' } ${
+			topmargin ? 'margin-block__top' : ''
+		} ${ bottommargin ? 'margin-block__bottom' : '' }`,
 	} );
 	const innerBlockProps = useInnerBlocksProps(
 		{ className: `${ BLOCKNAME }__content-area` },
@@ -260,7 +262,22 @@ export default function Edit( { attributes, setAttributes } ) {
 								</header>
 								<div { ...innerBlockProps } />
 							</div>
-							{ mediaId && mediaUrl ? (
+							{ variant === 'media-text-media-carousel' ? (
+								<div
+									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
+								>
+									{ images.map( ( image, index ) => (
+										<picture key={ index }>
+											<img
+												src={ image.url }
+												loading="lazy"
+												decoding="async"
+												alt={ image.alt || '' }
+											/>
+										</picture>
+									) ) }
+								</div>
+							) : mediaId && mediaUrl ? (
 								<div
 									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 								>

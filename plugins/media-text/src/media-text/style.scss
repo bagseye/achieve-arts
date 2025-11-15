@@ -6,6 +6,7 @@
  */
 
 @use '../../../../themes/achieve-arts/src/scss/abstracts';
+@use './splide';
 
 .c-media-text {
 
@@ -34,18 +35,26 @@
     padding: 100px 60px;
     position: relative;
     z-index: 1;
+
+    @include abstracts.respond-to('tablet') { 
+      padding: 50px 30px;
+    }
   }
 
   &__items {
     display: flex;
     align-items: center;
 
-    .c-media-text__alt-layout & {
-      flex-direction: row-reverse;
-    }
-
     @include abstracts.respond-to('tablet') { 
       flex-direction: column;
+    }
+
+    .c-media-text__alt-layout & {
+      flex-direction: row-reverse;
+
+      @include abstracts.respond-to('tablet') { 
+        flex-direction: column;
+      }
     }
   }
 
@@ -56,9 +65,32 @@
       width: 100%;
     }
 
+    &--content {
+      padding-right: 100px;
+
+      @include abstracts.respond-to('tablet') { 
+        padding-right: 0;
+        padding-bottom: var(--spacing-header);
+      }
+
+      .c-media-text__alt-layout & {
+        padding-left: 100px;
+        padding-right: 0;
+
+        @include abstracts.respond-to('tablet') { 
+          padding-left: 0;
+        }
+      }
+    }
+
     &--media {
       width: 45%;
       position: relative;
+      transform: rotate(5deg);
+
+      .c-media-text__variant--carousel & {
+        transform: rotate(-5deg);
+      }
 
       @include abstracts.respond-to('tablet') { 
         width: 100%;
@@ -99,8 +131,7 @@
 	}
 
   .c-media-text__arrows {
-    // position: absolute;
-    // bottom: 0;
+    transform: rotate(5deg);
 
     .c-arrows__arrow.c-arrows__arrow--prev {
       top: 100%;
