@@ -27,6 +27,18 @@
 		"videosrc": {
 			"type": "string",
 			"default": ""
+		},
+		"posterid": {
+			"type": "number",
+			"default": null
+		},
+		"postersrc": {
+			"type": "string",
+			"default": ""
+		},
+		"posteralt": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"parent": [ "bwp/media-carousel" ],

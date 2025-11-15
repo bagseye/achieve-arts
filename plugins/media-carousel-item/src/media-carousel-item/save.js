@@ -18,7 +18,8 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 const BLOCKNAME = 'c-media-carousel-item';
 
 export default function save( { attributes } ) {
-	const { heading, tab, videoid, videosrc } = attributes;
+	const { heading, tab, videoid, videosrc, postersrc, posteralt } =
+		attributes;
 
 	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
 
@@ -29,7 +30,15 @@ export default function save( { attributes } ) {
 	return (
 		<article { ...blockProps } data-splide-html-video={ videosrc }>
 			<div className={ `${ BLOCKNAME }__media splide__slide__container` }>
-				<img class="c-video-carousel__item--poster" />
+				{ postersrc && (
+					<img
+						loading="lazy"
+						decode="async"
+						class="c-video-carousel__item--poster"
+						src={ postersrc }
+						alt={ posteralt || '' }
+					/>
+				) }
 			</div>
 			<div className={ `${ BLOCKNAME }__inner` }>
 				<div className={ `${ BLOCKNAME }__container` }>

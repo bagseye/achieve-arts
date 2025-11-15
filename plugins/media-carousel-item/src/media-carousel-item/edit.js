@@ -40,7 +40,8 @@ const BLOCKNAME = 'c-media-carousel-item';
 const ALLOWED_MEDIA_TYPES = [ 'video' ];
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { heading, tab, videoid, videosrc } = attributes;
+	const { heading, tab, videoid, videosrc, posterid, postersrc, posteralt } =
+		attributes;
 
 	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
 
@@ -85,6 +86,57 @@ export default function Edit( { attributes, setAttributes } ) {
 							</Button>
 						) : null }
 					</MediaUploadCheck>
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Poster Image', 'media-carousel-item' ) }
+				>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={ ( media ) => {
+								console.log(media);
+								setAttributes( {
+									posterid: media?.id,
+									postersrc: media?.sizes?.medium?.source_url ?? media.url,
+									posteralt: media?.alt,
+								} );
+							} }
+							allowedTypes={ [ 'image' ] }
+							value={ posterid }
+							render={ ( { open } ) => (
+								<Button
+									onClick={ open }
+									variant="primary"
+									style={ { marginRight: '6px' } }
+								>
+									{ posterid && posteralt ? 'Edit ' : 'Add ' }
+									Poster
+								</Button>
+							) }
+						/>
+
+						{ posterid ? (
+							<Button
+								onClick={ () => {
+									setAttributes( {
+										posterid: null,
+										postersrc: '',
+										posteralt: '',
+									} );
+								} }
+								variant="secondary"
+							>
+								Remove Poster
+							</Button>
+						) : null }
+					</MediaUploadCheck>
+					{ posterid && postersrc && (
+						<div
+							className={ `${ BLOCKNAME }__poster-preview` }
+							style={ { marginTop: '10px' } }
+						>
+							<img src={ postersrc } />
+						</div>
+					) }
 				</PanelBody>
 			</InspectorControls>
 			<article { ...blockProps }>
