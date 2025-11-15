@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -33,11 +33,15 @@ export default function save( { attributes } ) {
 		className: `${ classes } splide js-carousel__video`,
 	} );
 
+	const innerBlockProps = useInnerBlocksProps.save( {
+		className: `${ BLOCKNAME }__items splide__list`,
+	} );
+
 	return (
 		<section { ...blockProps }>
 			<div className={ `${ BLOCKNAME }__inner` }>
-				<div className={ `${ BLOCKNAME }__container` }>
-					<div className={ `${ BLOCKNAME }__items` }></div>
+				<div className={ `${ BLOCKNAME }__container splide__track` }>
+					<div { ...innerBlockProps } />
 				</div>
 			</div>
 		</section>

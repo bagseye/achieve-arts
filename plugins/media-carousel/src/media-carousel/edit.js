@@ -49,6 +49,15 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const blockProps = useBlockProps( { className: classes } );
 
+	const innerBlockProps = useInnerBlocksProps(
+		{
+			className: `${ BLOCKNAME }__items`,
+		},
+		{
+			allowedBlocks: [ 'bwp/media-carousel-item' ],
+		}
+	);
+
 	return (
 		<>
 			<InspectorControls>
@@ -84,7 +93,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			<section { ...blockProps }>
 				<div className={ `${ BLOCKNAME }__inner` }>
 					<div className={ `${ BLOCKNAME }__container` }>
-						<div className={ `${ BLOCKNAME }__items` }></div>
+						<div { ...innerBlockProps } />
 					</div>
 				</div>
 			</section>
