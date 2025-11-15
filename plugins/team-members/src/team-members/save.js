@@ -27,6 +27,8 @@ export default function save( { attributes } ) {
 
 	const classes = [
 		BLOCKNAME,
+		'no-padding__left',
+		'no-padding__right',
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 	]
