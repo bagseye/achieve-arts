@@ -11,7 +11,12 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { Button, PanelBody, ToggleControl } from '@wordpress/components';
+import {
+	Button,
+	PanelBody,
+	ToggleControl,
+	SelectControl,
+} from '@wordpress/components';
 import {
 	useBlockProps,
 	RichText,
@@ -53,21 +58,26 @@ export default function Edit( { attributes, setAttributes } ) {
 		altlayout,
 		includegradient,
 		variant,
+		bgcolour,
 	} = attributes;
-
 
 	const images = Array.isArray( attributes.images ) ? attributes.images : [];
 
-	const blockProps = useBlockProps( {
-		className: `${ BLOCKNAME } ${
-			variant === 'media-text-media-carousel'
-				? 'c-media-text__variant--carousel'
-				: ''
-		} ${ altlayout ? `${ BLOCKNAME }__alt-layout` : '' } ${
-			topmargin ? 'margin-block__top' : ''
-		} ${ bottommargin ? 'margin-block__bottom' : '' }`,
-	} );
-	
+	const classes = [
+		BLOCKNAME,
+		topmargin && 'margin-block__top',
+		bottommargin && 'margin-block__bottom',
+		variant === 'media-text-media-carousel'
+			? 'c-media-text__variant--carousel'
+			: '',
+		altlayout ? `${ BLOCKNAME }__alt-layout` : '',
+		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
+	]
+		.filter( Boolean )
+		.join( ' ' );
+
+	const blockProps = useBlockProps( { className: classes } );
+
 	const innerBlockProps = useInnerBlocksProps(
 		{ className: `${ BLOCKNAME }__content-area` },
 		{
@@ -93,7 +103,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			<InspectorControls>
 				{ variant === 'media-text-media-carousel' ? (
 					<PanelBody
-						title={ __( 'Partner Gallery Images', 'aquila-core' ) }
+						title={ __( 'Partner Gallery Images', 'media-text' ) }
 						initialOpen={ true }
 					>
 						<MediaUploadCheck>
@@ -112,7 +122,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										variant="primary"
 										onClick={ open }
 									>
-										{ __( 'Edit Gallery', 'slideshow' ) }
+										{ __( 'Edit Gallery', 'media-text' ) }
 									</Button>
 								) }
 							/>
@@ -130,7 +140,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						) }
 					</PanelBody>
 				) : (
-					<PanelBody title={ __( 'Media', 'cta' ) }>
+					<PanelBody title={ __( 'Media', 'media-text' ) }>
 						<MediaUploadCheck>
 							<MediaUpload
 								onSelect={ ( media ) => {
@@ -169,7 +179,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					</PanelBody>
 				) }
 
-				<PanelBody title={ __( 'Margin Controls', 'cta' ) }>
+				<PanelBody title={ __( 'Margin Controls', 'media-text' ) }>
 					<ToggleControl
 						__nextHasNoMarginBottom
 						label="Margin Top"
@@ -195,7 +205,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						} }
 					/>
 				</PanelBody>
-				<PanelBody title={ __( 'Layout', 'cta' ) }>
+				<PanelBody title={ __( 'Layout', 'media-text' ) }>
 					<ToggleControl
 						__nextHasNoMarginBottom
 						label="Use alternate layout?"
@@ -221,6 +231,22 @@ export default function Edit( { attributes, setAttributes } ) {
 						onChange={ ( val ) => {
 							setAttributes( { includegradient: val } );
 						} }
+					/>
+				</PanelBody>
+				<PanelBody title={ __( 'Colour', 'media-text' ) }>
+					<SelectControl
+						label="Media Text Background Colour"
+						value={ bgcolour }
+						options={ [
+							{ label: 'Purple', value: 'purple' },
+							{ label: 'Dark', value: 'dark' },
+							{ label: 'Grey', value: 'grey' },
+						] }
+						onChange={ ( val ) =>
+							setAttributes( { bgcolour: val } )
+						}
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 			</InspectorControls>

@@ -18,6 +18,18 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
+
+    .c-media-text__bgcolour--purple & {
+      background-color: var(--brand-4);
+    }
+
+    .c-media-text__bgcolour--dark & {
+      background-color: #000;
+    }
+
+    .c-media-text__bgcolour--grey & {
+      background-color: var(--brand-7);
+    }
   }
 
   &__gradient {
