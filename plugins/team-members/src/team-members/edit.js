@@ -11,12 +11,13 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { PanelBody, ToggleControl } from '@wordpress/components';
+import { PanelBody, ToggleControl, TextControl } from '@wordpress/components';
 import {
 	useBlockProps,
 	useInnerBlocksProps,
 	InspectorControls,
 	RichText,
+	URLInputButton,
 } from '@wordpress/block-editor';
 
 /**
@@ -39,7 +40,14 @@ import './editor.scss';
 const BLOCKNAME = 'c-team-members';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { heading, subheading, topmargin, bottommargin } = attributes;
+	const {
+		heading,
+		subheading,
+		topmargin,
+		bottommargin,
+		pageurl,
+		ctabuttontext,
+	} = attributes;
 
 	const classes = [
 		BLOCKNAME,
@@ -120,6 +128,34 @@ export default function Edit( { attributes, setAttributes } ) {
 							placeholder={ __( 'Sub Heading...' ) }
 						/>
 					</header>
+					<div className={ `${ BLOCKNAME }__cta` }>
+						<URLInputButton
+							url={ pageurl }
+							onChange={ ( url ) =>
+								setAttributes( { pageurl: url } )
+							}
+						/>
+						{ pageurl && (
+							<>
+								<TextControl
+									__nextHasNoMarginBottom
+									__next40pxDefaultSize
+									label="CTA Button Text"
+									value={ ctabuttontext }
+									onChange={ ( value ) =>
+										setAttributes( {
+											ctabuttontext: value,
+										} )
+									}
+								/>
+								<div className={ `wp-block-button` }>
+									<span className={ `wp-block-button__link` }>
+										{ ctabuttontext || 'Click Here' }
+									</span>
+								</div>
+							</>
+						) }
+					</div>
 				</div>
 				<div className={ `${ BLOCKNAME }__inner` }>
 					<div className={ `${ BLOCKNAME }__container` }>

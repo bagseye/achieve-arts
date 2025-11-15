@@ -27,6 +27,14 @@
 		"bottommargin": {
 			"type": "boolean",
 			"default": false
+		},
+		"pageurl": {
+			"type": "string",
+			"default": ""
+		},
+		"ctabuttontext": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "team-members",

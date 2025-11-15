@@ -23,7 +23,14 @@ import {
 const BLOCKNAME = 'c-team-members';
 
 export default function save( { attributes } ) {
-	const { topmargin, bottommargin, heading, subheading } = attributes;
+	const {
+		topmargin,
+		bottommargin,
+		heading,
+		subheading,
+		pageurl,
+		ctabuttontext,
+	} = attributes;
 
 	const classes = [
 		BLOCKNAME,
@@ -57,6 +64,19 @@ export default function save( { attributes } ) {
 						value={ subheading }
 					/>
 				</header>
+				{ pageurl && ctabuttontext && (
+					<div className={ `${ BLOCKNAME }__cta` }>
+						<div className={ `wp-block-button` }>
+							<a
+								href={ pageurl }
+								className={ `wp-block-button__link` }
+								title={ ctabuttontext }
+							>
+								{ ctabuttontext }
+							</a>
+						</div>
+					</div>
+				) }
 			</div>
 			<div className={ `${ BLOCKNAME }__inner` }>
 				<div className={ `${ BLOCKNAME }__container splide__track` }>

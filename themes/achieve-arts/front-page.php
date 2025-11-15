@@ -128,61 +128,6 @@
                         </div>
                     </section>
 
-                    <section class="c-team-members splide js-carousel__team no-padding__left no-padding__right margin-block__top margin-block__bottom">
-                            <div class="c-team-members__content">
-                                <header class="c-team-members__content--header">
-                                    <h2>Our Talented Team</h2>
-                                </header>
-                                <p>Our team of industry professionals bring years of dance, drama, and theatre experience to every class. Encouraging every student to shine at their own pace.</p>
-                                <div class="wp-block-button">
-                                    <a href="" class="wp-block-button__link">Our Team</a>
-                                </div>
-                            </div>
-
-                        <div class="c-team-members__scroller--inner">
-
-                            <div class="c-team-members__scroller--container splide__track">
-                                <div class="c-team-members__scroller--items splide__list">
-                                    
-                                    <article class="c-team-members__scroller--item splide__slide">
-                                        <a href="" class="c-team-members__scroller--item-link">
-                                            <div class="c-team-members__scroller--item-inner">
-                                                <div class="c-team-members__scroller--item-container">
-                                                    <header class="c-team-members__scroller--item-header">
-                                                        <h3 class="c-team-members__scroller--item-heading">Guest Tutor</h3>
-                                                        <p class="c-team-members__scroller--item-role">Role Here</p>
-                                                    </header>
-                                                </div>
-                                                <div class="c-team-members__scroller--item-media">
-                                                    <picture>
-                                                        <img src="<?= get_template_directory_uri() ?>/images/jpg/achieve-arts-in-schools.jpg" />
-                                                    </picture>
-                                                    <span class="c-team-members__scroller--item-overlay"></span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-
-                                </div>
-
-                                <div class="splide__arrows c-arrows">
-                                    <button class="splide__arrow splide__arrow--prev c-arrows__arrow c-arrows__arrow--prev">
-                                        <svg viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M19.3857 6.74368C19.3753 6.55046 19.3035 6.39739 19.2082 6.30203L13.1919 0.199255C12.9152 -0.0679909 12.5013 -0.0567013 12.2467 0.174162C11.9921 0.405025 11.9804 0.837887 12.2206 1.08254L17.1609 6.10127L0.668467 6.10127C0.298972 6.10127 -3.1022e-07 6.38859 -2.94699e-07 6.74367C-2.79178e-07 7.09875 0.298982 7.38607 0.668467 7.38607L17.1609 7.38607L12.2206 12.4048C11.9804 12.6495 12.0012 13.0735 12.2467 13.3132C12.5013 13.5603 12.9517 13.5327 13.1919 13.2881L19.2082 7.18531C19.3674 7.02973 19.3753 6.89675 19.3857 6.74368Z"/>
-                                        </svg>
-                                    </button>
-                                    <button class="splide__arrow splide__arrow--next c-arrows__arrow c-arrows__arrow--next">
-                                        <svg viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M19.3857 6.74368C19.3753 6.55046 19.3035 6.39739 19.2082 6.30203L13.1919 0.199255C12.9152 -0.0679909 12.5013 -0.0567013 12.2467 0.174162C11.9921 0.405025 11.9804 0.837887 12.2206 1.08254L17.1609 6.10127L0.668467 6.10127C0.298972 6.10127 -3.1022e-07 6.38859 -2.94699e-07 6.74367C-2.79178e-07 7.09875 0.298982 7.38607 0.668467 7.38607L17.1609 7.38607L12.2206 12.4048C11.9804 12.6495 12.0012 13.0735 12.2467 13.3132C12.5013 13.5603 12.9517 13.5327 13.1919 13.2881L19.2082 7.18531C19.3674 7.02973 19.3753 6.89675 19.3857 6.74368Z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </section>
-
                     <section class="c-news-feed splide js-carousel__news-feed margin-block__top margin-block__bottom no-padding__left no-padding__right">
                         <div class="c-news-feed__inner padding-block__top padding-block__bottom">
                             <div class="c-news-feed__container">
@@ -286,6 +231,11 @@
                         </div>
                     </section>
 
+
+                    <?php while (have_posts()) : the_post(); ?>
+                        <?php the_content(); ?>
+                    <?php endwhile; ?>
+
                     <section class="c-insta margin-block__top margin-block__bottom">
                         <div class="c-insta__inner">
                             <div class="c-insta__container">
@@ -337,9 +287,7 @@
                             </div>
                         </div>
                     </section>
-                    <?php while (have_posts()) : the_post(); ?>
-                        <?php the_content(); ?>
-                    <?php endwhile; ?>
+
                 <?php endif; ?>
             </div>
         </div>
