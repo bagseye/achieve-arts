@@ -19,7 +19,8 @@
 
 
 	&__inner {
-		height: inherit;
+		height: 100%;
+		width: 100%;
 		border-radius: 2.5rem;
 		background-color: var(--brand-1);
 		position: relative;
@@ -44,14 +45,16 @@
 		}
 	}
 
-	&__heading {
+	.c-team-members-item__heading {
 		font-size: var(--font-team-members-item-heading);
 		font-weight: 800;
+		color: #fff;
 	}
 
-	&__role {
+	.c-team-members-item__role {
 		font-size: var(--font-team-members-item-role);
 		font-weight: 400;
+		color: #fff;
 	}
 
 	&__media {
