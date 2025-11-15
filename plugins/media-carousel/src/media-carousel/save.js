@@ -30,7 +30,7 @@ export default function save( { attributes } ) {
 		.join( ' ' );
 
 	const blockProps = useBlockProps.save( {
-		className: `${ classes }  splide js-carousel__video`,
+		className: `${ classes } splide js-carousel__video`,
 	} );
 
 	return (

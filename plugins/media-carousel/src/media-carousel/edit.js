@@ -55,9 +55,11 @@ export default function Edit( { attributes, setAttributes } ) {
 				<PanelBody title={ __( 'Margin Controls', 'media-carousel' ) }>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label="Margin Top"
+						label={ __( 'Margin Top', 'media-carousel' ) }
 						help={
-							topmargin ? 'Has top margin.' : 'No top margin.'
+							topmargin
+								? __( 'Has top margin.', 'media-carousel' )
+								: __( 'No top margin.', 'media-carousel' )
 						}
 						checked={ topmargin }
 						onChange={ ( val ) => {
@@ -66,11 +68,11 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label="Margin Bottom"
+						label={ __( 'Margin Bottom', 'media-carousel' ) }
 						help={
 							bottommargin
-								? 'Has bottom margin.'
-								: 'No bottom margin.'
+								? __( 'Has bottom margin.', 'media-carousel' )
+								: __( 'No bottom margin.', 'media-carousel' )
 						}
 						checked={ bottommargin }
 						onChange={ ( val ) => {
