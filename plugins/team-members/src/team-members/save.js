@@ -64,7 +64,7 @@ export default function save( { attributes } ) {
 						value={ subheading }
 					/>
 				</header>
-				{ pageurl && ctabuttontext && (
+				{ pageurl && (
 					<div className={ `${ BLOCKNAME }__cta` }>
 						<div className={ `wp-block-button` }>
 							<a

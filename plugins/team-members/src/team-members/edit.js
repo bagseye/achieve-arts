@@ -140,7 +140,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								<TextControl
 									__nextHasNoMarginBottom
 									__next40pxDefaultSize
-									label="CTA Button Text"
+									label={ __( 'CTA Button Text', 'team-members' ) }
 									value={ ctabuttontext }
 									onChange={ ( value ) =>
 										setAttributes( {
