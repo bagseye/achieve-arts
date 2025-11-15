@@ -5,8 +5,12 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+@use './splide';
+@use './splide-video';
+
 .c-media-carousel {
   overflow: hidden;
+  min-height: 100px;
 
   &__container {
     width: 85%;
@@ -16,67 +20,6 @@
 
     &.splide__track {
       overflow: visible;
-    }
-  }
-
-  &__item {
-    aspect-ratio: 16 / 9;
-    border-radius: 34px;
-    overflow: hidden;
-
-    .splide__slide__container {
-      width: 100%;
-      height: 100%;
-    }
-
-    &--inner {
-      padding: 55px 40px;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      z-index: 2;
-      top: 0;
-      left: 0;
-    }
-
-    &--container {
-      display: flex;
-      align-items: flex-end;
-      width: inherit;
-      height: inherit;
-    }
-
-    &--content {
-      width: 100%;
-      position: relative;
-      z-index: 2;
-      color: #fff;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-    }
-
-    &--poster {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    &--overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(0deg,rgba(97, 45, 136, 1) 0%, rgba(97, 45, 136, 0) 100%);
-      opacity: 1;
-      transition: opacity 0.25s ease-in-out;
-    }
-
-    .c-media-carousel__item--heading {
-      font-weight: 800;
-      font-size: var(--font-h3);
     }
   }
 }

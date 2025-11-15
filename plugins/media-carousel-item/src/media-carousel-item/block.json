@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bwp/media-carousel-item",
+	"version": "0.1.0",
+	"title": "Media Carousel Item",
+	"category": "widgets",
+	"icon": "image-alt2",
+	"description": "A single media carousel item. Only available in the Media Carousel block.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"tab": {
+			"type": "string",
+			"default": ""
+		},
+		"videoid": {
+			"type": "number",
+			"default": null
+		},
+		"videosrc": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"parent": [ "bwp/media-carousel" ],
+	"textdomain": "media-carousel-item",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
