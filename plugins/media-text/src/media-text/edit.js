@@ -53,8 +53,10 @@ export default function Edit( { attributes, setAttributes } ) {
 		altlayout,
 		includegradient,
 		variant,
-		images = [],
 	} = attributes;
+
+
+	const images = Array.isArray( attributes.images ) ? attributes.images : [];
 
 	const blockProps = useBlockProps( {
 		className: `${ BLOCKNAME } ${
@@ -65,6 +67,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			topmargin ? 'margin-block__top' : ''
 		} ${ bottommargin ? 'margin-block__bottom' : '' }`,
 	} );
+	
 	const innerBlockProps = useInnerBlocksProps(
 		{ className: `${ BLOCKNAME }__content-area` },
 		{
