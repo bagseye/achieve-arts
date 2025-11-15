@@ -6,6 +6,7 @@
  */
 
 @use '../../../../themes/achieve-arts/src/scss/abstracts';
+@use './splide';
 
 .c-team-members {
   &__content {
@@ -16,106 +17,16 @@
     margin-bottom: var(--spacing-header);
   }
 
-  &__scroller {
+  &__inner {
+    overflow: hidden;
+  }
 
-
-    &--inner {
-      overflow: hidden;
-    }
-
-    &--container {
-      &.splide__track {
-        overflow: visible;
-        max-width: 1020px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    &--item {
-      aspect-ratio: 0.95 / 1;
-
-      a {
-        display: block;
-        height: 100%;
-        color: #fff;
-        text-decoration: none;
-      }
-
-
-      &-inner {
-        height: inherit;
-        border-radius: 2.5rem;
-        background-color: var(--brand-1);
-        position: relative;
-        overflow: hidden;
-      }
-
-      &-container {
-        height: inherit;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-start;
-        position: relative;
-        z-index: 2;
-      }
-
-      &-header {
-        padding: 1.875rem;
-
-        @include abstracts.respond-to('laptop') { 
-          padding: 1.375rem;
-        }
-      }
-
-      &-heading {
-        font-size: var(--font-team-members-item-heading);
-        font-weight: 800;
-      }
-
-      &-role {
-        font-size: var(--font-team-members-item-role);
-        font-weight: 400;
-      }
-
-      &-media {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        transition: transform 0.25s ease-in-out;
-
-        picture,
-        img {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
-
-      &-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(0deg,rgba(97, 45, 136, 1) 0%, rgba(97, 45, 136, 0) 100%);
-        opacity: 1;
-        transition: opacity 0.25s ease-in-out;
-
-      }
-
-      &:hover &-media {
-        transform: scale(1.05);
-      }
-
-      &:hover &-overlay {
-        opacity: 0;
-      }
+  &__container {
+    &.splide__track {
+      overflow: visible;
+      max-width: 1020px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }
