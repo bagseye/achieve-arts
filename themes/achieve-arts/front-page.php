@@ -104,37 +104,6 @@
                         </div>
                     </section>
 
-
-                    <section class="c-video-carousel splide js-carousel__video">
-                        <div class="c-video-carousel__inner">
-                            <div class="c-video-carousel__container splide__track">
-                                <div class="c-video-carousel__items splide__list">
-                                    <article class="c-video-carousel__item splide__slide" data-splide-html-video="<?= get_template_directory_uri() ?>/video/test-video.mp4">
-                                        <div class="splide__slide__container">
-                                            <img class="c-video-carousel__item--poster" src="<?= get_template_directory_uri() ?>/images/jpg/achieve-arts-in-schools.jpg">
-                                        </div>
-                                        <div class="c-video-carousel__item--inner">
-                                            <div class="c-video-carousel__item--container">
-                                                <div class="c-video-carousel__item--content">
-                                                    <header class="c-video-carousel__item--header">
-                                                        <span class="c-video-carousel__item--tab h-tab">
-                                                            <p>What we do</p>
-                                                        </span>
-                                                        <h3 class="c-video-carousel__item--heading">Teaching That Inspires Brilliance</h3>
-                                                    </header>
-                                                    <div class="wp-block-button is-style-white">
-                                                        <button class="wp-block-button__link">Play Video</button>
-                                                    </div>
-                                                </div>
-                                                <div class="c-video-carousel__item--overlay"></div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
                     <section class="c-media-text margin-block__top margin-block__bottom">
                         <div class="c-media-text__inner">
                             <div class="c-media-text__container">
