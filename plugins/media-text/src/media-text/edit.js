@@ -26,6 +26,7 @@ import {
 	MediaUploadCheck,
 	InspectorControls,
 } from '@wordpress/block-editor';
+import { useEffect } from '@wordpress/element';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -97,6 +98,11 @@ export default function Edit( { attributes, setAttributes } ) {
 			mediaAlt: '',
 		} );
 	}
+
+	useEffect( () => {
+		if ( bgcolour !== 'dark' && includegradient ) {
+		setAttributes( { includegradient: false } );
+	}	}, [ bgcolour, includegradient ] );
 
 	return (
 		<>
@@ -219,9 +225,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							setAttributes( { altlayout: val } );
 						} }
 					/>
-					{ bgcolour !== 'dark' ? (
-						setAttributes( { includegradient: false } )
-					) : (
+					{ bgcolour == 'dark' && 
 						<ToggleControl
 							__nextHasNoMarginBottom
 							label="Background gradient?"
@@ -235,7 +239,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								setAttributes( { includegradient: val } );
 							} }
 						/>
-					) }
+					 }
 				</PanelBody>
 				<PanelBody title={ __( 'Colour', 'media-text' ) }>
 					<SelectControl
