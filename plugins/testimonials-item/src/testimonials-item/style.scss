@@ -5,8 +5,44 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-bwp-testimonials-item {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+.c-testimonials-item {
+	&__media {
+		width: 130px;
+		height: 130px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 30px;
+		border-radius: 50%;
+		overflow: hidden;
+
+		picture,
+		img {
+			width: 100%;
+			height: 100%;
+			display: block;
+			object-fit: cover;
+		}
+	}
+
+	&__content-area,
+	&__name,
+	&__role {
+		color: #fff;
+		font-size: 20px;
+		text-align: center;
+	}
+
+	&__content-area {
+		>* {
+			margin-bottom: var(--spacing-para);
+		}
+	}
+
+	&__name {
+		margin-bottom: 6px;
+	}
+
+	&__role {
+		margin-bottom: var(--spacing-para);
+	}
 }

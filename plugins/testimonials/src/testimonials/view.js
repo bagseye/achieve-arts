@@ -20,6 +20,37 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-/* eslint-disable no-console */
-console.log( 'Hello World! (from bwp-testimonials block)' );
-/* eslint-enable no-console */
+import Splide from '@splidejs/splide';
+
+let $testimonialscarousels;
+
+function cacheDOM() {
+	$testimonialscarousels = [
+		...document.querySelectorAll( '.splide.js-carousel__testimonials' ),
+	];
+}
+
+function bindTestimonialsCarousels( $testimonialscarousel ) {
+	var splide = new Splide( $testimonialscarousel, {
+		perPage: 1,
+		type: 'fade',
+		rewind: true,
+		autoWidth: false,
+		focus: 'center',
+		pagination: false,
+		arrows: true,
+	} );
+	splide.mount();
+}
+
+function init() {
+	cacheDOM();
+
+	if ( $testimonialscarousels.length ) {
+		$testimonialscarousels.forEach( ( testimonialscarousel ) => {
+			bindTestimonialsCarousels( testimonialscarousel );
+		} );
+	}
+}
+
+init();

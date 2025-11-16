@@ -94,6 +94,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					<div className={ `${ BLOCKNAME }__container` }>
 						<div { ...innerBlockProps } />
 					</div>
+					<span className={ `${ BLOCKNAME }__gradient` }></span>
 				</div>
 			</section>
 		</>
