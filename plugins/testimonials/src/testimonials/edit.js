@@ -13,10 +13,13 @@ import { __ } from '@wordpress/i18n';
  */
 import { PanelBody, ToggleControl } from '@wordpress/components';
 import {
+	InnerBlocks,
 	useBlockProps,
 	useInnerBlocksProps,
 	InspectorControls,
 } from '@wordpress/block-editor';
+import { useSelect } from '@wordpress/data';
+import { useEffect } from '@wordpress/element';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -36,8 +39,8 @@ import './editor.scss';
  */
 const BLOCKNAME = 'c-testimonials';
 
-export default function Edit( { attributes, setAttributes } ) {
-	const { topmargin, bottommargin } = attributes;
+export default function Edit( { attributes, setAttributes, clientId } ) {
+	const { topmargin, bottommargin, testimonialscount } = attributes;
 
 	const classes = [
 		BLOCKNAME,
@@ -57,6 +60,13 @@ export default function Edit( { attributes, setAttributes } ) {
 			allowedBlocks: [ 'bwp/testimonials-item' ],
 		}
 	);
+
+	const innerBlockCount = useSelect( ( select ) => select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks.length || 0 );
+	
+	useEffect( () => {
+		setAttributes( { testimonialscount: innerBlockCount } );
+	}, [ innerBlockCount, setAttributes ] );
+
 	return (
 		<>
 			<InspectorControls>
