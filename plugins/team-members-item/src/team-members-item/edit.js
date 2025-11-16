@@ -42,7 +42,7 @@ const ALLOWED_MEDIA_TYPES = [ 'image' ];
 export default function Edit( { attributes, setAttributes, context } ) {
 	const { name, role, mediaId, mediaUrl, mediaAlt, variant } = attributes;
 	const classes = [ BLOCKNAME,
-		context && context[ 'bwp/team-members-variant' ] === 'clients' && 'c-team-members-item__variant--client',
+		variant === 'clients' && 'c-team-members-item__variant--client'
 	 ].filter( Boolean ).join( ' ' );
 
 	const blockProps = useBlockProps( { className: classes } );
@@ -59,7 +59,7 @@ export default function Edit( { attributes, setAttributes, context } ) {
     if (context?.['bwp/team-members-variant']) {
         setAttributes({ variant: context['bwp/team-members-variant'] });
     }
-}, [context]);
+}, [context, setAttributes]);
 
 
 	return (
