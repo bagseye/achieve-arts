@@ -61,11 +61,11 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		}
 	);
 
-	const innerBlockCount = useSelect( ( select ) => select( 'core/block-editor' ).getBlock( clientId ).innerBlocks );
+	const innerBlockCount = useSelect( ( select ) => select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks.length || 0 );
 	
 	useEffect( () => {
-		setAttributes( { testimonialscount: innerBlockCount.length } );
-	}, [ innerBlockCount ] );
+		setAttributes( { testimonialscount: innerBlockCount } );
+	}, [ innerBlockCount, setAttributes ] );
 
 	return (
 		<>
