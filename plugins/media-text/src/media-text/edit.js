@@ -26,6 +26,7 @@ import {
 	MediaUploadCheck,
 	InspectorControls,
 } from '@wordpress/block-editor';
+import { useEffect } from '@wordpress/element';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -97,6 +98,11 @@ export default function Edit( { attributes, setAttributes } ) {
 			mediaAlt: '',
 		} );
 	}
+
+	useEffect( () => {
+		if ( bgcolour !== 'dark' && includegradient ) {
+		setAttributes( { includegradient: false } );
+	}	}, [ bgcolour, includegradient ] );
 
 	return (
 		<>
@@ -219,19 +225,21 @@ export default function Edit( { attributes, setAttributes } ) {
 							setAttributes( { altlayout: val } );
 						} }
 					/>
-					<ToggleControl
-						__nextHasNoMarginBottom
-						label="Background gradient?"
-						help={
-							includegradient
-								? 'Has background gradient.'
-								: 'No background gradient.'
-						}
-						checked={ includegradient }
-						onChange={ ( val ) => {
-							setAttributes( { includegradient: val } );
-						} }
-					/>
+					{ bgcolour == 'dark' && 
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label="Background gradient?"
+							help={
+								includegradient
+									? 'Has background gradient.'
+									: 'No background gradient.'
+							}
+							checked={ includegradient }
+							onChange={ ( val ) => {
+								setAttributes( { includegradient: val } );
+							} }
+						/>
+					 }
 				</PanelBody>
 				<PanelBody title={ __( 'Colour', 'media-text' ) }>
 					<SelectControl
@@ -239,6 +247,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						value={ bgcolour }
 						options={ [
 							{ label: 'Purple', value: 'purple' },
+							{ label: 'Deep Purple', value: 'deep-purple' },
 							{ label: 'Dark', value: 'dark' },
 							{ label: 'Grey', value: 'grey' },
 						] }
@@ -258,10 +267,11 @@ export default function Edit( { attributes, setAttributes } ) {
 								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--content` }
 							>
 								<header className={ `${ BLOCKNAME }__header` }>
-									<span className={ `h-tab` }>
+									<span
+										className={ `${ BLOCKNAME }__tab h-tab` }
+									>
 										<RichText
 											tagName="p"
-											className={ `${ BLOCKNAME }__tab` }
 											value={ tab }
 											allowedFormats={ [
 												'core/bold',
