@@ -38,9 +38,11 @@ import './editor.scss';
  */
 const BLOCKNAME = 'c-team-members-item';
 const ALLOWED_MEDIA_TYPES = [ 'image' ];
-export default function Edit( { attributes, setAttributes } ) {
+export default function Edit( { attributes, setAttributes, context } ) {
 	const { name, role, mediaId, mediaUrl, mediaAlt } = attributes;
-	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
+	const classes = [ BLOCKNAME,
+		context && context[ 'bwp/team-members-variant' ] === 'clients' && 'c-team-members-item__variant--client',
+	 ].filter( Boolean ).join( ' ' );
 
 	const blockProps = useBlockProps( { className: classes } );
 
@@ -51,6 +53,8 @@ export default function Edit( { attributes, setAttributes } ) {
 			mediaAlt: '',
 		} );
 	}
+
+	console.log(context);
 
 	return (
 		<>
@@ -110,21 +114,23 @@ export default function Edit( { attributes, setAttributes } ) {
 								}
 								placeholder={ __( 'Name...' ) }
 							/>
-							<RichText
-								tagName="p"
-								className={ `${ BLOCKNAME }__role` }
-								value={ role }
-								allowedFormats={ [
-									'core/bold',
-									'core/italic',
-								] }
-								onChange={ ( val ) =>
-									setAttributes( {
-										role: val,
-									} )
-								}
-								placeholder={ __( 'Role...' ) }
-							/>
+							{context && context[ 'bwp/team-members-variant' ] !== 'clients' && (
+								<RichText
+									tagName="p"
+									className={ `${ BLOCKNAME }__role` }
+									value={ role }
+									allowedFormats={ [
+										'core/bold',
+										'core/italic',
+									] }
+									onChange={ ( val ) =>
+										setAttributes( {
+											role: val,
+										} )
+									}
+									placeholder={ __( 'Role...' ) }
+								/>
+							)}
 						</header>
 					</div>
 					<div className={ `${ BLOCKNAME }__media` }>

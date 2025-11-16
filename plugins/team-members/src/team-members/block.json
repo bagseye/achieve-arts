@@ -35,11 +35,19 @@
 		"ctabuttontext": {
 			"type": "string",
 			"default": ""
+		},
+		"variant": {
+			"type": "string",
+			"default": "team-members"
 		}
+	},
+	"providesContext": {
+		"bwp/team-members-variant": "variant"
 	},
 	"textdomain": "team-members",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+	"viewScript": "file:./view.js",
+	"variations": "file:./variations.php"
 }

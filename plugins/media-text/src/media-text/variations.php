@@ -13,7 +13,6 @@ return array(
         'isActive'   => array('media-text')
     ),
     array(
-        'isDefault'  => true,
         'name'       => 'media-text-media-carousel',
         'title'      => 'Media Text - Media Carousel',
         'description' => 'Displays media and text content with alternate layouts. Media is displayed in a carousel',

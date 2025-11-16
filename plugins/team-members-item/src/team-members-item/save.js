@@ -17,11 +17,13 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  */
 const BLOCKNAME = 'c-team-members-item';
 export default function save( { attributes } ) {
-	const { name, role, mediaId, mediaUrl, mediaAlt } = attributes;
+	const { name, role, mediaId, mediaUrl, mediaAlt, context } = attributes;
 
-	const blockProps = useBlockProps.save( {
-		className: `${ BLOCKNAME } splide__slide`,
-	} );
+		const classes = [ BLOCKNAME,
+			context && context[ 'bwp/team-members-variant' ] === 'clients' && 'c-team-members-item__variant--client', 'splide__slide',
+		 ].filter( Boolean ).join( ' ' );
+	
+		const blockProps = useBlockProps( { className: classes } );
 	return (
 		<>
 			<article { ...blockProps }>
@@ -34,11 +36,13 @@ export default function save( { attributes } ) {
 									className={ `${ BLOCKNAME }__heading` }
 									value={ name }
 								/>
-								<RichText.Content
-									tagName="p"
-									className={ `${ BLOCKNAME }__role` }
-									value={ role }
-								/>
+								{context && context[ 'bwp/team-members-variant' ] !== 'clients' && (
+									<RichText.Content
+										tagName="p"
+										className={ `${ BLOCKNAME }__role` }
+										value={ role }
+									/>
+								)}
 							</header>
 						</div>
 						<div className={ `${ BLOCKNAME }__media` }>

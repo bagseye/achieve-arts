@@ -47,6 +47,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		bottommargin,
 		pageurl,
 		ctabuttontext,
+		variant
 	} = attributes;
 
 	const classes = [
@@ -67,6 +68,8 @@ export default function Edit( { attributes, setAttributes } ) {
 			allowedBlocks: [ 'bwp/team-members-item' ],
 		}
 	);
+
+	console.log(variant);
 
 	return (
 		<>
