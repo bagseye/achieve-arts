@@ -31,6 +31,10 @@
 		"mediaAlt": {
 			"type": "string",
 			"default": ""
+		},
+		"variant": {
+			"type": "string",
+			"default": "team-members"
 		}
 	},
 		"usesContext": ["bwp/team-members-variant"],

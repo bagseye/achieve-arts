@@ -17,10 +17,10 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  */
 const BLOCKNAME = 'c-team-members-item';
 export default function save( { attributes } ) {
-	const { name, role, mediaId, mediaUrl, mediaAlt, context } = attributes;
+	const { name, role, mediaId, mediaUrl, mediaAlt,variant } = attributes;
 
 		const classes = [ BLOCKNAME,
-			context && context[ 'bwp/team-members-variant' ] === 'clients' && 'c-team-members-item__variant--client', 'splide__slide',
+			 variant === 'clients' && 'c-team-members-item__variant--client', 'splide__slide',
 		 ].filter( Boolean ).join( ' ' );
 	
 		const blockProps = useBlockProps( { className: classes } );
@@ -36,7 +36,7 @@ export default function save( { attributes } ) {
 									className={ `${ BLOCKNAME }__heading` }
 									value={ name }
 								/>
-								{context && context[ 'bwp/team-members-variant' ] !== 'clients' && (
+								{variant !== 'clients' && (
 									<RichText.Content
 										tagName="p"
 										className={ `${ BLOCKNAME }__role` }

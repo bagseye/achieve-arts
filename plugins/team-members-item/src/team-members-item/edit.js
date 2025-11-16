@@ -19,6 +19,7 @@ import {
 	MediaUploadCheck,
 	InspectorControls,
 } from '@wordpress/block-editor';
+import { useEffect } from '@wordpress/element';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -39,7 +40,7 @@ import './editor.scss';
 const BLOCKNAME = 'c-team-members-item';
 const ALLOWED_MEDIA_TYPES = [ 'image' ];
 export default function Edit( { attributes, setAttributes, context } ) {
-	const { name, role, mediaId, mediaUrl, mediaAlt } = attributes;
+	const { name, role, mediaId, mediaUrl, mediaAlt, variant } = attributes;
 	const classes = [ BLOCKNAME,
 		context && context[ 'bwp/team-members-variant' ] === 'clients' && 'c-team-members-item__variant--client',
 	 ].filter( Boolean ).join( ' ' );
@@ -54,7 +55,12 @@ export default function Edit( { attributes, setAttributes, context } ) {
 		} );
 	}
 
-	console.log(context);
+	useEffect(() => {
+    if (context?.['bwp/team-members-variant']) {
+        setAttributes({ variant: context['bwp/team-members-variant'] });
+    }
+}, [context]);
+
 
 	return (
 		<>
