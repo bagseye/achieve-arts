@@ -61,6 +61,7 @@ h1, h2, h3, h4, h5, h6 {
   --font-body: tome-sans-variable, sans-serif;
   --font-h2: 5.5rem;
   --font-h3: 4.875rem;
+  --font-lead: 26px;
   --font-hero-home-heading: 4.625rem;
   --font-hero-home-heading-sub: 1.75rem;
   --font-hero-home-intro: 1.313rem;
@@ -179,5 +180,10 @@ h2 {
   &__bottom {
     padding-bottom: var(--spacing-block);
   }
+}
+
+.is-style-lead {
+  font-weight: 500;
+  font-size: var(--font-lead);
 }
 
