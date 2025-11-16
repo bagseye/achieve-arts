@@ -75,7 +75,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									variant="primary"
 									style={ { marginRight: '6px' } }
 								>
-									{ mediaid && mediaalt ? 'Edit ' : 'Add ' }
+									{ mediaid ? 'Edit ' : 'Add ' }
 									Image
 								</Button>
 							) }
