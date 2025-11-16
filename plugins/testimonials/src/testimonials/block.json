@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bwp/testimonials",
+	"version": "0.1.0",
+	"title": "Testimonials",
+	"category": "widgets",
+	"icon": "awards",
+	"description": "Displays multiple testimonial items.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"topmargin": {
+			"type": "boolean",
+			"default": false
+		},
+		"bottommargin": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "testimonials",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
