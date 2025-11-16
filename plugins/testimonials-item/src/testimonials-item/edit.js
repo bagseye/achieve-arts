@@ -137,7 +137,7 @@ export default function Edit( { attributes, setAttributes } ) {
 												name: val,
 											} )
 										}
-										placeholder={ __( 'Name...' ) }
+										placeholder={ __( 'Name...', 'testimonials-item' ) }
 									/>
 								</div>
 								<div className={ `${ BLOCKNAME }__role` }>
@@ -153,7 +153,7 @@ export default function Edit( { attributes, setAttributes } ) {
 												role: val,
 											} )
 										}
-										placeholder={ __( 'Role...' ) }
+										placeholder={ __( 'Role...', 'testimonials-item' ) }
 									/>
 								</div>
 							<div className={ `${ BLOCKNAME }__link` }></div>
