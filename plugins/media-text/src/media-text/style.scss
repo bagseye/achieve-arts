@@ -23,6 +23,10 @@
       background-color: var(--brand-4);
     }
 
+    .c-media-text__bgcolour--deep-purple & {
+      background-color: var(--brand-1);
+    }
+
     .c-media-text__bgcolour--dark & {
       background-color: #000;
     }
@@ -68,6 +72,15 @@
         flex-direction: column;
       }
     }
+  }
+
+  .c-media-text__tab {
+    background-color: var(--brand-1);
+  }
+
+  &.c-media-text__bgcolour--purple .c-media-text__tab,
+  &.c-media-text__bgcolour--deep-purple .c-media-text__tab {
+    background-color: var(--brand-6);
   }
 
   &__item {

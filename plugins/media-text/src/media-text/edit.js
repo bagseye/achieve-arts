@@ -219,19 +219,23 @@ export default function Edit( { attributes, setAttributes } ) {
 							setAttributes( { altlayout: val } );
 						} }
 					/>
-					<ToggleControl
-						__nextHasNoMarginBottom
-						label="Background gradient?"
-						help={
-							includegradient
-								? 'Has background gradient.'
-								: 'No background gradient.'
-						}
-						checked={ includegradient }
-						onChange={ ( val ) => {
-							setAttributes( { includegradient: val } );
-						} }
-					/>
+					{ bgcolour !== 'dark' ? (
+						setAttributes( { includegradient: false } )
+					) : (
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label="Background gradient?"
+							help={
+								includegradient
+									? 'Has background gradient.'
+									: 'No background gradient.'
+							}
+							checked={ includegradient }
+							onChange={ ( val ) => {
+								setAttributes( { includegradient: val } );
+							} }
+						/>
+					) }
 				</PanelBody>
 				<PanelBody title={ __( 'Colour', 'media-text' ) }>
 					<SelectControl
@@ -239,6 +243,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						value={ bgcolour }
 						options={ [
 							{ label: 'Purple', value: 'purple' },
+							{ label: 'Deep Purple', value: 'deep-purple' },
 							{ label: 'Dark', value: 'dark' },
 							{ label: 'Grey', value: 'grey' },
 						] }
@@ -258,10 +263,11 @@ export default function Edit( { attributes, setAttributes } ) {
 								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--content` }
 							>
 								<header className={ `${ BLOCKNAME }__header` }>
-									<span className={ `h-tab` }>
+									<span
+										className={ `${ BLOCKNAME }__tab h-tab` }
+									>
 										<RichText
 											tagName="p"
-											className={ `${ BLOCKNAME }__tab` }
 											value={ tab }
 											allowedFormats={ [
 												'core/bold',

@@ -66,10 +66,11 @@ export default function save( { attributes } ) {
 							className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--content` }
 						>
 							<header className={ `${ BLOCKNAME }__header` }>
-								<span className={ `h-tab` }>
+								<span
+									className={ ` ${ BLOCKNAME }__tab h-tab` }
+								>
 									<RichText.Content
 										tagName="p"
-										className={ `${ BLOCKNAME }__tab` }
 										value={ tab }
 									/>
 								</span>
