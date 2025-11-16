@@ -19,7 +19,14 @@
 		"bottommargin": {
 			"type": "boolean",
 			"default": false
+		},
+		"testimonialscount": {
+			"type": "number",
+			"default": 0
 		}
+	},
+	"providesContext": {
+		"bwp/testimonialscount": "testimonialscount"
 	},
 	"textdomain": "testimonials",
 	"editorScript": "file:./index.js",

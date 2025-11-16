@@ -18,12 +18,12 @@ import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 const BLOCKNAME = 'c-testimonials';
 export default function save( { attributes } ) {
-	const { topmargin, bottommargin } = attributes;
+	const { topmargin, bottommargin, testimonialscount } = attributes;
 
 	const classes = [
 		BLOCKNAME,
-		'splide',
-		'js-carousel__testimonials',
+		testimonialscount > 1 && 'splide',
+		testimonialscount > 1 && 'js-carousel__testimonials',
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 	]
@@ -33,14 +33,15 @@ export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save( { className: classes } );
 
 	const innerBlockProps = useInnerBlocksProps.save( {
-		className: `${ BLOCKNAME }__items splide__list`,
+		className: `${ BLOCKNAME }__items ${testimonialscount > 1 ? 'splide__list' : ''}`,
 	} );
 	return (
 		<section { ...blockProps }>
 			<div className={ `${ BLOCKNAME }__inner` }>
-				<div className={ `${ BLOCKNAME }__container splide__track` }>
+				<div className={ `${ BLOCKNAME }__container ${testimonialscount > 1 ? 'splide__track' : ''}` }>
 					<div { ...innerBlockProps } />
 				</div>
+				{testimonialscount > 1 && (
 													<div
 										className={ `${ BLOCKNAME }__arrows splide__arrows c-arrows` }
 									>
@@ -71,6 +72,7 @@ export default function save( { attributes } ) {
 											</svg>
 										</button>
 									</div>
+				)}
 				<span className={ `${ BLOCKNAME }__gradient` }></span>
 			</div>
 		</section>

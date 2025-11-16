@@ -38,7 +38,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 const BLOCKNAME = 'c-testimonials-item';
-export default function Edit( { attributes, setAttributes } ) {
+export default function Edit( { attributes, setAttributes, context } ) {
 	const { name, role, mediaid, mediasrc, mediaalt } = attributes;
 	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
 
@@ -52,6 +52,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			allowedBlocks: [ 'core/paragraph', 'core/list' ],
 		}
 	);
+
 	return (
 		<>
 			<InspectorControls>
