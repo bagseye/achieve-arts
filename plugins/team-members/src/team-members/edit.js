@@ -47,7 +47,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		bottommargin,
 		pageurl,
 		ctabuttontext,
-		variant
+		variant,
 	} = attributes;
 
 	const classes = [
@@ -68,8 +68,6 @@ export default function Edit( { attributes, setAttributes } ) {
 			allowedBlocks: [ 'bwp/team-members-item' ],
 		}
 	);
-
-	console.log(variant);
 
 	return (
 		<>
@@ -143,7 +141,10 @@ export default function Edit( { attributes, setAttributes } ) {
 								<TextControl
 									__nextHasNoMarginBottom
 									__next40pxDefaultSize
-									label={ __( 'CTA Button Text', 'team-members' ) }
+									label={ __(
+										'CTA Button Text',
+										'team-members'
+									) }
 									value={ ctabuttontext }
 									onChange={ ( value ) =>
 										setAttributes( {
@@ -151,7 +152,9 @@ export default function Edit( { attributes, setAttributes } ) {
 										} )
 									}
 								/>
-								<div className={ `wp-block-button is-style-deep-purple` }>
+								<div
+									className={ `wp-block-button is-style-deep-purple` }
+								>
 									<span className={ `wp-block-button__link` }>
 										{ ctabuttontext || 'Click Here' }
 									</span>

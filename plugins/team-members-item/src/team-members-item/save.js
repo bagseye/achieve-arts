@@ -17,47 +17,53 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  */
 const BLOCKNAME = 'c-team-members-item';
 export default function save( { attributes } ) {
-	const { name, role, mediaId, mediaUrl, mediaAlt,variant } = attributes;
+	const { name, role, mediaId, mediaUrl, mediaAlt, variant } = attributes;
 
-		const classes = [ BLOCKNAME,
-			 variant === 'clients' && 'c-team-members-item__variant--client', 'splide__slide',
-		 ].filter( Boolean ).join( ' ' );
-	
-		const blockProps = useBlockProps( { className: classes } );
+	const classes = [
+		BLOCKNAME,
+		variant === 'clients' && 'c-team-members-item__variant--clients',
+		'splide__slide',
+	]
+		.filter( Boolean )
+		.join( ' ' );
+
+	const blockProps = useBlockProps.save( { className: classes } );
 	return (
 		<>
 			<article { ...blockProps }>
 				<a>
 					<div className={ `${ BLOCKNAME }__inner` }>
 						<div className={ `${ BLOCKNAME }__container` }>
+							<div className={ `${ BLOCKNAME }__media` }>
+								{ mediaId && mediaUrl ? (
+									<picture>
+										<img
+											className={ `wp-image-${ mediaId }` }
+											src={ mediaUrl }
+											alt={ mediaAlt }
+										/>
+									</picture>
+								) : null }
+								{ variant !== 'clients' && (
+									<span
+										className={ `${ BLOCKNAME }__overlay` }
+									></span>
+								) }
+							</div>
 							<header className={ `${ BLOCKNAME }__header` }>
 								<RichText.Content
 									tagName="h3"
 									className={ `${ BLOCKNAME }__heading` }
 									value={ name }
 								/>
-								{variant !== 'clients' && (
+								{ variant !== 'clients' && (
 									<RichText.Content
 										tagName="p"
 										className={ `${ BLOCKNAME }__role` }
 										value={ role }
 									/>
-								)}
+								) }
 							</header>
-						</div>
-						<div className={ `${ BLOCKNAME }__media` }>
-							{ mediaId && mediaUrl ? (
-								<picture>
-									<img
-										className={ `wp-image-${ mediaId }` }
-										src={ mediaUrl }
-										alt={ mediaAlt }
-									/>
-								</picture>
-							) : null }
-							<span
-								className={ `${ BLOCKNAME }__overlay` }
-							></span>
 						</div>
 					</div>
 				</a>

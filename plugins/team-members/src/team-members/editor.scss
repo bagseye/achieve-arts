@@ -4,3 +4,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+.c-team-members {
+  .c-team-members__items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

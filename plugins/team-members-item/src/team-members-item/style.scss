@@ -37,18 +37,35 @@
 		z-index: 2;
 	}
 
+	&.c-team-members-item__variant--clients .c-team-members-item__container {
+		justify-content: center;
+		align-items: center;
+	}
+
 	&__header {
 		padding: 1.875rem;
+		position: relative;
+		z-index: 1;
 
 		@include abstracts.respond-to('laptop') { 
 			padding: 1.375rem;
 		}
 	}
 
+	&.c-team-members-item__variant--clients .c-team-members-item__header {
+		padding: 0;
+	}
+
 	.c-team-members-item__heading {
 		font-size: var(--font-team-members-item-heading);
 		font-weight: 800;
 		color: #fff;
+	}
+
+	&.c-team-members-item__variant--clients .c-team-members-item__heading {
+		font-size: 1rem;
+		font-weight: 400;
+		font-family: var(--font-body);
 	}
 
 	.c-team-members-item__role {
@@ -73,6 +90,16 @@
 			height: 100%;
 			object-fit: cover;
 		}
+	}
+
+	&.c-team-members-item__variant--clients .c-team-members-item__media {
+		width: 200px;
+		height: 200px;
+		aspect-ratio: 1 / 1;
+		border-radius: 50%;
+		position: static;
+		overflow: hidden;
+		margin-bottom: 20px;
 	}
 
 	&__overlay {
