@@ -37,7 +37,7 @@
 			"default": "team-members"
 		}
 	},
-		"usesContext": ["bwp/team-members-variant"],
+	"usesContext": [ "bwp/team-members-variant" ],
 	"textdomain": "team-members-item",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

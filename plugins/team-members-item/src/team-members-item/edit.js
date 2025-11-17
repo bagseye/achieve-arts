@@ -41,9 +41,12 @@ const BLOCKNAME = 'c-team-members-item';
 const ALLOWED_MEDIA_TYPES = [ 'image' ];
 export default function Edit( { attributes, setAttributes, context } ) {
 	const { name, role, mediaId, mediaUrl, mediaAlt, variant } = attributes;
-	const classes = [ BLOCKNAME,
-		variant === 'clients' && 'c-team-members-item__variant--client'
-	 ].filter( Boolean ).join( ' ' );
+	const classes = [
+		BLOCKNAME,
+		variant === 'clients' && 'c-team-members-item__variant--clients',
+	]
+		.filter( Boolean )
+		.join( ' ' );
 
 	const blockProps = useBlockProps( { className: classes } );
 
@@ -55,12 +58,11 @@ export default function Edit( { attributes, setAttributes, context } ) {
 		} );
 	}
 
-	useEffect(() => {
-    if (context?.['bwp/team-members-variant']) {
-        setAttributes({ variant: context['bwp/team-members-variant'] });
-    }
-}, [context, setAttributes]);
-
+	useEffect( () => {
+		if ( context?.[ 'bwp/team-members-variant' ] ) {
+			setAttributes( { variant: context[ 'bwp/team-members-variant' ] } );
+		}
+	}, [ context, setAttributes ] );
 
 	return (
 		<>
@@ -104,6 +106,22 @@ export default function Edit( { attributes, setAttributes, context } ) {
 			<article { ...blockProps }>
 				<div className={ `${ BLOCKNAME }__inner` }>
 					<div className={ `${ BLOCKNAME }__container` }>
+						<div className={ `${ BLOCKNAME }__media` }>
+							{ mediaId && mediaUrl ? (
+								<picture>
+									<img
+										className={ `wp-image-${ mediaId }` }
+										src={ mediaUrl }
+										alt={ mediaAlt }
+									/>
+								</picture>
+							) : null }
+							{ variant !== 'clients' && (
+								<span
+									className={ `${ BLOCKNAME }__overlay` }
+								></span>
+							) }
+						</div>
 						<header className={ `${ BLOCKNAME }__header` }>
 							<RichText
 								tagName="h3"
@@ -120,36 +138,26 @@ export default function Edit( { attributes, setAttributes, context } ) {
 								}
 								placeholder={ __( 'Name...' ) }
 							/>
-							{context && context[ 'bwp/team-members-variant' ] !== 'clients' && (
-								<RichText
-									tagName="p"
-									className={ `${ BLOCKNAME }__role` }
-									value={ role }
-									allowedFormats={ [
-										'core/bold',
-										'core/italic',
-									] }
-									onChange={ ( val ) =>
-										setAttributes( {
-											role: val,
-										} )
-									}
-									placeholder={ __( 'Role...' ) }
-								/>
-							)}
+							{ context &&
+								context[ 'bwp/team-members-variant' ] !==
+									'clients' && (
+									<RichText
+										tagName="p"
+										className={ `${ BLOCKNAME }__role` }
+										value={ role }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( {
+												role: val,
+											} )
+										}
+										placeholder={ __( 'Role...' ) }
+									/>
+								) }
 						</header>
-					</div>
-					<div className={ `${ BLOCKNAME }__media` }>
-						{ mediaId && mediaUrl ? (
-							<picture>
-								<img
-									className={ `wp-image-${ mediaId }` }
-									src={ mediaUrl }
-									alt={ mediaAlt }
-								/>
-							</picture>
-						) : null }
-						<span className={ `${ BLOCKNAME }__overlay` }></span>
 					</div>
 				</div>
 			</article>
