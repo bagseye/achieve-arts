@@ -21,6 +21,16 @@
     overflow: hidden;
   }
 
+  &.c-team-members__bgcolour--dark {
+    background-color: #000;
+    color: #fff;
+  }
+
+  &.c-team-members__bgcolour--purple {
+    background-color: var(--brand-4);
+    color: #fff;
+  }
+
   &__container {
     &.splide__track {
       overflow: visible;

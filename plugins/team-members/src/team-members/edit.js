@@ -11,7 +11,12 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { PanelBody, ToggleControl, TextControl } from '@wordpress/components';
+import {
+	PanelBody,
+	ToggleControl,
+	TextControl,
+	SelectControl,
+} from '@wordpress/components';
 import {
 	useBlockProps,
 	useInnerBlocksProps,
@@ -48,12 +53,14 @@ export default function Edit( { attributes, setAttributes } ) {
 		pageurl,
 		ctabuttontext,
 		variant,
+		bgcolour,
 	} = attributes;
 
 	const classes = [
 		BLOCKNAME,
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
+		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
 	]
 		.filter( Boolean )
 		.join( ' ' );
@@ -100,6 +107,24 @@ export default function Edit( { attributes, setAttributes } ) {
 						} }
 					/>
 				</PanelBody>
+				{ variant === 'clients' && (
+					<PanelBody title={ __( 'Colour', 'team-members' ) }>
+						<SelectControl
+							label="Background Colour"
+							value={ bgcolour }
+							options={ [
+								{ label: 'None', value: 'none' },
+								{ label: 'Purple', value: 'purple' },
+								{ label: 'Dark', value: 'dark' },
+							] }
+							onChange={ ( val ) =>
+								setAttributes( { bgcolour: val } )
+							}
+							__next40pxDefaultSize
+							__nextHasNoMarginBottom
+						/>
+					</PanelBody>
+				) }
 			</InspectorControls>
 			<section { ...blockProps }>
 				<div className={ `${ BLOCKNAME }__content` }>
