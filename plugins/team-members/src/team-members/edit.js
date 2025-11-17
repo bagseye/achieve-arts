@@ -113,9 +113,18 @@ export default function Edit( { attributes, setAttributes } ) {
 							label="Background Colour"
 							value={ bgcolour }
 							options={ [
-								{ label: 'None', value: 'none' },
-								{ label: 'Purple', value: 'purple' },
-								{ label: 'Dark', value: 'dark' },
+								{
+									label: __( 'None', 'team-members' ),
+									value: 'none',
+								},
+								{
+									label: __( 'Purple', 'team-members' ),
+									value: 'purple',
+								},
+								{
+									label: __( 'Dark', 'team-members' ),
+									value: 'dark',
+								},
 							] }
 							onChange={ ( val ) =>
 								setAttributes( { bgcolour: val } )
