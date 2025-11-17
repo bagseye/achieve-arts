@@ -39,6 +39,10 @@
 		"variant": {
 			"type": "string",
 			"default": "team-members"
+		},
+		"bgcolour": {
+			"type": "string",
+			"default": "none"
 		}
 	},
 	"providesContext": {

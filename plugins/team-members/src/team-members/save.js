@@ -30,6 +30,7 @@ export default function save( { attributes } ) {
 		subheading,
 		pageurl,
 		ctabuttontext,
+		bgcolour,
 	} = attributes;
 
 	const classes = [
@@ -38,6 +39,7 @@ export default function save( { attributes } ) {
 		'no-padding__right',
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
+		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
 	]
 		.filter( Boolean )
 		.join( ' ' );
