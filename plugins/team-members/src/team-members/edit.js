@@ -176,9 +176,12 @@ export default function Edit( { attributes, setAttributes } ) {
 			</InspectorControls>
 			<section { ...blockProps }>
 				<div
-					className={ `${ BLOCKNAME }__content ${
-						toppadding && 'padding-block__top'
-					}` }
+					className={ [
+						`${ BLOCKNAME }__content`,
+						toppadding && 'padding-block__top',
+					]
+						.filter( Boolean )
+						.join( ' ' ) }
 				>
 					<header className={ `${ BLOCKNAME }__content--header` }>
 						<RichText
@@ -241,9 +244,12 @@ export default function Edit( { attributes, setAttributes } ) {
 					</div>
 				</div>
 				<div
-					className={ `${ BLOCKNAME }__inner ${
-						bottompadding && 'padding-block__bottom'
-					}` }
+					className={ [
+						`${ BLOCKNAME }__inner`,
+						bottompadding && 'padding-block__bottom',
+					]
+						.filter( Boolean )
+						.join( ' ' ) }
 				>
 					<div className={ `${ BLOCKNAME }__container` }>
 						<div { ...innerBlockProps } />
