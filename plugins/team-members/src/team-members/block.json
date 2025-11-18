@@ -28,6 +28,14 @@
 			"type": "boolean",
 			"default": false
 		},
+		"toppadding": {
+			"type": "boolean",
+			"default": false
+		},
+		"bottompadding": {
+			"type": "boolean",
+			"default": false
+		},
 		"pageurl": {
 			"type": "string",
 			"default": ""
