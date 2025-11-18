@@ -26,6 +26,8 @@ export default function save( { attributes } ) {
 	const {
 		topmargin,
 		bottommargin,
+		toppadding,
+		bottompadding,
 		heading,
 		subheading,
 		pageurl,
@@ -53,7 +55,11 @@ export default function save( { attributes } ) {
 	} );
 	return (
 		<section { ...blockProps }>
-			<div className={ `${ BLOCKNAME }__content` }>
+			<div
+				className={ `${ BLOCKNAME }__content ${
+					toppadding && 'padding-block__top'
+				}` }
+			>
 				<header className={ `${ BLOCKNAME }__content--header` }>
 					<RichText.Content
 						tagName="h2"
@@ -82,7 +88,11 @@ export default function save( { attributes } ) {
 					</div>
 				) }
 			</div>
-			<div className={ `${ BLOCKNAME }__inner` }>
+			<div
+				className={ `${ BLOCKNAME }__inner ${
+					bottompadding && 'padding-block__bottom'
+				}` }
+			>
 				<div className={ `${ BLOCKNAME }__container splide__track` }>
 					<div { ...innerBlockProps } />
 					<div

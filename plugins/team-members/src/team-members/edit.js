@@ -50,6 +50,8 @@ export default function Edit( { attributes, setAttributes } ) {
 		subheading,
 		topmargin,
 		bottommargin,
+		toppadding,
+		bottompadding,
 		pageurl,
 		ctabuttontext,
 		variant,
@@ -93,6 +95,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							setAttributes( { topmargin: val } );
 						} }
 					/>
+
 					<ToggleControl
 						__nextHasNoMarginBottom
 						label={ __( 'Margin Bottom', 'team-members' ) }
@@ -107,6 +110,42 @@ export default function Edit( { attributes, setAttributes } ) {
 						} }
 					/>
 				</PanelBody>
+				{ variant === 'clients' && bgcolour !== 'none' && (
+					<PanelBody
+						title={ __( 'Padding Controls', 'team-members' ) }
+					>
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label={ __( 'Padding Top', 'team-members' ) }
+							help={
+								toppadding
+									? __( 'Has top padding.', 'team-members' )
+									: __( 'No top padding.', 'team-members' )
+							}
+							checked={ toppadding }
+							onChange={ ( val ) => {
+								setAttributes( { toppadding: val } );
+							} }
+						/>
+
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label={ __( 'Padding Bottom', 'team-members' ) }
+							help={
+								bottompadding
+									? __(
+											'Has bottom padding.',
+											'team-members'
+									  )
+									: __( 'No bottom padding.', 'team-members' )
+							}
+							checked={ bottompadding }
+							onChange={ ( val ) => {
+								setAttributes( { bottompadding: val } );
+							} }
+						/>
+					</PanelBody>
+				) }
 				{ variant === 'clients' && (
 					<PanelBody title={ __( 'Colour', 'team-members' ) }>
 						<SelectControl
@@ -136,7 +175,11 @@ export default function Edit( { attributes, setAttributes } ) {
 				) }
 			</InspectorControls>
 			<section { ...blockProps }>
-				<div className={ `${ BLOCKNAME }__content` }>
+				<div
+					className={ `${ BLOCKNAME }__content ${
+						toppadding && 'padding-block__top'
+					}` }
+				>
 					<header className={ `${ BLOCKNAME }__content--header` }>
 						<RichText
 							tagName="h2"
@@ -197,7 +240,11 @@ export default function Edit( { attributes, setAttributes } ) {
 						) }
 					</div>
 				</div>
-				<div className={ `${ BLOCKNAME }__inner` }>
+				<div
+					className={ `${ BLOCKNAME }__inner ${
+						bottompadding && 'padding-block__bottom'
+					}` }
+				>
 					<div className={ `${ BLOCKNAME }__container` }>
 						<div { ...innerBlockProps } />
 					</div>
