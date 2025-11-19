@@ -211,7 +211,7 @@ export default function Edit({ attributes, setAttributes }) {
 								</header>
 								<div { ...innerBlockProps } />
 							</div>
-{mediaId && mediaUrl && (
+{mediaId && mediaUrl ? (
 								<div
 									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 								>
@@ -223,7 +223,7 @@ export default function Edit({ attributes, setAttributes }) {
 										/>
 									</picture>
 								</div>
-							)}
+							) : null}
 						</div>
 					</div>
 						<span className={ `${ BLOCKNAME }__gradient` }></span>
