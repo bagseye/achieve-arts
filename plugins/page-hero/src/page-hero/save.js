@@ -21,76 +21,81 @@ import {
  */
 const BLOCKNAME = 'c-page-hero';
 
-export default function save({ attributes }) {
-			const {
-			heading,
-			tab,
-			mediaId,
-			mediaUrl,
-			mediaAlt,
-			topmargin,
-			bottommargin,
-			altlayout,
-		} = attributes;
+export default function save( { attributes } ) {
+	const {
+		heading,
+		tab,
+		mediaId,
+		mediaUrl,
+		mediaAlt,
+		topmargin,
+		bottommargin,
+		altlayout,
+		includegradient,
+		bgcolour,
+	} = attributes;
 
-				const classes = [
-					BLOCKNAME,
-					topmargin && 'margin-block__top',
-					bottommargin && 'margin-block__bottom',
-					altlayout ? `${ BLOCKNAME }__alt-layout` : '',
-				]
-					.filter( Boolean )
-					.join( ' ' );
-			
-				const blockProps = useBlockProps.save( { className: classes } );
-			
-				const innerBlockProps = useInnerBlocksProps.save(
-					{ className: `${ BLOCKNAME }__content-area` }
-				);
+	const classes = [
+		BLOCKNAME,
+		topmargin && 'margin-block__top',
+		bottommargin && 'margin-block__bottom',
+		altlayout ? `${ BLOCKNAME }__alt-layout` : '',
+		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
+	]
+		.filter( Boolean )
+		.join( ' ' );
+
+	const blockProps = useBlockProps.save( { className: classes } );
+
+	const innerBlockProps = useInnerBlocksProps.save( {
+		className: `${ BLOCKNAME }__content-area`,
+	} );
 	return (
-			<section { ...blockProps }>
-				<div className={ `${ BLOCKNAME }__inner padding-block__top padding-block__bottom` }>
-					<div className={ `${ BLOCKNAME }__container` }>
-						<div className={ `${ BLOCKNAME }__items` }>
-							<div
-								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--content` }
-							>
-								<header className={ `${ BLOCKNAME }__header` }>
-									<span
-										className={ `${ BLOCKNAME }__tab h-tab` }
-									>
-										<RichText.Content
-											tagName="p"
-											value={ tab }
-										/>
-									</span>
+		<section { ...blockProps }>
+			<div
+				className={ `${ BLOCKNAME }__inner padding-block__top padding-block__bottom` }
+			>
+				<div className={ `${ BLOCKNAME }__container` }>
+					<div className={ `${ BLOCKNAME }__items` }>
+						<div
+							className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--content` }
+						>
+							<header className={ `${ BLOCKNAME }__header` }>
+								<span className={ `${ BLOCKNAME }__tab h-tab` }>
 									<RichText.Content
-										tagName="h2"
-										className={ `${ BLOCKNAME }__heading` }
-										value={ heading }
+										tagName="p"
+										value={ tab }
 									/>
-								</header>
-								<div { ...innerBlockProps } />
-							</div>
-{mediaId && mediaUrl ? (
-								<div
-									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
-								>
-									<picture>
-										<img
-										loading='eager'
-										decoding='async'
-											className={ `wp-image-${ mediaId }` }
-											src={ mediaUrl }
-											alt={ mediaAlt }
-										/>
-									</picture>
-								</div>
-							): null}
+								</span>
+								<RichText.Content
+									tagName="h2"
+									className={ `${ BLOCKNAME }__heading` }
+									value={ heading }
+								/>
+							</header>
+							<div { ...innerBlockProps } />
 						</div>
+						{ mediaId && mediaUrl ? (
+							<div
+								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
+							>
+								<picture>
+									<img
+										loading="eager"
+										decoding="async"
+										className={ `wp-image-${ mediaId }` }
+										src={ mediaUrl }
+										alt={ mediaAlt }
+									/>
+								</picture>
+							</div>
+						) : null }
 					</div>
-						<span className={ `${ BLOCKNAME }__gradient` }></span>
 				</div>
-			</section>
+				{ includegradient && (
+					<span className={ `${ BLOCKNAME }__gradient` }></span>
+				) }
+			</div>
+		</section>
 	);
 }

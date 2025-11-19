@@ -11,7 +11,7 @@
 	"supports": {
 		"html": false
 	},
-		"attributes": {
+	"attributes": {
 		"heading": {
 			"type": "string",
 			"default": ""
@@ -43,6 +43,14 @@
 		"altlayout": {
 			"type": "boolean",
 			"default": false
+		},
+		"includegradient": {
+			"type": "boolean",
+			"default": false
+		},
+		"bgcolour": {
+			"type": "string",
+			"default": "dark"
 		}
 	},
 	"textdomain": "page-hero",

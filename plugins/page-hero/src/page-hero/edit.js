@@ -15,6 +15,7 @@ import {
 	Button,
 	PanelBody,
 	ToggleControl,
+	SelectControl,
 } from '@wordpress/components';
 import {
 	useBlockProps,
@@ -24,6 +25,7 @@ import {
 	MediaUploadCheck,
 	InspectorControls,
 } from '@wordpress/block-editor';
+import { useEffect } from '@wordpress/element';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -44,90 +46,97 @@ import './editor.scss';
 const ALLOWED_MEDIA_TYPES = [ 'image' ];
 const BLOCKNAME = 'c-page-hero';
 
-export default function Edit({ attributes, setAttributes }) {
-		const {
-			heading,
-			tab,
-			mediaId,
-			mediaUrl,
-			mediaAlt,
-			topmargin,
-			bottommargin,
-			altlayout,
-		} = attributes;
-		
-		const classes = [
-			BLOCKNAME,
-			topmargin && 'margin-block__top',
-			bottommargin && 'margin-block__bottom',
-			altlayout ? `${ BLOCKNAME }__alt-layout` : '',
-		]
-			.filter( Boolean )
-			.join( ' ' );
-	
-		const blockProps = useBlockProps( { className: classes } );
-	
-		const innerBlockProps = useInnerBlocksProps(
-			{ className: `${ BLOCKNAME }__content-area` },
-			{
-				allowedBlocks: [
-					'core/paragraph',
-					'core/heading',
-					'core/list',
-					'core/buttons',
-				],
-			}
-		);
-	
-		function handleRemoveMedia() {
-			setAttributes( {
-				mediaId: 0,
-				mediaUrl: '',
-				mediaAlt: '',
-			} );
+export default function Edit( { attributes, setAttributes } ) {
+	const {
+		heading,
+		tab,
+		mediaId,
+		mediaUrl,
+		mediaAlt,
+		topmargin,
+		bottommargin,
+		altlayout,
+		includegradient,
+		bgcolour,
+	} = attributes;
+
+	const classes = [
+		BLOCKNAME,
+		topmargin && 'margin-block__top',
+		bottommargin && 'margin-block__bottom',
+		altlayout ? `${ BLOCKNAME }__alt-layout` : '',
+		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
+	]
+		.filter( Boolean )
+		.join( ' ' );
+
+	const blockProps = useBlockProps( { className: classes } );
+
+	const innerBlockProps = useInnerBlocksProps(
+		{ className: `${ BLOCKNAME }__content-area` },
+		{
+			allowedBlocks: [
+				'core/paragraph',
+				'core/heading',
+				'core/list',
+				'core/buttons',
+			],
 		}
-	
+	);
+
+	function handleRemoveMedia() {
+		setAttributes( {
+			mediaId: 0,
+			mediaUrl: '',
+			mediaAlt: '',
+		} );
+	}
+
+	useEffect( () => {
+		if ( bgcolour !== 'dark' && includegradient ) {
+			setAttributes( { includegradient: false } );
+		}
+	}, [ bgcolour, includegradient ] );
+
 	return (
-				<>
+		<>
 			<InspectorControls>
-					<PanelBody title={ __( 'Media', 'media-text' ) }>
-						<MediaUploadCheck>
-							<MediaUpload
-								onSelect={ ( media ) => {
-									setAttributes( {
-										mediaId: media.id,
-										mediaUrl:
-											media?.sizes?.cta?.source_url ??
-											media.url,
-										mediaAlt: media.alt,
-									} );
-								} }
-								allowedTypes={ ALLOWED_MEDIA_TYPES }
-								value={ mediaId }
-								render={ ( { open } ) => (
-									<Button
-										onClick={ open }
-										variant="primary"
-										style={ { marginRight: '6px' } }
-									>
-										{ mediaId && mediaUrl
-											? 'Edit '
-											: 'Add ' }
-										Media
-									</Button>
-								) }
-							/>
-							{ mediaId ? (
+				<PanelBody title={ __( 'Media', 'page-hero' ) }>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={ ( media ) => {
+								setAttributes( {
+									mediaId: media.id,
+									mediaUrl:
+										media?.sizes?.cta?.source_url ??
+										media.url,
+									mediaAlt: media.alt,
+								} );
+							} }
+							allowedTypes={ ALLOWED_MEDIA_TYPES }
+							value={ mediaId }
+							render={ ( { open } ) => (
 								<Button
-									onClick={ handleRemoveMedia }
-									variant="secondary"
+									onClick={ open }
+									variant="primary"
+									style={ { marginRight: '6px' } }
 								>
-									Remove Image
+									{ mediaId && mediaUrl ? 'Edit ' : 'Add ' }
+									Media
 								</Button>
-							) : null }
-						</MediaUploadCheck>
-					</PanelBody>
-				<PanelBody title={ __( 'Margin Controls', 'media-text' ) }>
+							) }
+						/>
+						{ mediaId ? (
+							<Button
+								onClick={ handleRemoveMedia }
+								variant="secondary"
+							>
+								Remove Image
+							</Button>
+						) : null }
+					</MediaUploadCheck>
+				</PanelBody>
+				<PanelBody title={ __( 'Margin Controls', 'page-hero' ) }>
 					<ToggleControl
 						__nextHasNoMarginBottom
 						label="Margin Top"
@@ -153,7 +162,7 @@ export default function Edit({ attributes, setAttributes }) {
 						} }
 					/>
 				</PanelBody>
-				<PanelBody title={ __( 'Layout', 'media-text' ) }>
+				<PanelBody title={ __( 'Layout', 'page-hero' ) }>
 					<ToggleControl
 						__nextHasNoMarginBottom
 						label="Use alternate layout?"
@@ -167,10 +176,42 @@ export default function Edit({ attributes, setAttributes }) {
 							setAttributes( { altlayout: val } );
 						} }
 					/>
+					{ bgcolour == 'dark' && (
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label="Background gradient?"
+							help={
+								includegradient
+									? 'Has background gradient.'
+									: 'No background gradient.'
+							}
+							checked={ includegradient }
+							onChange={ ( val ) => {
+								setAttributes( { includegradient: val } );
+							} }
+						/>
+					) }
+				</PanelBody>
+				<PanelBody title={ __( 'Colour', 'page-hero' ) }>
+					<SelectControl
+						label="Media Text Background Colour"
+						value={ bgcolour }
+						options={ [
+							{ label: 'Purple', value: 'purple' },
+							{ label: 'Dark', value: 'dark' },
+						] }
+						onChange={ ( val ) =>
+							setAttributes( { bgcolour: val } )
+						}
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+					/>
 				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>
-				<div className={ `${ BLOCKNAME }__inner padding-block__top padding-block__bottom` }>
+				<div
+					className={ `${ BLOCKNAME }__inner padding-block__top padding-block__bottom` }
+				>
 					<div className={ `${ BLOCKNAME }__container` }>
 						<div className={ `${ BLOCKNAME }__items` }>
 							<div
@@ -211,7 +252,7 @@ export default function Edit({ attributes, setAttributes }) {
 								</header>
 								<div { ...innerBlockProps } />
 							</div>
-{mediaId && mediaUrl ? (
+							{ mediaId && mediaUrl ? (
 								<div
 									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 								>
@@ -223,10 +264,12 @@ export default function Edit({ attributes, setAttributes }) {
 										/>
 									</picture>
 								</div>
-							) : null}
+							) : null }
 						</div>
 					</div>
+					{ includegradient && (
 						<span className={ `${ BLOCKNAME }__gradient` }></span>
+					) }
 				</div>
 			</section>
 		</>
