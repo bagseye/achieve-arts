@@ -72,7 +72,7 @@ export default function save({ attributes }) {
 								</header>
 								<div { ...innerBlockProps } />
 							</div>
-{mediaId && mediaUrl && (
+{mediaId && mediaUrl ? (
 								<div
 									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 								>
@@ -86,7 +86,7 @@ export default function save({ attributes }) {
 										/>
 									</picture>
 								</div>
-							)}
+							): null}
 						</div>
 					</div>
 						<span className={ `${ BLOCKNAME }__gradient` }></span>
