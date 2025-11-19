@@ -14,6 +14,14 @@
 	border-bottom-left-radius: 60px;
 	border-bottom-right-radius: 60px;
 
+	&.c-page-hero__bgcolour--purple {
+		background-color: var(--brand-4);
+	}
+
+	&.c-page-hero__bgcolour--dark {
+		background-color: #000;
+	}
+
   &__inner {
 
     color: #fff;
@@ -63,6 +71,10 @@
 
   .c-page-hero__tab {
     background-color: var(--brand-1);
+  }
+
+	&.c-page-hero__bgcolour--purple .c-page-hero__tab {
+    background-color: var(--brand-6);
   }
 
   &__item {
