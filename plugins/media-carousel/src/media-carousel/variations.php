@@ -10,7 +10,7 @@ return array(
         'attributes' => array(
             'variant' => 'media-carousel-default',
         ),
-        'isActive'   => array('media-carousel-default')
+        'isActive'   => array('variant')
     ),
     array(
         'name'       => 'media-carousel-video-preview',
@@ -20,6 +20,6 @@ return array(
         'attributes' => array(
             'variant' => 'media-carousel-video-preview',
         ),
-        'isActive'   => array('media-carousel-video-preview')
+        'isActive'   => array('variant')
     ),
 );

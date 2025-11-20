@@ -190,7 +190,6 @@ export default function Edit( { attributes, setAttributes, context } ) {
 							<MediaUploadCheck>
 								<MediaUpload
 									onSelect={ ( media ) => {
-										console.log( media );
 										setAttributes( {
 											posterid: media?.id,
 											postersrc:
