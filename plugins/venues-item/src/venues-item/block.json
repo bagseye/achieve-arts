@@ -1,40 +1,28 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "bwp/venues",
+	"name": "bwp/venues-item",
 	"version": "0.1.0",
-	"title": "Venues",
-	"category": "theme",
+	"title": "Venues Item",
+	"category": "widgets",
 	"icon": "sticky",
-	"description": "Displays a list of venue blocks.",
+	"description": "A single Venue Item that is only available in the Venues block.",
 	"example": {},
 	"supports": {
 		"html": false
 	},
 	"attributes": {
-		"heading": {
+		"name": {
 			"type": "string",
 			"default": ""
 		},
-		"subheading": {
+		"details": {
 			"type": "string",
 			"default": ""
 		},
-		"topmargin": {
-			"type": "boolean",
-			"default": false
-		},
-		"bottommargin": {
-			"type": "boolean",
-			"default": false
-		},
-		"toppadding": {
-			"type": "boolean",
-			"default": false
-		},
-		"bottompadding": {
-			"type": "boolean",
-			"default": false
+		"linkurl": {
+			"type": "string",
+			"default": ""
 		},
 		"pageurl": {
 			"type": "string",
@@ -42,10 +30,11 @@
 		},
 		"ctabuttontext": {
 			"type": "string",
-			"default": ""
+			"default": "View Classes"
 		}
 	},
-	"textdomain": "venues",
+	"parent": [ "bwp/venues" ],
+	"textdomain": "venues-item",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

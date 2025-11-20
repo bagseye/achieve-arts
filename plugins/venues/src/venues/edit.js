@@ -107,40 +107,35 @@ export default function Edit( { attributes, setAttributes } ) {
 						} }
 					/>
 				</PanelBody>
-					<PanelBody
-						title={ __( 'Padding Controls', 'venues' ) }
-					>
-						<ToggleControl
-							__nextHasNoMarginBottom
-							label={ __( 'Padding Top', 'venues' ) }
-							help={
-								toppadding
-									? __( 'Has top padding.', 'venues' )
-									: __( 'No top padding.', 'venues' )
-							}
-							checked={ toppadding }
-							onChange={ ( val ) => {
-								setAttributes( { toppadding: val } );
-							} }
-						/>
+				<PanelBody title={ __( 'Padding Controls', 'venues' ) }>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label={ __( 'Padding Top', 'venues' ) }
+						help={
+							toppadding
+								? __( 'Has top padding.', 'venues' )
+								: __( 'No top padding.', 'venues' )
+						}
+						checked={ toppadding }
+						onChange={ ( val ) => {
+							setAttributes( { toppadding: val } );
+						} }
+					/>
 
-						<ToggleControl
-							__nextHasNoMarginBottom
-							label={ __( 'Padding Bottom', 'venues' ) }
-							help={
-								bottompadding
-									? __(
-											'Has bottom padding.',
-											'venues'
-									  )
-									: __( 'No bottom padding.', 'venues' )
-							}
-							checked={ bottompadding }
-							onChange={ ( val ) => {
-								setAttributes( { bottompadding: val } );
-							} }
-						/>
-					</PanelBody>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label={ __( 'Padding Bottom', 'venues' ) }
+						help={
+							bottompadding
+								? __( 'Has bottom padding.', 'venues' )
+								: __( 'No bottom padding.', 'venues' )
+						}
+						checked={ bottompadding }
+						onChange={ ( val ) => {
+							setAttributes( { bottompadding: val } );
+						} }
+					/>
+				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>
 				<div
@@ -189,10 +184,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								<TextControl
 									__nextHasNoMarginBottom
 									__next40pxDefaultSize
-									label={ __(
-										'CTA Button Text',
-										'venues'
-									) }
+									label={ __( 'CTA Button Text', 'venues' ) }
 									value={ ctabuttontext }
 									onChange={ ( value ) =>
 										setAttributes( {
