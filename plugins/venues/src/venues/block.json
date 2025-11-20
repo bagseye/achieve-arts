@@ -43,10 +43,6 @@
 		"ctabuttontext": {
 			"type": "string",
 			"default": ""
-		},
-		"bgcolour": {
-			"type": "string",
-			"default": "none"
 		}
 	},
 	"textdomain": "venues",
