@@ -25,7 +25,6 @@ export default function save( { attributes } ) {
 	return (
 		<>
 			<article { ...blockProps }>
-				<a>
 					<div className={ `${ BLOCKNAME }__inner` }>
 						<div className={ `${ BLOCKNAME }__container` }>
 							<header className={ `${ BLOCKNAME }__header` }>
@@ -57,7 +56,6 @@ export default function save( { attributes } ) {
 							) }
 						</div>
 					</div>
-				</a>
 			</article>
 		</>
 	);
