@@ -18,8 +18,19 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 const BLOCKNAME = 'c-media-carousel-item';
 
 export default function save( { attributes } ) {
-	const { heading, tab, videoid, videosrc, postersrc, posteralt } =
-		attributes;
+	const {
+		heading,
+		tab,
+		mediaselect,
+		imageid,
+		imagesrc,
+		imagealt,
+		videoid,
+		videosrc,
+		postersrc,
+		posteralt,
+		variant,
+	} = attributes;
 
 	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
 
@@ -28,40 +39,66 @@ export default function save( { attributes } ) {
 	} );
 
 	return (
-		<article { ...blockProps } data-splide-html-video={ videosrc }>
-			<div className={ `${ BLOCKNAME }__media splide__slide__container` }>
-				{ postersrc && (
-					<img
-						loading="lazy"
-						decode="async"
-						class="c-video-carousel__item--poster"
-						src={ postersrc }
-						alt={ posteralt || '' }
-					/>
-				) }
-			</div>
-			<div className={ `${ BLOCKNAME }__inner` }>
-				<div className={ `${ BLOCKNAME }__container` }>
-					<div className={ `${ BLOCKNAME }__content` }>
-						<header className={ `${ BLOCKNAME }__header` }>
-							<span className={ `${ BLOCKNAME }__tab h-tab` }>
-								<RichText.Content tagName="p" value={ tab } />
-							</span>
-							<RichText.Content
-								tagName="h3"
-								className={ `${ BLOCKNAME }__heading` }
-								value={ heading }
-							/>
-						</header>
-						<div className={ 'wp-block-button is-style-white' }>
-							<button className={ 'wp-block-button__link' }>
-								Play Video
-							</button>
-						</div>
-					</div>
-					<div className={ `${ BLOCKNAME }__overlay` }></div>
+		<article
+			{ ...blockProps }
+			data-splide-html-video={
+				mediaselect !== 'image' && videosrc ? videosrc : ''
+			}
+		>
+			{ mediaselect !== 'image' && videosrc && (
+				<div
+					className={ `${ BLOCKNAME }__media splide__slide__container` }
+				>
+					{ postersrc && (
+						<img
+							loading="lazy"
+							decode="async"
+							class="c-video-carousel__item--poster"
+							src={ postersrc }
+							alt={ posteralt || '' }
+						/>
+					) }
 				</div>
-			</div>
+			) }
+			{ mediaselect === 'image' && imagesrc && imageid && (
+				<div className={ `${ BLOCKNAME }__media` }>
+					<picture>
+						<img
+							loading="lazy"
+							decode="async"
+							src={ imagesrc }
+							alt={ imagealt || '' }
+						/>
+					</picture>
+				</div>
+			) }
+			{ variant === 'media-carousel-video-preview' && (
+				<div className={ `${ BLOCKNAME }__inner` }>
+					<div className={ `${ BLOCKNAME }__container` }>
+						<div className={ `${ BLOCKNAME }__content` }>
+							<header className={ `${ BLOCKNAME }__header` }>
+								<span className={ `${ BLOCKNAME }__tab h-tab` }>
+									<RichText.Content
+										tagName="p"
+										value={ tab }
+									/>
+								</span>
+								<RichText.Content
+									tagName="h3"
+									className={ `${ BLOCKNAME }__heading` }
+									value={ heading }
+								/>
+							</header>
+							<div className={ 'wp-block-button is-style-white' }>
+								<button className={ 'wp-block-button__link' }>
+									Play Video
+								</button>
+							</div>
+						</div>
+						<div className={ `${ BLOCKNAME }__overlay` }></div>
+					</div>
+				</div>
+			) }
 		</article>
 	);
 }

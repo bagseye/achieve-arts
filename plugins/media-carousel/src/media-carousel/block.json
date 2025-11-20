@@ -19,11 +19,19 @@
 		"bottommargin": {
 			"type": "boolean",
 			"default": false
+		},
+		"variant": {
+			"type": "string",
+			"default": "media-carousel-default"
 		}
+	},
+	"providesContext": {
+		"bwp/media-carousel-variant": "variant"
 	},
 	"textdomain": "media-carousel",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+	"viewScript": "file:./view.js",
+	"variations": "file:./variations.php"
 }
