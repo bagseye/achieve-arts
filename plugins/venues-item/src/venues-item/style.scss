@@ -5,8 +5,41 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-bwp-venues-item {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
-}
+.c-venues-item {
+	border-bottom: 1px solid #938AB9;
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+	&__inner {
+		padding-top: var(--spacing-para);
+		padding-bottom: var(--spacing-para);
+	}
+
+	&:first-child &__inner {
+		padding-top: 0;
+	}
+
+	&:last-child &__inner {
+		padding-bottom: 0;
+	}
+
+	&__container {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	.c-venues-item__heading {
+		font-size: 60px;
+	}
+
+	.c-venues-item__details {
+		font-size: 20px;
+	}
+
+	&__cta {
+		flex-shrink: 0;
+	}
+ }
