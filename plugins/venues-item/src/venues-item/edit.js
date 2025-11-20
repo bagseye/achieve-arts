@@ -102,7 +102,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										}
 									/>
 									<div
-										className={ `wp-block-button is-style-deep-purple` }
+										className={ `wp-block-button is-style-white` }
 									>
 										<span
 											className={ `wp-block-button__link` }
