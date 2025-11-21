@@ -49,6 +49,8 @@ export default function Edit( { attributes, setAttributes, context } ) {
 		variant,
 	} = attributes;
 
+	const contextVariant = context?.[ 'bwp/media-carousel-variant' ];
+
 	const classes = [
 		BLOCKNAME,
 		variant ? `c-media-carousel-item-spotlight__variant--${ variant }` : '',
@@ -59,12 +61,12 @@ export default function Edit( { attributes, setAttributes, context } ) {
 	const blockProps = useBlockProps( { className: classes } );
 
 	useEffect( () => {
-		if ( context?.[ 'bwp/media-carousel-variant' ] ) {
+		if ( contextVariant && contextVariant !== variant ) {
 			setAttributes( {
-				variant: context[ 'bwp/media-carousel-variant' ],
+				variant: contextVariant,
 			} );
 		}
-	}, [ context, setAttributes ] );
+	}, [ contextVariant, setAttributes ] );
 
 	return (
 		<>
