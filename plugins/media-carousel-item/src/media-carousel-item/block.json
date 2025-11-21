@@ -20,6 +20,18 @@
 			"type": "string",
 			"default": ""
 		},
+		"imageid": {
+			"type": "number",
+			"default": null
+		},
+		"imagesrc": {
+			"type": "string",
+			"default": ""
+		},
+		"imagealt": {
+			"type": "string",
+			"default": ""
+		},
 		"videoid": {
 			"type": "number",
 			"default": null
@@ -39,9 +51,14 @@
 		"posteralt": {
 			"type": "string",
 			"default": ""
+		},
+		"mediaselect": {
+			"type": "string",
+			"default": "image"
 		}
 	},
 	"parent": [ "bwp/media-carousel" ],
+	"usesContext": [ "bwp/media-carousel-variant" ],
 	"textdomain": "media-carousel-item",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
