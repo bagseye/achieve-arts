@@ -114,7 +114,12 @@ export default function save( { attributes } ) {
 							>
 								{ imageid && imagesrc && (
 									<picture>
-										<img src={ imagesrc } />
+										<img
+											loading="lazy"
+											decoding="async"
+											src={ imagesrc }
+											alt={ imagealt }
+										/>
 									</picture>
 								) }
 							</div>

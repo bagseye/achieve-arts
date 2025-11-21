@@ -141,7 +141,10 @@ export default function Edit( { attributes, setAttributes, context } ) {
 												tab: val,
 											} )
 										}
-										placeholder={ __( 'Tab...' ) }
+										placeholder={ __(
+											'Tab...',
+											'media-carousel-item-spotlight'
+										) }
 									/>
 								</span>
 								<header className={ `${ BLOCKNAME }__header` }>
@@ -159,7 +162,8 @@ export default function Edit( { attributes, setAttributes, context } ) {
 											} )
 										}
 										placeholder={ __(
-											'Client Heading...'
+											'Client Heading...',
+											'media-carousel-item-spotlight'
 										) }
 									/>
 									<RichText
@@ -175,7 +179,10 @@ export default function Edit( { attributes, setAttributes, context } ) {
 												clientName: val,
 											} )
 										}
-										placeholder={ __( 'Client Name...' ) }
+										placeholder={ __(
+											'Client Name...',
+											'media-carousel-item-spotlight'
+										) }
 									/>
 								</header>
 
@@ -194,7 +201,8 @@ export default function Edit( { attributes, setAttributes, context } ) {
 											} )
 										}
 										placeholder={ __(
-											'Project Heading...'
+											'Project Heading...',
+											'media-carousel-item-spotlight'
 										) }
 									/>
 									<RichText
@@ -210,7 +218,10 @@ export default function Edit( { attributes, setAttributes, context } ) {
 												projectName: val,
 											} )
 										}
-										placeholder={ __( 'Project...' ) }
+										placeholder={ __(
+											'Project...',
+											'media-carousel-item-spotlight'
+										) }
 									/>
 								</header>
 
@@ -229,7 +240,8 @@ export default function Edit( { attributes, setAttributes, context } ) {
 											} )
 										}
 										placeholder={ __(
-											'Project Type Heading...'
+											'Project Type Heading...',
+											'media-carousel-item-spotlight'
 										) }
 									/>
 									<RichText
@@ -245,7 +257,10 @@ export default function Edit( { attributes, setAttributes, context } ) {
 												projectTypeName: val,
 											} )
 										}
-										placeholder={ __( 'Project Type...' ) }
+										placeholder={ __(
+											'Project Type...',
+											'media-carousel-item-spotlight'
+										) }
 									/>
 								</header>
 							</div>
