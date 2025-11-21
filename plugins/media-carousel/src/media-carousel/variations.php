@@ -22,4 +22,14 @@ return array(
         ),
         'isActive'   => array('variant')
     ),
+    array(
+        'name'       => 'media-carousel-spotlight',
+        'title'      => 'Spotlight',
+        'description' => 'Displays spotlight content in a carousel format.',
+        'icon'       => 'visibility',
+        'attributes' => array(
+            'variant' => 'media-carousel-spotlight',
+        ),
+        'isActive'   => array('variant')
+    ),
 );
