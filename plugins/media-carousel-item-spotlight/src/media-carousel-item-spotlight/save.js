@@ -1,4 +1,11 @@
 /**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
@@ -7,11 +14,18 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 /**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * Those files can contain any CSS code that gets applied to the editor.
  *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+import './editor.scss';
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
  * @return {Element} Element to render.
  */
@@ -19,58 +33,101 @@ const BLOCKNAME = 'c-media-carousel-item-spotlight';
 
 export default function save( { attributes } ) {
 	const {
-		heading,
 		tab,
 		imageid,
 		imagesrc,
 		imagealt,
+		variant,
+		clientHeading,
+		clientName,
+		projectHeading,
+		projectName,
+		projectTypeHeading,
+		projectTypeName,
 	} = attributes;
 
-	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
+	const classes = [
+		BLOCKNAME,
+		variant ? `c-media-carousel-item-spotlight__variant--${ variant }` : '',
+	]
+		.filter( Boolean )
+		.join( ' ' );
 
-	const blockProps = useBlockProps.save( {
-		className: `${ classes } splide__slide`,
-	} );
+	const blockProps = useBlockProps.save( { className: classes } );
 
 	return (
-		<article { ...blockProps }>
-			{ imagesrc && imageid && (
-				<div className={ `${ BLOCKNAME }__media` }>
-					<picture>
-						<img
-							loading="lazy"
-							decode="async"
-							src={ imagesrc }
-							alt={ imagealt || '' }
-						/>
-					</picture>
-				</div>
-			) }
+		<>
+			<article { ...blockProps }>
 				<div className={ `${ BLOCKNAME }__inner` }>
 					<div className={ `${ BLOCKNAME }__container` }>
-						<div className={ `${ BLOCKNAME }__content` }>
-							<header className={ `${ BLOCKNAME }__header` }>
+						<div className={ `${ BLOCKNAME }__items` }>
+							<div
+								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__content` }
+							>
 								<span className={ `${ BLOCKNAME }__tab h-tab` }>
 									<RichText.Content
 										tagName="p"
 										value={ tab }
 									/>
 								</span>
-								<RichText.Content
-									tagName="h3"
-									className={ `${ BLOCKNAME }__heading` }
-									value={ heading }
-								/>
-							</header>
-							<div className={ 'wp-block-button is-style-white' }>
-								<button className={ 'wp-block-button__link' }>
-									Play Video
-								</button>
+								<header className={ `${ BLOCKNAME }__header` }>
+									<RichText.Content
+										tagName="h3"
+										className={ `${ BLOCKNAME }__heading` }
+										value={ clientHeading }
+									/>
+									<RichText.Content
+										tagName="h3"
+										className={ `${ BLOCKNAME }__subheading` }
+										value={ clientName }
+									/>
+								</header>
+
+								<header className={ `${ BLOCKNAME }__header` }>
+									<RichText.Content
+										tagName="h3"
+										className={ `${ BLOCKNAME }__heading` }
+										value={ projectHeading }
+									/>
+									<RichText.Content
+										tagName="h3"
+										className={ `${ BLOCKNAME }__subheading` }
+										value={ projectName }
+									/>
+								</header>
+
+								<header className={ `${ BLOCKNAME }__header` }>
+									<RichText.Content
+										tagName="h3"
+										className={ `${ BLOCKNAME }__heading` }
+										value={ projectTypeHeading }
+									/>
+									<RichText.Content
+										tagName="h3"
+										className={ `${ BLOCKNAME }__subheading` }
+										value={ projectTypeName }
+									/>
+								</header>
+							</div>
+							<div
+								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__media` }
+							>
+								{ imageid && imagesrc && (
+									<picture>
+										<img
+											loading="lazy"
+											decoding="async"
+											src={ imagesrc }
+											alt={ imagealt }
+										/>
+									</picture>
+								) }
 							</div>
 						</div>
-						<div className={ `${ BLOCKNAME }__overlay` }></div>
 					</div>
+					<span className={ `${ BLOCKNAME }__gradient` }></span>
 				</div>
-		</article>
+			</article>
+		</>
 	);
 }

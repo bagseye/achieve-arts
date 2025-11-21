@@ -14,6 +14,30 @@
 	"attributes": {
 		"tab": {
 			"type": "string",
+			"default": "Client Spotlight"
+		},
+		"clientHeading": {
+			"type": "string",
+			"default": "Achieve Arts Agency Client"
+		},
+		"clientName": {
+			"type": "string",
+			"default": ""
+		},
+		"projectHeading": {
+			"type": "string",
+			"default": "Project Name"
+		},
+		"projectName": {
+			"type": "string",
+			"default": ""
+		},
+		"projectTypeHeading": {
+			"type": "string",
+			"default": "Project Type"
+		},
+		"projectTypeName": {
+			"type": "string",
 			"default": ""
 		},
 		"imageid": {
