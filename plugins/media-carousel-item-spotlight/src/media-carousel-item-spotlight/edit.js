@@ -41,7 +41,6 @@ const BLOCKNAME = 'c-media-carousel-item-spotlight';
 
 export default function Edit( { attributes, setAttributes, context } ) {
 	const {
-		heading,
 		tab,
 		imageid,
 		imagesrc,
@@ -246,9 +245,7 @@ export default function Edit( { attributes, setAttributes, context } ) {
 												projectTypeName: val,
 											} )
 										}
-										placeholder={ __(
-											'Project Type...'
-										) }
+										placeholder={ __( 'Project Type...' ) }
 									/>
 								</header>
 							</div>
@@ -263,7 +260,7 @@ export default function Edit( { attributes, setAttributes, context } ) {
 							</div>
 						</div>
 					</div>
-											<span className={ `${ BLOCKNAME }__gradient` }></span>
+					<span className={ `${ BLOCKNAME }__gradient` }></span>
 				</div>
 			</article>
 		</>

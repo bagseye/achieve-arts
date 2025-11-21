@@ -11,10 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {
-	useBlockProps,
-	RichText,
-} from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -34,9 +31,8 @@ import './editor.scss';
  */
 const BLOCKNAME = 'c-media-carousel-item-spotlight';
 
-export default function Edit( { attributes } ) {
+export default function save( { attributes } ) {
 	const {
-		heading,
 		tab,
 		imageid,
 		imagesrc,
@@ -124,8 +120,7 @@ export default function Edit( { attributes } ) {
 							</div>
 						</div>
 					</div>
-											<span className={ `${ BLOCKNAME }__gradient` }></span>
-
+					<span className={ `${ BLOCKNAME }__gradient` }></span>
 				</div>
 			</article>
 		</>
