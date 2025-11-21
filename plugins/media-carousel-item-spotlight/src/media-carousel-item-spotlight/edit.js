@@ -47,6 +47,12 @@ export default function Edit( { attributes, setAttributes, context } ) {
 		imagesrc,
 		imagealt,
 		variant,
+		clientHeading,
+		clientName,
+		projectHeading,
+		projectName,
+		projectTypeHeading,
+		projectTypeName,
 	} = attributes;
 
 	const contextVariant = context?.[ 'bwp/media-carousel-variant' ];
@@ -71,100 +77,194 @@ export default function Edit( { attributes, setAttributes, context } ) {
 	return (
 		<>
 			<InspectorControls>
-					<PanelBody
-						title={ __( 'Image Selection', 'media-carousel-item-spotlight' ) }
-					>
-						<MediaUploadCheck>
-							<MediaUpload
-								onSelect={ ( media ) => {
+				<PanelBody
+					title={ __(
+						'Image Selection',
+						'media-carousel-item-spotlight'
+					) }
+				>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={ ( media ) => {
+								setAttributes( {
+									imageid: media?.id,
+									imagesrc: media?.url,
+									imagealt: media?.alt,
+								} );
+							} }
+							allowedTypes={ [ 'image' ] }
+							value={ imageid }
+							render={ ( { open } ) => (
+								<Button
+									onClick={ open }
+									variant="primary"
+									style={ { marginRight: '6px' } }
+								>
+									{ imageid && imagesrc ? 'Edit ' : 'Add ' }
+									Media
+								</Button>
+							) }
+						/>
+						{ imageid ? (
+							<Button
+								onClick={ () => {
 									setAttributes( {
-										imageid: media?.id,
-										imagesrc: media?.url,
-										imagealt: media?.alt,
+										imageid: null,
+										imagesrc: '',
+										imagealt: '',
 									} );
 								} }
-								allowedTypes={ [ 'image' ] }
-								value={ imageid }
-								render={ ( { open } ) => (
-									<Button
-										onClick={ open }
-										variant="primary"
-										style={ { marginRight: '6px' } }
-									>
-										{ imageid && imagesrc
-											? 'Edit '
-											: 'Add ' }
-										Media
-									</Button>
-								) }
-							/>
-							{ imageid ? (
-								<Button
-									onClick={ () => {
-										setAttributes( {
-											imageid: null,
-											imagesrc: '',
-											imagealt: '',
-										} );
-									} }
-									variant="secondary"
-								>
-									Remove Image
-								</Button>
-							) : null }
-						</MediaUploadCheck>
-					</PanelBody>
+								variant="secondary"
+							>
+								Remove Image
+							</Button>
+						) : null }
+					</MediaUploadCheck>
+				</PanelBody>
 			</InspectorControls>
 			<article { ...blockProps }>
-				<div className={ `${ BLOCKNAME }__media` }>
-					{ imageid && imagesrc && (
-						<picture>
-							<img src={ imagesrc } />
-						</picture>
-					) }
-				</div>
-					<div className={ `${ BLOCKNAME }__inner` }>
-						<div className={ `${ BLOCKNAME }__container` }>
-							<div className={ `${ BLOCKNAME }__content` }>
-								<header className={ `${ BLOCKNAME }__header` }>
-									<span
-										className={ `${ BLOCKNAME }__tab h-tab` }
-									>
-										<RichText
-											tagName="p"
-											value={ tab }
-											allowedFormats={ [
-												'core/bold',
-												'core/italic',
-											] }
-											onChange={ ( val ) =>
-												setAttributes( {
-													tab: val,
-												} )
-											}
-											placeholder={ __( 'Tab...' ) }
-										/>
-									</span>
+				<div className={ `${ BLOCKNAME }__inner` }>
+					<div className={ `${ BLOCKNAME }__container` }>
+						<div className={ `${ BLOCKNAME }__items` }>
+							<div
+								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__content` }
+							>
+								<span className={ `${ BLOCKNAME }__tab h-tab` }>
 									<RichText
-										tagName="h3"
-										className={ `${ BLOCKNAME }__heading` }
-										value={ heading }
+										tagName="p"
+										value={ tab }
 										allowedFormats={ [
 											'core/bold',
 											'core/italic',
 										] }
 										onChange={ ( val ) =>
 											setAttributes( {
-												heading: val,
+												tab: val,
 											} )
 										}
-										placeholder={ __( 'Heading...' ) }
+										placeholder={ __( 'Tab...' ) }
+									/>
+								</span>
+								<header className={ `${ BLOCKNAME }__header` }>
+									<RichText
+										tagName="h3"
+										className={ `${ BLOCKNAME }__heading` }
+										value={ clientHeading }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( {
+												clientHeading: val,
+											} )
+										}
+										placeholder={ __(
+											'Client Heading...'
+										) }
+									/>
+									<RichText
+										tagName="h3"
+										className={ `${ BLOCKNAME }__subheading` }
+										value={ clientName }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( {
+												clientName: val,
+											} )
+										}
+										placeholder={ __( 'Client Name...' ) }
+									/>
+								</header>
+
+								<header className={ `${ BLOCKNAME }__header` }>
+									<RichText
+										tagName="h3"
+										className={ `${ BLOCKNAME }__heading` }
+										value={ projectHeading }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( {
+												projectHeading: val,
+											} )
+										}
+										placeholder={ __(
+											'Project Heading...'
+										) }
+									/>
+									<RichText
+										tagName="h3"
+										className={ `${ BLOCKNAME }__subheading` }
+										value={ projectName }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( {
+												projectName: val,
+											} )
+										}
+										placeholder={ __( 'Project...' ) }
+									/>
+								</header>
+
+								<header className={ `${ BLOCKNAME }__header` }>
+									<RichText
+										tagName="h3"
+										className={ `${ BLOCKNAME }__heading` }
+										value={ projectTypeHeading }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( {
+												projectTypeHeading: val,
+											} )
+										}
+										placeholder={ __(
+											'Project Type Heading...'
+										) }
+									/>
+									<RichText
+										tagName="h3"
+										className={ `${ BLOCKNAME }__subheading` }
+										value={ projectTypeName }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
+										onChange={ ( val ) =>
+											setAttributes( {
+												projectTypeName: val,
+											} )
+										}
+										placeholder={ __(
+											'Project Type...'
+										) }
 									/>
 								</header>
 							</div>
-							<div className={ `${ BLOCKNAME }__overlay` }></div>
+							<div
+								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__media` }
+							>
+								{ imageid && imagesrc && (
+									<picture>
+										<img src={ imagesrc } />
+									</picture>
+								) }
+							</div>
 						</div>
 					</div>
+											<span className={ `${ BLOCKNAME }__gradient` }></span>
+				</div>
 			</article>
 		</>
 	);
