@@ -80,8 +80,14 @@ export default function Edit( { attributes, setAttributes, context } ) {
 						label={ __( 'Image or Video?', 'media-carousel-item' ) }
 						value={ mediaselect }
 						options={ [
-							{ label: 'Image', value: 'image' },
-							{ label: 'Video', value: 'video' },
+							{
+								label: __( 'Image', 'media-carousel-item' ),
+								value: 'image',
+							},
+							{
+								label: __( 'Video', 'media-carousel-item' ),
+								value: 'video',
+							},
 						] }
 						onChange={ ( val ) =>
 							setAttributes( { mediaselect: val } )
