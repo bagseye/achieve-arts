@@ -182,7 +182,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								setAttributes( { altlayout: val } );
 							} }
 						/>
-						{ bgcolour == 'dark' && (
+						{ bgcolour === 'dark' && (
 							<ToggleControl
 								__nextHasNoMarginBottom
 								label="Background gradient?"
