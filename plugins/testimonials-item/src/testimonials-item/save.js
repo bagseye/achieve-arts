@@ -56,6 +56,11 @@ export default function save( { attributes } ) {
 									</picture>
 								</div>
 							) }
+						{ variant === 'testimonials-scrolling-card' && (
+							<span className={ ` ${ BLOCKNAME }__tab h-tab` }>
+								<p>Testimonial</p>
+							</span>
+						) }
 						<div { ...innerBlockProps } />
 						{ name && (
 							<div className={ `${ BLOCKNAME }__name` }>
