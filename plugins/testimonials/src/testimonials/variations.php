@@ -15,7 +15,7 @@ return array(
     array(
         'name'       => 'testimonials-scrolling-card',
         'title'      => 'Scrolling Card Testimonials',
-        'description' => 'Displays multiple testimonial items in a scrolling card formart.',
+        'description' => 'Displays multiple testimonial items in a scrolling card format.',
         'icon'       => 'awards',
         'attributes' => array(
             'variant' => 'testimonials-scrolling-card',
