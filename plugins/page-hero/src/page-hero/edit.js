@@ -58,6 +58,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		altlayout,
 		includegradient,
 		bgcolour,
+		variant,
 	} = attributes;
 
 	const classes = [
@@ -101,41 +102,45 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Media', 'page-hero' ) }>
-					<MediaUploadCheck>
-						<MediaUpload
-							onSelect={ ( media ) => {
-								setAttributes( {
-									mediaId: media.id,
-									mediaUrl:
-										media?.sizes?.cta?.source_url ??
-										media.url,
-									mediaAlt: media.alt,
-								} );
-							} }
-							allowedTypes={ ALLOWED_MEDIA_TYPES }
-							value={ mediaId }
-							render={ ( { open } ) => (
+				{ variant === 'page-hero-default' && (
+					<PanelBody title={ __( 'Media', 'page-hero' ) }>
+						<MediaUploadCheck>
+							<MediaUpload
+								onSelect={ ( media ) => {
+									setAttributes( {
+										mediaId: media.id,
+										mediaUrl:
+											media?.sizes?.cta?.source_url ??
+											media.url,
+										mediaAlt: media.alt,
+									} );
+								} }
+								allowedTypes={ ALLOWED_MEDIA_TYPES }
+								value={ mediaId }
+								render={ ( { open } ) => (
+									<Button
+										onClick={ open }
+										variant="primary"
+										style={ { marginRight: '6px' } }
+									>
+										{ mediaId && mediaUrl
+											? 'Edit '
+											: 'Add ' }
+										Media
+									</Button>
+								) }
+							/>
+							{ mediaId ? (
 								<Button
-									onClick={ open }
-									variant="primary"
-									style={ { marginRight: '6px' } }
+									onClick={ handleRemoveMedia }
+									variant="secondary"
 								>
-									{ mediaId && mediaUrl ? 'Edit ' : 'Add ' }
-									Media
+									Remove Image
 								</Button>
-							) }
-						/>
-						{ mediaId ? (
-							<Button
-								onClick={ handleRemoveMedia }
-								variant="secondary"
-							>
-								Remove Image
-							</Button>
-						) : null }
-					</MediaUploadCheck>
-				</PanelBody>
+							) : null }
+						</MediaUploadCheck>
+					</PanelBody>
+				) }
 				<PanelBody title={ __( 'Margin Controls', 'page-hero' ) }>
 					<ToggleControl
 						__nextHasNoMarginBottom
@@ -162,36 +167,38 @@ export default function Edit( { attributes, setAttributes } ) {
 						} }
 					/>
 				</PanelBody>
-				<PanelBody title={ __( 'Layout', 'page-hero' ) }>
-					<ToggleControl
-						__nextHasNoMarginBottom
-						label="Use alternate layout?"
-						help={
-							altlayout
-								? 'Has alternate layout.'
-								: 'Default layout.'
-						}
-						checked={ altlayout }
-						onChange={ ( val ) => {
-							setAttributes( { altlayout: val } );
-						} }
-					/>
-					{ bgcolour == 'dark' && (
+				{ variant === 'page-hero-default' && (
+					<PanelBody title={ __( 'Layout', 'page-hero' ) }>
 						<ToggleControl
 							__nextHasNoMarginBottom
-							label="Background gradient?"
+							label="Use alternate layout?"
 							help={
-								includegradient
-									? 'Has background gradient.'
-									: 'No background gradient.'
+								altlayout
+									? 'Has alternate layout.'
+									: 'Default layout.'
 							}
-							checked={ includegradient }
+							checked={ altlayout }
 							onChange={ ( val ) => {
-								setAttributes( { includegradient: val } );
+								setAttributes( { altlayout: val } );
 							} }
 						/>
-					) }
-				</PanelBody>
+						{ bgcolour === 'dark' && (
+							<ToggleControl
+								__nextHasNoMarginBottom
+								label="Background gradient?"
+								help={
+									includegradient
+										? 'Has background gradient.'
+										: 'No background gradient.'
+								}
+								checked={ includegradient }
+								onChange={ ( val ) => {
+									setAttributes( { includegradient: val } );
+								} }
+							/>
+						) }
+					</PanelBody>
+				) }
 				<PanelBody title={ __( 'Colour', 'page-hero' ) }>
 					<SelectControl
 						label="Media Text Background Colour"
@@ -252,7 +259,9 @@ export default function Edit( { attributes, setAttributes } ) {
 								</header>
 								<div { ...innerBlockProps } />
 							</div>
-							{ mediaId && mediaUrl ? (
+							{ variant === 'page-hero-default' &&
+							mediaId &&
+							mediaUrl ? (
 								<div
 									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 								>
@@ -267,7 +276,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							) : null }
 						</div>
 					</div>
-					{ includegradient && (
+					{ variant === 'page-hero-default' && includegradient && (
 						<span className={ `${ BLOCKNAME }__gradient` }></span>
 					) }
 				</div>
