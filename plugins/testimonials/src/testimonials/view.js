@@ -32,12 +32,13 @@ function cacheDOM() {
 }
 
 function bindTestimonialsCarousels( $testimonialscarousel ) {
+	let splide;
 	if (
 		$testimonialscarousel.classList.contains(
 			'js-carousel__testimonials--scrolling-card'
 		)
 	) {
-		var splide = new Splide( $testimonialscarousel, {
+		splide = new Splide( $testimonialscarousel, {
 			gap: 12,
 			type: 'loop',
 			autoWidth: true,
@@ -55,7 +56,7 @@ function bindTestimonialsCarousels( $testimonialscarousel ) {
 		} );
 		splide.mount( { AutoScroll } );
 	} else {
-		var splide = new Splide( $testimonialscarousel, {
+		splide = new Splide( $testimonialscarousel, {
 			perPage: 1,
 			type: 'fade',
 			rewind: true,
