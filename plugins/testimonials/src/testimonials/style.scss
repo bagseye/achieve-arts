@@ -25,6 +25,11 @@
     z-index: 1;
   }
 
+  &__content--header {
+    text-align: center;
+    color: #fff;
+  }
+
   &__gradient {
     display: block;
     position: absolute;

@@ -12,6 +12,10 @@
 		"html": false
 	},
 	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
 		"topmargin": {
 			"type": "boolean",
 			"default": false
