@@ -63,7 +63,7 @@ export default function Edit( { attributes, setAttributes, context } ) {
 				variant: contextVariant,
 			} );
 		}
-	}, [ contextVariant, setAttributes ] );
+	}, [ contextVariant, setAttributes, variant ] );
 
 	return (
 		<>

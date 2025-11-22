@@ -22,8 +22,8 @@ import {
 
 const BLOCKNAME = 'c-testimonials-item';
 export default function save( { attributes } ) {
-	const { name, role, mediaid, mediasrc, mediaalt } = attributes;
-	const classes = [ BLOCKNAME, 'splide__slide' ]
+	const { name, role, mediaid, mediasrc, mediaalt, variant } = attributes;
+	const classes = [ BLOCKNAME, 'splide__slide', variant ? `${BLOCKNAME}__variant--${ variant }` : '' ]
 		.filter( Boolean )
 		.join( ' ' );
 
