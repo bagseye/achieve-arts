@@ -59,18 +59,17 @@ export default function save( { attributes } ) {
 				/>
 				<defs>
 					<linearGradient
-						id="paint0_linear_209_4863"
 						x1="18.8482"
 						y1="8.10577"
 						x2="-1.53502"
 						y2="8.45883"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#927049" />
-						<stop offset="0.2" stop-color="#D2BC74" />
-						<stop offset="0.5" stop-color="#F9E7B7" />
-						<stop offset="0.8" stop-color="#AE8D4D" />
-						<stop offset="1" stop-color="#927049" />
+						<stop stopColor="#927049" />
+						<stop offset="0.2" stopColor="#D2BC74" />
+						<stop offset="0.5" stopColor="#F9E7B7" />
+						<stop offset="0.8" stopColor="#AE8D4D" />
+						<stop offset="1" stopColor="#927049" />
 					</linearGradient>
 				</defs>
 			</svg>

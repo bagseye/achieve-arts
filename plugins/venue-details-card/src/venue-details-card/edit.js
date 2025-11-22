@@ -232,7 +232,7 @@ export default function Edit( { attributes, setAttributes } ) {
 											__next40pxDefaultSize
 											label={ __(
 												'CTA Button Text',
-												'team-members'
+												'venue-details-card'
 											) }
 											value={ ctabuttontext }
 											onChange={ ( value ) =>
