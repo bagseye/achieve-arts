@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -18,7 +18,7 @@ import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 const BLOCKNAME = 'c-testimonials';
 export default function save( { attributes } ) {
-	const { topmargin, bottommargin, testimonialscount } = attributes;
+	const { heading,topmargin, bottommargin, testimonialscount, variant } = attributes;
 
 	const classes = [
 		BLOCKNAME,
@@ -39,6 +39,15 @@ export default function save( { attributes } ) {
 		<section { ...blockProps }>
 			<div className={ `${ BLOCKNAME }__inner` }>
 				<div className={ `${ BLOCKNAME }__container ${testimonialscount > 1 ? 'splide__track' : ''}` }>
+					{variant === 'testimonials-scrolling-card' && heading && (
+											<header className={ `${ BLOCKNAME }__content--header` }>
+												<RichText.Content
+													tagName="h2"
+													className={ `${ BLOCKNAME }__heading` }
+													value={ heading }
+												/>
+											</header>
+					)}
 					<div { ...innerBlockProps } />
 				</div>
 				{testimonialscount > 1 && (

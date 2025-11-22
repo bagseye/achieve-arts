@@ -17,6 +17,7 @@ import {
 	useBlockProps,
 	useInnerBlocksProps,
 	InspectorControls,
+		RichText,
 } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
@@ -40,7 +41,7 @@ import './editor.scss';
 const BLOCKNAME = 'c-testimonials';
 
 export default function Edit( { attributes, setAttributes, clientId } ) {
-	const { topmargin, bottommargin, testimonialscount } = attributes;
+	const { heading, topmargin, bottommargin, testimonialscount, variant } = attributes;
 
 	const classes = [
 		BLOCKNAME,
@@ -102,6 +103,22 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 			<section { ...blockProps }>
 				<div className={ `${ BLOCKNAME }__inner` }>
 					<div className={ `${ BLOCKNAME }__container` }>
+						{variant === 'testimonials-scrolling-card' && (
+					<header className={ `${ BLOCKNAME }__content--header` }>
+						<RichText
+							tagName="h2"
+							className={ `${ BLOCKNAME }__heading` }
+							value={ heading }
+							allowedFormats={ [ 'core/bold', 'core/italic' ] }
+							onChange={ ( val ) =>
+								setAttributes( {
+									heading: val,
+								} )
+							}
+							placeholder={ __( 'Heading...', 'testimonials' ) }
+						/>
+					</header>
+						)}
 						<div { ...innerBlockProps } />
 					</div>
 					<span className={ `${ BLOCKNAME }__gradient` }></span>
