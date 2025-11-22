@@ -5,8 +5,119 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-bwp-venue-details-card {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+@use '../../../../themes/achieve-arts/src/scss/abstracts';
+
+.c-venue-details-card {
+
+  &__inner {
+    background-color: #000;
+    color: #fff;
+    border-radius: 60px;
+    max-width: 1340px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    .c-venue-details-card__bgcolour--purple & {
+      background-color: var(--brand-4);
+    }
+
+    .c-venue-details-card__bgcolour--deep-purple & {
+      background-color: var(--brand-1);
+    }
+
+    .c-venue-details-card__bgcolour--dark & {
+      background-color: #000;
+    }
+
+    .c-venue-details-card__bgcolour--grey & {
+      background-color: var(--brand-7);
+    }
+  }
+
+  &__container {
+    padding: 100px 60px;
+    position: relative;
+    z-index: 1;
+
+    @include abstracts.respond-to('tablet') { 
+      padding: 50px 30px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+
+    @include abstracts.respond-to('tablet') { 
+      flex-direction: column;
+    }
+
+    .c-venue-details-card__alt-layout & {
+      flex-direction: row-reverse;
+
+      @include abstracts.respond-to('tablet') { 
+        flex-direction: column;
+      }
+    }
+  }
+
+  .c-venue-details-card__tab {
+    background-color: var(--brand-1);
+  }
+
+  &.c-venue-details-card__bgcolour--purple .c-venue-details-card__tab,
+  &.c-venue-details-card__bgcolour--deep-purple .c-venue-details-card__tab {
+    background-color: var(--brand-6);
+  }
+
+	&__heading {
+		font-size: 26px;
+		font-weight: 600;
+		font-family: var(--font-body);
+	}
+
+	&__intro {
+		font-size: 20px;
+		font-weight: 400;
+	}
+
+  &__item {
+
+    &--content {
+	
+    }
+
+		&--details {
+			width: 100%;
+			border-top: 1px solid #fff;
+			display: flex;
+			gap: 0 50px;
+			padding-top: 25px;
+			padding-bottom: 25px;
+		}
+  }
+
+	&__detail {
+		flex: 1;
+		>p {
+			font-size: 20px;
+			font-weight: 600;
+		}
+
+		.c-venue-details-card__detail--content {
+			font-weight: 400;
+		}
+	}
+
+	.c-venue-details-card__content-area {
+		>* {
+			font-size: 20px;
+			margin-bottom: var(--spacing-para);
+			
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
 }
