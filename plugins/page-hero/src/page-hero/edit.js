@@ -66,6 +66,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 		altlayout ? `${ BLOCKNAME }__alt-layout` : '',
+		variant ? `${ BLOCKNAME }__variant--${ variant }` : '',
 		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
 	]
 		.filter( Boolean )
@@ -201,10 +202,11 @@ export default function Edit( { attributes, setAttributes } ) {
 				) }
 				<PanelBody title={ __( 'Colour', 'page-hero' ) }>
 					<SelectControl
-						label="Media Text Background Colour"
+						label="Page Hero Background Colour"
 						value={ bgcolour }
 						options={ [
 							{ label: 'Purple', value: 'purple' },
+							{ label: 'Deep Purple', value: 'deep-purple' },
 							{ label: 'Dark', value: 'dark' },
 						] }
 						onChange={ ( val ) =>

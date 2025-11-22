@@ -18,6 +18,10 @@
 		background-color: var(--brand-4);
 	}
 
+  &.c-page-hero__bgcolour--deep-purple {
+    background-color: var(--brand-1);
+  }
+
 	&.c-page-hero__bgcolour--dark {
 		background-color: #000;
 	}
@@ -52,6 +56,17 @@
     }
   }
 
+
+  &.c-page-hero__variant--page-hero-basic &__container {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @include abstracts.respond-to('tablet') { 
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
   &__items {
     display: flex;
     align-items: center;
@@ -73,7 +88,8 @@
     background-color: var(--brand-1);
   }
 
-	&.c-page-hero__bgcolour--purple .c-page-hero__tab {
+	&.c-page-hero__bgcolour--purple .c-page-hero__tab,
+  &.c-page-hero__bgcolour--deep-purple .c-page-hero__tab {
     background-color: var(--brand-6);
   }
 
@@ -129,6 +145,15 @@
         object-fit: cover;
       }
     }
+  }
+
+  &.c-page-hero__variant--page-hero-basic &__item {
+    width: 100%;
+    text-align: center;
+  }
+
+  &.c-page-hero__variant--page-hero-basic &__item--content {
+    padding-right: 0;
   }
 
 	.c-page-hero__content-area {

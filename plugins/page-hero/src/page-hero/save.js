@@ -40,9 +40,8 @@ export default function save( { attributes } ) {
 		BLOCKNAME,
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
-		variant === 'page-hero-default' && altlayout
-			? `${ BLOCKNAME }__alt-layout`
-			: '',
+		variant ? `${ BLOCKNAME }__variant--${ variant }` : '',
+		altlayout ? `${ BLOCKNAME }__alt-layout` : '',
 		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
 	]
 		.filter( Boolean )
