@@ -34,7 +34,8 @@
 		}
 	},
 	"providesContext": {
-		"bwp/testimonialscount": "testimonialscount"
+		"bwp/testimonialscount": "testimonialscount",
+		"bwp/testimonialsvariant": "variant"
 	},
 	"textdomain": "testimonials",
 	"editorScript": "file:./index.js",
