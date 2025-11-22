@@ -18,7 +18,7 @@ import {
 	RichText,
 	MediaUpload,
 	MediaUploadCheck,
-	useInnerBlocksProps
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import { useEffect } from '@wordpress/element';
 
@@ -40,11 +40,15 @@ import './editor.scss';
  */
 const BLOCKNAME = 'c-testimonials-item';
 export default function Edit( { attributes, setAttributes, context } ) {
-	const { name, role, mediaid, mediasrc, mediaalt, 		variant,
- } = attributes;
-	const classes = [ BLOCKNAME, 	variant ? `${BLOCKNAME}__variant--${ variant }` : '', ].filter( Boolean ).join( ' ' );
+	const { name, role, mediaid, mediasrc, mediaalt, variant } = attributes;
+	const classes = [
+		BLOCKNAME,
+		variant ? `${ BLOCKNAME }__variant--${ variant }` : '',
+	]
+		.filter( Boolean )
+		.join( ' ' );
 
-		const contextVariant = context?.[ 'bwp/testimonialsvariant' ];
+	const contextVariant = context?.[ 'bwp/testimonialsvariant' ];
 
 	const blockProps = useBlockProps( { className: classes } );
 
@@ -68,108 +72,120 @@ export default function Edit( { attributes, setAttributes, context } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Image', 'testimonials-item' ) }>
-					<MediaUploadCheck>
-						<MediaUpload
-							onSelect={ ( media ) => {
-								setAttributes( {
-									mediaid: media?.id,
-									mediasrc:
-										media?.sizes?.medium?.source_url ??
-										media.url,
-									mediaalt: media?.alt,
-								} );
-							} }
-							allowedTypes={ [ 'image' ] }
-							value={ mediaid }
-							render={ ( { open } ) => (
-								<Button
-									onClick={ open }
-									variant="primary"
-									style={ { marginRight: '6px' } }
-								>
-									{ mediaid ? 'Edit ' : 'Add ' }
-									Image
-								</Button>
-							) }
-						/>
-
-						{ mediaid ? (
-							<Button
-								onClick={ () => {
+				{ variant === 'testimonials-default' && (
+					<PanelBody title={ __( 'Image', 'testimonials-item' ) }>
+						<MediaUploadCheck>
+							<MediaUpload
+								onSelect={ ( media ) => {
 									setAttributes( {
-										mediaid: null,
-										mediasrc: '',
-										mediaalt: '',
+										mediaid: media?.id,
+										mediasrc:
+											media?.sizes?.medium?.source_url ??
+											media.url,
+										mediaalt: media?.alt,
 									} );
 								} }
-								variant="secondary"
+								allowedTypes={ [ 'image' ] }
+								value={ mediaid }
+								render={ ( { open } ) => (
+									<Button
+										onClick={ open }
+										variant="primary"
+										style={ { marginRight: '6px' } }
+									>
+										{ mediaid ? 'Edit ' : 'Add ' }
+										Image
+									</Button>
+								) }
+							/>
+
+							{ mediaid ? (
+								<Button
+									onClick={ () => {
+										setAttributes( {
+											mediaid: null,
+											mediasrc: '',
+											mediaalt: '',
+										} );
+									} }
+									variant="secondary"
+								>
+									Remove Image
+								</Button>
+							) : null }
+						</MediaUploadCheck>
+						{ mediaid && mediasrc && (
+							<div
+								className={ `${ BLOCKNAME }__image-preview` }
+								style={ { marginTop: '10px' } }
 							>
-								Remove Image
-							</Button>
-						) : null }
-					</MediaUploadCheck>
-					{ mediaid && mediasrc && (
-						<div
-							className={ `${ BLOCKNAME }__image-preview` }
-							style={ { marginTop: '10px' } }
-						>
-							<img src={ mediasrc } />
-						</div>
-					) }
-				</PanelBody>
+								<img src={ mediasrc } />
+							</div>
+						) }
+					</PanelBody>
+				) }
 			</InspectorControls>
 			<article { ...blockProps }>
 				<div className={ `${ BLOCKNAME }__inner` }>
 					<div className={ `${ BLOCKNAME }__container` }>
 						<div className={ `${ BLOCKNAME }__items` }>
-							{ mediaid && mediasrc && (
-								<div className={ `${ BLOCKNAME }__media` }>
-									<picture>
-										<img
-											loading="lazy"
-											decoding="async"
-											src={ mediasrc }
-											alt={ mediaalt || '' }
-											className={ `wp-image-${ mediaid }` }
-										/>
-									</picture>
-								</div>
-							) }
+							{ variant === 'testimonials-default' &&
+								mediaid &&
+								mediasrc && (
+									<div className={ `${ BLOCKNAME }__media` }>
+										<picture>
+											<img
+												loading="lazy"
+												decoding="async"
+												src={ mediasrc }
+												alt={ mediaalt || '' }
+												className={ `wp-image-${ mediaid }` }
+											/>
+										</picture>
+									</div>
+								) }
 							<div { ...innerBlockProps } />
-								<div className={ `${ BLOCKNAME }__name` }>
-									<RichText
-										tagName="p"
-										value={ name }
-										allowedFormats={ [
-											'core/bold',
-											'core/italic',
-										] }
-										onChange={ ( val ) =>
-											setAttributes( {
-												name: val,
-											} )
-										}
-										placeholder={ __( 'Name...', 'testimonials-item' ) }
-									/>
-								</div>
-								<div className={ `${ BLOCKNAME }__role` }>
-									<RichText
-										tagName="p"
-										value={ role }
-										allowedFormats={ [
-											'core/bold',
-											'core/italic',
-										] }
-										onChange={ ( val ) =>
-											setAttributes( {
-												role: val,
-											} )
-										}
-										placeholder={ __( 'Role...', 'testimonials-item' ) }
-									/>
-								</div>
-							<div className={ `${ BLOCKNAME }__link` }></div>
+							<div className={ `${ BLOCKNAME }__name` }>
+								<RichText
+									tagName="p"
+									value={ name }
+									allowedFormats={ [
+										'core/bold',
+										'core/italic',
+									] }
+									onChange={ ( val ) =>
+										setAttributes( {
+											name: val,
+										} )
+									}
+									placeholder={ __(
+										'Name...',
+										'testimonials-item'
+									) }
+								/>
+							</div>
+							<div className={ `${ BLOCKNAME }__role` }>
+								<RichText
+									tagName="p"
+									value={ role }
+									allowedFormats={ [
+										'core/bold',
+										'core/italic',
+									] }
+									onChange={ ( val ) =>
+										setAttributes( {
+											role: val,
+										} )
+									}
+									placeholder={ __(
+										'Role...',
+										'testimonials-item'
+									) }
+								/>
+							</div>
+							{ variant === 'testimonials-default' && (
+								<div className={ `${ BLOCKNAME }__link` }></div>
+							) }
 						</div>
 					</div>
 				</div>

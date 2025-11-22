@@ -23,7 +23,11 @@ import {
 const BLOCKNAME = 'c-testimonials-item';
 export default function save( { attributes } ) {
 	const { name, role, mediaid, mediasrc, mediaalt, variant } = attributes;
-	const classes = [ BLOCKNAME, 'splide__slide', variant ? `${BLOCKNAME}__variant--${ variant }` : '' ]
+	const classes = [
+		BLOCKNAME,
+		'splide__slide',
+		variant ? `${ BLOCKNAME }__variant--${ variant }` : '',
+	]
 		.filter( Boolean )
 		.join( ' ' );
 
@@ -37,19 +41,21 @@ export default function save( { attributes } ) {
 			<div className={ `${ BLOCKNAME }__inner` }>
 				<div className={ `${ BLOCKNAME }__container` }>
 					<div className={ `${ BLOCKNAME }__items` }>
-						{ mediaid && mediasrc && (
-							<div className={ `${ BLOCKNAME }__media` }>
-								<picture>
-									<img
-										loading="lazy"
-										decoding="async"
-										src={ mediasrc }
-										alt={ mediaalt || '' }
-										className={ `wp-image-${ mediaid }` }
-									/>
-								</picture>
-							</div>
-						) }
+						{ variant === 'testimonials-default' &&
+							mediaid &&
+							mediasrc && (
+								<div className={ `${ BLOCKNAME }__media` }>
+									<picture>
+										<img
+											loading="lazy"
+											decoding="async"
+											src={ mediasrc }
+											alt={ mediaalt || '' }
+											className={ `wp-image-${ mediaid }` }
+										/>
+									</picture>
+								</div>
+							) }
 						<div { ...innerBlockProps } />
 						{ name && (
 							<div className={ `${ BLOCKNAME }__name` }>
@@ -61,7 +67,9 @@ export default function save( { attributes } ) {
 								<RichText.Content tagName="p" value={ role } />
 							</div>
 						) }
-						<div className={ `${ BLOCKNAME }__link` }></div>
+						{ variant === 'testimonials-default' && (
+							<div className={ `${ BLOCKNAME }__link` }></div>
+						) }
 					</div>
 				</div>
 			</div>
