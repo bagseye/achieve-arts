@@ -39,7 +39,7 @@ export default function save( { attributes } ) {
 		<section { ...blockProps }>
 			<div className={ `${ BLOCKNAME }__inner` }>
 				<div className={ `${ BLOCKNAME }__container ${testimonialscount > 1 ? 'splide__track' : ''}` }>
-					{variant && variant === 'testimonials-scrolling-card' && (
+					{variant === 'testimonials-scrolling-card' && heading && (
 											<header className={ `${ BLOCKNAME }__content--header` }>
 												<RichText.Content
 													tagName="h2"

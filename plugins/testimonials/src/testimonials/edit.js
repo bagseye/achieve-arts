@@ -103,7 +103,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 			<section { ...blockProps }>
 				<div className={ `${ BLOCKNAME }__inner` }>
 					<div className={ `${ BLOCKNAME }__container` }>
-						{variant && variant === 'testimonials-scrolling-card' && (
+						{variant === 'testimonials-scrolling-card' && (
 					<header className={ `${ BLOCKNAME }__content--header` }>
 						<RichText
 							tagName="h2"
@@ -115,7 +115,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 									heading: val,
 								} )
 							}
-							placeholder={ __( 'Heading...' ) }
+							placeholder={ __( 'Heading...', 'testimonials' ) }
 						/>
 					</header>
 						)}
