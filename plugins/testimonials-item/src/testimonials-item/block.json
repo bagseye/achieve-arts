@@ -31,9 +31,13 @@
 		"mediaalt": {
 			"type": "string",
 			"default": ""
+		},
+		"variant": {
+			"type": "string",
+			"default": "testimonials-default"
 		}
 	},
-	"usesContext": ["bwp/testimonialscount"],
+	"usesContext": ["bwp/testimonialscount", "bwp/testimonialsvariant"],
 	"parent": [ "bwp/testimonials" ],
 	"textdomain": "testimonials-item",
 	"editorScript": "file:./index.js",

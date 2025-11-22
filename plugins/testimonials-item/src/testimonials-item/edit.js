@@ -20,6 +20,7 @@ import {
 	MediaUploadCheck,
 	useInnerBlocksProps
 } from '@wordpress/block-editor';
+import { useEffect } from '@wordpress/element';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -39,8 +40,11 @@ import './editor.scss';
  */
 const BLOCKNAME = 'c-testimonials-item';
 export default function Edit( { attributes, setAttributes, context } ) {
-	const { name, role, mediaid, mediasrc, mediaalt } = attributes;
-	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
+	const { name, role, mediaid, mediasrc, mediaalt, 		variant,
+ } = attributes;
+	const classes = [ BLOCKNAME, 	variant ? `${BLOCKNAME}__variant--${ variant }` : '', ].filter( Boolean ).join( ' ' );
+
+		const contextVariant = context?.[ 'bwp/testimonialsvariant' ];
 
 	const blockProps = useBlockProps( { className: classes } );
 
@@ -52,6 +56,14 @@ export default function Edit( { attributes, setAttributes, context } ) {
 			allowedBlocks: [ 'core/paragraph', 'core/list' ],
 		}
 	);
+
+	useEffect( () => {
+		if ( contextVariant && contextVariant !== variant ) {
+			setAttributes( {
+				variant: contextVariant,
+			} );
+		}
+	}, [ contextVariant, setAttributes, variant ] );
 
 	return (
 		<>
