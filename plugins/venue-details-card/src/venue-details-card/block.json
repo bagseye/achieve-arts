@@ -36,17 +36,17 @@
 			"type": "string",
 			"default": ""
 		},
-		"topmargin": {
-			"type": "boolean",
-			"default": false
-		},
-		"bottommargin": {
-			"type": "boolean",
-			"default": false
-		},
 		"bgcolour": {
 			"type": "string",
 			"default": "dark"
+		},
+		"pageurl": {
+			"type": "string",
+			"default": ""
+		},
+		"ctabuttontext": {
+			"type": "string",
+			"default": "Register your child's details and book your discovery call"
 		}
 	},
 	"textdomain": "venue-details-card",

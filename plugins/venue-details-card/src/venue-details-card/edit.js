@@ -11,18 +11,13 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {
-	Button,
-	PanelBody,
-	ToggleControl,
-	SelectControl,
-} from '@wordpress/components';
+import { PanelBody, SelectControl, TextControl } from '@wordpress/components';
 import {
 	useBlockProps,
 	RichText,
-	InnerBlocks,
 	useInnerBlocksProps,
 	InspectorControls,
+	URLInputButton,
 } from '@wordpress/block-editor';
 
 /**
@@ -48,20 +43,15 @@ export default function Edit( { attributes, setAttributes } ) {
 		heading,
 		intro,
 		tab,
-		topmargin,
-		bottommargin,
 		bgcolour,
 		whenDetail,
 		whereDetail,
 		pricingDetail,
+		pageurl,
+		ctabuttontext,
 	} = attributes;
 
-	const classes = [
-		BLOCKNAME,
-		topmargin && 'margin-block__top',
-		bottommargin && 'margin-block__bottom',
-		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
-	]
+	const classes = [ BLOCKNAME, `${ BLOCKNAME }__bgcolour--${ bgcolour }` ]
 		.filter( Boolean )
 		.join( ' ' );
 
@@ -77,32 +67,6 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Margin Controls', 'venue-details-card' ) }>
-					<ToggleControl
-						__nextHasNoMarginBottom
-						label="Margin Top"
-						help={
-							topmargin ? 'Has top margin.' : 'No top margin.'
-						}
-						checked={ topmargin }
-						onChange={ ( val ) => {
-							setAttributes( { topmargin: val } );
-						} }
-					/>
-					<ToggleControl
-						__nextHasNoMarginBottom
-						label="Margin Bottom"
-						help={
-							bottommargin
-								? 'Has bottom margin.'
-								: 'No bottom margin.'
-						}
-						checked={ bottommargin }
-						onChange={ ( val ) => {
-							setAttributes( { bottommargin: val } );
-						} }
-					/>
-				</PanelBody>
 				<PanelBody title={ __( 'Colour', 'venue-details-card' ) }>
 					<SelectControl
 						label="Venue Details Card Background Colour"
@@ -180,67 +144,119 @@ export default function Edit( { attributes, setAttributes } ) {
 									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--details` }
 								>
 									<div className={ `${ BLOCKNAME }__detail` }>
-										<p>When:</p>
-										<RichText
-											tagName="p"
-											className={ `${ BLOCKNAME }__detail--content` }
-											value={ whenDetail }
-											allowedFormats={ [
-												'core/bold',
-												'core/italic',
-											] }
-											onChange={ ( val ) =>
-												setAttributes( {
-													whenDetail: val,
-												} )
-											}
-											placeholder={ __(
-												'Details of when...'
-											) }
-										/>
+										<div
+											className={ `${ BLOCKNAME }__detail--inner` }
+										>
+											<p>When:</p>
+											<RichText
+												tagName="p"
+												className={ `${ BLOCKNAME }__detail--content` }
+												value={ whenDetail }
+												allowedFormats={ [
+													'core/bold',
+													'core/italic',
+												] }
+												onChange={ ( val ) =>
+													setAttributes( {
+														whenDetail: val,
+													} )
+												}
+												placeholder={ __(
+													'Details of when...'
+												) }
+											/>
+										</div>
 									</div>
 									<div className={ `${ BLOCKNAME }__detail` }>
-										<p>Where:</p>
-										<RichText
-											tagName="p"
-											className={ `${ BLOCKNAME }__detail--content` }
-											value={ whereDetail }
-											allowedFormats={ [
-												'core/bold',
-												'core/italic',
-											] }
-											onChange={ ( val ) =>
-												setAttributes( {
-													whereDetail: val,
-												} )
-											}
-											placeholder={ __(
-												'Details of where...'
-											) }
-										/>
+										<div
+											className={ `${ BLOCKNAME }__detail--inner` }
+										>
+											<p>Where:</p>
+											<RichText
+												tagName="p"
+												className={ `${ BLOCKNAME }__detail--content` }
+												value={ whereDetail }
+												allowedFormats={ [
+													'core/bold',
+													'core/italic',
+												] }
+												onChange={ ( val ) =>
+													setAttributes( {
+														whereDetail: val,
+													} )
+												}
+												placeholder={ __(
+													'Details of where...'
+												) }
+											/>
+										</div>
 									</div>
 									<div className={ `${ BLOCKNAME }__detail` }>
-										<p>Pricing:</p>
-										<RichText
-											tagName="p"
-											className={ `${ BLOCKNAME }__detail--content` }
-											value={ pricingDetail }
-											allowedFormats={ [
-												'core/bold',
-												'core/italic',
-											] }
-											onChange={ ( val ) =>
-												setAttributes( {
-													pricingDetail: val,
-												} )
-											}
-											placeholder={ __(
-												'Details of pricing...'
-											) }
-										/>
+										<div
+											className={ `${ BLOCKNAME }__detail--inner` }
+										>
+											<p>Pricing:</p>
+											<RichText
+												tagName="p"
+												className={ `${ BLOCKNAME }__detail--content` }
+												value={ pricingDetail }
+												allowedFormats={ [
+													'core/bold',
+													'core/italic',
+												] }
+												onChange={ ( val ) =>
+													setAttributes( {
+														pricingDetail: val,
+													} )
+												}
+												placeholder={ __(
+													'Details of pricing...'
+												) }
+											/>
+										</div>
 									</div>
 								</div>
 								<div { ...innerBlockProps } />
+							</div>
+							<div className={ `${ BLOCKNAME }__cta` }>
+								<URLInputButton
+									url={ pageurl }
+									onChange={ ( url ) =>
+										setAttributes( { pageurl: url } )
+									}
+								/>
+								{ pageurl && (
+									<>
+										<TextControl
+											__nextHasNoMarginBottom
+											__next40pxDefaultSize
+											label={ __(
+												'CTA Button Text',
+												'venue-details-card'
+											) }
+											value={ ctabuttontext }
+											onChange={ ( value ) =>
+												setAttributes( {
+													ctabuttontext: value,
+												} )
+											}
+										/>
+										<div
+											className={ `wp-block-button is-style-${
+												bgcolour === 'purple'
+													? 'dark'
+													: 'purple'
+											}` }
+										>
+											<span
+												className={ `wp-block-button__link` }
+											>
+												{ ctabuttontext ||
+													'Click Here' }
+											</span>
+										</div>
+									</>
+								) }
 							</div>
 						</div>
 					</div>
