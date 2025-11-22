@@ -33,13 +33,16 @@ export default function save( { attributes } ) {
 		altlayout,
 		includegradient,
 		bgcolour,
+		variant,
 	} = attributes;
 
 	const classes = [
 		BLOCKNAME,
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
-		altlayout ? `${ BLOCKNAME }__alt-layout` : '',
+		variant === 'page-hero-default' && altlayout
+			? `${ BLOCKNAME }__alt-layout`
+			: '',
 		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
 	]
 		.filter( Boolean )
@@ -61,12 +64,16 @@ export default function save( { attributes } ) {
 							className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--content` }
 						>
 							<header className={ `${ BLOCKNAME }__header` }>
-								<span className={ `${ BLOCKNAME }__tab h-tab` }>
-									<RichText.Content
-										tagName="p"
-										value={ tab }
-									/>
-								</span>
+								{ tab && (
+									<span
+										className={ `${ BLOCKNAME }__tab h-tab` }
+									>
+										<RichText.Content
+											tagName="p"
+											value={ tab }
+										/>
+									</span>
+								) }
 								<RichText.Content
 									tagName="h2"
 									className={ `${ BLOCKNAME }__heading` }
@@ -75,7 +82,9 @@ export default function save( { attributes } ) {
 							</header>
 							<div { ...innerBlockProps } />
 						</div>
-						{ mediaId && mediaUrl ? (
+						{ variant === 'page-hero-default' &&
+						mediaId &&
+						mediaUrl ? (
 							<div
 								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 							>
@@ -92,7 +101,7 @@ export default function save( { attributes } ) {
 						) : null }
 					</div>
 				</div>
-				{ includegradient && (
+				{ variant === 'page-hero-default' && includegradient && (
 					<span className={ `${ BLOCKNAME }__gradient` }></span>
 				) }
 			</div>
