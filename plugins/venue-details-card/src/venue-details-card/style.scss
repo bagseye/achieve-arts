@@ -8,6 +8,8 @@
 @use '../../../../themes/achieve-arts/src/scss/abstracts';
 
 .c-venue-details-card {
+	margin-top: 25px;
+	margin-bottom: 25px;
 
   &__inner {
     background-color: #000;
@@ -36,29 +38,12 @@
   }
 
   &__container {
-    padding: 100px 60px;
+    padding: 40px 60px;
     position: relative;
     z-index: 1;
 
     @include abstracts.respond-to('tablet') { 
       padding: 50px 30px;
-    }
-  }
-
-  &__items {
-    display: flex;
-    align-items: center;
-
-    @include abstracts.respond-to('tablet') { 
-      flex-direction: column;
-    }
-
-    .c-venue-details-card__alt-layout & {
-      flex-direction: row-reverse;
-
-      @include abstracts.respond-to('tablet') { 
-        flex-direction: column;
-      }
     }
   }
 
@@ -70,6 +55,10 @@
   &.c-venue-details-card__bgcolour--deep-purple .c-venue-details-card__tab {
     background-color: var(--brand-6);
   }
+
+	&__header {
+		padding-bottom: 25px;
+	}
 
 	&__heading {
 		font-size: 26px;
@@ -100,10 +89,17 @@
 
 	&__detail {
 		flex: 1;
-		>p {
-			font-size: 20px;
-			font-weight: 600;
+		display: flex;
+		align-items: flex-start;
+		gap: 0 15px;
+
+		&--inner {
+			>p {
+				font-size: 20px;
+				font-weight: 600;
+			}
 		}
+
 
 		.c-venue-details-card__detail--content {
 			font-weight: 400;
@@ -117,6 +113,36 @@
 			
 			&:last-child {
 				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__star {
+		flex-grow: 0;
+		flex-shrink: 0;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		background-color: var(--brand-6);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.15));
+
+		svg {
+			width: 17px;
+			height: 17px;
+		}
+	}
+
+	&__cta {
+		padding-top: 40px;
+
+		.wp-block-button {
+			width: 100%;
+
+			&__link {
+				width: inherit;
 			}
 		}
 	}
