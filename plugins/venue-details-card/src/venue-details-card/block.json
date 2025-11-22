@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bwp/venue-details-card",
+	"version": "0.1.0",
+	"title": "Venue Details Card",
+	"category": "widgets",
+	"icon": "sticky",
+	"description": "Displays details of courses held at a venue.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"intro": {
+			"type": "string",
+			"default": ""
+		},
+		"tab": {
+			"type": "string",
+			"default": ""
+		},
+		"whenDetail": {
+			"type": "string",
+			"default": ""
+		},
+		"whereDetail": {
+			"type": "string",
+			"default": ""
+		},
+		"pricingDetail": {
+			"type": "string",
+			"default": ""
+		},
+		"topmargin": {
+			"type": "boolean",
+			"default": false
+		},
+		"bottommargin": {
+			"type": "boolean",
+			"default": false
+		},
+		"bgcolour": {
+			"type": "string",
+			"default": "dark"
+		}
+	},
+	"textdomain": "venue-details-card",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
