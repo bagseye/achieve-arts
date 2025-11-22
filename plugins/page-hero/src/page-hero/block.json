@@ -51,11 +51,16 @@
 		"bgcolour": {
 			"type": "string",
 			"default": "dark"
+		},
+		"variant": {
+			"type": "string",
+			"default": "page-hero-default"
 		}
 	},
 	"textdomain": "page-hero",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+	"viewScript": "file:./view.js",
+	"variations": "file:./variations.php"
 }
