@@ -6,6 +6,16 @@
  */
 
 .c-testimonials-item {
+	&__variant--testimonials-scrolling-card {
+		.c-testimonials-item__inner {
+			background-color: #fff;
+			color: #000;
+			border-radius: 36px;
+			padding: 36px;
+			width: 445px;
+		}
+	}
+
 	&__media {
 		width: 130px;
 		height: 130px;
@@ -30,6 +40,37 @@
 		color: #fff;
 		font-size: 20px;
 		text-align: center;
+	}
+
+	&__variant--testimonials-scrolling-card {
+		.c-testimonials-item__content-area,
+		.c-testimonials-item__name,
+		.c-testimonials-item__role {
+			color: #000;
+			text-align: left;
+		}
+
+		.c-testimonials-item__content-area {
+			>p {
+				font-size: 14px;
+				margin-bottom: 15px;
+
+				&:first-child {
+					font-size: 20px;
+					font-weight: 500;
+				}
+			}
+		}
+
+		.c-testimonials-item__name,
+		.c-testimonials-item__role {
+			font-size: 20px;
+			font-weight: 500;
+		}
+
+		.c-testimonials-item__role {
+			font-weight: 400;
+		}
 	}
 
 	&__content-area {

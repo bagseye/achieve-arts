@@ -21,6 +21,7 @@
  */
 
 import Splide from '@splidejs/splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 let $testimonialscarousels;
 
@@ -31,16 +32,40 @@ function cacheDOM() {
 }
 
 function bindTestimonialsCarousels( $testimonialscarousel ) {
-	var splide = new Splide( $testimonialscarousel, {
-		perPage: 1,
-		type: 'fade',
-		rewind: true,
-		autoWidth: false,
-		focus: 'center',
-		pagination: false,
-		arrows: true,
-	} );
-	splide.mount();
+	if (
+		$testimonialscarousel.classList.contains(
+			'js-carousel__testimonials--scrolling-card'
+		)
+	) {
+		var splide = new Splide( $testimonialscarousel, {
+			gap: 12,
+			type: 'loop',
+			autoWidth: true,
+			focus: 'center',
+			pagination: false,
+			arrows: false,
+			breakpoints: {
+				760: {
+					gap: 12,
+				},
+			},
+			autoScroll: {
+				speed: 0.75,
+			},
+		} );
+		splide.mount( { AutoScroll } );
+	} else {
+		var splide = new Splide( $testimonialscarousel, {
+			perPage: 1,
+			type: 'fade',
+			rewind: true,
+			autoWidth: false,
+			focus: 'center',
+			pagination: false,
+			arrows: true,
+		} );
+		splide.mount();
+	}
 }
 
 function init() {

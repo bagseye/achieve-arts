@@ -25,6 +25,12 @@
     z-index: 1;
   }
 
+  &.c-testimonials__variant--testimonials-scrolling-card {
+    .c-testimonials__container.splide__track {
+      overflow: visible;
+    }
+  }
+
   &__content--header {
     text-align: center;
     color: #fff;
