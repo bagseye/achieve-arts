@@ -37,7 +37,7 @@
 			"default": "testimonials-default"
 		}
 	},
-	"usesContext": ["bwp/testimonialscount", "bwp/testimonialsvariant"],
+	"usesContext": [ "bwp/testimonialscount", "bwp/testimonialsvariant" ],
 	"parent": [ "bwp/testimonials" ],
 	"textdomain": "testimonials-item",
 	"editorScript": "file:./index.js",
