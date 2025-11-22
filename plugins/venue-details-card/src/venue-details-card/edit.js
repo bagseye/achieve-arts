@@ -77,7 +77,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Margin Controls', 'media-text' ) }>
+				<PanelBody title={ __( 'Margin Controls', 'venue-details-card' ) }>
 					<ToggleControl
 						__nextHasNoMarginBottom
 						label="Margin Top"
@@ -103,9 +103,9 @@ export default function Edit( { attributes, setAttributes } ) {
 						} }
 					/>
 				</PanelBody>
-				<PanelBody title={ __( 'Colour', 'media-text' ) }>
+				<PanelBody title={ __( 'Colour', 'venue-details-card' ) }>
 					<SelectControl
-						label="Media Text Background Colour"
+						label="Venue Details Card Background Colour"
 						value={ bgcolour }
 						options={ [
 							{ label: 'Purple', value: 'purple' },
