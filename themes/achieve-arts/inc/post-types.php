@@ -102,4 +102,4 @@ function team_speciality_taxonomy() {
     register_taxonomy( 'team_speciality', array( 'team-members' ), $args );
 }
 
-add_action( 'init', 'team_speciality_taxonomy', 0 );
+add_action( 'init', 'team_speciality_taxonomy', 11 );
