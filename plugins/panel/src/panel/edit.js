@@ -62,7 +62,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps( { className: classes } );
 
 	const innerBlockProps = useInnerBlocksProps( {
-		className: `${ BLOCKNAME }__items`,
+		className: `${ BLOCKNAME }__items d-typography`,
 	} );
 
 	return (

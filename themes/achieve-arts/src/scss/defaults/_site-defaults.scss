@@ -76,29 +76,45 @@ h1, h2, h3, h4, h5, h6 {
   --font-footer-intro: 20px;
   --font-footer-email: 22px;
   --font-footer-copy: 15px;
+
+
   --font-section-heading: 88px;
+  --font-page-hero-heading: 95px;
+  --font-page-hero-lead: 21px;
+  --font-button: 22px;
+  --padding-button: 6px 25px;
+  --spacing-para: 15px;
+
+
   --heading-cta: 3.875rem;
   --max-width-cta: 75rem;
   --border-radius-cta: 2.5rem;
   --container-padding-cta: 3.125rem 4.375rem;
   --container-padding-content: 1.5rem;
   --text-button: 1.5rem;
-  --padding-button: 0.75rem 1.75rem;
+
   --hamburger: 3.375rem;
   --spacing-block: 4.125rem;
   --spacing-header: 2.875rem;
-  --spacing-para: 2rem;
+
 
   @include abstracts.respond-to('wide') { 
     --font-hero-home-heading: 4rem;
     --container-padding-cta: 50px 60px;
+
+
     --font-section-heading: 78px;
+    --font-page-hero-heading: 84px;
+    --font-page-hero-lead: 20px;
   }
 
   @include abstracts.respond-to('desktop') { 
     --font-hero-home-heading: 3.5rem;
     --container-padding-cta: 50px 45px;
+
+
     --font-section-heading: 68px;
+    --font-page-hero-heading: 74px;
   }
 
   @include abstracts.respond-to('laptop') { 
@@ -107,7 +123,11 @@ h1, h2, h3, h4, h5, h6 {
     --font-hero-home-intro: var(--font-hero-home-heading-sub);
     --font-hero-home-scroller-item-heading: 1.75rem;
     --font-footer-email: 17px;
+
+    
     --font-section-heading: 60px;
+    --font-page-hero-heading: 65px;
+    --font-page-hero-lead: 19px;
   }
 
   @include abstracts.respond-to('tablet') { 
@@ -115,17 +135,25 @@ h1, h2, h3, h4, h5, h6 {
     --font-footer-email: 1rem;
     --font-h2: 3rem;
     --container-padding-cta: 50px 35px;
+
+
     --font-section-heading: 55px;
+    --font-page-hero-heading: 60px;
   }
 
   @include abstracts.respond-to('mobile') { 
     --font-hero-home-heading: 2rem;
+
     --font-section-heading: 50px;
+    --font-page-hero-heading: 55px;
+
+    
     --container-padding-cta: 40px 25px;
   }
 
   @include abstracts.respond-to('small-mobile') { 
     --font-section-heading: 40px;
+    --font-page-hero-heading: 45px;
   }
 }
 
@@ -147,6 +175,21 @@ body {
   >* {
     padding-left: var(--container-padding-content);
     padding-right: var(--container-padding-content);
+  }
+}
+
+.d-typography {
+  >p {
+    margin-top: 5px;
+    margin-bottom: var(--spacing-para);
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 

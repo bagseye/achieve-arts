@@ -54,7 +54,7 @@ export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save( { className: classes } );
 
 	const innerBlockProps = useInnerBlocksProps.save( {
-		className: `${ BLOCKNAME }__content-area`,
+		className: `${ BLOCKNAME }__content-area d-typography`,
 	} );
 
 	return (

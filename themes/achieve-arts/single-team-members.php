@@ -54,7 +54,7 @@
                                                         </div>';
                                                 }
                                             ?>
-                                            <div class="p-team-members__details--content-area">
+                                            <div class="p-team-members__details--content-area d-typography">
                                                 <?php the_content(  ) ?>
                                             </div>
                                             <div class="p-team-members__details--cta">

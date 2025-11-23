@@ -80,7 +80,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps( { className: classes } );
 
 	const innerBlockProps = useInnerBlocksProps(
-		{ className: `${ BLOCKNAME }__content-area` },
+		{ className: `${ BLOCKNAME }__content-area d-typography` },
 		{
 			allowedBlocks: [
 				'core/paragraph',
