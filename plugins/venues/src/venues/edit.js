@@ -151,7 +151,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							tagName="h2"
 							className={ `${ BLOCKNAME }__heading` }
 							value={ heading }
-							allowedFormats={ [ 'core/bold', 'core/italic' ] }
+							allowedFormats={ [ 'core/bold', 'core/italic', 'core/text-color' ] }
 							onChange={ ( val ) =>
 								setAttributes( {
 									heading: val,

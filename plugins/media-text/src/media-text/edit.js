@@ -290,6 +290,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										allowedFormats={ [
 											'core/bold',
 											'core/italic',
+											'core/text-color'
 										] }
 										onChange={ ( val ) =>
 											setAttributes( {

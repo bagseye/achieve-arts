@@ -76,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
   --font-footer-intro: 20px;
   --font-footer-email: 22px;
   --font-footer-copy: 15px;
+  --font-section-heading: 88px;
   --heading-cta: 3.875rem;
   --max-width-cta: 75rem;
   --border-radius-cta: 2.5rem;
@@ -91,11 +92,13 @@ h1, h2, h3, h4, h5, h6 {
   @include abstracts.respond-to('wide') { 
     --font-hero-home-heading: 4rem;
     --container-padding-cta: 50px 60px;
+    --font-section-heading: 78px;
   }
 
   @include abstracts.respond-to('desktop') { 
     --font-hero-home-heading: 3.5rem;
     --container-padding-cta: 50px 45px;
+    --font-section-heading: 68px;
   }
 
   @include abstracts.respond-to('laptop') { 
@@ -104,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
     --font-hero-home-intro: var(--font-hero-home-heading-sub);
     --font-hero-home-scroller-item-heading: 1.75rem;
     --font-footer-email: 17px;
+    --font-section-heading: 60px;
   }
 
   @include abstracts.respond-to('tablet') { 
@@ -111,12 +115,17 @@ h1, h2, h3, h4, h5, h6 {
     --font-footer-email: 1rem;
     --font-h2: 3rem;
     --container-padding-cta: 50px 35px;
+    --font-section-heading: 55px;
   }
 
   @include abstracts.respond-to('mobile') { 
     --font-hero-home-heading: 2rem;
+    --font-section-heading: 50px;
     --container-padding-cta: 40px 25px;
+  }
 
+  @include abstracts.respond-to('small-mobile') { 
+    --font-section-heading: 40px;
   }
 }
 
@@ -198,6 +207,40 @@ h2 {
   
   &-center {
     text-align: center;
+  }
+}
+
+.has-inline-color {
+  &.has-brand-1-color {
+    color: var(--brand-1);
+  }
+
+  &.has-brand-2-color {
+    color: var(--brand-2);
+  }
+
+  &.has-brand-3-color {
+    color: var(--brand-3);
+  }
+
+  &.has-brand-4-color {
+    color: var(--brand-4);
+  }
+
+  &.has-brand-5-color {
+    color: var(--brand-5);
+  }
+
+  &.has-brand-6-color {
+    color: var(--brand-6);
+  }
+
+  &.has-brand-7-color {
+    color: var(--brand-7);
+  }
+
+  &.has-brand-8-color {
+    color: var(--brand-8);
   }
 }
 
