@@ -93,6 +93,10 @@
     background-color: var(--brand-6);
   }
 
+  .c-page-hero__heading {
+    font-size: var(--font-page-hero-heading);
+  }
+
   &__item {
     width: 55%;
 
@@ -157,6 +161,9 @@
   }
 
 	.c-page-hero__content-area {
+    p {
+      font-size: var(--font-page-hero-lead);
+    }
 		>* {
 			margin-bottom: var(--spacing-para);
 			

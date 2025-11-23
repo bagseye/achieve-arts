@@ -48,7 +48,7 @@ export default function save( { attributes } ) {
 	} );
 
 	const innerBlockProps = useInnerBlocksProps.save( {
-		className: `${ BLOCKNAME }__items`,
+		className: `${ BLOCKNAME }__items d-typography`,
 	} );
 	return (
 		<section { ...blockProps }>
