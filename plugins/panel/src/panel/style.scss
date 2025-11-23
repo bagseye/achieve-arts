@@ -5,8 +5,36 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-bwp-panel {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+@use '../../../../themes/achieve-arts/src/scss/abstracts';
+
+.c-panel {
+  &__content {
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacing-header);
+  }
+
+  &__inner {
+    overflow: hidden;
+		padding-left: var(--container-padding-content);
+		padding-right: var(--container-padding-content);
+  }
+
+  &.c-panel__bgcolour--dark {
+    background-color: #000;
+    color: #fff;
+  }
+
+  &.c-panel__bgcolour--purple {
+    background-color: var(--brand-4);
+    color: #fff;
+  }
+
+  &__container {
+		max-width: 960px;
+		margin-left: auto;
+		margin-right: auto;
+  }
 }
