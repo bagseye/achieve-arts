@@ -59,7 +59,7 @@ function team_members_cpt_init() {
         'menu_position'      => 20,
         'menu_icon'          => 'dashicons-groups',
         'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
-        'taxonomies'         => array( 'team_speciality' ),
+        'taxonomies'         => array(),
         'show_in_rest'       => true
     );
      
