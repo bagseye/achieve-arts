@@ -59,10 +59,47 @@ function team_members_cpt_init() {
         'menu_position'      => 20,
         'menu_icon'          => 'dashicons-groups',
         'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
-        'taxonomies'         => array( 'category', 'post_tag' ),
+        'taxonomies'         => array(),
         'show_in_rest'       => true
     );
      
     register_post_type( $REGISTRATION_NAME, $args );
 }
 add_action( 'init', 'team_members_cpt_init' );
+
+
+
+// Team Speciality Category
+function team_speciality_taxonomy() {
+    $labels = array(
+        'name'              => _x( 'Team Specialities', 'taxonomy general name', 'bwp' ),
+        'singular_name'     => _x( 'Team Speciality', 'taxonomy singular name', 'bwp' ),
+        'search_items'      => __( 'Search Team Specialities', 'bwp' ),
+        'all_items'         => __( 'All Team Specialities', 'bwp' ),
+        'parent_item'       => __( 'Parent Team Speciality', 'bwp' ),
+        'parent_item_colon' => __( 'Parent Team Speciality:', 'bwp' ),
+        'edit_item'         => __( 'Edit Team Speciality', 'bwp' ),
+        'update_item'       => __( 'Update Team Speciality', 'bwp' ),
+        'add_new_item'      => __( 'Add New Team Speciality', 'bwp' ),
+        'new_item_name'     => __( 'New Team Speciality Name', 'bwp' ),
+        'menu_name'         => __( 'Team Speciality', 'bwp' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 
+			'slug' 				=> 'team-speciality',
+			'with_front' 		=> false  
+		),
+		'show_in_rest'		=> true
+    );
+
+    // The key part: associate the taxonomy with the custom post type
+    register_taxonomy( 'team_speciality', array( 'team-members' ), $args );
+}
+
+add_action( 'init', 'team_speciality_taxonomy', 11 );
