@@ -1,6 +1,10 @@
 .p-team-members {
   background-color: #000;
 
+  .p-team-members__heading {
+    font-size: var(--font-section-heading);
+  }
+
   &__details {
     background-color: var(--brand-1);
     color: #fff;
