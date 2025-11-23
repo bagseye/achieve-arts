@@ -50,6 +50,8 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const classes = [
 		BLOCKNAME,
+		'no-padding__left',
+		'no-padding__right',
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
@@ -128,7 +130,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				) }
 				<PanelBody title={ __( 'Colour', 'panel' ) }>
 					<SelectControl
-						label="Background Colour"
+						label={ __( 'Background Colour', 'panel' ) }
 						value={ bgcolour }
 						options={ [
 							{
