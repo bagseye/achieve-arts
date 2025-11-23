@@ -11,7 +11,7 @@
                                 <div class="p-team-members__details--items">
                                     <div class="p-team-members__details--back">
                                         <div class="wp-block-button is-style-white">
-                                            <a class="wp-block-button__link" href="<?= get_bloginfo('url') ?>/">Back to Team</a>
+                                            <a class="wp-block-button__link" href="<?php echo esc_url( home_url( '/' ) ); ?>">Back to Team</a>
                                         </div> 
                                     </div>
                                     <div class="p-team-members__details--item p-team-members__details--left">
@@ -40,7 +40,7 @@
                                                 <span class="p-team-members__tab h-tab">
                                                     <p>Team Member</p>
                                                 </span>
-                                                <h1 class="p-team-members__heading"><?= get_the_title() ?></h1>
+                                                <h1 class="p-team-members__heading"><?php echo esc_html( get_the_title() ); ?></h1>
                                             </header>
                                             <?php
                                                 $team_terms = get_the_terms( get_the_ID(), 'team_speciality' );
@@ -59,7 +59,7 @@
                                             </div>
                                             <div class="p-team-members__details--cta">
                                                <div class="wp-block-button is-style-white">
-                                                <a class="wp-block-button__link" href="<?= get_bloginfo('url') ?>/contact">Contact Us</a>
+                                                <a class="wp-block-button__link" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact Us</a>
                                                </div> 
                                             </div>
                                         <?php endwhile; ?>
