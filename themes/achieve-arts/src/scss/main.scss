@@ -7,6 +7,9 @@
 @use './defaults/site-defaults';
 @use './helper/tab';
 @use './helper/button';
+
+@use './pages/team-members';
+
 @use './components/alert';
 @use './components/hamburger';
 @use './components/header';
