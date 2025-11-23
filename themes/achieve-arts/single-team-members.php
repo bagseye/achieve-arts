@@ -6,29 +6,15 @@
             <div class="p-team-members__items">
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
-                        <?php 
-                        $team_cats = get_categories( 
-                            [
-                                'taxonomy' => 'team_speciality',
-                                'hide_empty' => TRUE
-                            ]
-                            ); 
-                            
+                        <?php
+                            $team_terms = get_the_terms( get_the_ID(), 'team_speciality' );
 
-                            if($team_cats) {
-                                $count = 0;
-                                echo '<p>';
-                                foreach($team_cats as $team_cat) {
-                                    $count++;
-                                    if(count($team_cats) === $count) {
-                                        echo $team_cat->name;
-                                    } else {
-                                        echo $team_cat->name . ' / ';
-                                    }
-                                }
-                                echo '</p>';
+                            if ( ! empty( $team_terms ) && ! is_wp_error( $team_terms ) ) {
+                                $names = wp_list_pluck( $team_terms, 'name' );
+                                $names = array_map( 'esc_html', $names );
+
+                                echo '<p>' . implode( ' / ', $names ) . '</p>';
                             }
-                            
                         ?>
                     <?php endwhile; ?>
                 <?php endif; ?>
