@@ -2,97 +2,74 @@
 	"$schema": "https://schemas.wp.org/wp/6.7/theme.json",
 	"version": 3,
 	"settings": {
-		"appearanceTools": true,
+		"appearanceTools": false,
 		"color": {
 			"defaultDuotone": false,
 			"defaultGradients": false,
 			"defaultPalette": false,
+			"background": false,
+			"custom": false,
 			"palette": [
 				{
 					"color": "#FFFFFF",
-					"name": "Base",
-					"slug": "base"
+					"name": "White",
+					"slug": "white"
 				},
 				{
-					"color": "#111111",
-					"name": "Contrast",
-					"slug": "contrast"
+					"color": "#000000",
+					"name": "Black",
+					"slug": "black"
 				},
 				{
-					"color": "#FFEE58",
-					"name": "Accent 1",
-					"slug": "accent-1"
+					"color": "#460875",
+					"name": "Brand 1",
+					"slug": "brand-1"
 				},
 				{
-					"color": "#F6CFF4",
-					"name": "Accent 2",
-					"slug": "accent-2"
+					"color": "#884DB6",
+					"name": "Brand 2",
+					"slug": "brand-2"
 				},
 				{
-					"color": "#503AA8",
-					"name": "Accent 3",
-					"slug": "accent-3"
+					"color": "#B587D7",
+					"name": "Brand 3",
+					"slug": "brand-3"
 				},
 				{
-					"color": "#686868",
-					"name": "Accent 4",
-					"slug": "accent-4"
+					"color": "#6E2383",
+					"name": "Brand 4",
+					"slug": "brand-4"
 				},
 				{
-					"color": "#FBFAF3",
-					"name": "Accent 5",
-					"slug": "accent-5"
+					"color": "#E6C6FF",
+					"name": "Brand 5",
+					"slug": "brand-5"
 				},
 				{
-					"color": "color-mix(in srgb, currentColor 20%, transparent)",
-					"name": "Accent 6",
-					"slug": "accent-6"
+					"color": "#1B1535",
+					"name": "Brand 6",
+					"slug": "brand-6"
+				},
+				{
+					"color": "#292929",
+					"name": "Brand 7",
+					"slug": "brand-7"
+				},
+				{
+					"color": "#D6A3FC",
+					"name": "Brand 8",
+					"slug": "brand-8"
 				}
+
 			]
 		},
 		"layout": {
-			"contentSize": "645px",
+			"contentSize": "1340px",
 			"wideSize": "1340px"
 		},
 		"spacing": {
 			"defaultSpacingSizes": false,
-			"spacingSizes": [
-				{
-					"name": "Tiny",
-					"size": "10px",
-					"slug": "20"
-				},
-				{
-					"name": "X-Small",
-					"size": "20px",
-					"slug": "30"
-				},
-				{
-					"name": "Small",
-					"size": "30px",
-					"slug": "40"
-				},
-				{
-					"name": "Regular",
-					"size": "clamp(30px, 5vw, 50px)",
-					"slug": "50"
-				},
-				{
-					"name": "Large",
-					"size": "clamp(30px, 7vw, 70px)",
-					"slug": "60"
-				},
-				{
-					"name": "X-Large",
-					"size": "clamp(50px, 7vw, 90px)",
-					"slug": "70"
-				},
-				{
-					"name": "XX-Large",
-					"size": "clamp(70px, 10vw, 140px)",
-					"slug": "80"
-				}
-			],
+			"spacingSizes": [],
 			"units": [
 				"%",
 				"px",
@@ -103,92 +80,23 @@
 			]
 		},
 		"typography": {
-			"writingMode": true,
+			"writingMode": false,
 			"defaultFontSizes": false,
-			"fluid": true,
-			"fontSizes": [
-				{
-					"fluid": false,
-					"name": "Small",
-					"size": "0.875rem",
-					"slug": "small"
-				},
-				{
-					"fluid": {
-						"max": "1.125rem",
-						"min": "1rem"
-					},
-					"name": "Medium",
-					"size": "1rem",
-					"slug": "medium"
-				},
-				{
-					"fluid": {
-						"max": "1.375rem",
-						"min": "1.125rem"
-					},
-					"name": "Large",
-					"size": "1.38rem",
-					"slug": "large"
-				},
-				{
-					"fluid": {
-						"max": "2rem",
-						"min": "1.75rem"
-					},
-					"name": "Extra Large",
-					"size": "1.75rem",
-					"slug": "x-large"
-				},
-				{
-					"fluid": {
-						"max": "3rem",
-						"min": "2.15rem"
-					},
-					"name": "Extra Extra Large",
-					"size": "2.15rem",
-					"slug": "xx-large"
-				}
-			],
-			"fontFamilies": [
-				{
-					"name": "Manrope",
-					"slug": "manrope",
-					"fontFamily": "Manrope, sans-serif",
-					"fontFace": [
-						{
-							"src": [
-								"file:./assets/fonts/manrope/Manrope-VariableFont_wght.woff2"
-							],
-							"fontWeight": "200 800",
-							"fontStyle": "normal",
-							"fontFamily": "Manrope"
-						}
-					]
-				},
-				{
-					"name": "Fira Code",
-					"slug": "fira-code",
-					"fontFamily": "\"Fira Code\", monospace",
-					"fontFace": [
-						{
-							"src": [
-								"file:./assets/fonts/fira-code/FiraCode-VariableFont_wght.woff2"
-							],
-							"fontWeight": "300 700",
-							"fontStyle": "normal",
-							"fontFamily": "\"Fira Code\""
-						}
-					]
-				}
-			]
+			"customFontSize": false,
+			"letterSpacing": false,
+			"dropCap": false,
+			"fontWeight": false,
+			"fontStyle": false,
+			"fluid": false,
+			"fontSizes": [],
+			"fontFamilies": []
 		},
 		"useRootPaddingAwareAlignments": true
 	},
 	"styles": {
 		"color": {
-			"background": "var:preset|color|base",
-			"text": "var:preset|color|contrast"
+			"background": "var:preset|color|white",
+			"text": "var:preset|color|black"
 		},
 		"spacing": {
 			"blockGap": "1.2rem",
@@ -685,49 +593,6 @@
 			}
 		}
 	},
-	"templateParts": [
-		{
-			"area": "header",
-			"name": "header",
-			"title": "Header"
-		},
-		{
-			"area": "header",
-			"name": "vertical-header",
-			"title": "Vertical site header"
-		},
-		{
-			"area": "header",
-			"name": "header-large-title",
-			"title": "Header with large title"
-
-		},
-		{
-			"area": "footer",
-			"name": "footer",
-			"title": "Footer"
-		},
-		{
-			"area": "footer",
-			"name": "footer-columns",
-			"title": "Footer Columns"
-		},
-		{
-			"area": "footer",
-			"name": "footer-newsletter",
-			"title": "Footer Newsletter"
-		},
-		{
-			"area": "uncategorized",
-			"name": "sidebar",
-			"title": "Sidebar"
-		}
-	],
-	"customTemplates": [
-		{
-			"name": "page-no-title",
-			"postTypes": ["page"],
-			"title": "Page No Title"
-		}
-	]
+	"templateParts": [],
+	"customTemplates": []
 }
