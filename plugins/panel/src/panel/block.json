@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bwp/panel",
+	"version": "0.1.0",
+	"title": "Panel",
+	"category": "widgets",
+	"icon": "align-center",
+	"description": "A simple panel block that allows basic content and background colours.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"tab": {
+			"type": "string",
+			"default": ""
+		},
+		"topmargin": {
+			"type": "boolean",
+			"default": false
+		},
+		"bottommargin": {
+			"type": "boolean",
+			"default": false
+		},
+		"toppadding": {
+			"type": "boolean",
+			"default": false
+		},
+		"bottompadding": {
+			"type": "boolean",
+			"default": false
+		},
+		"bgcolour": {
+			"type": "string",
+			"default": "none"
+		}
+	},
+	"textdomain": "panel",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
