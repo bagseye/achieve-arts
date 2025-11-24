@@ -1,0 +1,135 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "bwp/media-carousel-item",
+  "version": "0.1.0",
+  "title": "Media Carousel Item",
+  "category": "widgets",
+  "icon": "image-alt2",
+  "description": "A single media carousel item. Only available in the Media Carousel block.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "defaultmediaselect": {
+      "type": "string",
+      "default": "image"
+    },
+    "defaultimageid": {
+      "type": "number",
+      "default": null
+    },
+    "defaultimagesrc": {
+      "type": "string",
+      "default": ""
+    },
+    "defaultimagealt": {
+      "type": "string",
+      "default": ""
+    },
+    "defaultvideoid": {
+      "type": "number",
+      "default": null
+    },
+    "defaultvideosrc": {
+      "type": "string",
+      "default": ""
+    },
+    "defaultposterid": {
+      "type": "number",
+      "default": null
+    },
+    "defaultpostersrc": {
+      "type": "string",
+      "default": ""
+    },
+    "defaultposteralt": {
+      "type": "string",
+      "default": ""
+    },
+    "videotab": {
+      "type": "string",
+      "default": ""
+    },
+    "videoheading": {
+      "type": "string",
+      "default": ""
+    },
+    "videoid": {
+      "type": "number",
+      "default": null
+    },
+    "videosrc": {
+      "type": "string",
+      "default": ""
+    },
+    "videoposterid": {
+      "type": "number",
+      "default": null
+    },
+    "videopostersrc": {
+      "type": "string",
+      "default": ""
+    },
+    "videoposteralt": {
+      "type": "string",
+      "default": ""
+    },
+    "spotlighttab": {
+      "type": "string",
+      "default": ""
+    },
+    "spotlightimageid": {
+      "type": "number",
+      "default": null
+    },
+    "spotlightimagesrc": {
+      "type": "string",
+      "default": ""
+    },
+    "spotlightimagealt": {
+      "type": "string",
+      "default": ""
+    },
+    "clientHeading": {
+      "type": "string",
+      "default": "Achieve Arts Agency Client"
+    },
+    "clientName": {
+      "type": "string",
+      "default": ""
+    },
+    "projectHeading": {
+      "type": "string",
+      "default": "Project Name"
+    },
+    "projectName": {
+      "type": "string",
+      "default": ""
+    },
+    "projectTypeHeading": {
+      "type": "string",
+      "default": "Project Type"
+    },
+    "projectTypeName": {
+      "type": "string",
+      "default": ""
+    },
+    "variant": {
+      "type": "string",
+      "default": "media-carousel-default"
+    }
+  },
+  "parent": [
+    "bwp/media-carousel"
+  ],
+  "usesContext": [
+    "bwp/media-carousel-variant"
+  ],
+  "textdomain": "media-carousel-item",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

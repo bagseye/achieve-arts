@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "bwp/media-carousel-item-spotlight",
+  "version": "0.1.0",
+  "title": "Spotlight Item",
+  "category": "widgets",
+  "icon": "visibility",
+  "description": "A single spotlight item. Only available in the spotlight carousel block.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "tab": {
+      "type": "string",
+      "default": "Client Spotlight"
+    },
+    "clientHeading": {
+      "type": "string",
+      "default": "Achieve Arts Agency Client"
+    },
+    "clientName": {
+      "type": "string",
+      "default": ""
+    },
+    "projectHeading": {
+      "type": "string",
+      "default": "Project Name"
+    },
+    "projectName": {
+      "type": "string",
+      "default": ""
+    },
+    "projectTypeHeading": {
+      "type": "string",
+      "default": "Project Type"
+    },
+    "projectTypeName": {
+      "type": "string",
+      "default": ""
+    },
+    "imageid": {
+      "type": "number",
+      "default": null
+    },
+    "imagesrc": {
+      "type": "string",
+      "default": ""
+    },
+    "imagealt": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "parent": [
+    "bwp/media-carousel"
+  ],
+  "usesContext": [
+    "bwp/media-carousel-variant"
+  ],
+  "textdomain": "media-carousel-item-spotlight",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

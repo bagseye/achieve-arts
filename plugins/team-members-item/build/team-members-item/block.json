@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "bwp/team-members-item",
+  "version": "0.1.0",
+  "title": "Team Members Item",
+  "category": "widgets",
+  "icon": "businessperson",
+  "description": "A single Team Member. Only available in the Team Members block.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "role": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaId": {
+      "type": "number",
+      "default": 0
+    },
+    "mediaUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "variant": {
+      "type": "string",
+      "default": "team-members"
+    }
+  },
+  "usesContext": [
+    "bwp/team-members-variant"
+  ],
+  "textdomain": "team-members-item",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

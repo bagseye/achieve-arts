@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "bwp/team-members",
+  "version": "0.1.0",
+  "title": "Team Members",
+  "category": "widgets",
+  "icon": "businessperson",
+  "description": "Displays team member cards and images.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "subheading": {
+      "type": "string",
+      "default": ""
+    },
+    "topmargin": {
+      "type": "boolean",
+      "default": false
+    },
+    "bottommargin": {
+      "type": "boolean",
+      "default": false
+    },
+    "toppadding": {
+      "type": "boolean",
+      "default": false
+    },
+    "bottompadding": {
+      "type": "boolean",
+      "default": false
+    },
+    "pageurl": {
+      "type": "string",
+      "default": ""
+    },
+    "ctabuttontext": {
+      "type": "string",
+      "default": ""
+    },
+    "variant": {
+      "type": "string",
+      "default": "team-members"
+    },
+    "bgcolour": {
+      "type": "string",
+      "default": "none"
+    }
+  },
+  "providesContext": {
+    "bwp/team-members-variant": "variant"
+  },
+  "textdomain": "team-members",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "variations": "file:./variations.php"
+}

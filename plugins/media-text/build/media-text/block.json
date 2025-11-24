@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "bwp/media-text",
+  "version": "0.1.0",
+  "title": "Media & Text",
+  "category": "widgets",
+  "icon": "id",
+  "description": "Displays media and text content with alternate layouts.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "tab": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaId": {
+      "type": "number",
+      "default": 0
+    },
+    "mediaUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "topmargin": {
+      "type": "boolean",
+      "default": false
+    },
+    "bottommargin": {
+      "type": "boolean",
+      "default": false
+    },
+    "altlayout": {
+      "type": "boolean",
+      "default": false
+    },
+    "includegradient": {
+      "type": "boolean",
+      "default": false
+    },
+    "images": {
+      "type": "array",
+      "default": []
+    },
+    "variant": {
+      "type": "string",
+      "default": "media-text"
+    },
+    "bgcolour": {
+      "type": "string",
+      "default": "dark"
+    }
+  },
+  "textdomain": "media-text",
+  "variations": "file:./variations.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}
