@@ -12,23 +12,47 @@
 		"html": false
 	},
 	"attributes": {
-		"heading": {
+		"defaultmediaselect": {
 			"type": "string",
-			"default": ""
+			"default": "image"
 		},
-		"tab": {
-			"type": "string",
-			"default": ""
-		},
-		"imageid": {
+		"defaultimageid": {
 			"type": "number",
 			"default": null
 		},
-		"imagesrc": {
+		"defaultimagesrc": {
 			"type": "string",
 			"default": ""
 		},
-		"imagealt": {
+		"defaultimagealt": {
+			"type": "string",
+			"default": ""
+		},
+		"defaultvideoid": {
+			"type": "number",
+			"default": null
+		},
+		"defaultvideosrc": {
+			"type": "string",
+			"default": ""
+		},
+		"defaultposterid": {
+			"type": "number",
+			"default": null
+		},
+		"defaultpostersrc": {
+			"type": "string",
+			"default": ""
+		},
+		"defaultposteralt": {
+			"type": "string",
+			"default": ""
+		},
+		"videotab": {
+			"type": "string",
+			"default": ""
+		},
+		"videoheading": {
 			"type": "string",
 			"default": ""
 		},
@@ -40,21 +64,61 @@
 			"type": "string",
 			"default": ""
 		},
-		"posterid": {
+		"videoposterid": {
 			"type": "number",
 			"default": null
 		},
-		"postersrc": {
+		"videopostersrc": {
 			"type": "string",
 			"default": ""
 		},
-		"posteralt": {
+		"videoposteralt": {
 			"type": "string",
 			"default": ""
 		},
-		"mediaselect": {
+		"spotlighttab": {
 			"type": "string",
-			"default": "image"
+			"default": ""
+		},
+		"spotlightimageid": {
+			"type": "number",
+			"default": null
+		},
+		"spotlightimagesrc": {
+			"type": "string",
+			"default": ""
+		},
+		"spotlightimagealt": {
+			"type": "string",
+			"default": ""
+		},
+		"clientHeading": {
+			"type": "string",
+			"default": "Achieve Arts Agency Client"
+		},
+		"clientName": {
+			"type": "string",
+			"default": ""
+		},
+		"projectHeading": {
+			"type": "string",
+			"default": "Project Name"
+		},
+		"projectName": {
+			"type": "string",
+			"default": ""
+		},
+		"projectTypeHeading": {
+			"type": "string",
+			"default": "Project Type"
+		},
+		"projectTypeName": {
+			"type": "string",
+			"default": ""
+		},
+		"variant": {
+			"type": "string",
+			"default": "media-carousel-default"
 		}
 	},
 	"parent": [ "bwp/media-carousel" ],

@@ -1,104 +1,28 @@
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
-
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
- *
- * @return {Element} Element to render.
- */
-const BLOCKNAME = 'c-media-carousel-item';
+// save.js
+import DefaultLayoutSave from './DefaultLayoutSave';
+import SpotlightLayoutSave from './SpotlightLayoutSave';
+import VideoLayoutSave from './VideoLayoutSave';
 
 export default function save( { attributes } ) {
-	const {
-		heading,
-		tab,
-		mediaselect,
-		imageid,
-		imagesrc,
-		imagealt,
-		videoid,
-		videosrc,
-		postersrc,
-		posteralt,
-		variant,
-	} = attributes;
+	const { variant } = attributes;
 
-	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
+	console.log( variant );
 
-	const blockProps = useBlockProps.save( {
-		className: `${ classes } splide__slide`,
-	} );
+	let LayoutComponent;
 
-	return (
-		<article
-			{ ...blockProps }
-			data-splide-html-video={
-				mediaselect !== 'image' && videosrc ? videosrc : ''
-			}
-		>
-			{ mediaselect !== 'image' && videosrc && (
-				<div
-					className={ `${ BLOCKNAME }__media splide__slide__container` }
-				>
-					{ postersrc && (
-						<img
-							loading="lazy"
-							decode="async"
-							class="c-video-carousel__item--poster"
-							src={ postersrc }
-							alt={ posteralt || '' }
-						/>
-					) }
-				</div>
-			) }
-			{ mediaselect === 'image' && imagesrc && imageid && (
-				<div className={ `${ BLOCKNAME }__media` }>
-					<picture>
-						<img
-							loading="lazy"
-							decode="async"
-							src={ imagesrc }
-							alt={ imagealt || '' }
-						/>
-					</picture>
-				</div>
-			) }
-			{ variant === 'media-carousel-video-preview' && (
-				<div className={ `${ BLOCKNAME }__inner` }>
-					<div className={ `${ BLOCKNAME }__container` }>
-						<div className={ `${ BLOCKNAME }__content` }>
-							<header className={ `${ BLOCKNAME }__header` }>
-								<span className={ `${ BLOCKNAME }__tab h-tab` }>
-									<RichText.Content
-										tagName="p"
-										value={ tab }
-									/>
-								</span>
-								<RichText.Content
-									tagName="h3"
-									className={ `${ BLOCKNAME }__heading` }
-									value={ heading }
-								/>
-							</header>
-							<div className={ 'wp-block-button is-style-white' }>
-								<button className={ 'wp-block-button__link' }>
-									Play Video
-								</button>
-							</div>
-						</div>
-						<div className={ `${ BLOCKNAME }__overlay` }></div>
-					</div>
-				</div>
-			) }
-		</article>
-	);
+	switch ( variant ) {
+		case 'media-carousel-spotlight':
+			LayoutComponent = SpotlightLayoutSave;
+			break;
+
+		case 'media-carousel-video-preview':
+			LayoutComponent = VideoLayoutSave;
+			break;
+
+		default:
+			LayoutComponent = DefaultLayoutSave;
+			break;
+	}
+
+	return <LayoutComponent attributes={ attributes } />;
 }

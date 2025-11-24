@@ -35,7 +35,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 const BLOCKNAME = 'c-media-carousel';
-
+const ALLOWED_BLOCKS = [ 'bwp/media-carousel-item' ];
 export default function Edit( { attributes, setAttributes } ) {
 	const { topmargin, bottommargin, variant } = attributes;
 
@@ -46,13 +46,6 @@ export default function Edit( { attributes, setAttributes } ) {
 	]
 		.filter( Boolean )
 		.join( ' ' );
-
-		let ALLOWED_BLOCKS;
-		if(variant === 'media-carousel-spotlight') {
-			ALLOWED_BLOCKS = [ 'bwp/media-carousel-item-spotlight' ];
-		} else {
-			ALLOWED_BLOCKS = [ 'bwp/media-carousel-item' ];
-		}
 
 	const blockProps = useBlockProps( { className: classes } );
 
