@@ -53,12 +53,15 @@ export default function Edit( { attributes, setAttributes } ) {
 		mediaId,
 		mediaUrl,
 		mediaAlt,
+		videoid,
+		videosrc,
 		topmargin,
 		bottommargin,
 		altlayout,
 		includegradient,
 		bgcolour,
 		variant,
+		mediatype,
 	} = attributes;
 
 	const classes = [
@@ -104,43 +107,108 @@ export default function Edit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				{ variant === 'page-hero-default' && (
-					<PanelBody title={ __( 'Media', 'page-hero' ) }>
-						<MediaUploadCheck>
-							<MediaUpload
-								onSelect={ ( media ) => {
-									setAttributes( {
-										mediaId: media.id,
-										mediaUrl:
-											media?.sizes?.cta?.source_url ??
-											media.url,
-										mediaAlt: media.alt,
-									} );
-								} }
-								allowedTypes={ ALLOWED_MEDIA_TYPES }
-								value={ mediaId }
-								render={ ( { open } ) => (
-									<Button
-										onClick={ open }
-										variant="primary"
-										style={ { marginRight: '6px' } }
-									>
-										{ mediaId && mediaUrl
-											? 'Edit '
-											: 'Add ' }
-										Media
-									</Button>
-								) }
+					<>
+						<PanelBody title={ __( 'Media Type', 'page-hero' ) }>
+							<SelectControl
+								label="Select Image or Video"
+								value={ mediatype }
+								options={ [
+									{ label: 'Image', value: 'image' },
+									{ label: 'Video', value: 'video' },
+								] }
+								onChange={ ( val ) =>
+									setAttributes( { mediatype: val } )
+								}
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
 							/>
-							{ mediaId ? (
-								<Button
-									onClick={ handleRemoveMedia }
-									variant="secondary"
-								>
-									Remove Image
-								</Button>
-							) : null }
-						</MediaUploadCheck>
-					</PanelBody>
+						</PanelBody>
+						{ mediatype === 'image' && (
+							<PanelBody
+								title={ __( 'Image Selection', 'page-hero' ) }
+							>
+								<MediaUploadCheck>
+									<MediaUpload
+										onSelect={ ( media ) => {
+											setAttributes( {
+												mediaId: media.id,
+												mediaUrl:
+													media?.sizes?.cta
+														?.source_url ??
+													media.url,
+												mediaAlt: media.alt,
+											} );
+										} }
+										allowedTypes={ ALLOWED_MEDIA_TYPES }
+										value={ mediaId }
+										render={ ( { open } ) => (
+											<Button
+												onClick={ open }
+												variant="primary"
+												style={ { marginRight: '6px' } }
+											>
+												{ mediaId && mediaUrl
+													? 'Edit '
+													: 'Add ' }
+												Media
+											</Button>
+										) }
+									/>
+									{ mediaId ? (
+										<Button
+											onClick={ handleRemoveMedia }
+											variant="secondary"
+										>
+											Remove Image
+										</Button>
+									) : null }
+								</MediaUploadCheck>
+							</PanelBody>
+						) }
+						{ mediatype === 'video' && (
+							<PanelBody
+								title={ __( 'Video Selection', 'page-hero' ) }
+							>
+								<MediaUploadCheck>
+									<MediaUpload
+										onSelect={ ( media ) => {
+											setAttributes( {
+												videoid: media?.id,
+												videosrc: media?.url,
+											} );
+										} }
+										allowedTypes={ [ 'video' ] }
+										value={ videoid }
+										render={ ( { open } ) => (
+											<Button
+												onClick={ open }
+												variant="primary"
+												style={ { marginRight: '6px' } }
+											>
+												{ videoid && videosrc
+													? 'Edit '
+													: 'Add ' }
+												Video
+											</Button>
+										) }
+									/>
+									{ mediaId ? (
+										<Button
+											onClick={ () => {
+												setAttributes( {
+													videoid: null,
+													videosrc: '',
+												} );
+											} }
+											variant="secondary"
+										>
+											Remove Video
+										</Button>
+									) : null }
+								</MediaUploadCheck>
+							</PanelBody>
+						) }
+					</>
 				) }
 				<PanelBody title={ __( 'Margin Controls', 'page-hero' ) }>
 					<ToggleControl
@@ -250,7 +318,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										allowedFormats={ [
 											'core/bold',
 											'core/italic',
-											'core/text-color'
+											'core/text-color',
 										] }
 										onChange={ ( val ) =>
 											setAttributes( {
@@ -263,20 +331,33 @@ export default function Edit( { attributes, setAttributes } ) {
 								<div { ...innerBlockProps } />
 							</div>
 							{ variant === 'page-hero-default' &&
-							mediaId &&
-							mediaUrl ? (
-								<div
-									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
-								>
-									<picture>
-										<img
-											className={ `wp-image-${ mediaId }` }
-											src={ mediaUrl }
-											alt={ mediaAlt }
-										/>
-									</picture>
-								</div>
-							) : null }
+								mediatype === 'image' &&
+								mediaId &&
+								mediaUrl && (
+									<div
+										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
+									>
+										<picture>
+											<img
+												className={ `wp-image-${ mediaId }` }
+												src={ mediaUrl }
+												alt={ mediaAlt }
+											/>
+										</picture>
+									</div>
+								) }
+							{ variant === 'page-hero-default' &&
+								mediatype === 'video' &&
+								videoid &&
+								videosrc && (
+									<div
+										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
+									>
+										<video>
+											<source src={ videosrc } />
+										</video>
+									</div>
+								) }
 						</div>
 					</div>
 					{ variant === 'page-hero-default' && includegradient && (
