@@ -59,7 +59,8 @@
 	}
 
 	&.c-team-members-item__variant--clients .c-team-members-item__header {
-		padding: 0;
+		padding: 0 20px;
+		text-align: center;
 	}
 
 	.c-team-members-item__heading {
@@ -75,6 +76,7 @@
 
 	&.c-team-members-item__variant--clients .c-team-members-item__heading {
 		font-size: 1rem;
+		line-height: 1.3;
 		font-weight: 400;
 		font-family: var(--font-body);
 
