@@ -31,6 +31,10 @@
 		position: relative;
 		overflow: hidden;
 		border-radius: var(--border-radius-small);
+
+		.c-team-members__bgcolour--purple & {
+			background-color: var(--brand-6);
+		}
 	}
 
 	&__container {

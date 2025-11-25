@@ -233,7 +233,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									}
 								/>
 								<div
-									className={ `wp-block-button is-style-deep-purple` }
+									className={ `wp-block-button is-style-${bgcolour === 'purple' ? 'dark' : 'deep-purple'}` }
 								>
 									<span className={ `wp-block-button__link` }>
 										{ ctabuttontext || 'Click Here' }

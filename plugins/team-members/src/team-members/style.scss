@@ -56,6 +56,11 @@
   }
 
   .c-team-members__arrows {
+    .c-arrows__arrow {
+      .c-team-members__bgcolour--purple & {
+        background-color: var(--brand-6);
+      }
+    }
 
     .c-arrows__arrow.c-arrows__arrow--prev {
       left: -40px;

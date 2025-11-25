@@ -78,7 +78,7 @@ export default function save( { attributes } ) {
 				{ pageurl && (
 					<div className={ `${ BLOCKNAME }__cta` }>
 						<div
-							className={ `wp-block-button is-style-deep-purple` }
+							className={ `wp-block-button is-style-${bgcolour === 'purple' ? 'dark' : 'deep-purple'}` }
 						>
 							<a
 								href={ pageurl }
