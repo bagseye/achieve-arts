@@ -192,7 +192,7 @@ export default function Edit( { attributes, setAttributes } ) {
 											</Button>
 										) }
 									/>
-									{ mediaId ? (
+									{ videoid ? (
 										<Button
 											onClick={ () => {
 												setAttributes( {
