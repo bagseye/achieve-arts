@@ -48,7 +48,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps( { className: `${blockname} ${topmargin ? 'margin-block__top' : ''} ${bottommargin ? 'margin-block__bottom' : ''}` } );
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: `${ blockname }__content`,
+			className: `${ blockname }__content d-typography`,
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,

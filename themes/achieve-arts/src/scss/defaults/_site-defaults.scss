@@ -84,6 +84,7 @@ h1, h2, h3, h4, h5, h6 {
   --font-media-carousel-item-heading: 78px;
   --font-team-members-item-heading: 30px;
   --font-team-members-item-role: 17px;
+  --font-heading-cta: 60px;
   --font-button: 22px;
   --padding-button: 6px 25px;
   --spacing-para: 15px;
@@ -111,6 +112,7 @@ h1, h2, h3, h4, h5, h6 {
 
     --font-section-heading: 78px;
     --font-page-hero-heading: 84px;
+    --font-heading-cta: 56px;
     --font-page-hero-lead: 20px;
   }
 
@@ -121,12 +123,13 @@ h1, h2, h3, h4, h5, h6 {
 
     --font-section-heading: 68px;
     --font-page-hero-heading: 74px;
+    --font-heading-cta: 52px;
     --border-radius-small: 35px;
     --font-team-members-item-heading: 28px;
     --font-team-members-item-role: 16px;
     --spacing-header: 20px;
 
-    
+
   }
 
   @include abstracts.respond-to('laptop') { 
@@ -139,6 +142,7 @@ h1, h2, h3, h4, h5, h6 {
     
     --font-section-heading: 60px;
     --font-page-hero-heading: 65px;
+    --font-heading-cta: 48px;
     --font-page-hero-lead: 19px;
     --font-team-members-item-heading: 26px;
     --font-team-members-item-role: 14px;
@@ -153,6 +157,7 @@ h1, h2, h3, h4, h5, h6 {
 
     --font-section-heading: 55px;
     --font-page-hero-heading: 60px;
+    --font-heading-cta: 44px;
     --font-team-members-item-heading: 24px;
     --border-radius-small: 25px;
     --container-padding-content: 20px;
@@ -163,6 +168,7 @@ h1, h2, h3, h4, h5, h6 {
 
     --font-section-heading: 50px;
     --font-page-hero-heading: 55px;
+    --font-heading-cta: 40px;
     --font-team-members-item-heading: 22px;
     --font-team-members-item-role: 12px;
     --container-padding-content: 15px;
