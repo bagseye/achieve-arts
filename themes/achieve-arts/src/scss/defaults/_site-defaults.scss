@@ -66,8 +66,8 @@ h1, h2, h3, h4, h5, h6 {
   --font-hero-home-heading-sub: 1.75rem;
   --font-hero-home-intro: 1.313rem;
   --font-hero-home-scroller-item-heading: 2.375rem;
-  --font-team-members-item-heading: 1.875rem;
-  --font-team-members-item-role: 1.063rem;
+  // --font-team-members-item-heading: 1.875rem;
+  // --font-team-members-item-role: 1.063rem;
   --font-insta-follow: 2.5rem;
   --font-news-feed-heading: 3.75rem;
   --font-news-feed-item-heading: 1.375rem;
@@ -82,21 +82,26 @@ h1, h2, h3, h4, h5, h6 {
   --font-page-hero-heading: 95px;
   --font-page-hero-lead: 21px;
   --font-media-carousel-item-heading: 78px;
+  --font-team-members-item-heading: 30px;
+  --font-team-members-item-role: 17px;
   --font-button: 22px;
   --padding-button: 6px 25px;
   --spacing-para: 15px;
+  --spacing-header: 30px;
+  --border-radius-small: 40px;
+  --container-padding-content: 30px;
 
 
   --heading-cta: 3.875rem;
   --max-width-cta: 75rem;
   --border-radius-cta: 2.5rem;
   --container-padding-cta: 3.125rem 4.375rem;
-  --container-padding-content: 1.5rem;
+  // --container-padding-content: 1.5rem;
   --text-button: 1.5rem;
 
   --hamburger: 3.375rem;
   --spacing-block: 4.125rem;
-  --spacing-header: 2.875rem;
+  // --spacing-header: 2.875rem;
 
 
   @include abstracts.respond-to('wide') { 
@@ -116,6 +121,12 @@ h1, h2, h3, h4, h5, h6 {
 
     --font-section-heading: 68px;
     --font-page-hero-heading: 74px;
+    --border-radius-small: 35px;
+    --font-team-members-item-heading: 28px;
+    --font-team-members-item-role: 16px;
+    --spacing-header: 20px;
+
+    
   }
 
   @include abstracts.respond-to('laptop') { 
@@ -129,6 +140,8 @@ h1, h2, h3, h4, h5, h6 {
     --font-section-heading: 60px;
     --font-page-hero-heading: 65px;
     --font-page-hero-lead: 19px;
+    --font-team-members-item-heading: 26px;
+    --font-team-members-item-role: 14px;
   }
 
   @include abstracts.respond-to('tablet') { 
@@ -140,6 +153,9 @@ h1, h2, h3, h4, h5, h6 {
 
     --font-section-heading: 55px;
     --font-page-hero-heading: 60px;
+    --font-team-members-item-heading: 24px;
+    --border-radius-small: 25px;
+    --container-padding-content: 20px;
   }
 
   @include abstracts.respond-to('mobile') { 
@@ -147,6 +163,9 @@ h1, h2, h3, h4, h5, h6 {
 
     --font-section-heading: 50px;
     --font-page-hero-heading: 55px;
+    --font-team-members-item-heading: 22px;
+    --font-team-members-item-role: 12px;
+    --container-padding-content: 15px;
 
     
     --container-padding-cta: 40px 25px;

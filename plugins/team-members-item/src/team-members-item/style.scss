@@ -9,6 +9,12 @@
 
 .c-team-members-item {
 	aspect-ratio: 0.95 / 1;
+	max-width: 320px;
+	width: 80%;
+
+	@include abstracts.respond-to('mobile') { 
+		width: 90%;
+	}
 
 	a {
 		display: block;
@@ -21,10 +27,10 @@
 	&__inner {
 		height: 100%;
 		width: 100%;
-		border-radius: 2.5rem;
 		background-color: var(--brand-1);
 		position: relative;
 		overflow: hidden;
+		border-radius: var(--border-radius-small);
 	}
 
 	&__container {
@@ -43,12 +49,12 @@
 	}
 
 	&__header {
-		padding: 1.875rem;
+		padding: 26px;
 		position: relative;
 		z-index: 1;
 
 		@include abstracts.respond-to('laptop') { 
-			padding: 1.375rem;
+			padding: 22px;
 		}
 	}
 
@@ -60,12 +66,21 @@
 		font-size: var(--font-team-members-item-heading);
 		font-weight: 800;
 		color: #fff;
+		margin-bottom: 10px;
+
+		@include abstracts.respond-to('laptop') { 
+			margin-bottom: 5px;
+		}
 	}
 
 	&.c-team-members-item__variant--clients .c-team-members-item__heading {
 		font-size: 1rem;
 		font-weight: 400;
 		font-family: var(--font-body);
+
+		@include abstracts.respond-to('tablet') { 
+			font-size: 14px;
+		}
 	}
 
 	.c-team-members-item__role {
@@ -93,13 +108,28 @@
 	}
 
 	&.c-team-members-item__variant--clients .c-team-members-item__media {
-		width: 200px;
-		height: 200px;
+		max-width: 200px;
+		max-height: 200px;
 		aspect-ratio: 1 / 1;
 		border-radius: 50%;
 		position: static;
 		overflow: hidden;
 		margin-bottom: 20px;
+
+		@include abstracts.respond-to('desktop') { 
+			max-width: 180px;
+			max-height: 180px;
+		}
+
+		@include abstracts.respond-to('tablet') { 
+			max-width: 160px;
+			max-height: 160px;
+		}
+
+		@include abstracts.respond-to('small-mobile') { 
+			max-width: 140px;
+			max-height: 140px;
+		}
 	}
 
 	&__overlay {

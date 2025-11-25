@@ -35,14 +35,39 @@ function bindTeamCarousels( $teamcarousel ) {
 		gap: 16,
 		perPage: 3,
 		type: 'loop',
-		autoWidth: false,
+		autoWidth: true,
 		focus: 'center',
 		pagination: false,
 		arrows: true,
 		breakpoints: {
-			760: {
+			1260: {
 				gap: 12,
+				perPage: 2,
+				padding: {
+					left: '60px',
+					right: '60px'
+				}
 			},
+			760: {
+				perPage: 1,
+				padding: {
+					left: '120px',
+					right: '120px'
+				}
+			},
+			560: {
+				gap: 8,
+				padding: {
+					left: '70px',
+					right: '70px'
+				}
+			},
+			360: {
+				padding: {
+					left: '50px',
+					right: '50px'
+				}
+			}
 		},
 	} );
 	splide.mount();

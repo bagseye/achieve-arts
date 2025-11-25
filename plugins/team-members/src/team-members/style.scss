@@ -15,6 +15,13 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: var(--spacing-header);
+    padding-left: var(--container-padding-content);
+    padding-right: var(--container-padding-content);
+
+
+    &--header {
+      margin-bottom: var(--spacing-header);
+    }
   }
 
   &__inner {
@@ -46,5 +53,32 @@
 
   .c-team-members__subheading {
     font-size: var(--font-page-hero-lead);
+  }
+
+  .c-team-members__arrows {
+
+    .c-arrows__arrow.c-arrows__arrow--prev {
+      left: -40px;
+
+      @include abstracts.respond-to('laptop') { 
+        left: 10px;
+      }
+
+      @include abstracts.respond-to('tablet') { 
+        left: 10px;
+      }
+    }
+
+    .c-arrows__arrow.c-arrows__arrow--next {
+      right: -40px;
+
+      @include abstracts.respond-to('laptop') { 
+        right: 10px;
+      }
+
+      @include abstracts.respond-to('tablet') { 
+        right: 10px;
+      }
+    }
   }
 }
