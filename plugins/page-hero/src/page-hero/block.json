@@ -32,6 +32,14 @@
 			"type": "string",
 			"default": ""
 		},
+		"videoid": {
+			"type": "number",
+			"default": 0
+		},
+		"videosrc": {
+			"type": "string",
+			"default": ""
+		},
 		"topmargin": {
 			"type": "boolean",
 			"default": false
@@ -55,6 +63,10 @@
 		"variant": {
 			"type": "string",
 			"default": "page-hero-default"
+		},
+		"mediatype": {
+			"type": "string",
+			"default": "image"
 		}
 	},
 	"textdomain": "page-hero",

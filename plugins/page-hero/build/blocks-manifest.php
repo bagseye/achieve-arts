@@ -37,6 +37,14 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
+			'videoid' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'videosrc' => array(
+				'type' => 'string',
+				'default' => ''
+			),
 			'topmargin' => array(
 				'type' => 'boolean',
 				'default' => false
@@ -60,6 +68,10 @@ return array(
 			'variant' => array(
 				'type' => 'string',
 				'default' => 'page-hero-default'
+			),
+			'mediatype' => array(
+				'type' => 'string',
+				'default' => 'image'
 			)
 		),
 		'textdomain' => 'page-hero',
