@@ -5,6 +5,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+@use '../../../../themes/achieve-arts/src/scss/abstracts';
 @use './splide';
 @use './splide-video';
 
@@ -17,9 +18,30 @@
     max-width: 990px;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 60px;
+
+    @include abstracts.respond-to('tablet') { 
+      padding-bottom: 50px;
+    }
 
     &.splide__track {
       overflow: visible;
+    }
+  }
+
+  .splide__pagination {
+    .splide__pagination__page {
+      margin: 10px;
+      width: 12px;
+      height: 12px;
+      background-color: #E7D3E4;
+      opacity: 1;
+
+      &.is-active {
+        background-color: var(--brand-1);
+        transform: scale(1);
+        opacity: 1;
+      }
     }
   }
 }

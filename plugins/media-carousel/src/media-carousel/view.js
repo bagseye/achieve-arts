@@ -40,6 +40,14 @@ function bindVideoCarousels( $videocarousel ) {
 		focus: 'center',
 		pagination: true,
 		arrows: false,
+		breakpoints: {
+			1260: {
+				gap: 12,
+			},
+			560: {
+				gap: 8,
+			},
+		},
 		video: {
 			autoplay: true,
 			loop: true,
