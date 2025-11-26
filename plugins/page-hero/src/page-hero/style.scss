@@ -157,19 +157,23 @@
       &-top-right {
         position: absolute;
         aspect-ratio: 1 / 1;
-        width: 250px;
-        top: 0;
-        right: 0;
+        width: 45%;
+        max-width: 250px;
+        top: -30px;
+        right: -30px;
         z-index: 2;
+        transform: rotate(10deg);
       }
 
       &-bottom-left {
         position: absolute;
         aspect-ratio: 1 / 1;
-        width: 250px;
-        bottom: 0;
-        left: 0;
+        width: 45%;
+        max-width: 250px;
+        bottom: -30px;
+        left: -30px;
         z-index: 3;
+        transform: rotate(10deg);
       }
 
       &-bg {
