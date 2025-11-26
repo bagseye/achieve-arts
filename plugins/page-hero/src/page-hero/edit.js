@@ -53,6 +53,12 @@ export default function Edit( { attributes, setAttributes } ) {
 		mediaId,
 		mediaUrl,
 		mediaAlt,
+		toprightmediaId,
+		toprightmediaUrl,
+		toprightmediaAlt,
+		bottomleftmediaId,
+		bottomleftmediaUrl,
+		bottomleftmediaAlt,
 		videoid,
 		videosrc,
 		topmargin,
@@ -208,6 +214,104 @@ export default function Edit( { attributes, setAttributes } ) {
 								</MediaUploadCheck>
 							</PanelBody>
 						) }
+						<PanelBody
+							title={ __(
+								'Top Right Image Selection',
+								'page-hero'
+							) }
+						>
+							<MediaUploadCheck>
+								<MediaUpload
+									onSelect={ ( media ) => {
+										setAttributes( {
+											toprightmediaId: media.id,
+											toprightmediaUrl:
+												media?.sizes?.cta?.source_url ??
+												media.url,
+											toprightmediaAlt: media.alt,
+										} );
+									} }
+									allowedTypes={ ALLOWED_MEDIA_TYPES }
+									value={ toprightmediaId }
+									render={ ( { open } ) => (
+										<Button
+											onClick={ open }
+											variant="primary"
+											style={ { marginRight: '6px' } }
+										>
+											{ toprightmediaId &&
+											toprightmediaUrl
+												? 'Edit '
+												: 'Add ' }
+											Media
+										</Button>
+									) }
+								/>
+								{ toprightmediaId ? (
+									<Button
+										onClick={ () => {
+											setAttributes( {
+												toprightmediaId: 0,
+												toprightmediaUrl: '',
+												toprightmediaAlt: '',
+											} );
+										} }
+										variant="secondary"
+									>
+										Remove Image
+									</Button>
+								) : null }
+							</MediaUploadCheck>
+						</PanelBody>
+						<PanelBody
+							title={ __(
+								'Bottom Left Image Selection',
+								'page-hero'
+							) }
+						>
+							<MediaUploadCheck>
+								<MediaUpload
+									onSelect={ ( media ) => {
+										setAttributes( {
+											bottomleftmediaId: media.id,
+											bottomleftmediaUrl:
+												media?.sizes?.cta?.source_url ??
+												media.url,
+											bottomleftmediaAlt: media.alt,
+										} );
+									} }
+									allowedTypes={ ALLOWED_MEDIA_TYPES }
+									value={ bottomleftmediaId }
+									render={ ( { open } ) => (
+										<Button
+											onClick={ open }
+											variant="primary"
+											style={ { marginRight: '6px' } }
+										>
+											{ bottomleftmediaId &&
+											bottomleftmediaUrl
+												? 'Edit '
+												: 'Add ' }
+											Media
+										</Button>
+									) }
+								/>
+								{ bottomleftmediaId ? (
+									<Button
+										onClick={ () => {
+											setAttributes( {
+												bottomleftmediaId: 0,
+												bottomleftmediaUrl: '',
+												bottomleftmediaAlt: '',
+											} );
+										} }
+										variant="secondary"
+									>
+										Remove Image
+									</Button>
+								) : null }
+							</MediaUploadCheck>
+						</PanelBody>
 					</>
 				) }
 				<PanelBody title={ __( 'Margin Controls', 'page-hero' ) }>
@@ -330,34 +434,61 @@ export default function Edit( { attributes, setAttributes } ) {
 								</header>
 								<div { ...innerBlockProps } />
 							</div>
-							{ variant === 'page-hero-default' &&
-								mediatype === 'image' &&
-								mediaId &&
-								mediaUrl && (
-									<div
-										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
-									>
-										<picture>
-											<img
-												className={ `wp-image-${ mediaId }` }
-												src={ mediaUrl }
-												alt={ mediaAlt }
-											/>
-										</picture>
-									</div>
-								) }
-							{ variant === 'page-hero-default' &&
-								mediatype === 'video' &&
-								videoid &&
-								videosrc && (
-									<div
-										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
-									>
-										<video>
-											<source src={ videosrc } />
-										</video>
-									</div>
-								) }
+							{ variant === 'page-hero-default' && (
+								<div
+									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
+								>
+									{ toprightmediaId && toprightmediaUrl && (
+										<div
+											className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-top-right` }
+										>
+											<picture>
+												<img
+													className={ `wp-image-${ toprightmediaId }` }
+													src={ toprightmediaUrl }
+													alt={ toprightmediaAlt }
+												/>
+											</picture>
+										</div>
+									) }
+									{ bottomleftmediaId &&
+										bottomleftmediaUrl && (
+											<div
+												className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-bottom-left` }
+											>
+												<picture>
+													<img
+														className={ `wp-image-${ bottomleftmediaId }` }
+														src={
+															bottomleftmediaUrl
+														}
+														alt={
+															bottomleftmediaAlt
+														}
+													/>
+												</picture>
+											</div>
+										) }
+									{ mediatype === 'image' &&
+										mediaId &&
+										mediaUrl && (
+											<picture>
+												<img
+													className={ `wp-image-${ mediaId }` }
+													src={ mediaUrl }
+													alt={ mediaAlt }
+												/>
+											</picture>
+										) }
+									{ mediatype === 'video' &&
+										videoid &&
+										videosrc && (
+											<video>
+												<source src={ videosrc } />
+											</video>
+										) }
+								</div>
+							) }
 						</div>
 					</div>
 					{ variant === 'page-hero-default' && includegradient && (

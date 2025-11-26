@@ -28,6 +28,12 @@ export default function save( { attributes } ) {
 		mediaId,
 		mediaUrl,
 		mediaAlt,
+		toprightmediaId,
+		toprightmediaUrl,
+		toprightmediaAlt,
+		bottomleftmediaId,
+		bottomleftmediaUrl,
+		bottomleftmediaAlt,
 		videoid,
 		videosrc,
 		topmargin,
@@ -100,6 +106,38 @@ export default function save( { attributes } ) {
 									</svg>
 								</div>
 
+								{ toprightmediaId && toprightmediaUrl && (
+									<div
+										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-top-right` }
+									>
+										<picture>
+											<img
+												loading="eager"
+												decoding="async"
+												className={ `wp-image-${ toprightmediaId }` }
+												src={ toprightmediaUrl }
+												alt={ toprightmediaAlt }
+											/>
+										</picture>
+									</div>
+								) }
+
+								{ bottomleftmediaId && bottomleftmediaUrl && (
+									<div
+										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-bottom-left` }
+									>
+										<picture>
+											<img
+												loading="eager"
+												decoding="async"
+												className={ `wp-image-${ bottomleftmediaId }` }
+												src={ bottomleftmediaUrl }
+												alt={ bottomleftmediaAlt }
+											/>
+										</picture>
+									</div>
+								) }
+
 								{ mediatype === 'image' &&
 								mediaId &&
 								mediaUrl ? (
@@ -117,7 +155,14 @@ export default function save( { attributes } ) {
 								{ mediatype === 'video' &&
 								videoid &&
 								videosrc ? (
-									<video autoPlay muted loop playsinline preload="metadata" className="js-video">
+									<video
+										autoPlay
+										muted
+										loop
+										playsinline
+										preload="metadata"
+										className="js-video"
+									>
 										<source src={ videosrc } />
 									</video>
 								) : null }
