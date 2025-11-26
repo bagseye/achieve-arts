@@ -37,6 +37,30 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
+			'toprightmediaId' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'toprightmediaUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'toprightmediaAlt' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'bottomleftmediaId' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'bottomleftmediaUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'bottomleftmediaAlt' => array(
+				'type' => 'string',
+				'default' => ''
+			),
 			'videoid' => array(
 				'type' => 'number',
 				'default' => 0

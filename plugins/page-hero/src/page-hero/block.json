@@ -32,6 +32,30 @@
 			"type": "string",
 			"default": ""
 		},
+		"toprightmediaId": {
+			"type": "number",
+			"default": 0
+		},
+		"toprightmediaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"toprightmediaAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"bottomleftmediaId": {
+			"type": "number",
+			"default": 0
+		},
+		"bottomleftmediaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"bottomleftmediaAlt": {
+			"type": "string",
+			"default": ""
+		},
 		"videoid": {
 			"type": "number",
 			"default": 0
