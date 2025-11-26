@@ -117,7 +117,7 @@ export default function save( { attributes } ) {
 								{ mediatype === 'video' &&
 								videoid &&
 								videosrc ? (
-									<video autoPlay muted loop>
+									<video autoPlay muted loop playsinline preload="metadata" clasName="js-video">
 										<source src={ videosrc } />
 									</video>
 								) : null }
