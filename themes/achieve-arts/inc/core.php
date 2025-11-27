@@ -28,9 +28,18 @@ if (!function_exists('bwp_theme_setup')) {
 		remove_theme_support('block-templates');
 
 		add_image_size( 'cta', 1000 );
+		add_image_size( 'pageherocorner', 500, 500, true );
 	}
 }
 add_action('after_setup_theme', 'bwp_theme_setup');
+
+
+add_filter( 'image_size_names_choose', 'bwp_custom_sizes' );
+function bwp_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'pageherocorner' => __( 'Page Hero Corner' ),
+    ) );
+}
 
 
 if (!function_exists('bwp_init')) {

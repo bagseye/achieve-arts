@@ -61,6 +61,7 @@ export default function save( { attributes } ) {
 	const innerBlockProps = useInnerBlocksProps.save( {
 		className: `${ BLOCKNAME }__content-area`,
 	} );
+
 	return (
 		<section { ...blockProps }>
 			<div
