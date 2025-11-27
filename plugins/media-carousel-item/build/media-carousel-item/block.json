@@ -92,6 +92,30 @@
       "type": "string",
       "default": ""
     },
+    "spotlighttopleftmediaId": {
+      "type": "number",
+      "default": 0
+    },
+    "spotlighttopleftmediaUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "spotlighttopleftmediaAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "spotlightbottomrightmediaId": {
+      "type": "number",
+      "default": 0
+    },
+    "spotlightbottomrightmediaUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "spotlightbottomrightmediaAlt": {
+      "type": "string",
+      "default": ""
+    },
     "clientHeading": {
       "type": "string",
       "default": "Achieve Arts Agency Client"

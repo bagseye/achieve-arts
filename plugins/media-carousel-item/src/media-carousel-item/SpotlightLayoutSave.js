@@ -35,6 +35,12 @@ export default function SpotlightLayoutSave( { attributes } ) {
 		spotlightimageid,
 		spotlightimagesrc,
 		spotlightimagealt,
+		spotlighttopleftmediaId,
+		spotlighttopleftmediaUrl,
+		spotlighttopleftmediaAlt,
+		spotlightbottomrightmediaId,
+		spotlightbottomrightmediaUrl,
+		spotlightbottomrightmediaAlt,
 	} = attributes;
 
 	const classes = [ BLOCKNAME, 'splide__slide' ]
@@ -116,6 +122,46 @@ export default function SpotlightLayoutSave( { attributes } ) {
 							<div
 								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__media` }
 							>
+								{ spotlighttopleftmediaId &&
+									spotlighttopleftmediaUrl && (
+										<div
+											className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__media--top-left` }
+										>
+											<picture>
+												<img
+													loading="lazy"
+													decoding="async"
+													className={ `wp-image-${ spotlighttopleftmediaId }` }
+													src={
+														spotlighttopleftmediaUrl
+													}
+													alt={
+														spotlighttopleftmediaAlt
+													}
+												/>
+											</picture>
+										</div>
+									) }
+								{ spotlightbottomrightmediaId &&
+									spotlightbottomrightmediaUrl && (
+										<div
+											className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__media--bottom-right` }
+										>
+											<picture>
+												<img
+													loading="lazy"
+													decoding="async"
+													className={ `wp-image-${ spotlightbottomrightmediaId }` }
+													src={
+														spotlightbottomrightmediaUrl
+													}
+													alt={
+														spotlightbottomrightmediaAlt
+													}
+												/>
+											</picture>
+										</div>
+									) }
 								{ spotlightimageid && spotlightimagesrc && (
 									<picture>
 										<img

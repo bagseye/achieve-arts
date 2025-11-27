@@ -97,6 +97,30 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
+			'spotlighttopleftmediaId' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'spotlighttopleftmediaUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'spotlighttopleftmediaAlt' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'spotlightbottomrightmediaId' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'spotlightbottomrightmediaUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'spotlightbottomrightmediaAlt' => array(
+				'type' => 'string',
+				'default' => ''
+			),
 			'clientHeading' => array(
 				'type' => 'string',
 				'default' => 'Achieve Arts Agency Client'
