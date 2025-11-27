@@ -236,34 +236,32 @@
                         <?php the_content(); ?>
                     <?php endwhile; ?>
 
+
+                    <?php if(have_rows('insta_feed', 'options')) : ?>
                     <section class="c-insta margin-block__top margin-block__bottom">
                         <div class="c-insta__inner">
                             <div class="c-insta__container">
                                 <div class="c-insta__items">
                                     <div class="c-insta__item c-insta__item--feed margin-block__bottom">
-                                        <article class="c-insta__card">
-                                            <picture>
-                                                <img src="<?= get_template_directory_uri() ?>/images/jpg/achieve-arts-in-schools.jpg">
-                                            </picture>
-                                        </article>
+                                        <?php while(have_rows('insta_feed', 'options')) : the_row(); ?>
+                                            <?php 
+                                            
+                                            $image = get_sub_field('image'); 
+                                            $link = get_sub_field('link');
+                                            
+                                            ?>
 
-                                        <article class="c-insta__card">
-                                            <picture>
-                                                <img src="<?= get_template_directory_uri() ?>/images/jpg/achieve-arts-in-schools.jpg">
-                                            </picture>
-                                        </article>
+                                            <?php if ($image) : ?>
+                                            <article class="c-insta__card">
+                                                <?php echo $link ? '<a href="' . esc_url($link) . '" target="_blank" rel="noopener noreferrer">' : '' ?>
+                                                <picture>
+                                                    <?php echo wp_filter_content_tags( '<img class="wp-image-' . esc_attr($image['ID']) . '" src="' . esc_url($image['sizes']['instacard'] ?? '') . '" alt="' . esc_attr($image['alt'] ?? '') . '">' ) ?>  
+                                                </picture>
+                                                <?php echo $link ? '</a>' : '' ?>
+                                            </article>
+                                            <?php endif; ?>
 
-                                        <article class="c-insta__card">
-                                            <picture>
-                                                <img src="<?= get_template_directory_uri() ?>/images/jpg/achieve-arts-in-schools.jpg">
-                                            </picture>
-                                        </article>
-
-                                        <article class="c-insta__card">
-                                            <picture>
-                                                <img src="<?= get_template_directory_uri() ?>/images/jpg/achieve-arts-in-schools.jpg">
-                                            </picture>
-                                        </article>
+                                        <?php endwhile; ?>
                                     </div>
 
                                     <div class="c-insta__item c-insta__item--follow margin-block__top margin-block__bottom">
@@ -287,6 +285,7 @@
                             </div>
                         </div>
                     </section>
+                    <?php endif; ?>
 
                 <?php endif; ?>
             </div>
