@@ -29,6 +29,7 @@ if (!function_exists('bwp_theme_setup')) {
 
 		add_image_size( 'cta', 1000 );
 		add_image_size( 'pageherocorner', 500, 500, true );
+		add_image_size( 'instacard', 700 );
 	}
 }
 add_action('after_setup_theme', 'bwp_theme_setup');

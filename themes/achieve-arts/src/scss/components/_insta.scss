@@ -45,16 +45,11 @@
 
   &__card {
     aspect-ratio: 3 / 3.5;
-    border-radius: 2.5rem;
+    border-radius: var(--border-radius-small);
     overflow: hidden;
-
-    @include abstracts.respond-to('desktop') { 
-      border-radius: 2rem;
-    }
 
     @include abstracts.respond-to('tablet') { 
       width: calc(50% - 2px);
-      border-radius: 1.5rem;
     }
 
     picture,
