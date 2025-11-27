@@ -38,6 +38,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 const BLOCKNAME = 'c-media-carousel-item-spotlight';
+const ALLOWED_MEDIA_TYPES = [ 'image' ];
 
 export default function SpotlightLayout( {
 	attributes,
@@ -49,6 +50,12 @@ export default function SpotlightLayout( {
 		spotlightimageid,
 		spotlightimagesrc,
 		spotlightimagealt,
+		spotlighttopleftmediaId,
+		spotlighttopleftmediaUrl,
+		spotlighttopleftmediaAlt,
+		spotlightbottomrightmediaId,
+		spotlightbottomrightmediaUrl,
+		spotlightbottomrightmediaAlt,
 		variant,
 		clientHeading,
 		clientName,
@@ -102,6 +109,98 @@ export default function SpotlightLayout( {
 										spotlightimageid: null,
 										spotlightimagesrc: '',
 										spotlightimagealt: '',
+									} );
+								} }
+								variant="secondary"
+							>
+								Remove Image
+							</Button>
+						) : null }
+					</MediaUploadCheck>
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Top Right Image Selection', 'page-hero' ) }
+				>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={ ( media ) => {
+								setAttributes( {
+									spotlighttopleftmediaId: media.id,
+									spotlighttopleftmediaUrl:
+										media?.sizes?.pageherocorner?.url ??
+										media.url,
+									spotlighttopleftmediaAlt: media.alt,
+								} );
+							} }
+							allowedTypes={ ALLOWED_MEDIA_TYPES }
+							value={ spotlighttopleftmediaId }
+							render={ ( { open } ) => (
+								<Button
+									onClick={ open }
+									variant="primary"
+									style={ { marginRight: '6px' } }
+								>
+									{ spotlighttopleftmediaId &&
+									spotlighttopleftmediaUrl
+										? 'Edit '
+										: 'Add ' }
+									Media
+								</Button>
+							) }
+						/>
+						{ spotlighttopleftmediaId ? (
+							<Button
+								onClick={ () => {
+									setAttributes( {
+										spotlighttopleftmediaId: 0,
+										spotlighttopleftmediaUrl: '',
+										spotlighttopleftmediaAlt: '',
+									} );
+								} }
+								variant="secondary"
+							>
+								Remove Image
+							</Button>
+						) : null }
+					</MediaUploadCheck>
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Bottom Left Image Selection', 'page-hero' ) }
+				>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={ ( media ) => {
+								setAttributes( {
+									spotlightbottomrightmediaId: media.id,
+									spotlightbottomrightmediaUrl:
+										media?.sizes?.pageherocorner?.url ??
+										media.url,
+									spotlightbottomrightmediaAlt: media.alt,
+								} );
+							} }
+							allowedTypes={ ALLOWED_MEDIA_TYPES }
+							value={ spotlightbottomrightmediaId }
+							render={ ( { open } ) => (
+								<Button
+									onClick={ open }
+									variant="primary"
+									style={ { marginRight: '6px' } }
+								>
+									{ spotlightbottomrightmediaId &&
+									spotlightbottomrightmediaUrl
+										? 'Edit '
+										: 'Add ' }
+									Media
+								</Button>
+							) }
+						/>
+						{ spotlightbottomrightmediaId ? (
+							<Button
+								onClick={ () => {
+									setAttributes( {
+										spotlightbottomrightmediaId: 0,
+										spotlightbottomrightmediaUrl: '',
+										spotlightbottomrightmediaAlt: '',
 									} );
 								} }
 								variant="secondary"
@@ -258,6 +357,42 @@ export default function SpotlightLayout( {
 							<div
 								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__media` }
 							>
+								{ spotlighttopleftmediaId &&
+									spotlighttopleftmediaUrl && (
+										<div
+											className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__media--top-left` }
+										>
+											<picture>
+												<img
+													className={ `wp-image-${ spotlighttopleftmediaId }` }
+													src={
+														spotlighttopleftmediaUrl
+													}
+													alt={
+														spotlighttopleftmediaAlt
+													}
+												/>
+											</picture>
+										</div>
+									) }
+								{ spotlightbottomrightmediaId &&
+									spotlightbottomrightmediaUrl && (
+										<div
+											className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__media--bottom-right` }
+										>
+											<picture>
+												<img
+													className={ `wp-image-${ spotlightbottomrightmediaId }` }
+													src={
+														spotlightbottomrightmediaUrl
+													}
+													alt={
+														spotlightbottomrightmediaAlt
+													}
+												/>
+											</picture>
+										</div>
+									) }
 								{ spotlightimageid && spotlightimagesrc && (
 									<picture>
 										<img src={ spotlightimagesrc } />
