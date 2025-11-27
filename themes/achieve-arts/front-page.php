@@ -104,31 +104,16 @@
                         </div>
                     </section>
 
-                    <section class="c-media-text margin-block__top margin-block__bottom">
-                        <div class="c-media-text__inner">
-                            <div class="c-media-text__container">
-                                <div class="c-media-text__items">
-                                    <div class="c-media-text__item c-media-text__item--content">
-                                        <header class="c-media-text__header">
-                                            <span class="h-tab">
-                                                <p>Our Agency</p>
-                                            </span>
-                                            <h2 class="c-media-text__heading">Achieve Arts Agency</h2>
-                                        </header>
-                                        <p>At Achieve Arts Agency, we are committed to providing our clients with the best representation in the industry. Our agents have years of experience in the entertainment business and a deep understanding of what it takes to succeed. </p>
-                                    </div>
-                                    <div class="c-media-text__item c-media-text__item--media">
-                                        <picture>
-                                            <img src="<?= get_template_directory_uri() ?>/images/jpg/achieve-arts-in-schools.jpg">
-                                        </picture>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="c-media-text__gradient"></span>
-                        </div>
-                    </section>
 
-                    <section class="c-news-feed splide js-carousel__news-feed margin-block__top margin-block__bottom no-padding__left no-padding__right">
+
+
+
+                    <?php while (have_posts()) : the_post(); ?>
+                        <?php the_content(); ?>
+                    <?php endwhile; ?>
+
+
+                                        <section class="c-news-feed splide js-carousel__news-feed margin-block__top margin-block__bottom no-padding__left no-padding__right">
                         <div class="c-news-feed__inner padding-block__top padding-block__bottom">
                             <div class="c-news-feed__container">
                                 <div class="c-news-feed__items">
@@ -230,11 +215,6 @@
                             <span class="c-news-feed__gradient"></span>
                         </div>
                     </section>
-
-
-                    <?php while (have_posts()) : the_post(); ?>
-                        <?php the_content(); ?>
-                    <?php endwhile; ?>
 
 
                     <?php if(have_rows('insta_feed', 'options')) : ?>
