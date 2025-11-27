@@ -251,13 +251,16 @@
                                             
                                             ?>
 
+                                            <?php if ($image) : ?>
                                             <article class="c-insta__card">
-                                                <?php echo $link ? '<a href="' . $link . '" target="_blank">' : '' ?>
+                                                <?php echo $link ? '<a href="' . esc_url($link) . '" target="_blank" rel="noopener noreferrer">' : '' ?>
                                                 <picture>
-                                                    <?php echo wp_filter_content_tags( '<img class="wp-image-' . $image['ID'] . '" src="' . $image['sizes']['instacard'] . '" alt="' . $image['alt'] . '">' ) ?>
+                                                    <?php echo wp_filter_content_tags( '<img class="wp-image-' . esc_attr($image['ID']) . '" src="' . esc_url($image['sizes']['instacard'] ?? '') . '" alt="' . esc_attr($image['alt'] ?? '') . '">' ) ?>  
                                                 </picture>
                                                 <?php echo $link ? '</a>' : '' ?>
                                             </article>
+                                            <?php endif; ?>
+
                                         <?php endwhile; ?>
                                     </div>
 
