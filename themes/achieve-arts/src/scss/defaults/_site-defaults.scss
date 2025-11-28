@@ -62,7 +62,6 @@ h1, h2, h3, h4, h5, h6 {
   --font-h2: 5.5rem;
   --font-h3: 4.875rem;
   --font-lead: 26px;
-  --font-hero-home-heading: 4.625rem;
   --font-hero-home-heading-sub: 1.75rem;
   --font-hero-home-intro: 1.313rem;
   --font-hero-home-scroller-item-heading: 2.375rem;
@@ -80,6 +79,8 @@ h1, h2, h3, h4, h5, h6 {
 
   --font-section-heading: 88px;
   --font-page-hero-heading: 95px;
+  --font-hero-home-heading: 75px;
+  --font-hero-home-subheading: 28px;
   --font-page-hero-lead: 21px;
   --font-media-carousel-item-heading: 78px;
   --font-team-members-item-heading: 30px;
@@ -107,10 +108,10 @@ h1, h2, h3, h4, h5, h6 {
 
 
   @include abstracts.respond-to('wide') { 
-    --font-hero-home-heading: 4rem;
     --container-padding-cta: 50px 60px;
-
-
+    
+    
+    --font-hero-home-heading: 4rem;
     --font-section-heading: 78px;
     --font-page-hero-heading: 84px;
     --font-heading-cta: 56px;
@@ -118,10 +119,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   @include abstracts.respond-to('desktop') { 
-    --font-hero-home-heading: 3.5rem;
     --container-padding-cta: 50px 45px;
-
-
+    
+    
+    --font-hero-home-heading: 3.5rem;
+    --font-hero-home-subheading: 26px;
     --font-section-heading: 68px;
     --font-page-hero-heading: 74px;
     --font-heading-cta: 52px;
@@ -134,13 +136,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   @include abstracts.respond-to('laptop') { 
-    --font-hero-home-heading: 3rem;
     --font-hero-home-heading-sub: 1.063rem;
     --font-hero-home-intro: var(--font-hero-home-heading-sub);
     --font-hero-home-scroller-item-heading: 1.75rem;
     --font-footer-email: 17px;
-
     
+    
+    --font-hero-home-heading: 3rem;
     --font-section-heading: 60px;
     --font-page-hero-heading: 65px;
     --font-heading-cta: 48px;
@@ -150,12 +152,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   @include abstracts.respond-to('tablet') { 
-    --font-hero-home-heading: 2.5rem;
     --font-footer-email: 1rem;
     --font-h2: 3rem;
     --container-padding-cta: 50px 35px;
-
-
+    
+    
+    --font-hero-home-heading: 2.5rem;
     --font-section-heading: 55px;
     --font-page-hero-heading: 60px;
     --font-heading-cta: 44px;
@@ -165,10 +167,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   @include abstracts.respond-to('mobile') { 
+    
     --font-hero-home-heading: 2rem;
-
     --font-section-heading: 50px;
     --font-page-hero-heading: 55px;
+    --font-hero-home-subheading: 24px;
     --font-heading-cta: 40px;
     --font-team-members-item-heading: 22px;
     --font-team-members-item-role: 12px;

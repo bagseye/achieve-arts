@@ -11,6 +11,8 @@ function bwp_allowed_block_types ( $block_editor_context, $editor_context ) {
       'bwp/media-carousel',
       'bwp/media-carousel-item',
       'bwp/media-text',
+      'bwp/hero-home',
+      'bwp/hero-home-item',
       'bwp/page-hero',
       'bwp/panel',
       'bwp/team-members',

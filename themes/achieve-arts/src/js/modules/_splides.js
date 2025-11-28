@@ -2,39 +2,39 @@ import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 // import { Video } from '@splidejs/splide-extension-video';
 
-let $carousels;
+// let $carousels;
 let $teamcarousels;
 let $newsfeedcarousels;
 // let $mediatextcarousels;
 // let $videocarousels;
 
 function cacheDOM() {
-  $carousels = [...document.querySelectorAll('.splide.js-carousel')];
+  // $carousels = [...document.querySelectorAll('.splide.js-carousel')];
   $teamcarousels = [...document.querySelectorAll('.splide.js-carousel__team')];
   $newsfeedcarousels = [...document.querySelectorAll('.splide.js-carousel__news-feed')];
   // $mediatextcarousels = [...document.querySelectorAll('.splide.js-carousel__media-text')];
   // $videocarousels = [...document.querySelectorAll('.splide.js-carousel__video')];
 }
 
-function bindCarousels($carousel) {
-    var splide = new Splide( $carousel, {
-      gap: 16,
-      type: 'loop',
-      autoWidth: true,
-      focus: 'center',
-      pagination: false,
-      arrows: false,
-      breakpoints: {
-        760: {
-          gap: 12
-        }
-      },
-      autoScroll: {
-        speed: 0.75
-      }
-    } );
-    splide.mount({AutoScroll});
-}
+// function bindCarousels($carousel) {
+//     var splide = new Splide( $carousel, {
+//       gap: 16,
+//       type: 'loop',
+//       autoWidth: true,
+//       focus: 'center',
+//       pagination: false,
+//       arrows: false,
+//       breakpoints: {
+//         760: {
+//           gap: 12
+//         }
+//       },
+//       autoScroll: {
+//         speed: 0.75
+//       }
+//     } );
+//     splide.mount({AutoScroll});
+// }
 
 function bindNewsFeedCarousels($carousel) {
     var splide = new Splide( $carousel, {
@@ -109,11 +109,11 @@ function bindTeamCarousels($teamcarousel) {
 export default function init() {
   cacheDOM();
 
-  if($carousels.length) {
-    $carousels.forEach(carousel => {
-      bindCarousels(carousel);
-    });
-  }
+  // if($carousels.length) {
+  //   $carousels.forEach(carousel => {
+  //     bindCarousels(carousel);
+  //   });
+  // }
 
   if($teamcarousels.length) {
     $teamcarousels.forEach(teamcarousel => {
