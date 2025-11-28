@@ -37,7 +37,6 @@ function bindCarousels( $carousel ) {
 		focus: 'center',
 		pagination: false,
 		arrows: false,
-		pauseOnHover: false,
 		breakpoints: {
 			760: {
 				gap: 12,
@@ -45,6 +44,7 @@ function bindCarousels( $carousel ) {
 		},
 		autoScroll: {
 			speed: 0.75,
+			pauseOnHover: false,
 		},
 	} );
 	splide.mount( { AutoScroll } );

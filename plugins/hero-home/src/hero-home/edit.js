@@ -100,7 +100,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									placeholder={ __( 'Sub Heading...' ) }
 								/>
 								<RichText
-									tagName="h2"
+									tagName="p"
 									className={ `${ BLOCKNAME }__intro` }
 									value={ intro }
 									allowedFormats={ [

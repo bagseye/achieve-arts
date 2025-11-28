@@ -4,6 +4,12 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-bwp-hero-home {
-	border: 1px dotted #f00;
+
+.c-hero-home {
+	&__scroller {
+		&--items {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0,1fr));
+		}
+	}
 }

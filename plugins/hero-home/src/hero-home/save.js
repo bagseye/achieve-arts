@@ -60,7 +60,7 @@ export default function save( { attributes } ) {
 								value={ subheading }
 							/>
 							<RichText.Content
-								tagName="h2"
+								tagName="p"
 								className={ `${ BLOCKNAME }__intro` }
 								value={ intro }
 							/>
