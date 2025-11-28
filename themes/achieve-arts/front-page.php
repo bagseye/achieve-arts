@@ -5,7 +5,7 @@
         <div class="p-front-page__container">
             <div class="p-front-page__items d-content-area">
                 <?php if (have_posts()) : ?>
-                    <section class="c-hero-home no-padding__left no-padding__right">
+                    <section class="c-hero-home no-padding__left no-padding__right full-width">
                         <div class="c-hero-home__inner">
                             <div class="c-hero-home__container">
                                 <div class="c-hero-home__items">
@@ -113,7 +113,7 @@
                     <?php endwhile; ?>
 
 
-                                        <section class="c-news-feed splide js-carousel__news-feed margin-block__top margin-block__bottom no-padding__left no-padding__right">
+                    <section class="c-news-feed full-width splide js-carousel__news-feed margin-block__top margin-block__bottom no-padding__left no-padding__right">
                         <div class="c-news-feed__inner padding-block__top padding-block__bottom">
                             <div class="c-news-feed__container">
                                 <div class="c-news-feed__items">

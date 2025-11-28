@@ -34,6 +34,7 @@ export default function save( { attributes } ) {
 			'js-carousel__testimonials--scrolling-card',
 		variant === 'testimonials-scrolling-card' && 'no-padding__left',
 		variant === 'testimonials-scrolling-card' && 'no-padding__right',
+				variant === 'testimonials-scrolling-card' && 'full-width',
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 	]

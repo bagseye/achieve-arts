@@ -34,6 +34,7 @@ export default function save( { attributes } ) {
 
 	const classes = [
 		BLOCKNAME,
+		'full-width',
 		'no-padding__left',
 		'no-padding__right',
 		topmargin && 'margin-block__top',

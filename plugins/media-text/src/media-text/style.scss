@@ -9,31 +9,28 @@
 @use './splide';
 
 .c-media-text {
+  background-color: #000;
+  border-radius: 60px;
+
+  &.c-media-text__bgcolour--purple {
+    background-color: var(--brand-4);
+  }
+
+  &.c-media-text__bgcolour--deep-purple {
+    background-color: var(--brand-1);
+  }
+
+  &.c-media-text__bgcolour--dark {
+    background-color: #000;
+  }
+
+  &.c-media-text__bgcolour--grey {
+    background-color: var(--brand-7);
+  }
 
   &__inner {
-    background-color: #000;
     color: #fff;
-    border-radius: 60px;
-    max-width: 1340px;
-    margin-left: auto;
-    margin-right: auto;
     position: relative;
-
-    .c-media-text__bgcolour--purple & {
-      background-color: var(--brand-4);
-    }
-
-    .c-media-text__bgcolour--deep-purple & {
-      background-color: var(--brand-1);
-    }
-
-    .c-media-text__bgcolour--dark & {
-      background-color: #000;
-    }
-
-    .c-media-text__bgcolour--grey & {
-      background-color: var(--brand-7);
-    }
   }
 
   &__gradient {
@@ -48,6 +45,9 @@
   }
 
   &__container {
+    max-width: 1340px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 100px 60px;
     position: relative;
     z-index: 1;

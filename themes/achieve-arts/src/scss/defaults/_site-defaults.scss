@@ -91,6 +91,7 @@ h1, h2, h3, h4, h5, h6 {
   --spacing-header: 30px;
   --border-radius-small: 40px;
   --container-padding-content: 30px;
+  --max-width-media-text: 1360px;
 
 
   --heading-cta: 3.875rem;
@@ -197,6 +198,17 @@ body {
   line-height: 1.3;
 }
 
+.p-default-page,
+.p-front-page {
+  &__items {
+    >* {
+      max-width: var(--max-width-media-text);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
 .d-content-area {
   >* {
     padding-left: var(--container-padding-content);
@@ -258,6 +270,11 @@ h2 {
   &__bottom {
     padding-bottom: var(--spacing-block);
   }
+}
+
+.full-width {
+  width: 100%;
+  max-width: 100%;
 }
 
 .is-style-lead {
