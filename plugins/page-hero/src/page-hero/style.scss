@@ -9,10 +9,6 @@
 
 .c-page-hero {
 	position: relative;
-  background-color: #000;
-	overflow: hidden;
-	border-bottom-left-radius: 60px;
-	border-bottom-right-radius: 60px;
 
 	&.c-page-hero__bgcolour--purple {
 		background-color: var(--brand-4);
@@ -27,7 +23,10 @@
 	}
 
   &__inner {
-
+    background-color: #000;
+    overflow: hidden;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
     color: #fff;
     max-width: 1340px;
     margin-left: auto;
