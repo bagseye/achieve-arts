@@ -333,6 +333,18 @@ h2 {
   }
 }
 
+.border-radius {
+  &__top {
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+  }
+
+  &__bottom {
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+  }
+}
+
 .border-radius-none {
   &__top {
     border-top-left-radius: 0;
