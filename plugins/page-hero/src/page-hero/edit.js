@@ -95,7 +95,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		}
 	);
 
-	console.log(bottomleftmediaId);
+	console.log( bottomleftmediaId );
 
 	function handleRemoveMedia() {
 		setAttributes( {
@@ -111,7 +111,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		}
 	}, [ bgcolour, includegradient ] );
 
-	console.log(bottomleftmediaUrl);
+	console.log( bottomleftmediaUrl );
 
 	return (
 		<>
@@ -230,8 +230,8 @@ export default function Edit( { attributes, setAttributes } ) {
 										setAttributes( {
 											toprightmediaId: media.id,
 											toprightmediaUrl:
-												media?.sizes?.pageherocorner?.url ??
-												media.url,
+												media?.sizes?.pageherocorner
+													?.url ?? media.url,
 											toprightmediaAlt: media.alt,
 										} );
 									} }
@@ -279,8 +279,8 @@ export default function Edit( { attributes, setAttributes } ) {
 										setAttributes( {
 											bottomleftmediaId: media.id,
 											bottomleftmediaUrl:
-											media?.sizes?.pageherocorner?.url ??
-											media.url,
+												media?.sizes?.pageherocorner
+													?.url ?? media.url,
 											bottomleftmediaAlt: media.alt,
 										} );
 									} }

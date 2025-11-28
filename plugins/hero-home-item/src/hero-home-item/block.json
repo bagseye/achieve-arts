@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bwp/hero-home-item",
+	"version": "0.1.0",
+	"title": "Hero Home Item",
+	"category": "widgets",
+	"icon": "shield",
+	"description": "A single scroll item for use with the Home Hero.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"name": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaId": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"parent": [ "bwp/hero-home" ],
+	"textdomain": "hero-home-item",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
