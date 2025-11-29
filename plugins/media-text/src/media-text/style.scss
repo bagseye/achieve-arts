@@ -90,7 +90,8 @@
   }
 
   &.c-media-text__bgcolour--purple .c-media-text__tab,
-  &.c-media-text__bgcolour--deep-purple .c-media-text__tab {
+  &.c-media-text__bgcolour--deep-purple .c-media-text__tab,
+  &.c-media-text__bgcolour--transparent .c-media-text__tab {
     background-color: var(--brand-6);
   }
 
