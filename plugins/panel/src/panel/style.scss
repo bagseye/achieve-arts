@@ -13,10 +13,6 @@
     margin-bottom: var(--spacing-header);
   }
 
-  &__inner {
-    overflow: hidden;
-  }
-
   &__items {
     >* {
       max-width: 800px;

@@ -6,6 +6,7 @@ function bwp_allowed_block_types ( $block_editor_context, $editor_context ) {
 			'core/paragraph',
 			'core/heading',
 			'core/list',
+      'core/buttons',
 
       'bwp/cta',
       'bwp/media-carousel',
