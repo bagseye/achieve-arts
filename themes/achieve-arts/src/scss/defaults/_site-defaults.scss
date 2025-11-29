@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
   --text-tab: 0.688rem;
   --text-tab-padding: 0.25rem 1.5rem;
   --text-tab-letter-spacing: 0.063rem;
-  --text-tab-margin-bottom: 0.625rem;
+
   --font-heading: trade-gothic-next-condensed, sans-serif;
   --font-body: tome-sans-variable, sans-serif;
   --font-h2: 5.5rem;
@@ -94,6 +94,7 @@ h1, h2, h3, h4, h5, h6 {
   --border-radius-small: 40px;
   --container-padding-content: 30px;
   --max-width-media-text: 1360px;
+  --text-tab-margin-bottom: 40px;
 
 
   --heading-cta: 3.875rem;
@@ -151,6 +152,8 @@ h1, h2, h3, h4, h5, h6 {
     --font-page-hero-lead: 19px;
     --font-team-members-item-heading: 26px;
     --font-team-members-item-role: 14px;
+    --text-tab-margin-bottom: 30px;
+
   }
 
   @include abstracts.respond-to('tablet') { 
@@ -167,6 +170,7 @@ h1, h2, h3, h4, h5, h6 {
     --border-radius-large: 40px;
     --border-radius-small: 25px;
     --container-padding-content: 20px;
+    --text-tab-margin-bottom: 25px;
   }
 
   @include abstracts.respond-to('mobile') { 

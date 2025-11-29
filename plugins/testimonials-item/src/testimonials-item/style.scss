@@ -5,14 +5,29 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+@use '../../../../themes/achieve-arts/src/scss/abstracts';
+
 .c-testimonials-item {
 	&__variant--testimonials-scrolling-card {
 		.c-testimonials-item__inner {
 			background-color: #fff;
 			color: #000;
-			border-radius: 36px;
+			border-radius: var(--border-radius-small);
 			padding: 36px;
 			width: 445px;
+
+			@include abstracts.respond-to('desktop') { 
+				width: 400px;
+			}
+
+			@include abstracts.respond-to('tablet') { 
+				padding: 30px 20px;
+				width: 350px;
+			}
+
+			@include abstracts.respond-to('mobile') { 
+				width: 300px;
+			}
 		}
 	}
 
@@ -38,7 +53,7 @@
 	&__name,
 	&__role {
 		color: #fff;
-		font-size: 20px;
+		font-size: var(--font-page-hero-lead);
 		text-align: center;
 	}
 
@@ -64,7 +79,7 @@
 
 		.c-testimonials-item__name,
 		.c-testimonials-item__role {
-			font-size: 20px;
+			font-size: var(--font-page-hero-lead);
 			font-weight: 500;
 		}
 
@@ -107,6 +122,17 @@
 		svg {
 			width: 17px;
 			height: 17px;
+		}
+
+		@include abstracts.respond-to('tablet') { 
+			width: 32px;
+			height: 32px;
+			border-width: 2px;
+
+			svg {
+				width: 14px;
+				height: 14px;
+			}
 		}
 	}
 }

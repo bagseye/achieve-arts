@@ -52,6 +52,7 @@ function bindTestimonialsCarousels( $testimonialscarousel ) {
 			},
 			autoScroll: {
 				speed: 0.75,
+				pauseOnHover: false
 			},
 		} );
 		splide.mount( { AutoScroll } );
