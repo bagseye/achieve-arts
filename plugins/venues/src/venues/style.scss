@@ -17,6 +17,8 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: var(--spacing-header);
+    padding-left: var(--container-padding-content);
+    padding-right: var(--container-padding-content);
   }
 
   &__items {
@@ -24,8 +26,25 @@
     margin-left: auto;
     margin-right: auto;
     padding: 60px 80px;
-    border-radius: 60px;
+    border-radius: var(--border-radius-large);
     background-color: var(--brand-1);
+
+    @include abstracts.respond-to('desktop') { 
+      padding: 50px 60px;
+    }
+
+    @include abstracts.respond-to('tablet') { 
+      padding: 40px 30px;
+    }
+  }
+
+  &__inner {
+    padding-left: var(--container-padding-content);
+    padding-right: var(--container-padding-content);
+  }
+
+  &__cta {
+    margin-top: var(--spacing-header);
   }
 
   .c-venues__heading {

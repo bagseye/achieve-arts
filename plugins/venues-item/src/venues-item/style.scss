@@ -5,6 +5,8 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+@use '../../../../themes/achieve-arts/src/scss/abstracts';
+
 .c-venues-item {
 	border-bottom: 1px solid #938AB9;
 
@@ -13,8 +15,8 @@
 	}
 
 	&__inner {
-		padding-top: var(--spacing-para);
-		padding-bottom: var(--spacing-para);
+		padding-top: var(--spacing-header);
+		padding-bottom: var(--spacing-header);
 	}
 
 	&:first-child &__inner {
@@ -29,14 +31,26 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
+
+		@include abstracts.respond-to('tablet') { 
+      flex-direction: column;
+    }
+
+
+	}
+
+	.c-venues-item__header {
+		@include abstracts.respond-to('tablet') { 
+      margin-bottom: var(--spacing-header);
+    }
 	}
 
 	.c-venues-item__heading {
-		font-size: 60px;
+		font-size: var(--font-heading-cta);
 	}
 
 	.c-venues-item__details {
-		font-size: 20px;
+		font-size: var(--font-page-hero-lead);
 	}
 
 	&__cta {
