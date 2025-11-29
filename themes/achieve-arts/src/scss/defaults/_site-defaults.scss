@@ -361,7 +361,7 @@ h2 {
   &__brand-4 {
     position: relative;
 
-    &::after {
+    &::before {
       content: '';
       position: absolute;
       left: 0;
