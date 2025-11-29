@@ -10,7 +10,7 @@
 
 .c-media-text {
   background-color: #000;
-  border-radius: 60px;
+  border-radius: var(--border-radius-large);
 
   &.c-media-text__bgcolour--purple {
     background-color: var(--brand-4);
@@ -26,6 +26,10 @@
 
   &.c-media-text__bgcolour--grey {
     background-color: var(--brand-7);
+  }
+
+  &.c-media-text__bgcolour--transparent {
+    background-color: transparent;
   }
 
   &__inner {
@@ -49,8 +53,18 @@
     position: relative;
     z-index: 1;
 
+    .c-media-text__bgcolour--transparent & {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
     @include abstracts.respond-to('tablet') { 
       padding: 50px 30px;
+
+      .c-media-text__bgcolour--transparent & {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
     }
   }
 

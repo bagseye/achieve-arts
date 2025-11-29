@@ -250,6 +250,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							{ label: 'Deep Purple', value: 'deep-purple' },
 							{ label: 'Dark', value: 'dark' },
 							{ label: 'Grey', value: 'grey' },
+							{ label: 'Transparent', value: 'transparent' }
 						] }
 						onChange={ ( val ) =>
 							setAttributes( { bgcolour: val } )
