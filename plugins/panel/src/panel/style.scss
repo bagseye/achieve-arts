@@ -10,16 +10,23 @@
 .c-panel {
   &__content {
     text-align: center;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: var(--spacing-header);
   }
 
   &__inner {
     overflow: hidden;
-		padding-left: var(--container-padding-content);
-		padding-right: var(--container-padding-content);
+  }
+
+  &__items {
+    >* {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+
+      &.c-media-text {
+        max-width: var(--max-width-media-text);
+      }
+    }
   }
 
   &.c-panel__bgcolour--dark {
@@ -30,11 +37,5 @@
   &.c-panel__bgcolour--purple {
     background-color: var(--brand-4);
     color: #fff;
-  }
-
-  &__container {
-		max-width: 960px;
-		margin-left: auto;
-		margin-right: auto;
   }
 }
