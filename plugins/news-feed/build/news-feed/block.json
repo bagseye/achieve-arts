@@ -23,6 +23,10 @@
     "bottommargin": {
       "type": "boolean",
       "default": false
+    },
+    "catid": {
+      "type": "number",
+      "default": -1
     }
   },
   "textdomain": "news-feed",
