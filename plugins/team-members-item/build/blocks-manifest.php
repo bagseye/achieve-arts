@@ -40,6 +40,10 @@ return array(
 			'variant' => array(
 				'type' => 'string',
 				'default' => 'team-members'
+			),
+			'cardurl' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'usesContext' => array(

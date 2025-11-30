@@ -35,6 +35,10 @@
 		"variant": {
 			"type": "string",
 			"default": "team-members"
+		},
+		"cardurl": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"usesContext": [ "bwp/team-members-variant" ],
