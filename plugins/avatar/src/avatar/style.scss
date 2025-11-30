@@ -11,6 +11,22 @@
 	margin-top: var(--spacing-header);
 	margin-bottom: var(--spacing-header);
 
+	&__container {
+		display: flex;
+
+		.c-avatar__align--left & {
+			justify-content: flex-start;
+		}
+
+		.c-avatar__align--centre & {
+			justify-content: center;
+		}
+
+		.c-avatar__align--right & {
+			justify-content: flex-end;
+		}
+	}
+
 	&__items {
 		display: flex;
 		align-items: center;

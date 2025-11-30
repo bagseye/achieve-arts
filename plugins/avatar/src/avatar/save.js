@@ -18,9 +18,9 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 const BLOCKNAME = 'c-avatar';
 
 export default function save( { attributes } ) {
-	const { name, role, mediaId, mediaUrl, mediaAlt } = attributes;
+	const { name, role, mediaId, mediaUrl, mediaAlt, avataralign } = attributes;
 
-	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
+	const classes = [ BLOCKNAME, `${BLOCKNAME}__align--${avataralign}` ].filter( Boolean ).join( ' ' );
 
 	const blockProps = useBlockProps.save( { className: classes } );
 

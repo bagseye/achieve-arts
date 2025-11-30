@@ -31,11 +31,14 @@
 		"mediaAlt": {
 			"type": "string",
 			"default": ""
+		},
+		"avataralign": {
+			"type": "string",
+			"default": "left"
 		}
 	},
 	"textdomain": "avatar",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+	"style": "file:./style-index.css"
 }

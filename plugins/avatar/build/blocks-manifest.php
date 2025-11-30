@@ -36,12 +36,15 @@ return array(
 			'mediaAlt' => array(
 				'type' => 'string',
 				'default' => ''
+			),
+			'avataralign' => array(
+				'type' => 'string',
+				'default' => 'left'
 			)
 		),
 		'textdomain' => 'avatar',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
-		'style' => 'file:./style-index.css',
-		'viewScript' => 'file:./view.js'
+		'style' => 'file:./style-index.css'
 	)
 );
