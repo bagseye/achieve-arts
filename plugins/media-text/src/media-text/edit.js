@@ -87,6 +87,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				'core/heading',
 				'core/list',
 				'core/buttons',
+				'bwp/avatar'
 			],
 		}
 	);
