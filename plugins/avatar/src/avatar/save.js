@@ -55,7 +55,7 @@ export default function save( { attributes } ) {
 									/>
 								</span>
 								<RichText.Content
-									tagName="h2"
+									tagName="p"
 									className={ `${ BLOCKNAME }__role` }
 									value={ role }
 								/>
