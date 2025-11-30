@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { Button, PanelBody } from '@wordpress/components';
+import { Button, PanelBody, SelectControl } from '@wordpress/components';
 import {
 	useBlockProps,
 	RichText,
@@ -41,9 +41,9 @@ const ALLOWED_MEDIA_TYPES = [ 'image' ];
 const BLOCKNAME = 'c-avatar';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { name, role, mediaId, mediaUrl, mediaAlt } = attributes;
+	const { avataralign, name, role, mediaId, mediaUrl, mediaAlt } = attributes;
 
-	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
+	const classes = [ BLOCKNAME, `${BLOCKNAME}__align--${avataralign}` ].filter( Boolean ).join( ' ' );
 
 	const blockProps = useBlockProps( { className: classes } );
 
@@ -91,6 +91,22 @@ export default function Edit( { attributes, setAttributes } ) {
 							</Button>
 						) : null }
 					</MediaUploadCheck>
+				</PanelBody>
+				<PanelBody title={ __( 'Colour', 'avatar' ) }>
+					<SelectControl
+						label="Media Text Background Colour"
+						value={ avataralign }
+						options={ [
+							{ label: 'Left', value: 'left' },
+							{ label: 'Centre', value: 'centre' },
+							{ label: 'Right', value: 'right' },
+						] }
+						onChange={ ( val ) =>
+							setAttributes( { avataralign: val } )
+						}
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+					/>
 				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>
