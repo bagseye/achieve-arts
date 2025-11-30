@@ -10,10 +10,16 @@ const SUB_MENU_TRANSITION = `height ${ANIMATION_DURATION}ms ease-in-out`;
 let navigationTimeout;
 
 function cacheDOM() {
-    $mobileNav = document.querySelector('.js-mobile-nav');
-    $burger = document.querySelector('.js-mobile-nav__burger');
+  $mobileNav = document.querySelector('.js-mobile-nav');
+  $burger = document.querySelector('.js-mobile-nav__burger');
+
+  if ($mobileNav) {
     $subNavs = [...$mobileNav.querySelectorAll('.js-mobile-nav__toggle')];
     $closeBtns = [...$mobileNav.querySelectorAll('.js-mobile-nav__close')];
+  } else {
+    $subNavs = [];
+    $closeBtns = [];
+  }
 }
 
 function openMainNav() {
@@ -26,6 +32,7 @@ function openMainNav() {
 }
 
 export function closeMainNav() {
+    clearTimeout(navigationTimeout);
     document.body.classList.remove('mobile-nav-open');
     setTimeout(() => {
         document.body.classList.remove('mobile-nav-primer');

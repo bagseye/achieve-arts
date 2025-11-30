@@ -15,7 +15,7 @@
               $menu_args = array(
                   'menu'              => 'primary-one',
                   'menu_class'        => 'c-mobile-menu__nav-items',
-                  'menu_id'           => 'mobileMenu',
+                  'menu_id'           => 'mobileMenuOne',
                   'container'         => false,
                   'depth'             => 2,
                   'theme_location'    => 'primary-one',
@@ -34,7 +34,7 @@
               $menu_args = array(
                   'menu'              => 'primary-two',
                   'menu_class'        => 'c-mobile-menu__nav-items',
-                  'menu_id'           => 'mobileMenu',
+                  'menu_id'           => 'mobileMenuTwo',
                   'container'         => false,
                   'depth'             => 2,
                   'theme_location'    => 'primary-two',
@@ -53,7 +53,7 @@
               $menu_args = array(
                   'menu'              => 'primary-three',
                   'menu_class'        => 'c-mobile-menu__nav-items',
-                  'menu_id'           => 'mobileMenu',
+                  'menu_id'           => 'mobileMenuThree',
                   'container'         => false,
                   'depth'             => 2,
                   'theme_location'    => 'primary-three',
