@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bwp/news-feed",
+	"version": "0.1.0",
+	"title": "News Feed",
+	"category": "widgets",
+	"icon": "media-document",
+	"description": "Displays a scrolling feed of the latest news.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"topmargin": {
+			"type": "boolean",
+			"default": false
+		},
+		"bottommargin": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "news-feed",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
