@@ -14,6 +14,7 @@
 <?php 
 
 $BLOCK_NAME = 'c-news-feed';
+$category = 0;
 $block_classes = [];
 $block_classes[] = $BLOCK_NAME;
 $block_classes[] = 'full-width';
@@ -28,6 +29,10 @@ if(! empty( $attributes['topmargin'] )) {
 
 if(! empty( $attributes['bottommargin'] )) {
 	$block_classes[] = 'margin-block__bottom';
+}
+
+if(! empty( $attributes['catid'] )) {
+	$category = $attributes['catid'];
 }
 
 ?>
@@ -51,7 +56,8 @@ if(! empty( $attributes['bottommargin'] )) {
 										$news_items = new WP_Query([
 											'post_type' => 'post',
 											'post_status' => 'publish',
-											'posts_per_page' => 8
+											'posts_per_page' => 8,
+											'cat' => $category
 										]);
 										
 										?>

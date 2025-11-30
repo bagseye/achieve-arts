@@ -28,6 +28,10 @@ return array(
 			'bottommargin' => array(
 				'type' => 'boolean',
 				'default' => false
+			),
+			'catid' => array(
+				'type' => 'number',
+				'default' => -1
 			)
 		),
 		'textdomain' => 'news-feed',
