@@ -73,7 +73,9 @@ export default function save( { attributes } ) {
 		<>
 			<article { ...blockProps }>
 				{ cardurl ? (
-					<a href={ cardurl }>{ renderCard() }</a>
+					<a href={ cardurl } ariaLabel={ `View profile: ${ name }` }>
+						{ renderCard() }
+					</a>
 				) : (
 					renderCard()
 				) }

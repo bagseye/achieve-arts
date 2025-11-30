@@ -11,16 +11,13 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useSelect } from '@wordpress/data';
-import { store as coreStore } from '@wordpress/core-data';
-import { Button, PanelBody, Spinner } from '@wordpress/components';
+import { Button, PanelBody } from '@wordpress/components';
 import {
 	useBlockProps,
 	RichText,
 	MediaUpload,
 	MediaUploadCheck,
 	InspectorControls,
-	URLInput,
 	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 import { useEffect } from '@wordpress/element';
