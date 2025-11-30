@@ -105,7 +105,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										onChange={ ( val ) =>
 											setAttributes( { heading: val } )
 										}
-										placeholder={ __( 'Heading...' ) }
+										placeholder={ __( 'Heading...', 'news-feed' ) }
 									/>
 								</header>
 							</div>

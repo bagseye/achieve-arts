@@ -22,11 +22,11 @@ $block_classes[] = 'js-carousel__news-feed';
 $block_classes[] = 'no-padding__right';
 $block_classes[] = 'no-padding__left';
 
-if($attributes && $attributes['topmargin']) {
+if(! empty( $attributes['topmargin'] )) {
 	$block_classes[] = 'margin-block__top';
 }
 
-if($attributes && $attributes['bottommargin']) {
+if(! empty( $attributes['bottommargin'] )) {
 	$block_classes[] = 'margin-block__bottom';
 }
 
@@ -52,13 +52,13 @@ if($attributes && $attributes['bottommargin']) {
 											'post_type' => 'post',
 											'post_status' => 'publish',
 											'posts_per_page' => 8
-										])
+										]);
 										
 										?>
 										<?php if($news_items->have_posts()) : ?>
 											<?php while($news_items->have_posts()) : $news_items->the_post(); ?>
 											<article class="splide__slide c-news-feed__card">
-													<a href="<?php get_permalink( get_the_ID() ) ?>" title="<?php echo get_the_title(get_the_ID()) ?>">
+													<a href="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" title="<?php echo esc_attr( get_the_title( get_the_ID() ) ); ?>">
 															<div class="<?php echo $BLOCK_NAME ?>__card--inner">
 																	<div class="<?php echo $BLOCK_NAME ?>__card--container">
 																			<div class="<?php echo $BLOCK_NAME ?>__card--media">
@@ -76,12 +76,12 @@ if($attributes && $attributes['bottommargin']) {
 																					
 																					?>
 																					<picture>
-																							<?php echo wp_filter_content_tags('<img class="wp-image-' . $mediaid . '" src="' . $mediasrc . '" alt="' . $mediaalt . '" >') ?>
+																						<?php echo wp_filter_content_tags('<img class="wp-image-' . esc_attr( $mediaid ) . '" src="' . esc_url( $mediasrc ) . '" alt="' . esc_attr( $mediaalt ) . '" >'); ?>																					
 																					</picture>
 																			</div>
 																			<div class="<?php echo $BLOCK_NAME ?>__card--content">
 																					<header class="<?php echo $BLOCK_NAME ?>__card--header">
-																							<h3 class="<?php echo $BLOCK_NAME ?>__card--heading"><?php echo get_the_title(get_the_ID()) ?></h3>
+																							<h3 class="<?php echo esc_attr( $BLOCK_NAME ); ?>__card--heading"><?php echo esc_html( get_the_title( get_the_ID() ) ); ?></h3>
 																					</header>
 																					<p><?php echo get_the_excerpt(get_the_ID()) ?></p>
 																			</div>
