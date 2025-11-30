@@ -16,8 +16,10 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 const BLOCKNAME = 'c-team-members-item';
+
 export default function save( { attributes } ) {
-	const { name, role, mediaId, mediaUrl, mediaAlt, variant } = attributes;
+	const { name, role, mediaId, mediaUrl, mediaAlt, variant, cardurl } =
+		attributes;
 
 	const classes = [
 		BLOCKNAME,
@@ -28,45 +30,55 @@ export default function save( { attributes } ) {
 		.join( ' ' );
 
 	const blockProps = useBlockProps.save( { className: classes } );
+
+	function renderCard() {
+		return (
+			<div className={ `${ BLOCKNAME }__inner` }>
+				<div className={ `${ BLOCKNAME }__container` }>
+					<div className={ `${ BLOCKNAME }__media` }>
+						{ mediaId && mediaUrl ? (
+							<picture>
+								<img
+									className={ `wp-image-${ mediaId }` }
+									src={ mediaUrl }
+									alt={ mediaAlt }
+								/>
+							</picture>
+						) : null }
+						{ variant !== 'clients' && (
+							<span
+								className={ `${ BLOCKNAME }__overlay` }
+							></span>
+						) }
+					</div>
+					<header className={ `${ BLOCKNAME }__header` }>
+						<RichText.Content
+							tagName="h3"
+							className={ `${ BLOCKNAME }__heading` }
+							value={ name }
+						/>
+						{ variant !== 'clients' && (
+							<RichText.Content
+								tagName="p"
+								className={ `${ BLOCKNAME }__role` }
+								value={ role }
+							/>
+						) }
+					</header>
+				</div>
+			</div>
+		);
+	}
 	return (
 		<>
 			<article { ...blockProps }>
-				<a>
-					<div className={ `${ BLOCKNAME }__inner` }>
-						<div className={ `${ BLOCKNAME }__container` }>
-							<div className={ `${ BLOCKNAME }__media` }>
-								{ mediaId && mediaUrl ? (
-									<picture>
-										<img
-											className={ `wp-image-${ mediaId }` }
-											src={ mediaUrl }
-											alt={ mediaAlt }
-										/>
-									</picture>
-								) : null }
-								{ variant !== 'clients' && (
-									<span
-										className={ `${ BLOCKNAME }__overlay` }
-									></span>
-								) }
-							</div>
-							<header className={ `${ BLOCKNAME }__header` }>
-								<RichText.Content
-									tagName="h3"
-									className={ `${ BLOCKNAME }__heading` }
-									value={ name }
-								/>
-								{ variant !== 'clients' && (
-									<RichText.Content
-										tagName="p"
-										className={ `${ BLOCKNAME }__role` }
-										value={ role }
-									/>
-								) }
-							</header>
-						</div>
-					</div>
-				</a>
+				{ cardurl ? (
+					<a href={ cardurl } ariaLabel={ `View profile: ${ name }` }>
+						{ renderCard() }
+					</a>
+				) : (
+					renderCard()
+				) }
 			</article>
 		</>
 	);

@@ -18,6 +18,7 @@ import {
 	MediaUpload,
 	MediaUploadCheck,
 	InspectorControls,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 import { useEffect } from '@wordpress/element';
 
@@ -40,7 +41,8 @@ import './editor.scss';
 const BLOCKNAME = 'c-team-members-item';
 const ALLOWED_MEDIA_TYPES = [ 'image' ];
 export default function Edit( { attributes, setAttributes, context } ) {
-	const { name, role, mediaId, mediaUrl, mediaAlt, variant } = attributes;
+	const { name, role, mediaId, mediaUrl, mediaAlt, variant, cardurl } =
+		attributes;
 	const classes = [
 		BLOCKNAME,
 		variant === 'clients' && 'c-team-members-item__variant--clients',
@@ -63,6 +65,10 @@ export default function Edit( { attributes, setAttributes, context } ) {
 			setAttributes( { variant: context[ 'bwp/team-members-variant' ] } );
 		}
 	}, [ context, setAttributes ] );
+
+	const linkValue = {
+		url: cardurl || '',
+	};
 
 	return (
 		<>
@@ -102,6 +108,28 @@ export default function Edit( { attributes, setAttributes, context } ) {
 						) : null }
 					</MediaUploadCheck>
 				</PanelBody>
+				{ variant === 'team-members' && (
+					<PanelBody title={ __( 'Card Link', 'team-members-item' ) }>
+						<LinkControl
+							searchInputPlaceholder={ __(
+								'Search team members…',
+								'team-members-item'
+							) }
+							value={ linkValue }
+							// Only search the custom post type "team-members"
+							suggestionsQuery={ {
+								type: 'post',
+								subtype: 'team-members',
+							} }
+							settings={ [] } // hides "open in new tab" etc if you don't need them
+							onChange={ ( nextValue ) => {
+								setAttributes( {
+									cardurl: nextValue?.url || '',
+								} );
+							} }
+						/>
+					</PanelBody>
+				) }
 			</InspectorControls>
 			<article { ...blockProps }>
 				<div className={ `${ BLOCKNAME }__inner` }>
