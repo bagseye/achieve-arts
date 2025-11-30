@@ -1,4 +1,4 @@
-<button class="c-hamburger">
+<button class="c-hamburger js-mobile-nav__burger">
   <p>
     Menu
   </p>
