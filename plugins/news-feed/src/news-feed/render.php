@@ -84,6 +84,16 @@ if(! empty( $attributes['catid'] )) {
 																					<picture>
 																						<?php echo wp_filter_content_tags('<img class="wp-image-' . esc_attr( $mediaid ) . '" src="' . esc_url( $mediasrc ) . '" alt="' . esc_attr( $mediaalt ) . '" >'); ?>																					
 																					</picture>
+																					<?php 
+																					
+																					$categories = get_the_category();
+
+																					if ( ! empty( $categories ) ) {
+																							$first_category = $categories[0];
+																							echo '<span class="' . $BLOCK_NAME . '__card--tab h-tab"><p>' . esc_html( $first_category->name ) . '</p></span>';
+																					}
+																					
+																					?>
 																			</div>
 																			<div class="<?php echo $BLOCK_NAME ?>__card--content">
 																					<header class="<?php echo $BLOCK_NAME ?>__card--header">
