@@ -18,7 +18,7 @@ global $post;
 </head>
 
 <body>
-    <header class="js-fixed-na c-header">
+    <header class="js-fixed-nav c-header">
         <?php get_template_part('template-parts/components/alert') ?>
         
         <div class="c-header__inner">

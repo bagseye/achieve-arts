@@ -47,10 +47,29 @@
 
     &:nth-child(1) {
       transform: translateY(calc(-50% - 0.5rem));
+      transition: transform 0.25s ease-in-out;
+
+      .mobile-nav-open & {
+        transform: translateY(-50%) rotate(-45deg);
+      }
     }
+
+    &:nth-child(2) {
+      transition: opacity 0.25s ease-in-out;
+
+      .mobile-nav-open & {
+        opacity: 0;
+      }
+    }
+
 
     &:nth-child(3) {
       transform: translateY(calc(-50% + 0.5rem));
+      transition: transform 0.25s ease-in-out;
+
+      .mobile-nav-open & {
+        transform: translateY(-50%) rotate(45deg);
+      }
     }
   }
 }
