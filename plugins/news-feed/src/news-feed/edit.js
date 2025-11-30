@@ -75,7 +75,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			const core = select( coreStore );
 
 			const query = {
-				per_page: 8, // show last 3 posts in preview
+				per_page: 8,
 				orderby: 'date',
 				order: 'desc',
 				_embed: true, // optional: to get featured media
