@@ -4,14 +4,14 @@ import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 // let $carousels;
 let $teamcarousels;
-let $newsfeedcarousels;
+// let $newsfeedcarousels;
 // let $mediatextcarousels;
 // let $videocarousels;
 
 function cacheDOM() {
   // $carousels = [...document.querySelectorAll('.splide.js-carousel')];
   $teamcarousels = [...document.querySelectorAll('.splide.js-carousel__team')];
-  $newsfeedcarousels = [...document.querySelectorAll('.splide.js-carousel__news-feed')];
+  // $newsfeedcarousels = [...document.querySelectorAll('.splide.js-carousel__news-feed')];
   // $mediatextcarousels = [...document.querySelectorAll('.splide.js-carousel__media-text')];
   // $videocarousels = [...document.querySelectorAll('.splide.js-carousel__video')];
 }
@@ -36,25 +36,25 @@ function cacheDOM() {
 //     splide.mount({AutoScroll});
 // }
 
-function bindNewsFeedCarousels($carousel) {
-    var splide = new Splide( $carousel, {
-      gap: 12,
-      type: 'loop',
-      autoWidth: true,
-      focus: 'center',
-      pagination: false,
-      arrows: false,
-      breakpoints: {
-        760: {
-          gap: 12
-        }
-      },
-      autoScroll: {
-        speed: 0.75
-      }
-    } );
-    splide.mount({AutoScroll});
-}
+// function bindNewsFeedCarousels($carousel) {
+//     var splide = new Splide( $carousel, {
+//       gap: 12,
+//       type: 'loop',
+//       autoWidth: true,
+//       focus: 'center',
+//       pagination: false,
+//       arrows: false,
+//       breakpoints: {
+//         760: {
+//           gap: 12
+//         }
+//       },
+//       autoScroll: {
+//         speed: 0.75
+//       }
+//     } );
+//     splide.mount({AutoScroll});
+// }
 
 function bindTeamCarousels($teamcarousel) {
     var splide = new Splide( $teamcarousel, {
@@ -121,11 +121,11 @@ export default function init() {
     });
   }
 
-  if($newsfeedcarousels.length) {
-    $newsfeedcarousels.forEach(newsfeedcarousel => {
-      bindNewsFeedCarousels(newsfeedcarousel);
-    });
-  }
+  // if($newsfeedcarousels.length) {
+  //   $newsfeedcarousels.forEach(newsfeedcarousel => {
+  //     bindNewsFeedCarousels(newsfeedcarousel);
+  //   });
+  // }
 
   // if($mediatextcarousels.length) {
   //   $mediatextcarousels.forEach(mediatextcarousel => {

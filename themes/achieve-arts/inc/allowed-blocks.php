@@ -9,6 +9,7 @@ function bwp_allowed_block_types ( $block_editor_context, $editor_context ) {
       'core/buttons',
 
       'bwp/avatar',
+      'bwp/news-feed',
       'bwp/cta',
       'bwp/media-carousel',
       'bwp/media-carousel-item',
