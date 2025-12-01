@@ -1,1 +1,1 @@
-(()=>{let e;e=[...document.querySelectorAll(".splide.js-carousel__media-text")],e.length&&e.forEach(e=>{new Splide(e,{perPage:1,type:"fade",rewind:!0,autoWidth:!1,focus:"center",pagination:!1,arrows:!0}).mount()})})();
+(()=>{let e;e=[...document.querySelectorAll(".splide.js-carousel__media-text")],e.length&&e.forEach(e=>{var t;t=e,new window.Splide(t,{perPage:1,type:"fade",rewind:!0,autoWidth:!1,focus:"center",pagination:!1,arrows:!0}).mount()})})();

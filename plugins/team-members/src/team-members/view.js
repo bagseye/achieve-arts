@@ -30,7 +30,7 @@ function cacheDOM() {
 }
 
 function bindTeamCarousels( $teamcarousel ) {
-	var splide = new Splide( $teamcarousel, {
+	var splide = new window.Splide( $teamcarousel, {
 		gap: 16,
 		perPage: 3,
 		type: 'loop',

@@ -36,7 +36,7 @@ function cacheDOM() {
 }
 
 function bindVideoCarousels( $videocarousel ) {
-	var splide = new Splide( $videocarousel, {
+	var splide = new window.Splide( $videocarousel, {
 		perPage: 1,
 		type: 'loop',
 		gap: 16,

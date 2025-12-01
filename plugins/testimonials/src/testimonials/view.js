@@ -42,7 +42,7 @@ function bindTestimonialsCarousels( $testimonialscarousel ) {
 			'js-carousel__testimonials--scrolling-card'
 		)
 	) {
-		splide = new Splide( $testimonialscarousel, {
+		splide = new window.Splide( $testimonialscarousel, {
 			gap: 12,
 			type: 'loop',
 			autoWidth: true,
@@ -61,7 +61,7 @@ function bindTestimonialsCarousels( $testimonialscarousel ) {
 		} );
 		splide.mount( chosenExtensions );
 	} else {
-		splide = new Splide( $testimonialscarousel, {
+		splide = new window.Splide( $testimonialscarousel, {
 			perPage: 1,
 			type: 'fade',
 			rewind: true,

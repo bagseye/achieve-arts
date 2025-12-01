@@ -30,7 +30,7 @@ function cacheDOM() {
 }
 
 function bindMediaTextCarousels( $mediatextcarousel ) {
-	var splide = new Splide( $mediatextcarousel, {
+	var splide = new window.Splide( $mediatextcarousel, {
 		perPage: 1,
 		type: 'fade',
 		rewind: true,

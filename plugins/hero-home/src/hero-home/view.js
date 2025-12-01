@@ -33,7 +33,7 @@ function cacheDOM() {
 }
 
 function bindCarousels( $carousel ) {
-	var splide = new Splide( $carousel, {
+	var splide = new window.Splide( $carousel, {
 		gap: 16,
 		type: 'loop',
 		autoWidth: true,
