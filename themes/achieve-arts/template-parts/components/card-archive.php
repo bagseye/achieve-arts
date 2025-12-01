@@ -18,7 +18,9 @@
                         
                         ?>
                         <picture>
+                            <?php if ($mediasrc): ?>
                             <?php echo wp_filter_content_tags('<img class="wp-image-' . esc_attr($mediaid) . '" src="' . esc_url($mediasrc) . '" alt="' . esc_attr($mediaalt) . '" >') ?>
+                            <?php endif; ?>
                         </picture>
                     </div>
                     <div class="e-card-archive__content">

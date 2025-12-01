@@ -32,8 +32,9 @@ add_action( 'wp_ajax_nopriv_load_more_posts', 'load_more_posts_handler' );
 
 
 function load_more_posts_handler(){
+
     $page = isset($_POST['page']) ? absint($_POST['page']) : 1;
-    $category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : '';
+    $category_id = isset($_POST['category_id']) ? absint($_POST['category_id']) : 0;
     $posts_per_page = get_option('posts_per_page');
     
     $args = array(
@@ -44,7 +45,7 @@ function load_more_posts_handler(){
     );
     
     // Add category filter if provided
-    if (!empty($category_id)) {
+    if ($category_id > 0) {
         $args['cat'] = $category_id;
     }
 
