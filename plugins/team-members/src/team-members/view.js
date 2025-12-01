@@ -20,7 +20,6 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-import Splide from '@splidejs/splide';
 
 let $teamcarousels;
 
@@ -31,7 +30,7 @@ function cacheDOM() {
 }
 
 function bindTeamCarousels( $teamcarousel ) {
-	var splide = new Splide( $teamcarousel, {
+	var splide = new window.Splide( $teamcarousel, {
 		gap: 16,
 		perPage: 3,
 		type: 'loop',

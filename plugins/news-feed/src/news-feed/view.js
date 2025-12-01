@@ -20,10 +20,13 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-import Splide from '@splidejs/splide';
-import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-
 let $newscarousels;
+
+const { Extensions } = window.splide;
+
+const chosenExtensions = {
+	AutoScroll: Extensions.AutoScroll,
+};
 
 function cacheDOM() {
 	$newscarousels = [
@@ -32,7 +35,7 @@ function cacheDOM() {
 }
 
 function bindNewsCarousels( $newscarousel ) {
-	var splide = new Splide( $newscarousel, {
+	var splide = new window.Splide( $newscarousel, {
 		gap: 12,
 		type: 'loop',
 		autoWidth: true,
@@ -49,7 +52,7 @@ function bindNewsCarousels( $newscarousel ) {
 			pauseOnHover: false,
 		},
 	} );
-	splide.mount( { AutoScroll } );
+	splide.mount( chosenExtensions );
 }
 
 function init() {

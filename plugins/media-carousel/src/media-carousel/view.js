@@ -20,10 +20,14 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-import Splide from '@splidejs/splide';
-import { Video } from '@splidejs/splide-extension-video';
-
 let $videocarousels;
+
+const { Extensions } = window.splide;
+
+const chosenExtensions = {
+	Video: Extensions.Video,
+};
+
 
 function cacheDOM() {
 	$videocarousels = [
@@ -32,7 +36,7 @@ function cacheDOM() {
 }
 
 function bindVideoCarousels( $videocarousel ) {
-	var splide = new Splide( $videocarousel, {
+	var splide = new window.Splide( $videocarousel, {
 		perPage: 1,
 		type: 'loop',
 		gap: 16,
@@ -56,7 +60,7 @@ function bindVideoCarousels( $videocarousel ) {
 			hideControls: true,
 		},
 	} );
-	splide.mount( { Video } );
+	splide.mount( chosenExtensions );
 }
 
 function init() {

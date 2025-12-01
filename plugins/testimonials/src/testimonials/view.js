@@ -20,10 +20,14 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-import Splide from '@splidejs/splide';
-import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 let $testimonialscarousels;
+
+const { Extensions } = window.splide;
+
+const chosenExtensions = {
+	AutoScroll: Extensions.AutoScroll,
+};
 
 function cacheDOM() {
 	$testimonialscarousels = [
@@ -38,7 +42,7 @@ function bindTestimonialsCarousels( $testimonialscarousel ) {
 			'js-carousel__testimonials--scrolling-card'
 		)
 	) {
-		splide = new Splide( $testimonialscarousel, {
+		splide = new window.Splide( $testimonialscarousel, {
 			gap: 12,
 			type: 'loop',
 			autoWidth: true,
@@ -55,9 +59,9 @@ function bindTestimonialsCarousels( $testimonialscarousel ) {
 				pauseOnHover: false
 			},
 		} );
-		splide.mount( { AutoScroll } );
+		splide.mount( chosenExtensions );
 	} else {
-		splide = new Splide( $testimonialscarousel, {
+		splide = new window.Splide( $testimonialscarousel, {
 			perPage: 1,
 			type: 'fade',
 			rewind: true,

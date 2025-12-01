@@ -95,6 +95,41 @@ if (!function_exists('bwp_scripts')) {
 }
 add_action('wp_enqueue_scripts', 'bwp_scripts');
 
+
+/**
+ * 
+ * These scripts will be made global and used as dependencies in custom blocks
+ * 
+*/
+add_action( 'init', function () {
+	$splide_version = getBuildTimeStamp(); 
+
+	wp_register_script(
+		'splide-core',
+		get_template_directory_uri() . '/vendors/splide.min.js',
+		[],
+		$splide_version,
+		true
+	);
+
+	wp_register_script(
+		'splide-auto-scroll',
+		get_template_directory_uri() . '/vendors/splide-extension-auto-scroll.min.js',
+		[ 'splide-core' ], // depends on core
+		$splide_version,
+		true
+	);
+
+	wp_register_script(
+		'splide-video',
+		get_template_directory_uri() . '/vendors/splide-extension-video.min.js',
+		[ 'splide-core' ], // depends on core
+		$splide_version,
+		true
+	);
+	
+} );
+
 /**
  * Custom scripts for the block editor
  * Used to add new options in the sidebar
