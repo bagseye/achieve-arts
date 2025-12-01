@@ -19,7 +19,10 @@ const config = {
         ],
         error: [
             './src/scss/error.scss'
-        ]
+        ],
+        loadmore: [
+            './src/js/loadmore.js'
+        ],
     },
     output: {
         path: path.resolve(__dirname, 'assets'),
