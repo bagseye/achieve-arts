@@ -23,6 +23,12 @@
 
 let $testimonialscarousels;
 
+const { Extensions } = window.splide;
+
+const chosenExtensions = {
+	AutoScroll: Extensions.AutoScroll,
+};
+
 function cacheDOM() {
 	$testimonialscarousels = [
 		...document.querySelectorAll( '.splide.js-carousel__testimonials' ),
@@ -53,7 +59,7 @@ function bindTestimonialsCarousels( $testimonialscarousel ) {
 				pauseOnHover: false
 			},
 		} );
-		splide.mount( window.splide.Extensions );
+		splide.mount( chosenExtensions );
 	} else {
 		splide = new Splide( $testimonialscarousel, {
 			perPage: 1,

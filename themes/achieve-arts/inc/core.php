@@ -102,11 +102,13 @@ add_action('wp_enqueue_scripts', 'bwp_scripts');
  * 
 */
 add_action( 'init', function () {
+	$splide_version = getBuildTimeStamp(); 
+
 	wp_register_script(
 		'splide-core',
 		get_template_directory_uri() . '/vendors/splide.min.js',
 		[],
-		'1.0.0',
+		$splide_version,
 		true
 	);
 
@@ -114,7 +116,7 @@ add_action( 'init', function () {
 		'splide-auto-scroll',
 		get_template_directory_uri() . '/vendors/splide-extension-auto-scroll.min.js',
 		[ 'splide-core' ], // depends on core
-		'1.0.0',
+		$splide_version,
 		true
 	);
 
@@ -122,7 +124,7 @@ add_action( 'init', function () {
 		'splide-video',
 		get_template_directory_uri() . '/vendors/splide-extension-video.min.js',
 		[ 'splide-core' ], // depends on core
-		'1.0.0',
+		$splide_version,
 		true
 	);
 	

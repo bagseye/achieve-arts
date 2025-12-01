@@ -22,6 +22,13 @@
 
 let $videocarousels;
 
+const { Extensions } = window.splide;
+
+const chosenExtensions = {
+	Video: Extensions.Video,
+};
+
+
 function cacheDOM() {
 	$videocarousels = [
 		...document.querySelectorAll( '.splide.js-carousel__video' ),
@@ -53,7 +60,7 @@ function bindVideoCarousels( $videocarousel ) {
 			hideControls: true,
 		},
 	} );
-	splide.mount( window.splide.Extensions );
+	splide.mount( chosenExtensions );
 }
 
 function init() {

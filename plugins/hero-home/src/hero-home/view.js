@@ -22,6 +22,12 @@
 
 let $carousels;
 
+const { Extensions } = window.splide;
+
+const chosenExtensions = {
+	AutoScroll: Extensions.AutoScroll,
+};
+
 function cacheDOM() {
 	$carousels = [ ...document.querySelectorAll( '.splide.js-carousel' ) ];
 }
@@ -44,7 +50,7 @@ function bindCarousels( $carousel ) {
 			pauseOnHover: false,
 		},
 	} );
-	splide.mount( window.splide.Extensions );
+	splide.mount( chosenExtensions );
 }
 
 function init() {

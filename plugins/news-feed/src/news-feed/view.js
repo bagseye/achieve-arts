@@ -22,6 +22,12 @@
 
 let $newscarousels;
 
+const { Extensions } = window.splide;
+
+const chosenExtensions = {
+	AutoScroll: Extensions.AutoScroll,
+};
+
 function cacheDOM() {
 	$newscarousels = [
 		...document.querySelectorAll( '.splide.js-carousel__news-feed' ),
@@ -46,7 +52,7 @@ function bindNewsCarousels( $newscarousel ) {
 			pauseOnHover: false,
 		},
 	} );
-	splide.mount( window.splide.Extensions );
+	splide.mount( chosenExtensions );
 }
 
 function init() {

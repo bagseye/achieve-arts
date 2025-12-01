@@ -73,7 +73,9 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
-		'script' => 'splide-core',
-		'viewScript' => 'file:./view.js'
+		'viewScript' => array(
+			'splide-core',
+			'file:./view.js'
+		)
 	)
 );

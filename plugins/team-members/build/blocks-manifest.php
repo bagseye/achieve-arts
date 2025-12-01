@@ -65,8 +65,10 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
-		'viewScript' => 'file:./view.js',
-		'script' => 'splide-core',
+		'viewScript' => array(
+			'splide-core',
+			'file:./view.js'
+		),
 		'variations' => 'file:./variations.php'
 	)
 );
