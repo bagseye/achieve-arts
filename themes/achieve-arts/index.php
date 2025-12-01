@@ -3,7 +3,7 @@
 <main class="main-content p-archive">
     <div class="p-archive__inner">
         <div class="p-archive__container">
-            <div class="p-archive__items">
+            <div class="p-archive__items margin-block__top margin-block__bottom">
                 <?php if (have_posts()) : ?>
 
                     <?php 
@@ -17,7 +17,7 @@
 
                     if ($categories) : ?>
 
-                    <div class="p-archive__cats">
+                    <div class="p-archive__cats margin-block__bottom">
                         <div class="p-archive__cats--inner">
                             <div class="p-archive__cats--container">
                                 <form id="ajax-filter" class="p-archive__cats--items grid-layout">
@@ -38,7 +38,7 @@
 
                     <?php endif; ?>
 
-                    <div id="site-content" class="p-archive__items">
+                    <div id="site-content" class="p-archive__feed">
                 
                     <?php while (have_posts()) : the_post(); ?>
 
