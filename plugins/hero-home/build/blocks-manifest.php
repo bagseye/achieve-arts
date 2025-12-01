@@ -34,6 +34,10 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
-		'viewScript' => 'file:./view.js'
+		'viewScript' => array(
+			'splide-core',
+			'splide-auto-scroll',
+			'file:./view.js'
+		)
 	)
 );

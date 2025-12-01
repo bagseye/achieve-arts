@@ -20,9 +20,6 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-import Splide from '@splidejs/splide';
-import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-
 let $newscarousels;
 
 function cacheDOM() {
@@ -49,7 +46,7 @@ function bindNewsCarousels( $newscarousel ) {
 			pauseOnHover: false,
 		},
 	} );
-	splide.mount( { AutoScroll } );
+	splide.mount( window.splide.Extensions );
 }
 
 function init() {

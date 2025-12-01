@@ -16,9 +16,5 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^31.0.0"
-	},
-	"dependencies": {
-		"@splidejs/splide": "^4.1.4",
-		"@splidejs/splide-extension-video": "^0.8.0"
 	}
 }

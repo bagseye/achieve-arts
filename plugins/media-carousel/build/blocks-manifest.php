@@ -37,7 +37,11 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
-		'viewScript' => 'file:./view.js',
+		'viewScript' => array(
+			'splide-core',
+			'splide-video',
+			'file:./view.js'
+		),
 		'variations' => 'file:./variations.php'
 	)
 );

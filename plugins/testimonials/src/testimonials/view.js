@@ -20,8 +20,6 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-import Splide from '@splidejs/splide';
-import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 let $testimonialscarousels;
 
@@ -55,7 +53,7 @@ function bindTestimonialsCarousels( $testimonialscarousel ) {
 				pauseOnHover: false
 			},
 		} );
-		splide.mount( { AutoScroll } );
+		splide.mount( window.splide.Extensions );
 	} else {
 		splide = new Splide( $testimonialscarousel, {
 			perPage: 1,

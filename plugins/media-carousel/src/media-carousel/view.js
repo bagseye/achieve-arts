@@ -20,9 +20,6 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-import Splide from '@splidejs/splide';
-import { Video } from '@splidejs/splide-extension-video';
-
 let $videocarousels;
 
 function cacheDOM() {
@@ -56,7 +53,7 @@ function bindVideoCarousels( $videocarousel ) {
 			hideControls: true,
 		},
 	} );
-	splide.mount( { Video } );
+	splide.mount( window.splide.Extensions );
 }
 
 function init() {
