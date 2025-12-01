@@ -1,0 +1,30 @@
+@use '../abstracts';
+
+.p-archive {
+  &__inner {
+    padding-left: var(--container-padding-content);
+    padding-right: var(--container-padding-content);
+  }
+  &__container {
+    max-width: var(--max-width-media-text);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__feed {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+
+    @include abstracts.respond-to('laptop') { 
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include abstracts.respond-to('mobile') { 
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+
+  &__card {
+    width: 100%;
+  }
+}
