@@ -26,8 +26,8 @@
                                         <option value="">Filter by Category</option>
                                         <option value="">All</option>
                                         <?php foreach ($categories as $category) : ?>
-                                            <option value="<?php echo $category->term_id; ?>">
-                                                <?php echo $category->name; ?>
+                                            <option value="<?php echo esc_attr($category->term_id); ?>">
+                                                <?php echo esc_html($category->name); ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -55,7 +55,7 @@
                     <?php endif; ?>
 
 
-                    <div class="js-scroll-load"></div>
+                    <!-- <div class="js-scroll-load"></div> -->
 
                 <?php endif; ?>
             </div>

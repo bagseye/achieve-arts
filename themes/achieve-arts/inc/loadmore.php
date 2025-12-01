@@ -32,8 +32,8 @@ add_action( 'wp_ajax_nopriv_load_more_posts', 'load_more_posts_handler' );
 
 
 function load_more_posts_handler(){
-    $page = $_POST['page'];
-    $category_id = isset($_POST['category_id']) ? $_POST['category_id'] : '';
+    $page = isset($_POST['page']) ? absint($_POST['page']) : 1;
+    $category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : '';
     $posts_per_page = get_option('posts_per_page');
     
     $args = array(

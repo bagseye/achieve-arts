@@ -33,7 +33,7 @@ export default function init() {
     if (elementsToObserve.length) {
         if (!('IntersectionObserver' in window)) {
             // Check if the API is available, if not, add the classes to display all items
-            console.error('Intersection Observer API is not avaialble. Fallbacks are being used.')
+            console.error('Intersection Observer API is not available. Fallbacks are being used.');
             elementsToObserve.forEach(element => element.classList.add('js-anim__visible'));
         } else {
             options = {

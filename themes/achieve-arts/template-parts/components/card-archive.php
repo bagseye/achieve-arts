@@ -1,5 +1,5 @@
 <article class="e-card-archive">
-    <a href="<?php echo get_the_permalink($post->ID) ?>" title="<?php echo get_the_title($post->ID); ?>">
+    <a href="<?php echo esc_url(get_the_permalink($post->ID)); ?>" title="<?php echo esc_attr(get_the_title($post->ID)); ?>">
         <div class="e-card-archive__inner">
             <div class="e-card-archive__container">
                 <div class="e-card-archive__items grid-layout">
@@ -18,7 +18,7 @@
                         
                         ?>
                         <picture>
-                            <?php echo wp_filter_content_tags('<img class="wp-image-' . $mediaid . '" src="' . $mediasrc . '" alt="' . $mediaalt . '" >') ?>
+                            <?php echo wp_filter_content_tags('<img class="wp-image-' . esc_attr($mediaid) . '" src="' . esc_url($mediasrc) . '" alt="' . esc_attr($mediaalt) . '" >') ?>
                         </picture>
                     </div>
                     <div class="e-card-archive__content">
