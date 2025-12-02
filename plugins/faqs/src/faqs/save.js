@@ -22,32 +22,27 @@ import {
 
 const BLOCKNAME = 'c-faqs';
 
-export default function save({attributes}) {
-		const {
-			topmargin,
-			bottommargin,
-			heading,
-		} = attributes;
-	
-		const classes = [
-			BLOCKNAME,
-			topmargin && 'margin-block__top',
-			bottommargin && 'margin-block__bottom',
-		]
-			.filter( Boolean )
-			.join( ' ' );
-	
-		const blockProps = useBlockProps.save( {
-			className: `${ classes }`,
-		} );
-	
-		const innerBlockProps = useInnerBlocksProps.save( {
-			className: `${ BLOCKNAME }__items`,
-		} );
+export default function save( { attributes } ) {
+	const { topmargin, bottommargin, heading } = attributes;
+
+	const classes = [
+		BLOCKNAME,
+		topmargin && 'margin-block__top',
+		bottommargin && 'margin-block__bottom',
+	]
+		.filter( Boolean )
+		.join( ' ' );
+
+	const blockProps = useBlockProps.save( {
+		className: `${ classes }`,
+	} );
+
+	const innerBlockProps = useInnerBlocksProps.save( {
+		className: `${ BLOCKNAME }__items`,
+	} );
 	return (
 		<section { ...blockProps }>
-			<div
-				className={ `${ BLOCKNAME }__content` }>
+			<div className={ `${ BLOCKNAME }__content` }>
 				<header className={ `${ BLOCKNAME }__content--header` }>
 					<RichText.Content
 						tagName="h2"
@@ -56,8 +51,7 @@ export default function save({attributes}) {
 					/>
 				</header>
 			</div>
-			<div
-				className={ `${ BLOCKNAME }__inner` }>
+			<div className={ `${ BLOCKNAME }__inner` }>
 				<div className={ `${ BLOCKNAME }__container` }>
 					<div { ...innerBlockProps } />
 				</div>
