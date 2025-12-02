@@ -3,8 +3,8 @@
 <main class="main-content p-single padding-block__top padding-block__bottom">
     <div class="p-single__inner padding-block__top padding-block__bottom">
         <div class="p-single__back">
-          <div class="wp-block-button is-style-white">
-            <a href="<?= get_permalink( get_option('page_for_posts' ) ) ?>" class="wp-block-button__link">Back to News</a>
+          <div class="wp-block-button is-style-white">]
+            <a href="<?= esc_url( get_permalink( get_option('page_for_posts' ) ) ) ?>" class="wp-block-button__link">Back to News</a>
           </div>
         </div>
         <div class="p-single__container">
@@ -15,7 +15,7 @@
                     <header class="p-single__header">
                       <?php 
                   
-                      $categories = get_the_category($post->ID);
+                      $categories = get_the_category(get_the_ID());
 
                       if ( ! empty( $categories ) ) {
                           echo '<span class="p-single__tab h-tab">';
