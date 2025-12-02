@@ -2,18 +2,17 @@
 
 .p-archive {
   &__inner {
-    padding-left: var(--container-padding-content);
-    padding-right: var(--container-padding-content);
+    // padding-left: var(--container-padding-content);
+    // padding-right: var(--container-padding-content);
   }
-  &__container {
-    max-width: var(--max-width-media-text);
-    margin-left: auto;
-    margin-right: auto;
-  }
+
   &__feed {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
+    max-width: var(--max-width-media-text);
+    margin-left: auto;
+    margin-right: auto;
 
     @include abstracts.respond-to('laptop') { 
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -26,5 +25,118 @@
 
   &__card {
     width: 100%;
+  }
+
+  &__featured {
+    &--inner {
+      background-color: #000;
+      border-bottom-left-radius: var(--border-radius-large);
+      border-bottom-right-radius: var(--border-radius-large);
+      color: #fff;
+      position: relative;
+    }
+
+    &--gradient {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle,rgba(107, 15, 219, 1) 0%, rgba(131, 15, 219, 0) 100%);
+      opacity: 0.4;
+    }
+
+    &--container {
+      padding: 100px 60px;
+      position: relative;
+      z-index: 1;
+
+      @include abstracts.respond-to('tablet') { 
+        padding: 50px 30px;
+      }
+    }
+
+    &--items {
+      display: flex;
+      align-items: center;
+
+      @include abstracts.respond-to('tablet') { 
+        flex-direction: column;
+      }
+
+      // .c-media-text__alt-layout & {
+      //   flex-direction: row-reverse;
+
+      //   @include abstracts.respond-to('tablet') { 
+      //     flex-direction: column;
+      //   }
+      // }
+    }
+
+
+    &--item {
+      width: 55%;
+
+      @include abstracts.respond-to('tablet') { 
+        width: 100%;
+      }
+
+      &-content {
+        padding-right: 100px;
+
+        @include abstracts.respond-to('tablet') { 
+          padding-right: 0;
+          padding-bottom: var(--spacing-header);
+        }
+
+        // .c-media-text__alt-layout & {
+        //   padding-left: 100px;
+        //   padding-right: 0;
+
+        //   @include abstracts.respond-to('tablet') { 
+        //     padding-left: 0;
+        //   }
+        // }
+      }
+
+      &-media {
+        width: 45%;
+        position: relative;
+        transform: rotate(5deg);
+
+        @include abstracts.respond-to('tablet') { 
+          width: 100%;
+        }
+
+        picture {
+          aspect-ratio: 1 / 1;
+          border-radius: 40px;
+          overflow: hidden;
+
+          @include abstracts.respond-to('tablet') { 
+            border-radius: 26px;
+          }
+        }
+
+        picture,
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    &--content-area {
+      >* {
+        margin-bottom: var(--spacing-para);
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
