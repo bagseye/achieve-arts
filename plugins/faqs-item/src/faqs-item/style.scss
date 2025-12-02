@@ -5,8 +5,53 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-bwp-faqs-item {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+.c-faqs-item {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #000;
+
+	&__inner {
+		background-color: #fff;
+		border-radius: var(--border-radius-small);
+	}
+
+	&__container {
+		padding: 0 60px;
+		position: relative;
+	}
+
+	&__header {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	&__icon {
+		display: inline-flex;
+		background-color: var(--brand-2);
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 15px;
+		right: 15px;
+
+		svg {
+			width: 19px;
+			height: 14px;
+			fill: #fff;
+		}
+	}
+
+	.c-faqs-item__heading {
+		font-size: 23px;
+		font-weight: 600;
+		font-family: var(--font-body);
+		margin-bottom: 0;
+	}
+
+	&__content-area {
+		padding-bottom: 30px;
+	}
 }
