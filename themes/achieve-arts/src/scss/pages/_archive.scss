@@ -1,10 +1,6 @@
 @use '../abstracts';
 
 .p-archive {
-  &__inner {
-    // padding-left: var(--container-padding-content);
-    // padding-right: var(--container-padding-content);
-  }
 
   &__feed {
     display: grid;
@@ -39,6 +35,7 @@
     &--gradient {
       display: block;
       position: absolute;
+      z-index: 1;
       bottom: 0;
       left: 0;
       width: 100%;
@@ -50,7 +47,10 @@
     &--container {
       padding: 100px 60px;
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      max-width: var(--max-width-media-text);
+      margin-left: auto;
+      margin-right: auto;
 
       @include abstracts.respond-to('tablet') { 
         padding: 50px 30px;
@@ -64,14 +64,6 @@
       @include abstracts.respond-to('tablet') { 
         flex-direction: column;
       }
-
-      // .c-media-text__alt-layout & {
-      //   flex-direction: row-reverse;
-
-      //   @include abstracts.respond-to('tablet') { 
-      //     flex-direction: column;
-      //   }
-      // }
     }
 
 
@@ -89,21 +81,12 @@
           padding-right: 0;
           padding-bottom: var(--spacing-header);
         }
-
-        // .c-media-text__alt-layout & {
-        //   padding-left: 100px;
-        //   padding-right: 0;
-
-        //   @include abstracts.respond-to('tablet') { 
-        //     padding-left: 0;
-        //   }
-        // }
       }
 
       &-media {
         width: 45%;
         position: relative;
-        transform: rotate(5deg);
+        transform: rotate(-5deg);
 
         @include abstracts.respond-to('tablet') { 
           width: 100%;
@@ -127,6 +110,16 @@
           object-fit: cover;
         }
       }
+    }
+
+    .p-archive__featured--tab {
+      background-color: var(--brand-1);
+    }
+
+    .p-archive__featured--heading {
+      font-size: 38px;
+      font-weight: 600;
+      font-family: var(--font-body);
     }
 
     &--content-area {
