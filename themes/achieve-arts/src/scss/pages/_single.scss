@@ -1,0 +1,33 @@
+.p-single {
+  background-color: #000;
+  color: #fff;
+
+  &__inner {
+    position: relative;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--brand-1);
+    border-radius: var(--border-radius-large);
+  }
+
+  &__back {
+    position: absolute;
+    top: 40px;
+    right: 35px;
+  }
+
+  .p-single__heading {
+    font-size: 45px;
+    font-weight: 600;
+    font-family: var(--font-body);
+  }
+
+  &__items {
+    >* {
+      max-width: 1050px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
