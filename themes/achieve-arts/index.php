@@ -26,12 +26,12 @@
                                             }
                                             
                                             ?>
-                                            <h2 class="p-archive__featured--heading"><?= get_the_title() ?></h2>
+                                            <h2 class="p-archive__featured--heading"><?= get_the_title($post->ID) ?></h2>
                                         </header>
                                         <div class="p-archive__featured--content-area d-typography">
                                             <p><?php echo get_the_excerpt() ?></p>
                                             <div class="wp-block-button is-style-white">
-                                                <a href="" class="wp-block-button__link">Read More</a>
+                                                <a href="<?php echo get_permalink($post->ID) ?>" class="wp-block-button__link">Read More</a>
                                             </div>
                                         </div>
                                     </div>
