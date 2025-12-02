@@ -39,16 +39,6 @@ export default function save( { attributes } ) {
 								tagName="h3"
 								className={ `${ BLOCKNAME }__heading` }
 								value={ heading }
-								allowedFormats={ [
-									'core/bold',
-									'core/italic',
-								] }
-								onChange={ ( val ) =>
-									setAttributes( {
-										heading: val,
-									} )
-								}
-								placeholder={ __( 'Heading...' ) }
 							/>
 						</header>
 						<div { ...innerBlockProps } />
