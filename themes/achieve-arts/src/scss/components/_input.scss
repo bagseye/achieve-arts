@@ -1,0 +1,23 @@
+.c-input {
+  &__select {
+    display: block;
+    position: relative;
+    background-color: #ECECEC;
+    min-height: 68px;
+    border-radius: 40px;
+    border: 1px solid transparent;
+    transition: border 0.25s ease-in-out, 
+                background-color 0.25s ease-in-out, 
+                color 0.25s ease-in-out;
+    padding-left: 40px;
+    padding-right: 40px;
+    // color: transparent;
+    appearance: none;
+    width: 100%;
+    font-family: var(--font-heading);
+    font-size: var(--font-page-hero-lead);
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--brand-1);
+  }
+}
