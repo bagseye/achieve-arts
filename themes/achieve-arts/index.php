@@ -80,9 +80,9 @@
                             <div class="p-archive__cats--container">
                                 <form id="ajax-filter" class="p-archive__cats--items grid-layout">
                                     <label for="category-select" class="p-archive__cats--label sr-only">Filter by Category</label>
-                                    <select id="category-select" class="p-archive__cats--select e-form__input">
-                                        <option value="">Filter by Category</option>
-                                        <option value="">All</option>
+                                    <select id="category-select" class="p-archive__cats--select c-input__select">
+                                        <option value="-1">Filter by Category</option>
+                                        <option value="-1">All</option>
                                         <?php foreach ($categories as $category) : ?>
                                             <option value="<?php echo esc_attr($category->term_id); ?>">
                                                 <?php echo esc_html($category->name); ?>

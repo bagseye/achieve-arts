@@ -9,6 +9,8 @@
     max-width: var(--max-width-media-text);
     margin-left: auto;
     margin-right: auto;
+    padding-left: var(--container-padding-content);
+    padding-right: var(--container-padding-content);
 
     @include abstracts.respond-to('laptop') { 
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -130,6 +132,30 @@
           margin-bottom: 0;
         }
       }
+    }
+  }
+
+  &__cats {
+    &--inner {
+      padding-top: var(--tile-padding);
+      padding-bottom: 20px;
+    }
+
+    &--container {
+      max-width: var(--max-width-media-text);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--container-padding-content);
+      padding-right: var(--container-padding-content);
+    }
+
+    &--items {
+
+    }
+
+    .p-archive__cats--select {
+      max-width: 330px;
+      appearance: none;
     }
   }
 }
