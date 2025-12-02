@@ -4,11 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {
-	useBlockProps,
-	useInnerBlocksProps,
-	RichText,
-} from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -19,43 +15,36 @@ import {
  *
  * @return {Element} Element to render.
  */
-
-const BLOCKNAME = 'c-faqs';
+const BLOCKNAME = 'c-faqs-item';
 
 export default function save( { attributes } ) {
-	const { topmargin, bottommargin, heading } = attributes;
+	const { heading } = attributes;
 
-	const classes = [
-		BLOCKNAME,
-		topmargin && 'margin-block__top',
-		bottommargin && 'margin-block__bottom',
-	]
-		.filter( Boolean )
-		.join( ' ' );
+	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
 
-	const blockProps = useBlockProps.save( {
-		className: `${ classes }`,
-	} );
+	const blockProps = useBlockProps.save( { className: classes } );
 
 	const innerBlockProps = useInnerBlocksProps.save( {
-		className: `${ BLOCKNAME }__items`,
+		className: `${ BLOCKNAME }__item ${ BLOCKNAME }__content-area d-typography`,
 	} );
 	return (
-		<section { ...blockProps }>
-			<div className={ `${ BLOCKNAME }__content` }>
-				<header className={ `${ BLOCKNAME }__content--header` }>
-					<RichText.Content
-						tagName="h2"
-						className={ `${ BLOCKNAME }__heading` }
-						value={ heading }
-					/>
-				</header>
-			</div>
+		<article { ...blockProps }>
 			<div className={ `${ BLOCKNAME }__inner` }>
 				<div className={ `${ BLOCKNAME }__container` }>
-					<div { ...innerBlockProps } />
+					<div className={ `${ BLOCKNAME }__items` }>
+						<header
+							className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__header` }
+						>
+							<RichText.Content
+								tagName="h3"
+								className={ `${ BLOCKNAME }__heading` }
+								value={ heading }
+							/>
+						</header>
+						<div { ...innerBlockProps } />
+					</div>
 				</div>
 			</div>
-		</section>
+		</article>
 	);
 }

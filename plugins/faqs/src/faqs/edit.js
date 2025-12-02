@@ -11,10 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {
-	PanelBody,
-	ToggleControl,
-} from '@wordpress/components';
+import { PanelBody, ToggleControl } from '@wordpress/components';
 import {
 	useBlockProps,
 	useInnerBlocksProps,
@@ -41,31 +38,27 @@ import './editor.scss';
 
 const BLOCKNAME = 'c-faqs';
 
-export default function Edit({ attributes, setAttributes }) {
-		const {
-			heading,
-			topmargin,
-			bottommargin,
-		} = attributes;
-	
-		const classes = [
-			BLOCKNAME,
-			topmargin && 'margin-block__top',
-			bottommargin && 'margin-block__bottom',
-		]
-			.filter( Boolean )
-			.join( ' ' );
-	
-		const blockProps = useBlockProps( { className: classes } );
-	
-		const innerBlockProps = useInnerBlocksProps(
-			{
-				className: `${ BLOCKNAME }__items`,
-			},
-			{
-				allowedBlocks: [ 'bwp/faqs-item' ],
-			}
-		);
+export default function Edit( { attributes, setAttributes } ) {
+	const { heading, topmargin, bottommargin } = attributes;
+
+	const classes = [
+		BLOCKNAME,
+		topmargin && 'margin-block__top',
+		bottommargin && 'margin-block__bottom',
+	]
+		.filter( Boolean )
+		.join( ' ' );
+
+	const blockProps = useBlockProps( { className: classes } );
+
+	const innerBlockProps = useInnerBlocksProps(
+		{
+			className: `${ BLOCKNAME }__items`,
+		},
+		{
+			allowedBlocks: [ 'bwp/faqs-item' ],
+		}
+	);
 	return (
 		<>
 			<InspectorControls>
@@ -98,13 +91,9 @@ export default function Edit({ attributes, setAttributes }) {
 						} }
 					/>
 				</PanelBody>
-
 			</InspectorControls>
 			<section { ...blockProps }>
-				<div
-					className={
-						`${ BLOCKNAME }__content` }
-				>
+				<div className={ `${ BLOCKNAME }__content` }>
 					<header className={ `${ BLOCKNAME }__content--header` }>
 						<RichText
 							tagName="h2"
@@ -120,9 +109,7 @@ export default function Edit({ attributes, setAttributes }) {
 						/>
 					</header>
 				</div>
-				<div
-					className={ `${ BLOCKNAME }__inner` }
-				>
+				<div className={ `${ BLOCKNAME }__inner` }>
 					<div className={ `${ BLOCKNAME }__container` }>
 						<div { ...innerBlockProps } />
 					</div>

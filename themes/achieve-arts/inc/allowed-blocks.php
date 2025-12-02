@@ -25,7 +25,8 @@ function bwp_allowed_block_types ( $block_editor_context, $editor_context ) {
       'bwp/venue-details-card',
       'bwp/venues',
       'bwp/venues-item',
-      'bwp/faqs'
+      'bwp/faqs',
+      'bwp/faqs-item'
 		);
 	}
 
