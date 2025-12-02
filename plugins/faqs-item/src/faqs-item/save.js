@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -15,6 +15,8 @@ import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
+const BLOCKNAME = 'c-faqs-item';
+
 export default function save( { attributes } ) {
 	const { heading } = attributes;
 
@@ -33,7 +35,7 @@ export default function save( { attributes } ) {
 						<header
 							className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__header` }
 						>
-							<RichText
+							<RichText.Content
 								tagName="h3"
 								className={ `${ BLOCKNAME }__heading` }
 								value={ heading }
