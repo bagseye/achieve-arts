@@ -26,7 +26,6 @@
                                             }
                                             
                                             ?>
-                                            </span>
                                             <h2 class="p-archive__featured--heading"><?= get_the_title() ?></h2>
                                         </header>
                                         <div class="p-archive__featured--content-area d-typography">
@@ -34,24 +33,27 @@
                                         </div>
                                     </div>
                                     <div class="p-archive__featured--item p-archive__featured--item-media">
-                                    <?php 
+                                        <?php 
                                         $mediaid = $mediasrc = $mediaalt = null;
-                                        if(has_post_thumbnail(  )) {
-                                                $mediasrc = get_the_post_thumbnail_url( '1536x1536');
-                                                $mediaid = get_post_thumbnail_id();
-                                                $mediaalt = get_post_meta($mediaid, '_wp_attachment_image_alt', true);
+
+                                        if ( has_post_thumbnail() ) {
+                                            $mediaid  = get_post_thumbnail_id();
+                                            $mediasrc = get_the_post_thumbnail_url( $mediaid, '1536x1536' );
+                                            $mediaalt = get_post_meta( $mediaid, '_wp_attachment_image_alt', true );
                                         }
 
-                                        if(!$mediaalt) {
-                                                $mediaalt = get_the_title();
+                                        if ( ! $mediaalt ) {
+                                            $mediaalt = get_the_title();
                                         }
-                                        
+
+                                        if ( $mediasrc ) :
                                         ?>
                                         <picture>
-                                            <?php echo wp_filter_content_tags('<img class="wp-image-' . esc_attr( $mediaid ) . '" src="' . esc_url( $mediasrc ) . '" alt="' . esc_attr( $mediaalt ) . '" >'); ?>																					
+                                            <?php echo wp_filter_content_tags(
+                                                '<img class="wp-image-' . esc_attr( $mediaid ) . '" src="' . esc_url( $mediasrc ) . '" alt="' . esc_attr( $mediaalt ) . '" >'
+                                            ); ?>
                                         </picture>
-
-                                    </div>
+                                        <?php endif; ?>
                                 </div>
                             </div>
                             <div class="p-archive__featured--gradient"></div>
