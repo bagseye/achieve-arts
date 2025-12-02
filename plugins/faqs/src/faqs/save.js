@@ -27,6 +27,7 @@ export default function save( { attributes } ) {
 
 	const classes = [
 		BLOCKNAME,
+		'js-toggle-list',
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 	]

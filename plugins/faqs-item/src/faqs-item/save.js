@@ -33,7 +33,7 @@ export default function save( { attributes } ) {
 				<div className={ `${ BLOCKNAME }__container` }>
 					<div className={ `${ BLOCKNAME }__items` }>
 						<header
-							className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__header` }
+							className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__header js-toggle-list__trigger` }
 						>
 							<RichText.Content
 								tagName="h3"

@@ -20,6 +20,60 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-/* eslint-disable no-console */
-console.log( 'Hello World! (from bwp-faqs block)' );
-/* eslint-enable no-console */
+let $toggleLists;
+let $toggleListItems;
+let $toggleContent;
+let $timeout;
+let $DEBUG = false;
+
+function cacheDOM() {
+    $toggleLists = [...document.querySelectorAll('.js-toggle-list')];
+}
+
+function toggleItem() {
+    if ($DEBUG) return;
+
+    $DEBUG = true;
+
+    const contentArea = this.nextElementSibling;
+
+    if (this.classList.contains('faq-open')) {
+        this.classList.remove('faq-open');
+        contentArea.style = '';
+        setTimeout(function () {
+            $DEBUG = false;
+        }, 300);
+    } else {
+        this.classList.add('faq-open');
+        contentArea.style.height = '0';
+        contentArea.style.height = contentArea.scrollHeight + 'px';
+        setTimeout(() => {
+            $DEBUG = false;
+        }, 300);
+    }
+}
+
+function createToggleList($toggleList) {
+    $toggleListItems = [...$toggleList.querySelectorAll('.js-toggle-list__trigger')];
+    if ($toggleListItems && $toggleListItems.length) {
+        $toggleListItems.forEach(($item) => {
+            $item.addEventListener('click', toggleItem);
+        });
+    }
+}
+
+function init() {
+    cacheDOM();
+    if ($toggleLists && $toggleLists.length) {
+        $toggleLists.forEach(($toggleList) => {
+            createToggleList($toggleList);
+        });
+
+        // Automatically open the first item of the first toggle list
+        if ($toggleLists[0]) {
+            toggleItem.call($toggleLists[0].querySelector('.js-toggle-list__trigger'));
+        }
+    }
+}
+
+init();
