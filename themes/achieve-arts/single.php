@@ -3,7 +3,7 @@
 <main class="main-content p-single padding-block__top padding-block__bottom">
     <div class="p-single__inner padding-block__top padding-block__bottom">
         <div class="p-single__back">
-          <div class="wp-block-button is-style-white">]
+          <div class="wp-block-button is-style-white">
             <a href="<?= esc_url( get_permalink( get_option('page_for_posts' ) ) ) ?>" class="wp-block-button__link">Back to News</a>
           </div>
         </div>
