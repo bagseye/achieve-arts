@@ -6,6 +6,7 @@
   font-size: 1.875rem;
   text-transform: uppercase;
   font-weight: 800;
+  font-family: var(--font-heading);
   padding: 0;
   background-color: transparent;
   border: none;
@@ -16,6 +17,32 @@
 
   p {
     padding-right: 1.125rem;
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    overflow: hidden;
+
+    span {
+      display: block;
+
+      &.default {
+        transition: opacity 0.25s ease-in-out;
+
+        .mobile-nav-open & {
+          opacity: 0;
+        }
+      }
+
+      &.close {
+        transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+        opacity: 0;
+        
+        .mobile-nav-open & {
+          opacity: 1;
+          transform: translateY(-40px);
+        }
+      }
+    }
 
     @include abstracts.respond-to('tablet') { 
       display: none;
