@@ -1,0 +1,59 @@
+.c-policy {
+  background-color: #fff;
+  min-height: 94px;
+  border-radius: var(--border-radius-large);
+  margin-top: 20px;
+	margin-bottom: 20px;
+
+  a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    min-height: inherit;
+  }
+
+  &__inner {
+    min-height: inherit;
+    position: relative;
+  }
+
+  &__container {
+    min-height: inherit;
+  }
+
+  &__items {
+    padding: 17px;
+    padding-left: 60px;
+    min-height: inherit;
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 23px;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+
+  &__icon {
+		display: inline-flex;
+		background-color: var(--brand-2);
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 17px;
+		right: 17px;
+		transition: transform 0.3s ease-in-out;
+
+		svg {
+			width: 19px;
+			height: 14px;
+			fill: #fff;
+		}
+	}
+}

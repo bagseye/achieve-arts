@@ -155,7 +155,7 @@ function policies_cpt_init() {
         'hierarchical'       => false,
         'menu_position'      => 20,
         'menu_icon'          => 'dashicons-list-view',
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+        'supports'           => array( 'title' ),
         'taxonomies'         => array(),
         'show_in_rest'       => true
     );
