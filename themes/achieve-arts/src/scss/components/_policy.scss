@@ -1,9 +1,17 @@
+@use '../abstracts';
+
 .c-policy {
   background-color: #fff;
   min-height: 94px;
   border-radius: var(--border-radius-large);
   margin-top: 20px;
 	margin-bottom: 20px;
+
+  @include abstracts.respond-to('tablet') { 
+    margin-top: 10px;
+	  margin-bottom: 10px;
+    min-height: 64px;
+  }
 
   a {
     display: block;
@@ -27,10 +35,16 @@
     min-height: inherit;
     display: flex;
     align-items: center;
+
+    @include abstracts.respond-to('tablet') { 
+      padding: 8px;
+      padding-left: 40px;
+      padding-right: 60px;
+    }
   }
 
   &__title {
-    font-size: 23px;
+    font-size: var(--font-para-lead);
     margin-top: 0;
     margin-bottom: 0;
     font-family: var(--font-body);
@@ -46,9 +60,16 @@
 		justify-content: center;
 		align-items: center;
 		position: absolute;
-		top: 17px;
+		top: 50%;
+    transform: translateY(-50%);
 		right: 17px;
 		transition: transform 0.3s ease-in-out;
+
+    @include abstracts.respond-to('tablet') { 
+      right: 8px;
+      width: 50px;
+		  height: 50px;
+    }
 
 		svg {
 			width: 19px;

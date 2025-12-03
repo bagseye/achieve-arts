@@ -9,6 +9,8 @@
     margin-right: auto;
     background-color: var(--brand-1);
     border-radius: var(--border-radius-large);
+    padding-left: var(--container-padding-content);
+    padding-right: var(--container-padding-content);
   }
 
   &__back {
