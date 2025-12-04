@@ -19,6 +19,7 @@ get_header(); ?>
                 </span>
                 <h1 class="p-single__heading"><?= get_the_title() ?></h1>
               </header>
+              <?php the_content(); ?>
               
               <?php 
 										
