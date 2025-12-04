@@ -10,29 +10,27 @@
 .c-page-hero {
 	position: relative;
 
-	&.c-page-hero__bgcolour--purple {
-		background-color: var(--brand-4);
-	}
-
-  &.c-page-hero__bgcolour--deep-purple {
-    background-color: var(--brand-1);
-  }
-
-	&.c-page-hero__bgcolour--dark {
-		background-color: #000;
-	}
-
   &__inner {
     background-color: #000;
     overflow: hidden;
+    padding-left: var(--container-padding-content);
+    padding-right: var(--container-padding-content);
     border-bottom-left-radius: 60px;
     border-bottom-right-radius: 60px;
     color: #fff;
-    max-width: 1340px;
-    margin-left: auto;
-    margin-right: auto;
-
   }
+
+  	&.c-page-hero__bgcolour--purple &__inner {
+      background-color: var(--brand-4);
+    }
+
+    &.c-page-hero__bgcolour--deep-purple &__inner {
+      background-color: var(--brand-1);
+    }
+
+    &.c-page-hero__bgcolour--dark &__inner {
+      background-color: #000;
+    }
 
   &__gradient {
     display: block;
@@ -46,6 +44,9 @@
   }
 
   &__container {
+    max-width: var(--max-width-media-text);
+    margin-left: auto;
+    margin-right: auto;
     padding: 100px 0;
     position: relative;
     z-index: 1;
