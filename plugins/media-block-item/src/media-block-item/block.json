@@ -11,7 +11,7 @@
 	"supports": {
 		"html": false
 	},
-		"attributes": {
+	"attributes": {
 		"imageid": {
 			"type": "number",
 			"default": null

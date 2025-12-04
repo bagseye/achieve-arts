@@ -24,6 +24,10 @@ return array(
 			'bottommargin' => array(
 				'type' => 'boolean',
 				'default' => false
+			),
+			'columntype' => array(
+				'type' => 'string',
+				'default' => 'single'
 			)
 		),
 		'textdomain' => 'media-block',

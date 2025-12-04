@@ -11,7 +11,7 @@
 	"supports": {
 		"html": false
 	},
-		"attributes": {
+	"attributes": {
 		"topmargin": {
 			"type": "boolean",
 			"default": false
@@ -19,6 +19,10 @@
 		"bottommargin": {
 			"type": "boolean",
 			"default": false
+		},
+		"columntype": {
+			"type": "string",
+			"default": "single"
 		}
 	},
 	"textdomain": "media-block",

@@ -18,39 +18,32 @@ import { useBlockProps } from '@wordpress/block-editor';
 
 const BLOCKNAME = 'c-media-block-item';
 
-export default function save({attributes}) {
-		const {
-			variant,
-			imageid,
-			imagesrc,
-			imagealt,
-			videoid,
-			videosrc,
-			posterid,
-			postersrc,
-			posteralt,
-		} = attributes;
-	
-		const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
-	
-		const blockProps = useBlockProps.save( {
-			className: `${ classes }`,
-		} );
+export default function save( { attributes } ) {
+	const {
+		variant,
+		imageid,
+		imagesrc,
+		imagealt,
+		videoid,
+		videosrc,
+		posterid,
+		postersrc,
+		posteralt,
+	} = attributes;
+
+	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
+
+	const blockProps = useBlockProps.save( {
+		className: `${ classes }`,
+	} );
 
 	return (
 		<article
 			{ ...blockProps }
-			data-splide-html-video={
-				variant === 'video' && videosrc
-					? videosrc
-					: ''
-			}
 		>
 			{ variant === 'video' && videosrc && (
-				<div
-					className={ `${ BLOCKNAME }__media` }
-				>
-					{ postersrc && (
+				<div className={ `${ BLOCKNAME }__media` }>
+					{/* { postersrc && (
 						<img
 							loading="lazy"
 							decode="async"
@@ -58,23 +51,32 @@ export default function save({attributes}) {
 							src={ postersrc }
 							alt={ posteralt || '' }
 						/>
-					) }
+					) } */}
+														<video
+										autoPlay
+										muted
+										loop
+										playsinline
+										preload="metadata"
+										className="js-video"
+										poster={postersrc}
+									>
+										<source src={ videosrc } />
+									</video>
 				</div>
 			) }
-			{ variant === 'image' &&
-				imagesrc &&
-				imageid && (
-					<div className={ `${ BLOCKNAME }__media` }>
-						<picture>
-							<img
-								loading="lazy"
-								decode="async"
-								src={ imagesrc }
-								alt={ imagealt || '' }
-							/>
-						</picture>
-					</div>
-				) }
+			{ variant === 'image' && imagesrc && imageid && (
+				<div className={ `${ BLOCKNAME }__media` }>
+					<picture>
+						<img
+							loading="lazy"
+							decode="async"
+							src={ imagesrc }
+							alt={ imagealt || '' }
+						/>
+					</picture>
+				</div>
+			) }
 		</article>
 	);
 }

@@ -19,6 +19,10 @@
     "bottommargin": {
       "type": "boolean",
       "default": false
+    },
+    "columntype": {
+      "type": "string",
+      "default": "single"
     }
   },
   "textdomain": "media-block",

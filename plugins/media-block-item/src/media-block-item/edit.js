@@ -38,25 +38,22 @@ import './editor.scss';
 
 const BLOCKNAME = 'c-media-block-item';
 
-export default function Edit({
-	attributes,
-	setAttributes,
-}) {
-		const {
-			variant,
-			imageid,
-			imagesrc,
-			imagealt,
-			videoid,
-			videosrc,
-			posterid,
-			postersrc,
-			posteralt,
-		} = attributes;
-	
-		const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
-	
-		const blockProps = useBlockProps( { className: classes } );
+export default function Edit( { attributes, setAttributes } ) {
+	const {
+		variant,
+		imageid,
+		imagesrc,
+		imagealt,
+		videoid,
+		videosrc,
+		posterid,
+		postersrc,
+		posteralt,
+	} = attributes;
+
+	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
+
+	const blockProps = useBlockProps( { className: classes } );
 	return (
 		<>
 			<InspectorControls>
@@ -173,10 +170,7 @@ export default function Edit({
 							</MediaUploadCheck>
 						</PanelBody>
 						<PanelBody
-							title={ __(
-								'Poster Image',
-								'media-block-item'
-							) }
+							title={ __( 'Poster Image', 'media-block-item' ) }
 						>
 							<MediaUploadCheck>
 								<MediaUpload
@@ -197,9 +191,7 @@ export default function Edit({
 											variant="primary"
 											style={ { marginRight: '6px' } }
 										>
-											{ posterid
-												? 'Edit '
-												: 'Add ' }
+											{ posterid ? 'Edit ' : 'Add ' }
 											Poster
 										</Button>
 									) }
@@ -234,20 +226,16 @@ export default function Edit({
 			</InspectorControls>
 			<article { ...blockProps }>
 				<div className={ `${ BLOCKNAME }__media` }>
-					{ variant === 'image' &&
-						imageid &&
-						imagesrc && (
-							<picture>
-								<img src={ imagesrc } />
-							</picture>
-						) }
-					{ variant === 'video' &&
-						videoid &&
-						videosrc && (
-							<video>
-								<source src={ videosrc } />
-							</video>
-						) }
+					{ variant === 'image' && imageid && imagesrc && (
+						<picture>
+							<img src={ imagesrc } />
+						</picture>
+					) }
+					{ variant === 'video' && videoid && videosrc && (
+						<video>
+							<source src={ videosrc } />
+						</video>
+					) }
 				</div>
 			</article>
 		</>
