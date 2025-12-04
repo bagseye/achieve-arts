@@ -37,15 +37,15 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
-			'videoposterid' => array(
+			'posterid' => array(
 				'type' => 'number',
 				'default' => null
 			),
-			'videopostersrc' => array(
+			'postersrc' => array(
 				'type' => 'string',
 				'default' => ''
 			),
-			'videoposteralt' => array(
+			'posteralt' => array(
 				'type' => 'string',
 				'default' => ''
 			),

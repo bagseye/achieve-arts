@@ -32,15 +32,15 @@
 			"type": "string",
 			"default": ""
 		},
-		"videoposterid": {
+		"posterid": {
 			"type": "number",
 			"default": null
 		},
-		"videopostersrc": {
+		"postersrc": {
 			"type": "string",
 			"default": ""
 		},
-		"videoposteralt": {
+		"posteralt": {
 			"type": "string",
 			"default": ""
 		},

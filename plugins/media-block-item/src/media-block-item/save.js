@@ -18,7 +18,7 @@ import { useBlockProps } from '@wordpress/block-editor';
 
 const BLOCKNAME = 'c-media-block-item';
 
-export default function save() {
+export default function save({attributes}) {
 		const {
 			variant,
 			imageid,
@@ -54,7 +54,7 @@ export default function save() {
 						<img
 							loading="lazy"
 							decode="async"
-							className="c-video-carousel__item--poster"
+							className="c-media-block-item__poster"
 							src={ postersrc }
 							alt={ posteralt || '' }
 						/>
@@ -68,7 +68,7 @@ export default function save() {
 						<picture>
 							<img
 								loading="lazy"
-								decoding="async"
+								decode="async"
 								src={ imagesrc }
 								alt={ imagealt || '' }
 							/>

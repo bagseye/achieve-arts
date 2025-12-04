@@ -62,15 +62,15 @@ export default function Edit({
 			<InspectorControls>
 				<PanelBody>
 					<SelectControl
-						label={ __( 'Image or Video?', 'media-carousel-item' ) }
+						label={ __( 'Image or Video?', 'media-block-item' ) }
 						value={ variant }
 						options={ [
 							{
-								label: __( 'Image', 'media-carousel-item' ),
+								label: __( 'Image', 'media-block-item' ),
 								value: 'image',
 							},
 							{
-								label: __( 'Video', 'media-carousel-item' ),
+								label: __( 'Video', 'media-block-item' ),
 								value: 'video',
 							},
 						] }
@@ -83,7 +83,7 @@ export default function Edit({
 				</PanelBody>
 				{ variant === 'image' && (
 					<PanelBody
-						title={ __( 'Image Selection', 'media-carousel-item' ) }
+						title={ __( 'Image Selection', 'media-block-item' ) }
 					>
 						<MediaUploadCheck>
 							<MediaUpload
@@ -131,7 +131,7 @@ export default function Edit({
 						<PanelBody
 							title={ __(
 								'Video Selection',
-								'media-carousel-item'
+								'media-block-item'
 							) }
 						>
 							<MediaUploadCheck>
@@ -175,7 +175,7 @@ export default function Edit({
 						<PanelBody
 							title={ __(
 								'Poster Image',
-								'media-carousel-item'
+								'media-block-item'
 							) }
 						>
 							<MediaUploadCheck>
