@@ -38,31 +38,20 @@ export default function save( { attributes } ) {
 	} );
 
 	return (
-		<article
-			{ ...blockProps }
-		>
+		<article { ...blockProps }>
 			{ variant === 'video' && videosrc && (
 				<div className={ `${ BLOCKNAME }__media` }>
-					{/* { postersrc && (
-						<img
-							loading="lazy"
-							decode="async"
-							className="c-media-block-item__poster"
-							src={ postersrc }
-							alt={ posteralt || '' }
-						/>
-					) } */}
-														<video
-										autoPlay
-										muted
-										loop
-										playsinline
-										preload="metadata"
-										className="js-video"
-										poster={postersrc}
-									>
-										<source src={ videosrc } />
-									</video>
+					<video
+						autoPlay
+						muted
+						loop
+						playsinline
+						preload="metadata"
+						className="js-video"
+						poster={ postersrc }
+					>
+						<source src={ videosrc } />
+					</video>
 				</div>
 			) }
 			{ variant === 'image' && imagesrc && imageid && (
