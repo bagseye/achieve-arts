@@ -1,1 +1,1 @@
-.wp-block-bwp-media-block-item{background-color:#21759b;color:#fff;padding:2px}
+.c-media-block-item .c-media-block-item__media{aspect-ratio:4/3;border-radius:var(--border-radius-small);overflow:hidden}.c-media-block__columntype--double .c-media-block-item .c-media-block-item__media{aspect-ratio:1/1}.c-media-block-item .c-media-block-item__media img,.c-media-block-item .c-media-block-item__media picture,.c-media-block-item .c-media-block-item__media video{display:block;height:100%;-o-object-fit:cover;object-fit:cover;width:100%}

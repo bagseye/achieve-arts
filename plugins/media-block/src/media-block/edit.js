@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { PanelBody, ToggleControl } from '@wordpress/components';
+import { PanelBody, ToggleControl, SelectControl } from '@wordpress/components';
 import {
 	useBlockProps,
 	useInnerBlocksProps,
@@ -38,12 +38,13 @@ const BLOCKNAME = 'c-media-block';
 const ALLOWED_BLOCKS = [ 'bwp/media-block-item' ];
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { topmargin, bottommargin } = attributes;
+	const { topmargin, bottommargin, columntype } = attributes;
 
 	const classes = [
 		BLOCKNAME,
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
+		`${ BLOCKNAME }__columntype--${ columntype }`,
 	]
 		.filter( Boolean )
 		.join( ' ' );
@@ -87,6 +88,27 @@ export default function Edit( { attributes, setAttributes } ) {
 						onChange={ ( val ) => {
 							setAttributes( { bottommargin: val } );
 						} }
+					/>
+				</PanelBody>
+				<PanelBody title={ __( 'Columns', 'media-block' ) }>
+					<SelectControl
+						label={ __( 'Column Type', 'media-block' ) }
+						value={ columntype }
+						options={ [
+							{
+								label: __( 'Single', 'media-block' ),
+								value: 'single',
+							},
+							{
+								label: __( 'Double', 'media-block' ),
+								value: 'double',
+							},
+						] }
+						onChange={ ( val ) =>
+							setAttributes( { columntype: val } )
+						}
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 			</InspectorControls>

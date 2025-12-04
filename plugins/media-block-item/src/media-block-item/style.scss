@@ -5,8 +5,23 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-bwp-media-block-item {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+.c-media-block-item {
+	.c-media-block-item__media {
+		aspect-ratio: 4 / 3;
+		border-radius: var(--border-radius-small);
+		overflow: hidden;
+
+		.c-media-block__columntype--double & {
+			aspect-ratio: 1 / 1;
+		}
+
+		picture,
+		img,
+		video {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
 }

@@ -19,12 +19,13 @@ import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 const BLOCKNAME = 'c-media-block';
 
 export default function save( { attributes } ) {
-	const { topmargin, bottommargin } = attributes;
+	const { topmargin, bottommargin, columntype } = attributes;
 
 	const classes = [
 		BLOCKNAME,
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
+		`${ BLOCKNAME }__columntype--${ columntype }`,
 	]
 		.filter( Boolean )
 		.join( ' ' );

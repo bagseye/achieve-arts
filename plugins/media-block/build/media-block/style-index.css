@@ -1,1 +1,1 @@
-.wp-block-bwp-media-block{background-color:#21759b;color:#fff;padding:2px}
+.c-media-block.c-media-block__columntype--double .c-media-block__items{display:grid;gap:var(--spacing-header);grid-template-columns:repeat(2,minmax(0,1fr))}
