@@ -26,7 +26,9 @@ function bwp_allowed_block_types ( $block_editor_context, $editor_context ) {
       'bwp/venues',
       'bwp/venues-item',
       'bwp/faqs',
-      'bwp/faqs-item'
+      'bwp/faqs-item',
+      'bwp/media-block',
+      'bwp/media-block-item'
 		);
 	}
 

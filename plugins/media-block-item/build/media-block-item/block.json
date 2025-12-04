@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "bwp/media-block-item",
+  "version": "0.1.0",
+  "title": "Media Block Item",
+  "category": "widgets",
+  "icon": "format-image",
+  "description": "A single media block.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "imageid": {
+      "type": "number",
+      "default": null
+    },
+    "imagesrc": {
+      "type": "string",
+      "default": ""
+    },
+    "imagealt": {
+      "type": "string",
+      "default": ""
+    },
+    "videoid": {
+      "type": "number",
+      "default": null
+    },
+    "videosrc": {
+      "type": "string",
+      "default": ""
+    },
+    "videoposterid": {
+      "type": "number",
+      "default": null
+    },
+    "videopostersrc": {
+      "type": "string",
+      "default": ""
+    },
+    "videoposteralt": {
+      "type": "string",
+      "default": ""
+    },
+    "variant": {
+      "type": "string",
+      "default": "image"
+    }
+  },
+  "parent": [
+    "bwp/media-block"
+  ],
+  "textdomain": "media-block-item",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

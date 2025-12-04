@@ -1,0 +1,1 @@
+console.log("Hello World! (from bwp-media-block-item block)");
