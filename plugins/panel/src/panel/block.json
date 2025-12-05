@@ -35,6 +35,18 @@
 		"bgcolour": {
 			"type": "string",
 			"default": "none"
+		},
+		"borderradiustop": {
+			"type": "boolean",
+			"default": true
+		},
+		"borderradiusbottom": {
+			"type": "boolean",
+			"default": true
+		},
+		"fullwidth": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"textdomain": "panel",

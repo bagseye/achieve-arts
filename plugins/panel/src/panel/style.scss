@@ -8,6 +8,11 @@
 @use '../../../../themes/achieve-arts/src/scss/abstracts';
 
 .c-panel {
+  &.full-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   &__content {
     text-align: center;
     margin-bottom: var(--spacing-header);
@@ -31,18 +36,28 @@
     }
   }
 
-  &.c-panel__bgcolour--dark {
+  &.c-panel__bgcolour--dark &__inner {
     background-color: #000;
     color: #fff;
   }
 
-  &.c-panel__bgcolour--purple {
+  &.c-panel__bgcolour--deep-purple &__inner {
+    background-color: var(--brand-1);
+    color: #fff;
+  }
+
+  &.c-panel__bgcolour--purple &__inner {
     background-color: var(--brand-4);
     color: #fff;
   }
 
   &__container {
     position: relative;
+    max-width: var(--max-width-media-text);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding-content);
+    padding-right: var(--container-padding-content);
   }
 
   &__star {
