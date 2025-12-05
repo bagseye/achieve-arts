@@ -46,14 +46,16 @@ export default function Edit( { attributes, setAttributes } ) {
 		toppadding,
 		bottompadding,
 		bgcolour,
+		borderradiustop,
+		borderradiusbottom,
+		fullwidth,
 	} = attributes;
 
 	const classes = [
 		BLOCKNAME,
-		'no-padding__left',
-		'no-padding__right',
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
+		fullwidth && 'full-width',
 		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
 	]
 		.filter( Boolean )
@@ -128,6 +130,47 @@ export default function Edit( { attributes, setAttributes } ) {
 						/>
 					</PanelBody>
 				) }
+				<PanelBody title={ __( 'Border Radius', 'media-text' ) }>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label="Border Radius Top"
+						help={
+							borderradiustop
+								? 'Has top border radius.'
+								: 'No border radius.'
+						}
+						checked={ borderradiustop }
+						onChange={ ( val ) => {
+							setAttributes( { borderradiustop: val } );
+						} }
+					/>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label="Border Radius Bottom"
+						help={
+							borderradiusbottom
+								? 'Has bottom border radius.'
+								: 'No border radius.'
+						}
+						checked={ borderradiusbottom }
+						onChange={ ( val ) => {
+							setAttributes( { borderradiusbottom: val } );
+						} }
+					/>
+				</PanelBody>
+
+				<PanelBody title={ __( 'Layout', 'media-text' ) }>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label="Full Width"
+						help={ fullwidth ? 'Is full width.' : 'Default width.' }
+						checked={ fullwidth }
+						onChange={ ( val ) => {
+							setAttributes( { fullwidth: val } );
+						} }
+					/>
+				</PanelBody>
+
 				<PanelBody title={ __( 'Colour', 'panel' ) }>
 					<SelectControl
 						label={ __( 'Background Colour', 'panel' ) }
@@ -141,6 +184,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								label: __( 'Purple', 'panel' ),
 								value: 'purple',
 							},
+							{ label: 'Deep Purple', value: 'deep-purple' },
 							{
 								label: __( 'Dark', 'panel' ),
 								value: 'dark',
@@ -157,38 +201,32 @@ export default function Edit( { attributes, setAttributes } ) {
 			<section { ...blockProps }>
 				<div
 					className={ [
-						`${ BLOCKNAME }__content`,
-						toppadding && 'padding-block__top',
-					]
-						.filter( Boolean )
-						.join( ' ' ) }
-				>
-					<header className={ `${ BLOCKNAME }__content--header` }>
-						<span className={ `${ BLOCKNAME }__tab h-tab` }>
-							<RichText
-								tagName="p"
-								value={ tab }
-								allowedFormats={ [
-									'core/bold',
-									'core/italic',
-								] }
-								onChange={ ( val ) =>
-									setAttributes( { tab: val } )
-								}
-								placeholder={ __( 'Tab...', 'panel' ) }
-							/>
-						</span>
-					</header>
-				</div>
-				<div
-					className={ [
 						`${ BLOCKNAME }__inner`,
+						toppadding && 'padding-block__top',
 						bottompadding && 'padding-block__bottom',
+						borderradiustop && 'border-radius__top',
+						borderradiusbottom && 'border-radius__bottom',
 					]
 						.filter( Boolean )
 						.join( ' ' ) }
 				>
 					<div className={ `${ BLOCKNAME }__container` }>
+						<header className={ `${ BLOCKNAME }__content--header` }>
+							<span className={ `${ BLOCKNAME }__tab h-tab` }>
+								<RichText
+									tagName="p"
+									value={ tab }
+									allowedFormats={ [
+										'core/bold',
+										'core/italic',
+									] }
+									onChange={ ( val ) =>
+										setAttributes( { tab: val } )
+									}
+									placeholder={ __( 'Tab...', 'panel' ) }
+								/>
+							</span>
+						</header>
 						<div { ...innerBlockProps } />
 					</div>
 				</div>

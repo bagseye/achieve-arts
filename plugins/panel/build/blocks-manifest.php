@@ -40,6 +40,18 @@ return array(
 			'bgcolour' => array(
 				'type' => 'string',
 				'default' => 'none'
+			),
+			'borderradiustop' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'borderradiusbottom' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'fullwidth' => array(
+				'type' => 'boolean',
+				'default' => false
 			)
 		),
 		'textdomain' => 'panel',
