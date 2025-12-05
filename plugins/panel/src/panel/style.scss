@@ -24,6 +24,10 @@
       &.c-media-text {
         max-width: var(--max-width-media-text);
       }
+
+      &.c-media-carousel {
+        max-width: 100%;
+      }
     }
   }
 
