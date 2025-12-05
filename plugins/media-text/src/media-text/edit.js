@@ -60,6 +60,9 @@ export default function Edit( { attributes, setAttributes } ) {
 		includegradient,
 		variant,
 		bgcolour,
+		borderradiustop,
+		borderradiusbottom,
+		fullwidth,
 	} = attributes;
 
 	const images = Array.isArray( attributes.images ) ? attributes.images : [];
@@ -71,6 +74,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		variant === 'media-text-media-carousel'
 			? 'c-media-text__variant--carousel'
 			: '',
+		fullwidth && 'full-width',
 		altlayout ? `${ BLOCKNAME }__alt-layout` : '',
 		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
 	]
@@ -87,7 +91,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				'core/heading',
 				'core/list',
 				'core/buttons',
-				'bwp/avatar'
+				'bwp/avatar',
 			],
 		}
 	);
@@ -102,8 +106,9 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	useEffect( () => {
 		if ( bgcolour !== 'dark' && includegradient ) {
-		setAttributes( { includegradient: false } );
-	}	}, [ bgcolour, includegradient ] );
+			setAttributes( { includegradient: false } );
+		}
+	}, [ bgcolour, includegradient ] );
 
 	return (
 		<>
@@ -212,7 +217,44 @@ export default function Edit( { attributes, setAttributes } ) {
 						} }
 					/>
 				</PanelBody>
+				<PanelBody title={ __( 'Border Radius', 'media-text' ) }>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label="Border Radius Top"
+						help={
+							borderradiustop
+								? 'Has top border radius.'
+								: 'No border radius.'
+						}
+						checked={ borderradiustop }
+						onChange={ ( val ) => {
+							setAttributes( { borderradiustop: val } );
+						} }
+					/>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label="Border Radius Bottom"
+						help={
+							borderradiusbottom
+								? 'Has bottom border radius.'
+								: 'No border radius.'
+						}
+						checked={ borderradiusbottom }
+						onChange={ ( val ) => {
+							setAttributes( { borderradiusbottom: val } );
+						} }
+					/>
+				</PanelBody>
 				<PanelBody title={ __( 'Layout', 'media-text' ) }>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label="Full Width"
+						help={ fullwidth ? 'Is full width.' : 'Default width.' }
+						checked={ fullwidth }
+						onChange={ ( val ) => {
+							setAttributes( { fullwidth: val } );
+						} }
+					/>
 					<ToggleControl
 						__nextHasNoMarginBottom
 						label="Use alternate layout?"
@@ -226,7 +268,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							setAttributes( { altlayout: val } );
 						} }
 					/>
-					{ bgcolour == 'dark' && 
+					{ bgcolour == 'dark' && (
 						<ToggleControl
 							__nextHasNoMarginBottom
 							label="Background gradient?"
@@ -240,7 +282,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								setAttributes( { includegradient: val } );
 							} }
 						/>
-					 }
+					) }
 				</PanelBody>
 				<PanelBody title={ __( 'Colour', 'media-text' ) }>
 					<SelectControl
@@ -251,7 +293,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							{ label: 'Deep Purple', value: 'deep-purple' },
 							{ label: 'Dark', value: 'dark' },
 							{ label: 'Grey', value: 'grey' },
-							{ label: 'Transparent', value: 'transparent' }
+							{ label: 'Transparent', value: 'transparent' },
 						] }
 						onChange={ ( val ) =>
 							setAttributes( { bgcolour: val } )
@@ -262,7 +304,15 @@ export default function Edit( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>
-				<div className={ `${ BLOCKNAME }__inner` }>
+				<div
+					className={ [
+						`${ BLOCKNAME }__inner`,
+						borderradiustop && 'border-radius__top',
+						borderradiusbottom && 'border-radius__bottom',
+					]
+						.filter( Boolean )
+						.join( ' ' ) }
+				>
 					<div className={ `${ BLOCKNAME }__container` }>
 						<div className={ `${ BLOCKNAME }__items` }>
 							<div
@@ -292,7 +342,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										allowedFormats={ [
 											'core/bold',
 											'core/italic',
-											'core/text-color'
+											'core/text-color',
 										] }
 										onChange={ ( val ) =>
 											setAttributes( {

@@ -9,32 +9,36 @@
 @use './splide';
 
 .c-media-text {
-  background-color: #000;
-  border-radius: var(--border-radius-large);
 
-  &.c-media-text__bgcolour--purple {
-    background-color: var(--brand-4);
-  }
-
-  &.c-media-text__bgcolour--deep-purple {
-    background-color: var(--brand-1);
-  }
-
-  &.c-media-text__bgcolour--dark {
-    background-color: #000;
-  }
-
-  &.c-media-text__bgcolour--grey {
-    background-color: var(--brand-7);
-  }
-
-  &.c-media-text__bgcolour--transparent {
-    background-color: transparent;
+  &.full-width {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   &__inner {
     color: #fff;
     position: relative;
+    background-color: #000;
+  }
+
+  &.c-media-text__bgcolour--purple &__inner {
+    background-color: var(--brand-4);
+  }
+
+  &.c-media-text__bgcolour--deep-purple &__inner {
+    background-color: var(--brand-1);
+  }
+
+  &.c-media-text__bgcolour--dark &__inner {
+    background-color: #000;
+  }
+
+  &.c-media-text__bgcolour--grey &__inner {
+    background-color: var(--brand-7);
+  }
+
+  &.c-media-text__bgcolour--transparent &__inner {
+    background-color: transparent;
   }
 
   &__gradient {
@@ -52,6 +56,9 @@
     padding: 100px 60px;
     position: relative;
     z-index: 1;
+    max-width: var(--max-width-media-text);
+    margin-left: auto;
+    margin-right: auto;
 
     .c-media-text__bgcolour--transparent & {
       padding-top: 0;
@@ -139,12 +146,8 @@
 
       picture {
         aspect-ratio: 1 / 1;
-        border-radius: 40px;
+        border-radius: var(--border-radius-small);
         overflow: hidden;
-
-        @include abstracts.respond-to('tablet') { 
-          border-radius: 26px;
-        }
       }
 
       picture,
