@@ -130,7 +130,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						/>
 					</PanelBody>
 				) }
-				<PanelBody title={ __( 'Border Radius', 'media-text' ) }>
+				<PanelBody title={ __( 'Border Radius', 'panel' ) }>
 					<ToggleControl
 						__nextHasNoMarginBottom
 						label="Border Radius Top"
@@ -159,7 +159,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 
-				<PanelBody title={ __( 'Layout', 'media-text' ) }>
+				<PanelBody title={ __( 'Layout', 'panel' ) }>
 					<ToggleControl
 						__nextHasNoMarginBottom
 						label="Full Width"
@@ -184,7 +184,10 @@ export default function Edit( { attributes, setAttributes } ) {
 								label: __( 'Purple', 'panel' ),
 								value: 'purple',
 							},
-							{ label: 'Deep Purple', value: 'deep-purple' },
+							{
+								label: __( 'Deep Purple', 'panel' ),
+								value: 'deep-purple',
+							},
 							{
 								label: __( 'Dark', 'panel' ),
 								value: 'dark',
