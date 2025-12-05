@@ -64,11 +64,11 @@
 			"type": "boolean",
 			"default": true
 		},
-				"borderradiusbottom": {
+		"borderradiusbottom": {
 			"type": "boolean",
 			"default": true
 		},
-						"fullwidth": {
+		"fullwidth": {
 			"type": "boolean",
 			"default": false
 		}
@@ -78,8 +78,5 @@
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-		"viewScript": [
-		"splide-core",
-		"file:./view.js"
-	]
+	"viewScript": [ "splide-core", "file:./view.js" ]
 }
