@@ -66,6 +66,18 @@ return array(
 			'bgcolour' => array(
 				'type' => 'string',
 				'default' => 'dark'
+			),
+			'borderradiustop' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'borderradiusbottom' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'fullwidth' => array(
+				'type' => 'boolean',
+				'default' => false
 			)
 		),
 		'textdomain' => 'media-text',
