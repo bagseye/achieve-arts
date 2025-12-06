@@ -34,7 +34,7 @@ export default function save( { attributes } ) {
 		ctabuttontext,
 	} = attributes;
 
-	const classes = [ BLOCKNAME, `${ BLOCKNAME }__bgcolour--${ bgcolour }` ]
+	const classes = [ BLOCKNAME, `${ BLOCKNAME }__bgcolour--${ bgcolour }`, 'js-anim', 'h-animate-in-slide-up' ]
 		.filter( Boolean )
 		.join( ' ' );
 

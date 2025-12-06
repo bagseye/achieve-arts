@@ -19,7 +19,7 @@ const BLOCKNAME = 'c-venues-item';
 export default function save( { attributes } ) {
 	const { name, details, pageurl, ctabuttontext } = attributes;
 
-	const classes = [ BLOCKNAME ].filter( Boolean ).join( ' ' );
+	const classes = [ BLOCKNAME,  'js-anim', 'h-animate-in-slide-up' ].filter( Boolean ).join( ' ' );
 
 	const blockProps = useBlockProps.save( { className: classes } );
 	return (
