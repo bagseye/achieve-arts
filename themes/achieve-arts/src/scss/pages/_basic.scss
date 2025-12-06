@@ -1,0 +1,40 @@
+.page-template-page-basic,
+.post-template-default {
+  background-color: #000;
+}
+
+.p-basic {
+  // background-color: #000;
+  // color: #fff;
+
+  &__inner {
+    // position: relative;
+    // max-width: 1280px;
+    // margin-left: auto;
+    // margin-right: auto;
+    // background-color: var(--brand-1);
+    // border-radius: var(--border-radius-large);
+    // padding-left: var(--container-padding-content);
+    // padding-right: var(--container-padding-content);
+  }
+
+  // &__back {
+  //   position: absolute;
+  //   top: 40px;
+  //   right: 35px;
+  // }
+
+  // .p-basic__heading {
+  //   font-size: 45px;
+  //   font-weight: 600;
+  //   font-family: var(--font-body);
+  // }
+
+  &__items {
+    >* {
+      max-width: var(--max-width-media-text);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
