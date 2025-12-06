@@ -44,7 +44,7 @@ export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save( { className: classes } );
 
 	const innerBlockProps = useInnerBlocksProps.save( {
-		className: `${ BLOCKNAME }__items ${
+		className: `${ BLOCKNAME }__items js-anim h-animate-in-slide-up ${
 			testimonialscount > 1 ? 'splide__list' : ''
 		}`,
 	} );
@@ -60,7 +60,7 @@ export default function save( { attributes } ) {
 						<header className={ `${ BLOCKNAME }__content--header` }>
 							<RichText.Content
 								tagName="h2"
-								className={ `${ BLOCKNAME }__heading` }
+								className={ `${ BLOCKNAME }__heading js-anim h-animate-in-slide-up` }
 								value={ heading }
 							/>
 						</header>
@@ -70,7 +70,7 @@ export default function save( { attributes } ) {
 				{ variant === 'testimonials-default' &&
 					testimonialscount > 1 && (
 						<div
-							className={ `${ BLOCKNAME }__arrows splide__arrows c-arrows` }
+							className={ `${ BLOCKNAME }__arrows splide__arrows c-arrows js-anim h-animate-in-fade` }
 						>
 							<button
 								type="button"

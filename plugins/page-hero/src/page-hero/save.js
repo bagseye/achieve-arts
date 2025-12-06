@@ -62,7 +62,7 @@ export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save( { className: classes } );
 
 	const innerBlockProps = useInnerBlocksProps.save( {
-		className: `${ BLOCKNAME }__content-area`,
+		className: `${ BLOCKNAME }__content-area js-anim h-animate-in-slide-up`,
 	} );
 
 	return (
@@ -78,7 +78,7 @@ export default function save( { attributes } ) {
 							<header className={ `${ BLOCKNAME }__header` }>
 								{ tab && (
 									<span
-										className={ `${ BLOCKNAME }__tab h-tab` }
+										className={ `${ BLOCKNAME }__tab h-tab js-anim h-animate-in-fade` }
 									>
 										<RichText.Content
 											tagName="p"
@@ -88,7 +88,7 @@ export default function save( { attributes } ) {
 								) }
 								<RichText.Content
 									tagName="h2"
-									className={ `${ BLOCKNAME }__heading` }
+									className={ `${ BLOCKNAME }__heading js-anim h-animate-in-slide-up` }
 									value={ heading }
 								/>
 							</header>
@@ -96,7 +96,7 @@ export default function save( { attributes } ) {
 						</div>
 						{ variant === 'page-hero-default' && (
 							<div
-								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
+								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media js-anim h-animate-in-fade` }
 							>
 								<div
 									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-bg` }
@@ -112,7 +112,7 @@ export default function save( { attributes } ) {
 
 								{ toprightmediaId && toprightmediaUrl && (
 									<div
-										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-top-right` }
+										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-top-right js-anim h-animate-in-fade` }
 									>
 										<picture>
 											<img
@@ -128,7 +128,7 @@ export default function save( { attributes } ) {
 
 								{ bottomleftmediaId && bottomleftmediaUrl && (
 									<div
-										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-bottom-left` }
+										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-bottom-left js-anim h-animate-in-fade` }
 									>
 										<picture>
 											<img
