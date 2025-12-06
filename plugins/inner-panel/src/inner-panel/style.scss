@@ -1,0 +1,38 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+@use '../../../../themes/achieve-arts/src/scss/abstracts';
+
+.c-inner-panel {
+	margin-top: 30px;
+	margin-bottom: 30px;
+
+	&__inner {
+		background-color: #fff;
+		border-radius: var(--border-radius-small);
+		padding: 50px 60px;
+		color: #000;
+
+		@include abstracts.respond-to('desktop') { 
+			padding: 30px 40px;
+		}
+
+		@include abstracts.respond-to('tablet') { 
+			padding: 30px 20px;
+		}
+	}
+
+	&__items {
+		>.wp-block-buttons {
+			width: 100%;
+
+			>.wp-block-button {
+				width: inherit;
+			}
+		}
+	}
+}

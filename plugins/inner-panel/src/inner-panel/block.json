@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bwp/inner-panel",
+	"version": "0.1.0",
+	"title": "Inner Panel",
+	"category": "widgets",
+	"icon": "align-center",
+	"description": "A inner panel that is only available in the Panel block.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "inner-panel",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
