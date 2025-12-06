@@ -67,17 +67,17 @@ export default function save( { attributes } ) {
 				<header className={ `${ BLOCKNAME }__content--header` }>
 					<RichText.Content
 						tagName="h2"
-						className={ `${ BLOCKNAME }__heading` }
+						className={ `${ BLOCKNAME }__heading js-anim h-animate-in-slide-up` }
 						value={ heading }
 					/>
 					<RichText.Content
 						tagName="p"
-						className={ `${ BLOCKNAME }__subheading` }
+						className={ `${ BLOCKNAME }__subheading js-anim h-animate-in-slide-up` }
 						value={ subheading }
 					/>
 				</header>
 				{ pageurl && (
-					<div className={ `${ BLOCKNAME }__cta` }>
+					<div className={ `${ BLOCKNAME }__cta js-anim h-animate-in-slide-up` }>
 						<div
 							className={ `wp-block-button is-style-${bgcolour === 'purple' ? 'dark' : 'deep-purple'}` }
 						>
@@ -100,10 +100,10 @@ export default function save( { attributes } ) {
 					.filter( Boolean )
 					.join( ' ' ) }
 			>
-				<div className={ `${ BLOCKNAME }__container splide__track` }>
+				<div className={ `${ BLOCKNAME }__container splide__track js-anim h-animate-in-fade` }>
 					<div { ...innerBlockProps } />
 					<div
-						className={ `${ BLOCKNAME }__arrows splide__arrows c-arrows` }
+						className={ `${ BLOCKNAME }__arrows splide__arrows c-arrows js-anim h-animate-in-fade` }
 					>
 						<button
 							type="button"

@@ -50,21 +50,21 @@ export default function save( { attributes } ) {
 							<header className={ `${ BLOCKNAME }__header` }>
 								<RichText.Content
 									tagName="h1"
-									className={ `${ BLOCKNAME }__heading` }
+									className={ `${ BLOCKNAME }__heading js-anim h-animate-in-slide-up` }
 									value={ heading }
 								/>
 							</header>
 							<RichText.Content
 								tagName="h2"
-								className={ `${ BLOCKNAME }__subheading` }
+								className={ `${ BLOCKNAME }__subheading js-anim h-animate-in-slide-up` }
 								value={ subheading }
 							/>
 							<RichText.Content
 								tagName="p"
-								className={ `${ BLOCKNAME }__intro` }
+								className={ `${ BLOCKNAME }__intro js-anim h-animate-in-slide-up` }
 								value={ intro }
 							/>
-							<div className={ `${ BLOCKNAME }__ctas` }>
+							<div className={ `${ BLOCKNAME }__ctas js-anim h-animate-in-slide-up` }>
 								<span className={ `h-button` }>
 									<a href="" className={ `h-button__link` }>
 										Book Discovery Call
@@ -80,7 +80,7 @@ export default function save( { attributes } ) {
 					</div>
 				</div>
 			</div>
-			<div className={ `${ BLOCKNAME }__scroller` }>
+			<div className={ `${ BLOCKNAME }__scroller js-anim h-animate-in-slide-up` }>
 				<div className={ `${ BLOCKNAME }__scroller--inner` }>
 					<div
 						className={ `${ BLOCKNAME }__scroller--container splide__track` }

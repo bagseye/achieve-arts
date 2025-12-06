@@ -1,0 +1,265 @@
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-up {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+
+    50% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+  
+@keyframes slide-in-left {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+  
+@keyframes slide-in-right {
+    0% {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+  
+  
+@keyframes scale-in {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+  
+@keyframes scale-in {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    65% {
+        transform: translate(0, 30px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+// slide-in-up
+.h-animate-in-slide-up.js-anim {
+  @supports (animation-name: slide-in-up) {
+    opacity: 0;
+
+    .no-js & {
+      opacity: 1;
+    }
+  }
+
+  &.js-anim__visible {
+    &.js-anim--with-delay {
+      animation-delay: 0.3s;
+    }
+
+    animation: slide-in-up .75s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @media(prefers-reduced-motion: reduce) {
+    animation: none;
+    animation-delay: 0s;
+    opacity: 1;
+  }
+}
+
+// slide-in-left
+.h-animate-in-slide-left.js-anim {
+  @supports (animation-name: slide-in-left) {
+    opacity: 0;
+
+    .no-js & {
+      opacity: 1;
+    }
+  }
+
+  &.js-anim__visible {
+    &.js-anim--with-delay {
+      animation-delay: 0.3s;
+    }
+
+    animation: slide-in-left .75s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @media(prefers-reduced-motion: reduce) {
+    animation: none;
+    animation-delay: 0s;
+    opacity: 1;
+  }
+}
+
+
+// slide-in-right
+.h-animate-in-slide-right.js-anim {
+  @supports (animation-name: slide-in-right) {
+    opacity: 0;
+
+    .no-js & {
+      opacity: 1;
+    }
+  }
+
+  &.js-anim__visible {
+    &.js-anim--with-delay {
+      animation-delay: 0.3s;
+    }
+
+    animation: slide-in-right .75s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @media(prefers-reduced-motion: reduce) {
+    animation: none;
+    animation-delay: 0s;
+    opacity: 1;
+  }
+}
+
+// fade-in
+.h-animate-in-fade.js-anim {
+  @supports (animation-name: fade-in) {
+    opacity: 0;
+
+    .no-js & {
+      opacity: 1;
+    }
+  }
+
+  &.js-anim__visible {
+    &.js-anim--with-delay {
+      animation-delay: 0.3s;
+    }
+
+    animation: fade-in .75s ease-in-out forwards;
+  }
+
+  @media(prefers-reduced-motion: reduce) {
+    animation: none;
+    animation-delay: 0s;
+    opacity: 1;
+  }
+}
+
+// scale-in
+.h-animate-in-scale.js-anim {
+  @supports (animation-name: scale-in) {
+    will-change: opacity;
+    opacity: 0;
+
+    .no-js & {
+      opacity: 1;
+    }
+  }
+
+  &.js-anim__visible {
+    &.js-anim--with-delay {
+      animation-delay: 0.3s;
+    }
+
+    animation: scale-in .75s ease-in-out forwards;
+  }
+
+  @media(prefers-reduced-motion: reduce) {
+    animation: none;
+    animation-delay: 0s;
+    opacity: 1;
+  }
+}
+
+// floating
+.h-animate-in-floating.js-anim {
+  @supports (animation-name: floating) {
+    opacity: 0;
+
+    .no-js & {
+      opacity: 1;
+    }
+  }
+
+  &.js-anim__visible {
+    &.js-anim--with-delay {
+      animation-delay: 0.3s;
+    }
+
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  @media(prefers-reduced-motion: reduce) {
+    animation: none;
+    animation-delay: 0s;
+    opacity: 1;
+  }
+}
+
+// rotate
+.h-animate-in-rotate.js-anim {
+  @supports (animation-name: rotate) {
+    opacity: 0;
+
+    .no-js & {
+      opacity: 1;
+    }
+  }
+
+  &.js-anim__visible {
+    &.js-anim--with-delay {
+      animation-delay: 0.3s;
+    }
+
+    animation: rotate .75s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @media(prefers-reduced-motion: reduce) {
+    animation: none;
+    animation-delay: 0s;
+    opacity: 1;
+  }
+}

@@ -23,7 +23,7 @@ global $post;
         
         <div class="c-header__inner">
             <div class="c-header__container">
-                <div class="c-header__items">
+                <div class="c-header__items js-anim h-animate-in-fade">
                     <div class="c-header__item c-header__item--left">
                         <span class="c-header__cta--mobile">
                             <a href="" title="Schedule a call">

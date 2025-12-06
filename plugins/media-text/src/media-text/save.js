@@ -58,7 +58,7 @@ export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save( { className: classes } );
 
 	const innerBlockProps = useInnerBlocksProps.save( {
-		className: `${ BLOCKNAME }__content-area d-typography`,
+		className: `${ BLOCKNAME }__content-area d-typography js-anim h-animate-in-slide-up`,
 	} );
 
 	return (
@@ -79,7 +79,7 @@ export default function save( { attributes } ) {
 						>
 							<header className={ `${ BLOCKNAME }__header` }>
 								<span
-									className={ ` ${ BLOCKNAME }__tab h-tab` }
+									className={ ` ${ BLOCKNAME }__tab h-tab js-anim h-animate-in-fade` }
 								>
 									<RichText.Content
 										tagName="p"
@@ -88,7 +88,7 @@ export default function save( { attributes } ) {
 								</span>
 								<RichText.Content
 									tagName="h2"
-									className={ `${ BLOCKNAME }__heading` }
+									className={ `${ BLOCKNAME }__heading js-anim h-animate-in-slide-up` }
 									value={ heading }
 								/>
 							</header>
@@ -97,7 +97,7 @@ export default function save( { attributes } ) {
 						{ variant === 'media-text-media-carousel' ? (
 							<>
 								<div
-									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
+									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media js-anim h-animate-in-fade` }
 								>
 									<div
 										className={ `${ BLOCKNAME }__track splide__track` }
@@ -121,7 +121,7 @@ export default function save( { attributes } ) {
 										</div>
 									</div>
 									<div
-										className={ `${ BLOCKNAME }__arrows splide__arrows c-arrows` }
+										className={ `${ BLOCKNAME }__arrows splide__arrows c-arrows js-anim h-animate-in-fade` }
 									>
 										<button
 											type="button"
@@ -154,7 +154,7 @@ export default function save( { attributes } ) {
 							</>
 						) : mediaId && mediaUrl ? (
 							<div
-								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
+								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media js-anim h-animate-in-fade` }
 							>
 								<picture>
 									<img

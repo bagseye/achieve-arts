@@ -10,9 +10,9 @@
       <div class="c-footer__items">
         <div class="c-footer__item c-footer__item--top">
           <div class="c-footer__item--top-left">
-            <h3 class="c-footer__heading">Shaping Futures Through <span>Elite And Professional Training.</span></h3>
-            <p class="c-footer__intro">Schedule a discovery call and book your child's free trial</p>
-            <span class="h-button c-footer__cta">
+            <h3 class="c-footer__heading js-anim h-animate-in-slide-up">Shaping Futures Through <span>Elite And Professional Training.</span></h3>
+            <p class="c-footer__intro js-anim h-animate-in-slide-up">Schedule a discovery call and book your child's free trial</p>
+            <span class="h-button c-footer__cta js-anim h-animate-in-fade">
               <a href="" class="h-button__link" title="Schedule a call">
                   Schedule a call
                   <svg viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,14 +24,14 @@
           <div class="c-footer__item--top-right">
               <a href="<?php echo get_bloginfo('url') ?>/" title="Return to Achieve Arts Home">
                 <picture>
-                    <img class="c-footer__logo" width="275" height="175" src="<?php echo get_template_directory_uri() ?>/images/svg/logo.svg" alt="Achieve Arts Logo" />
+                    <img class="c-footer__logo js-anim h-animate-in-fade" width="275" height="175" src="<?php echo get_template_directory_uri() ?>/images/svg/logo.svg" alt="Achieve Arts Logo" />
                 </picture>
               </a>
           </div>
         </div>
 
         <?php if(function_exists('get_field') && get_field('email_addresses', 'options')) : ?>
-        <ul class="c-footer__item c-footer__item--emails">
+        <ul class="c-footer__item c-footer__item--emails js-anim h-animate-in-slide-up">
           <?php foreach(get_field('email_addresses', 'options') as $email_address) : ?>
           <li class="c-footer__item--email">
             <?= $email_address['title'] ?>
@@ -44,7 +44,7 @@
         <?php endif; ?>
 
         <?php if(function_exists('get_field')) : ?>
-        <ul class="c-footer__item c-footer__item--socials">
+        <ul class="c-footer__item c-footer__item--socials js-anim h-animate-in-slide-up">
           <?php if(get_field('vimeo_social', 'options')) : ?>
           <li class="c-footer__item--social">
             <a href="<?= get_field('vimeo_social', 'options') ?>" title="Achieve Arts on Vimeo">
@@ -80,7 +80,7 @@
         </ul>
         <?php endif; ?>
         <div class="c-footer__item c-footer__item--menus">
-          <nav aria-label="Footer Menu One" class="c-footer__menu">
+          <nav aria-label="Footer Menu One" class="c-footer__menu js-anim h-animate-in-slide-up">
             <?php
             $menu_args = array(
                'menu'              => 'footer-menu-one',
@@ -95,7 +95,7 @@
             ?>
           </nav>
 
-          <nav aria-label="Footer Menu Two" class="c-footer__menu">
+          <nav aria-label="Footer Menu Two" class="c-footer__menu js-anim h-animate-in-slide-up">
             <?php
             $menu_args = array(
                'menu'              => 'footer-menu-two',
@@ -110,7 +110,7 @@
             ?>
           </nav>
 
-          <nav aria-label="Footer Menu Three" class="c-footer__menu">
+          <nav aria-label="Footer Menu Three" class="c-footer__menu js-anim h-animate-in-slide-up">
             <?php
             $menu_args = array(
                'menu'              => 'footer-menu-three',
@@ -126,7 +126,7 @@
           </nav>
 
         </div>
-        <div class="c-footer__item c-footer__item--base">
+        <div class="c-footer__item c-footer__item--base js-anim h-animate-in-slide-up">
           <p>Achieve Arts. All Rights Reserved.</p>
           <p>Made by <a href="https://www.bluestone98.com/" target="_blank" title="Made by Bluestone98" rel="follow">Bluestone98</a></p>
         </div>

@@ -41,7 +41,7 @@ export default function save( { attributes } ) {
 	return (
 		<section { ...blockProps }>
 			<div className={ `${ BLOCKNAME }__inner` }>
-				<div className={ `${ BLOCKNAME }__container splide__track` }>
+				<div className={ `${ BLOCKNAME }__container splide__track js-anim h-animate-in-fade` }>
 					<div { ...innerBlockProps } />
 				</div>
 			</div>

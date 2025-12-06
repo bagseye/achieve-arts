@@ -45,11 +45,11 @@ if(! empty( $attributes['catid'] )) {
 						<?php if($attributes && $attributes['heading']) : ?>
 							<div class="<?php echo $BLOCK_NAME ?>__item c-news-feed__item--content">
 									<header class="<?php echo $BLOCK_NAME ?>__header">
-											<h2 class="<?php echo $BLOCK_NAME ?>__heading"><?php echo $attributes['heading'] ?></h2>
+											<h2 class="<?php echo $BLOCK_NAME ?>__heading js-anim h-animate-in-slide-up"><?php echo $attributes['heading'] ?></h2>
 									</header>
 							</div>
 							<?php endif; ?>
-							<div class="<?php echo $BLOCK_NAME ?>__item c-news-feed__item--feed splide__track">
+							<div class="<?php echo $BLOCK_NAME ?>__item c-news-feed__item--feed splide__track js-anim h-animate-in-slide-up">
 									<div class="<?php echo $BLOCK_NAME ?>__scroller splide__list">
 										<?php 
 										
