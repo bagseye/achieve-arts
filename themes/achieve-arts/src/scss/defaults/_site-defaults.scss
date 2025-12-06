@@ -211,6 +211,10 @@ body {
   line-height: 1.3;
 }
 
+address {
+  font-style: normal;
+}
+
 .p-default-page,
 .p-front-page {
   &__items {
@@ -395,5 +399,11 @@ h2 {
     overflow: hidden;
     clip: rect(0,0,0,0);
     border: 0;
+}
+
+.page-template-page-basic,
+.post-template-default,
+.page-template-page-contact {
+  background-color: #000;
 }
 
