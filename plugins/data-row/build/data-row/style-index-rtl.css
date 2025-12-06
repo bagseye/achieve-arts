@@ -1,0 +1,1 @@
+.c-data-row{border-bottom:1px solid var(--brand-1);padding-bottom:20px}.c-data-row__item--details{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.c-data-row__detail--inner p:first-child{font-weight:600}

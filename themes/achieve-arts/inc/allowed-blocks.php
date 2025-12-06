@@ -19,6 +19,7 @@ function bwp_allowed_block_types ( $block_editor_context, $editor_context ) {
       'bwp/page-hero',
       'bwp/panel',
       'bwp/inner-panel',
+      'bwp/data-row',
       'bwp/team-members',
       'bwp/team-members-item',
       'bwp/testimonials',

@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bwp/data-row",
+	"version": "0.1.0",
+	"title": "Data Row",
+	"category": "widgets",
+	"icon": "chart-area",
+	"description": "A data row only avaialble in the Inner Panel block.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"columnOneHeading": {
+			"type": "string",
+			"default": ""
+		},
+		"columnOneDetail": {
+			"type": "string",
+			"default": ""
+		},
+		"columnTwoHeading": {
+			"type": "string",
+			"default": ""
+		},
+		"columnTwoDetail": {
+			"type": "string",
+			"default": ""
+		},
+		"columnThreeHeading": {
+			"type": "string",
+			"default": ""
+		},
+		"columnThreeDetail": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"parent": [ "bwp/inner-panel" ],
+	"textdomain": "data-row",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
