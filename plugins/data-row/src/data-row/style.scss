@@ -6,6 +6,7 @@
  */
 
 .c-data-row {
+	padding-top: 20px;
 	padding-bottom: 20px;
 	border-bottom: 1px solid var(--brand-1);
 
@@ -19,6 +20,19 @@
 			&:first-child {
 				font-weight: 600;
 			}
+		}
+	}
+
+	.c-inner-panel__items & {
+		&:first-of-type {
+			padding-top: 0;
+			margin-top: var(--spacing-header);
+		}
+
+		&:last-of-type {
+			margin-bottom: var(--spacing-header);
+			border-bottom: none;
+			padding-bottom: 0;
 		}
 	}
 }
