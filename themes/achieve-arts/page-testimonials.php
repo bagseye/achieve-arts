@@ -38,7 +38,7 @@ get_header(); ?>
                                                                     <p>Testimonial</p>
                                                                 </span>
                                                                 <div class="c-testimonials-item__content-area">
-                                                                    <p>' . $message . '</p>
+                                                                    ' . $message . '
                                                                 </div>
                                                                 <div class="c-testimonials-item__name">
                                                                     <p>' . $name . '</p>
