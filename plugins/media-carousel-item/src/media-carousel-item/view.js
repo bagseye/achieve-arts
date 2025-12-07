@@ -54,7 +54,6 @@
 
 		const modal = createVideoModal();
 		const videoEl = modal.querySelector( '.c-video-modal__video' );
-    const closeBtn = modal.querySelector( '.c-video-modal__close' );
 
 		// Set source and show modal
 		videoEl.src = src;
@@ -63,12 +62,6 @@
 
 		modal.removeAttribute( 'hidden' );
 		document.body.classList.add( 'has-video-modal-open' );
-
-    		// Store trigger for focus restoration
-	modal.dataset.triggerElement = triggerElement;
-	
-	// Move focus to close button
-	closeBtn?.focus();
 	}
 
 	function closeVideoModal() {
@@ -84,14 +77,6 @@
 
 		modal.setAttribute( 'hidden', 'hidden' );
 		document.body.classList.remove( 'has-video-modal-open' );
-
-    		// Restore focus to trigger
-		const triggerId = modal.dataset.triggerElement;
-		if ( triggerId ) {
-			const trigger = document.querySelector( `[data-trigger-id="${triggerId}"]` );
-			trigger?.focus();
-		delete modal.dataset.triggerElement;
-		}
 	}
 
 	function bindVideoButtons() {
@@ -104,12 +89,13 @@
 			btn.addEventListener( 'click', ( event ) => {
 				event.preventDefault();
 				const src = btn.getAttribute( 'data-video-src' );
-				openVideoModal( src, btn );
+				openVideoModal( src );
 			} );
 		} );
 	}
 
 	document.addEventListener( 'DOMContentLoaded', () => {
+    console.log('yo');
 		// Bind triggers on initial load
 		bindVideoButtons();
 
