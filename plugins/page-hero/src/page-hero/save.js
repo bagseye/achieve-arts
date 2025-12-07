@@ -110,7 +110,7 @@ export default function save( { attributes } ) {
 									</svg>
 								</div>
 
-								{ toprightmediaId && toprightmediaUrl && (
+								{ (toprightmediaId && toprightmediaUrl) ? (
 									<div
 										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-top-right js-anim h-animate-in-fade` }
 									>
@@ -124,9 +124,9 @@ export default function save( { attributes } ) {
 											/>
 										</picture>
 									</div>
-								) }
+								) : null }
 
-								{ bottomleftmediaId && bottomleftmediaUrl && (
+								{ (bottomleftmediaId && bottomleftmediaUrl) ? (
 									<div
 										className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-bottom-left js-anim h-animate-in-fade` }
 									>
@@ -140,7 +140,7 @@ export default function save( { attributes } ) {
 											/>
 										</picture>
 									</div>
-								) }
+								) : null }
 
 								{ mediatype === 'image' &&
 								mediaId &&
