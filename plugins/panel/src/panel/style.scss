@@ -23,6 +23,8 @@
       max-width: 1060px;
       margin-left: auto;
       margin-right: auto;
+      padding-left: var(--container-padding-content);
+      padding-right: var(--container-padding-content);
     }
   }
 
@@ -49,6 +51,29 @@
         max-width: 100%;
         padding-left: 0;
         padding-right: 0;
+      }
+    }
+
+    >h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 45px;
+      font-family: var(--font-body);
+      font-weight: 600;
+
+      @include abstracts.respond-to('desktop') { 
+        font-size: 40px;
+      }
+
+      @include abstracts.respond-to('tablet') { 
+        font-size: 36px;
+      }
+
+      @include abstracts.respond-to('mobile') { 
+        font-size: 30px;
       }
     }
   }
