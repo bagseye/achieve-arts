@@ -32,10 +32,6 @@
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": [
-		"splide-core",
-		"splide-video",
-		"file:./view.js"
-	],
+	"viewScript": [ "splide-core", "splide-video", "file:./view.js" ],
 	"variations": "file:./variations.php"
 }

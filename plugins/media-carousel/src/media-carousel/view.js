@@ -28,7 +28,6 @@ const chosenExtensions = {
 	Video: Extensions.Video,
 };
 
-
 function cacheDOM() {
 	$videocarousels = [
 		...document.querySelectorAll( '.splide.js-carousel__video' ),
