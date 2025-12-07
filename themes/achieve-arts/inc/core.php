@@ -167,6 +167,24 @@ if ( ! function_exists( 'bwp_scripts' ) ) {
 			true
 		);
 
+		if(is_page_template( 'page-testimonials.php' )) {
+			wp_enqueue_script(
+				'masonry-build-script',
+				'https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js',
+				[],
+				getBuildTimeStamp(),
+				true
+			);
+
+			wp_enqueue_script(
+				'masonry-script',
+				get_template_directory_uri() . '/assets/masonry.min.js',
+				['masonry-build-script'],
+				getBuildTimeStamp(),
+				true
+			);
+		}
+
 		// Only enqueue vendors bundle if it exists.
 		$vendors_file_path = get_template_directory() . '/assets/vendors.min.js';
 		if ( file_exists( $vendors_file_path ) ) {

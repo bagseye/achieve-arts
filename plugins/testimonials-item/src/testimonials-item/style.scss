@@ -9,24 +9,28 @@
 
 .c-testimonials-item {
 	&__variant--testimonials-scrolling-card {
+		width: 445px;
+
+		@include abstracts.respond-to('desktop') { 
+			width: 400px;
+		}
+
+		@include abstracts.respond-to('tablet') { 
+			width: 350px;
+		}
+
+		@include abstracts.respond-to('mobile') { 
+			width: 300px;
+		}
+
 		.c-testimonials-item__inner {
 			background-color: #fff;
 			color: #000;
 			border-radius: var(--border-radius-small);
 			padding: 36px;
-			width: 445px;
-
-			@include abstracts.respond-to('desktop') { 
-				width: 400px;
-			}
 
 			@include abstracts.respond-to('tablet') { 
 				padding: 30px 20px;
-				width: 350px;
-			}
-
-			@include abstracts.respond-to('mobile') { 
-				width: 300px;
 			}
 		}
 	}

@@ -23,6 +23,9 @@ const config = {
         loadmore: [
             './src/js/loadmore.js'
         ],
+        masonry: [
+            './src/js/masonry.js'
+        ],
     },
     output: {
         path: path.resolve(__dirname, 'assets'),

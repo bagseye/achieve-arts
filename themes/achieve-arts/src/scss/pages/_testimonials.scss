@@ -1,0 +1,29 @@
+@use '../abstracts';
+
+.p-testimonials {
+  .p-testimonials__masonry {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    .p-testimonials__masonry--item {
+      width: 31.5%;
+      padding: 5px;
+
+      @include abstracts.respond-to('laptop') { 
+        width: calc(50% - 30px);
+      }
+
+      @include abstracts.respond-to('tablet') { 
+        width: calc(50% - 20px);
+      }
+
+      @include abstracts.respond-to('mobile') { 
+        width: calc(100% - 30px);
+      }
+
+      .c-testimonials-item {
+        width: 100%;
+      }
+    }
+  }
+}
