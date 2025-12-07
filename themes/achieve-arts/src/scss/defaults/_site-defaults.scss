@@ -247,6 +247,17 @@ address {
       margin-bottom: 0;
     }
   }
+
+  .wp-block-list {
+    list-style: none;
+    margin-top: var(--spacing-header);
+    margin-bottom: var(--spacing-header);
+
+    li {
+      list-style: disc;
+      margin-left: 20px;
+    }
+  }
 }
 
 h1,
