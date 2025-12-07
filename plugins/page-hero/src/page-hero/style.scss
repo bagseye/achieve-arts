@@ -15,22 +15,27 @@
     overflow: hidden;
     padding-left: var(--container-padding-content);
     padding-right: var(--container-padding-content);
-    border-bottom-left-radius: 60px;
-    border-bottom-right-radius: 60px;
+    border-bottom-left-radius: var(--border-radius-large);
+    border-bottom-right-radius: var(--border-radius-large);
     color: #fff;
   }
 
-  	&.c-page-hero__bgcolour--purple &__inner {
-      background-color: var(--brand-4);
-    }
+  &.border-radius-none__bottom &__inner {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 
-    &.c-page-hero__bgcolour--deep-purple &__inner {
-      background-color: var(--brand-1);
-    }
+  &.c-page-hero__bgcolour--purple &__inner {
+    background-color: var(--brand-4);
+  }
 
-    &.c-page-hero__bgcolour--dark &__inner {
-      background-color: #000;
-    }
+  &.c-page-hero__bgcolour--deep-purple &__inner {
+    background-color: var(--brand-1);
+  }
+
+  &.c-page-hero__bgcolour--dark &__inner {
+    background-color: #000;
+  }
 
   &__gradient {
     display: block;
