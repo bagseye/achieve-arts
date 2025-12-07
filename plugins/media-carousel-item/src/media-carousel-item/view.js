@@ -20,6 +20,98 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-/* eslint-disable no-console */
-console.log( 'Hello World! (from bwp-media-carousel-item block)' );
-/* eslint-enable no-console */
+( function () {
+	// Create a modal and reuse for all video buttons
+	function createVideoModal() {
+		const existing = document.querySelector( '.c-video-modal' );
+
+		if ( existing ) return existing;
+
+		const wrapper = document.createElement( 'div' );
+		wrapper.className = 'c-video-modal';
+		wrapper.setAttribute( 'hidden', 'hidden' );
+
+		wrapper.innerHTML = `
+			<div class="c-video-modal__backdrop" data-modal-close></div>
+      	<button type="button" class="c-video-modal__close" data-modal-close aria-label="Close video">
+					<span></span>
+          <span></span>
+				</button>
+			<div class="c-video-modal__dialog" role="dialog" aria-modal="true" aria-label="Video player">
+
+				<div class="c-video-modal__content">
+					<video class="c-video-modal__video" controls playsinline></video>
+				</div>
+			</div>
+		`;
+
+		document.body.appendChild( wrapper );
+		return wrapper;
+	}
+
+	function openVideoModal( src ) {
+		if ( ! src ) return;
+
+		const modal = createVideoModal();
+		const videoEl = modal.querySelector( '.c-video-modal__video' );
+
+		// Set source and show modal
+		videoEl.src = src;
+		videoEl.load();
+		videoEl.play().catch( () => {} );
+
+		modal.removeAttribute( 'hidden' );
+		document.body.classList.add( 'has-video-modal-open' );
+	}
+
+	function closeVideoModal() {
+		const modal = document.querySelector( '.c-video-modal' );
+		if ( ! modal ) return;
+
+		const videoEl = modal.querySelector( '.c-video-modal__video' );
+		if ( videoEl ) {
+			videoEl.pause();
+			videoEl.removeAttribute( 'src' );
+			videoEl.load();
+		}
+
+		modal.setAttribute( 'hidden', 'hidden' );
+		document.body.classList.remove( 'has-video-modal-open' );
+	}
+
+	function bindVideoButtons() {
+		const triggers = document.querySelectorAll( '.js-video-popup-trigger' );
+
+		triggers.forEach( ( btn ) => {
+			if ( btn.dataset.hasVideoHandler ) return; // avoid double-binding
+			btn.dataset.hasVideoHandler = 'true';
+
+			btn.addEventListener( 'click', ( event ) => {
+				event.preventDefault();
+				const src = btn.getAttribute( 'data-video-src' );
+				openVideoModal( src );
+			} );
+		} );
+	}
+
+	document.addEventListener( 'DOMContentLoaded', () => {
+    console.log('yo');
+		// Bind triggers on initial load
+		bindVideoButtons();
+
+		// Close by click (backdrop or close button)
+		document.addEventListener( 'click', ( event ) => {
+			const target = event.target;
+			if ( target && target.hasAttribute( 'data-modal-close' ) ) {
+				closeVideoModal();
+			}
+		} );
+
+		// Close on ESC
+		document.addEventListener( 'keydown', ( event ) => {
+			if ( event.key === 'Escape' ) {
+				closeVideoModal();
+			}
+		} );
+	} );
+} )();

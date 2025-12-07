@@ -72,7 +72,12 @@ export default function VideoLayoutSave( { attributes } ) {
 							/>
 						</header>
 						<div className={ 'wp-block-button is-style-white' }>
-							<button className={ 'wp-block-button__link' }>
+							<button
+								className={
+									'wp-block-button__link js-video-popup-trigger'
+								}
+								data-video-src={ videosrc || '' }
+							>
 								Play Video
 							</button>
 						</div>
