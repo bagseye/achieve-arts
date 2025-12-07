@@ -442,7 +442,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								<div
 									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 								>
-									{ toprightmediaId && toprightmediaUrl && (
+									{ (toprightmediaId && toprightmediaUrl) ? (
 										<div
 											className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-top-right` }
 										>
@@ -454,9 +454,9 @@ export default function Edit( { attributes, setAttributes } ) {
 												/>
 											</picture>
 										</div>
-									) }
-									{ bottomleftmediaId &&
-										bottomleftmediaUrl && (
+									) : null }
+									{ (bottomleftmediaId &&
+										bottomleftmediaUrl) ? (
 											<div
 												className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media-bottom-left` }
 											>
@@ -472,7 +472,7 @@ export default function Edit( { attributes, setAttributes } ) {
 													/>
 												</picture>
 											</div>
-										) }
+										) : null}
 									{ mediatype === 'image' &&
 										mediaId &&
 										mediaUrl && (
