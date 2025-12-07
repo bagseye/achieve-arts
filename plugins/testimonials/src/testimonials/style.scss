@@ -11,9 +11,8 @@
   &__inner {
     background-color: #000;
     overflow: hidden;
-    border-radius: 60px;
+    border-radius: var(--border-radius-large);
     position: relative;
-    padding-bottom: 80px;
   }
 
   &__container {

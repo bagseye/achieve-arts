@@ -43,23 +43,23 @@ function bindTestimonialsCarousels( $testimonialscarousel ) {
 		)
 	) {
 		splide = new window.Splide( $testimonialscarousel, {
-			gap: 12,
-			type: 'loop',
-			autoWidth: true,
-			focus: 'center',
-			pagination: false,
-			arrows: false,
-			breakpoints: {
-				760: {
-					gap: 12,
-				},
+		gap: 16,
+		type: 'loop',
+		autoWidth: true,
+		focus: 'center',
+		pagination: false,
+		arrows: false,
+		breakpoints: {
+			760: {
+				gap: 12,
 			},
-			autoScroll: {
-				speed: 0.75,
-				pauseOnHover: false
-			},
-		} );
-		splide.mount( chosenExtensions );
+		},
+		autoScroll: {
+			speed: 0.75,
+			pauseOnHover: false,
+		},
+	} );
+	splide.mount( chosenExtensions );
 	} else {
 		splide = new window.Splide( $testimonialscarousel, {
 			perPage: 1,

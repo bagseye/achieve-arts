@@ -44,27 +44,27 @@ export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save( { className: classes } );
 
 	const innerBlockProps = useInnerBlocksProps.save( {
-		className: `${ BLOCKNAME }__items js-anim h-animate-in-slide-up ${
+		className: `${ BLOCKNAME }__items ${
 			testimonialscount > 1 ? 'splide__list' : ''
 		}`,
 	} );
 	return (
 		<section { ...blockProps }>
-			<div className={ `${ BLOCKNAME }__inner` }>
+			<div className={ `${ BLOCKNAME }__inner padding-block__top padding-block__bottom` }>
+				{ variant === 'testimonials-scrolling-card' && heading && (
+					<header className={ `${ BLOCKNAME }__content--header` }>
+						<RichText.Content
+							tagName="h2"
+							className={ `${ BLOCKNAME }__heading js-anim h-animate-in-slide-up` }
+							value={ heading }
+						/>
+					</header>
+				) }
 				<div
-					className={ `${ BLOCKNAME }__container ${
+					className={ `${ BLOCKNAME }__container js-anim h-animate-in-slide-up ${
 						testimonialscount > 1 ? 'splide__track' : ''
 					}` }
 				>
-					{ variant === 'testimonials-scrolling-card' && heading && (
-						<header className={ `${ BLOCKNAME }__content--header` }>
-							<RichText.Content
-								tagName="h2"
-								className={ `${ BLOCKNAME }__heading js-anim h-animate-in-slide-up` }
-								value={ heading }
-							/>
-						</header>
-					) }
 					<div { ...innerBlockProps } />
 				</div>
 				{ variant === 'testimonials-default' &&
