@@ -67,11 +67,13 @@ export default function save( { attributes } ) {
 						.join( ' ' ) }
 				>
 					<div className={ `${ BLOCKNAME }__container` }>
+						{tab && (
 						<header className={ `${ BLOCKNAME }__content--header` }>
 							<span className={ `${ BLOCKNAME }__tab h-tab` }>
 								<RichText.Content tagName="p" value={ tab } />
 							</span>
 						</header>
+						)}
 						<div { ...innerBlockProps } />
 					</div>
 					<span className={ `${ BLOCKNAME }__star` }>

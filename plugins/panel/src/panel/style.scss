@@ -8,7 +8,7 @@
 @use '../../../../themes/achieve-arts/src/scss/abstracts';
 
 .c-panel {
-  &.full-width {
+  &.full-width &__container {
     padding-left: 0;
     padding-right: 0;
   }
@@ -57,11 +57,12 @@
     color: #fff;
   }
 
+  &__inner {
+    position: relative;
+  }
+
   &__container {
     position: relative;
-    // max-width: var(--max-width-media-text);
-    // margin-left: auto;
-    // margin-right: auto;
     padding-left: var(--container-padding-content);
     padding-right: var(--container-padding-content);
   }
