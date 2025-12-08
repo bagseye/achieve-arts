@@ -10,6 +10,7 @@
   &__inner {
     padding-left: var(--container-padding-content);
     padding-right: var(--container-padding-content);
+    background: linear-gradient(0deg,rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1) 100%);
   }
 
   &__items {
