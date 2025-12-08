@@ -109,6 +109,10 @@
       width: 100%;
     }
 
+    .c-media-text__header {
+      margin-bottom: var(--spacing-header);
+    }
+
     .c-media-text__heading {
       font-size: var(--font-section-heading);
     }
@@ -165,6 +169,11 @@
   }
 
 	.c-media-text__content-area {
+    .wp-block-buttons {
+      margin-top: var(--spacing-header);
+      margin-bottom: var(--spacing-header);
+    }
+
 		>* {
 			margin-bottom: var(--spacing-para);
 			
@@ -172,6 +181,8 @@
 				margin-bottom: 0;
 			}
 		}
+
+
 	}
 
   .c-media-text__arrows {

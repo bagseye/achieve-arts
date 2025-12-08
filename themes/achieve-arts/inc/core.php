@@ -80,19 +80,26 @@ add_action( 'init', 'bwp_init' );
 
 
 /**
- * Disable Global Styles (front-end)
- * --------------------------------------------------
- * Prevents the <style id="global-styles-inline-css"> and
- * related SVG filters from being output on the front-end.
+ * Strip only the <style id="global-styles-inline-css"> tag
+ * from the final HTML output on the front-end.
  */
+add_action( 'template_redirect', function () {
+    if ( is_admin() ) {
+        return;
+    }
 
-// Stop global styles from being enqueued at all (WP 5.9+).
-add_filter( 'wp_enqueue_global_styles', '__return_false' );
+    ob_start( function ( $html ) {
+        // Remove the entire <style id="global-styles-inline-css">…</style> block.
+        $html = preg_replace(
+            '#<style[^>]+id=(["\'])global-styles-inline-css\1[^>]*>.*?</style>#s',
+            '',
+            $html
+        );
 
-// Remove any remaining global styles / SVG filters hooks.
-remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
-remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+        return $html;
+    } );
+});
+
 
 
 /**

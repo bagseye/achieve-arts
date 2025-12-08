@@ -4,12 +4,12 @@
   justify-content: center;
   background-color: var(--brand-6);
   min-height: 1.75rem;
-  min-width: 11.875rem;
+  min-width: auto;
   color: var(--brand-8);
   border-radius: 2rem;
   text-transform: uppercase;
   padding: var(--text-tab-padding);
-  margin-bottom: var(--text-tab-margin-bottom);
+  margin-bottom: var(--spacing-header);
 
   p {
     margin-top: 0;
