@@ -46,7 +46,7 @@
                                             </svg>
                                         </span>
                                         <span>
-                                            Follow us on Instagram <a href="">#achievearts</a>
+                                            Follow us on Instagram <a href="https://www.instagram.com/achievearts" target="_blank">#achievearts</a>
                                         </span>
                                         <span class="c-insta__icon c-insta__icon--right">
                                             <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">

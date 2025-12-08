@@ -22,12 +22,8 @@
 		padding: var(--container-padding-cta);
 	}
 
-	&__tab {
-		margin-bottom: var(--text-tab-margin-bottom);
-	}
-
 	&__header {
-		margin-bottom: var(--text-tab-margin-bottom);
+		margin-bottom: var(--spacing-header);
 	}
 
 	.c-cta__heading {
@@ -42,6 +38,11 @@
 
 	.c-cta__content {
 		font-weight: 400;
+
+		.wp-block-buttons {
+			margin-top: var(--spacing-header);
+			margin-bottom: var(--spacing-header);
+		}
 
 		>* {
 			margin-bottom: var(--spacing-para);
