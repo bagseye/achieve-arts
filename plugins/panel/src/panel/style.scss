@@ -97,6 +97,12 @@
     position: relative;
   }
 
+  &__back {
+    position: absolute;
+    top: var(--spacing-header);
+    right: var(--spacing-header);
+  }
+
   &__star {
     display: none;
 

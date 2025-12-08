@@ -21,6 +21,9 @@
                     $panel = '<!-- wp:bwp/panel {"tab":"Benefits","topmargin":true,"bottommargin":true,"toppadding":true,"bottompadding":true,"bgcolour":"deep-purple"} -->
                                 <section class="wp-block-bwp-panel c-panel margin-block__top margin-block__bottom c-panel__bgcolour--deep-purple">
                                     <div class="c-panel__inner padding-block__top padding-block__bottom border-radius__top border-radius__bottom">
+                                        <div class="wp-block-button is-style-white c-panel__back">
+                                            <a href="' . get_option( 'page_for_posts' ) . '" class="wp-block-button__link">Back to News</a>
+                                        </div>
                                         <div class="c-panel__container">
                                             <header class="c-panel__content--header">
                                                 <span class="c-panel__tab h-tab">
