@@ -1,1 +1,1 @@
-.c-media-block.c-media-block__columntype--double .c-media-block__items{display:grid;gap:var(--spacing-header);grid-template-columns:repeat(2,minmax(0,1fr))}
+.c-media-block{margin-bottom:var(--spacing-header);margin-top:var(--spacing-header)}.c-media-block.c-media-block__columntype--double .c-media-block__items{display:grid;gap:var(--spacing-header);grid-template-columns:repeat(2,minmax(0,1fr))}

@@ -7,6 +7,9 @@
 
 
 .c-media-block {
+	margin-top: var(--spacing-header);
+	margin-bottom: var(--spacing-header);
+
 	&.c-media-block__columntype {
 		&--double {
 			.c-media-block__items {
