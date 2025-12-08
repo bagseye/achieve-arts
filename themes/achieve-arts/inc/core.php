@@ -312,3 +312,30 @@ function getBuildTimeStamp() {
 
 	return $buildNo;
 }
+
+
+
+
+/**
+ * Filter the excerpt length to 10 words.
+ *
+ * @param int $length Excerpt length.
+ */
+function bwp_excerpt_length( $length ) {
+	if ( is_admin() ) {
+			return $length;
+	}
+	return 22;
+}
+add_filter( 'excerpt_length', 'bwp_excerpt_length', 999 );
+
+
+
+/**
+ *  Filter the "read more" excerpt string link to the post.
+ * 
+ * */ 
+function bwp_excerpt_more($more) {
+    return '...'; 
+}
+add_filter('excerpt_more', 'bwp_excerpt_more');
