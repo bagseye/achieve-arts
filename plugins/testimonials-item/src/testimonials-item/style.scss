@@ -35,6 +35,11 @@
 		}
 	}
 
+	&__container {
+		padding-left: var(--container-padding-content);
+		padding-right: var(--container-padding-content);
+	}
+
 	&__media {
 		width: 130px;
 		height: 130px;
@@ -55,10 +60,21 @@
 
 	&__content-area,
 	&__name,
-	&__role {
+	&__role,
+	&__link {
 		color: #fff;
 		font-size: var(--font-page-hero-lead);
 		text-align: center;
+	}
+
+	&__link {
+		font-weight: 500;
+		margin-bottom: var(--spacing-header);
+
+		a {
+			color: #fff;
+			text-decoration: none;
+		}
 	}
 
 	&__variant--testimonials-scrolling-card {

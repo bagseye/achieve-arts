@@ -25,6 +25,10 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
+			'linkurl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
 			'mediaid' => array(
 				'type' => 'number',
 				'default' => null

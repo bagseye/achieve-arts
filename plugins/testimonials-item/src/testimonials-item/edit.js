@@ -40,7 +40,7 @@ import './editor.scss';
  */
 const BLOCKNAME = 'c-testimonials-item';
 export default function Edit( { attributes, setAttributes, context } ) {
-	const { name, role, mediaid, mediasrc, mediaalt, variant } = attributes;
+	const { name, role, linkurl, mediaid, mediasrc, mediaalt, variant } = attributes;
 	const classes = [
 		BLOCKNAME,
 		variant ? `${ BLOCKNAME }__variant--${ variant }` : '',
@@ -184,7 +184,24 @@ export default function Edit( { attributes, setAttributes, context } ) {
 								/>
 							</div>
 							{ variant === 'testimonials-default' && (
-								<div className={ `${ BLOCKNAME }__link` }></div>
+								<div className={ `${ BLOCKNAME }__link` }>
+																	<RichText
+									tagName="p"
+									value={ linkurl }
+									allowedFormats={ [
+										'core/link',
+									] }
+									onChange={ ( val ) =>
+										setAttributes( {
+											linkurl: val,
+										} )
+									}
+									placeholder={ __(
+										'Link...',
+										'testimonials-item'
+									) }
+								/>
+								</div>
 							) }
 						</div>
 					</div>

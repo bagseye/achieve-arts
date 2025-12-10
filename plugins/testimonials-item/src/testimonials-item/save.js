@@ -22,7 +22,7 @@ import {
 
 const BLOCKNAME = 'c-testimonials-item';
 export default function save( { attributes } ) {
-	const { name, role, mediaid, mediasrc, mediaalt, variant } = attributes;
+	const { name, role, linkurl, mediaid, mediasrc, mediaalt, variant } = attributes;
 	const classes = [
 		BLOCKNAME,
 		'splide__slide',
@@ -72,8 +72,8 @@ export default function save( { attributes } ) {
 								<RichText.Content tagName="p" value={ role } />
 							</div>
 						) }
-						{ variant === 'testimonials-default' && (
-							<div className={ `${ BLOCKNAME }__link` }></div>
+						{ variant === 'testimonials-default' && linkurl && (
+							<div className={ `${ BLOCKNAME }__link` }><RichText.Content tagName="p" value={ linkurl } /></div>
 						) }
 						{ variant === 'testimonials-scrolling-card' && (
 							<div className={ `${ BLOCKNAME }__stars` }>

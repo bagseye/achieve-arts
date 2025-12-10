@@ -20,6 +20,10 @@
       "type": "string",
       "default": ""
     },
+    "linkurl": {
+      "type": "string",
+      "default": ""
+    },
     "mediaid": {
       "type": "number",
       "default": null
