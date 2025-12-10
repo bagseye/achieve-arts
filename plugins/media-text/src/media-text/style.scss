@@ -169,6 +169,11 @@
   }
 
 	.c-media-text__content-area {
+    p {
+      a {
+        color: #fff;
+      }
+    }
     .wp-block-buttons {
       margin-top: var(--spacing-header);
       margin-bottom: var(--spacing-header);
