@@ -22,4 +22,14 @@ return array(
         ),
         'isActive'   => array('media-text-media-carousel')
     ),
+    array(
+        'name'       => 'media-text-map',
+        'title'      => 'Media Text - Map',
+        'description' => 'Displays media and text content with alternate layouts. Media is a map',
+        'icon'       => 'admin-site-alt',
+        'attributes' => array(
+            'variant' => 'media-text-map',
+        ),
+        'isActive'   => array('media-text-map')
+    ),
 );

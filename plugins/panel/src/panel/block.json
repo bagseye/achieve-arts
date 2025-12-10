@@ -9,7 +9,8 @@
 	"description": "A simple panel block that allows basic content and background colours.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"anchor": true
 	},
 	"attributes": {
 		"tab": {

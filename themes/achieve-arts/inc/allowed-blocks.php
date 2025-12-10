@@ -7,6 +7,7 @@ function bwp_allowed_block_types ( $block_editor_context, $editor_context ) {
 			'core/heading',
 			'core/list',
       'core/buttons',
+      'core/button',
 
       'bwp/avatar',
       'bwp/news-feed',

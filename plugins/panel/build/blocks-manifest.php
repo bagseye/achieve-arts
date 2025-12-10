@@ -14,7 +14,8 @@ return array(
 			
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'anchor' => true
 		),
 		'attributes' => array(
 			'tab' => array(
