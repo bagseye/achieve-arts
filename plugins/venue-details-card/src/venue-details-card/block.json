@@ -9,7 +9,8 @@
 	"description": "Displays details of courses held at a venue.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"anchor": true
 	},
 	"attributes": {
 		"heading": {
