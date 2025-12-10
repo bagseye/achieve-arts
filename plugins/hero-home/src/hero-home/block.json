@@ -23,15 +23,27 @@
 		"intro": {
 			"type": "string",
 			"default": ""
+		},
+		"ctalinkonetext": {
+			"type": "string",
+			"default": ""
+		},
+		"ctalinkoneurl": {
+			"type": "string",
+			"default": ""
+		},
+		"ctalinktwotext": {
+			"type": "string",
+			"default": ""
+		},
+		"ctalinktwourl": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "hero-home",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": [
-		"splide-core",
-		"splide-auto-scroll",
-		"file:./view.js"
-	]
+	"viewScript": [ "splide-core", "splide-auto-scroll", "file:./view.js" ]
 }

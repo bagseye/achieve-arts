@@ -28,6 +28,22 @@ return array(
 			'intro' => array(
 				'type' => 'string',
 				'default' => ''
+			),
+			'ctalinkonetext' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'ctalinkoneurl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'ctalinktwotext' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'ctalinktwourl' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'textdomain' => 'hero-home',

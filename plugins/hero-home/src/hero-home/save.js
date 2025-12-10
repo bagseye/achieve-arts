@@ -21,7 +21,15 @@ import {
 const BLOCKNAME = 'c-hero-home';
 
 export default function save( { attributes } ) {
-	const { heading, subheading, intro } = attributes;
+	const {
+		heading,
+		subheading,
+		intro,
+		ctalinkonetext,
+		ctalinkoneurl,
+		ctalinktwotext,
+		ctalinktwourl,
+	} = attributes;
 
 	const classes = [
 		BLOCKNAME,
@@ -64,23 +72,38 @@ export default function save( { attributes } ) {
 								className={ `${ BLOCKNAME }__intro js-anim h-animate-in-slide-up` }
 								value={ intro }
 							/>
-							<div className={ `${ BLOCKNAME }__ctas js-anim h-animate-in-slide-up` }>
-								<span className={ `h-button` }>
-									<a href="" className={ `h-button__link` }>
-										Book Discovery Call
-									</a>
-								</span>
-								<span className={ `h-button` }>
-									<a href="" className={ `h-button__link` }>
-										About Achieve Arts
-									</a>
-								</span>
+							<div
+								className={ `${ BLOCKNAME }__ctas js-anim h-animate-in-slide-up` }
+							>
+								{ ctalinkoneurl && ctalinkonetext && (
+									<span className={ `wp-block-button is-style-white` }>
+										<a
+											href={ ctalinkoneurl }
+											className={ `wp-block-button__link` }
+										>
+											{ ctalinkonetext }
+										</a>
+									</span>
+								) }
+
+								{ ctalinktwourl && ctalinktwotext && (
+									<span className={ `wp-block-button` }>
+										<a
+											href={ ctalinktwourl }
+											className={ `wp-block-button__link` }
+										>
+											{ ctalinktwotext }
+										</a>
+									</span>
+								) }
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div className={ `${ BLOCKNAME }__scroller js-anim h-animate-in-slide-up` }>
+			<div
+				className={ `${ BLOCKNAME }__scroller js-anim h-animate-in-slide-up` }
+			>
 				<div className={ `${ BLOCKNAME }__scroller--inner` }>
 					<div
 						className={ `${ BLOCKNAME }__scroller--container splide__track` }

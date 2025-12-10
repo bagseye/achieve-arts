@@ -15,7 +15,10 @@ import {
 	useBlockProps,
 	RichText,
 	useInnerBlocksProps,
+	InspectorControls,
+	URLInputButton,
 } from '@wordpress/block-editor';
+import { TextControl, PanelBody } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -36,7 +39,15 @@ import './editor.scss';
 const BLOCKNAME = 'c-hero-home';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { heading, subheading, intro } = attributes;
+	const {
+		heading,
+		subheading,
+		intro,
+		ctalinkonetext,
+		ctalinkoneurl,
+		ctalinktwotext,
+		ctalinktwourl,
+	} = attributes;
 
 	const classes = [
 		BLOCKNAME,
@@ -58,6 +69,42 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	return (
 		<>
+			<InspectorControls>
+				<PanelBody title="CTA One">
+					<TextControl
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
+						label="CTA One Text"
+						value={ ctalinkonetext }
+						onChange={ ( value ) =>
+							setAttributes( { ctalinkonetext: value } )
+						}
+					/>
+					<URLInputButton
+						url={ ctalinkoneurl }
+						onChange={ ( url ) =>
+							setAttributes( { ctalinkoneurl: url } )
+						}
+					/>
+				</PanelBody>
+				<PanelBody title="CTA Two">
+					<TextControl
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
+						label="CTA Two Text"
+						value={ ctalinktwotext }
+						onChange={ ( value ) =>
+							setAttributes( { ctalinktwotext: value } )
+						}
+					/>
+					<URLInputButton
+						url={ ctalinktwourl }
+						onChange={ ( url ) =>
+							setAttributes( { ctalinktwourl: url } )
+						}
+					/>
+				</PanelBody>
+			</InspectorControls>
 			<section { ...blockProps }>
 				<div className={ `${ BLOCKNAME }__inner` }>
 					<div className={ `${ BLOCKNAME }__container` }>
@@ -115,6 +162,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									}
 									placeholder={ __( 'Intro...' ) }
 								/>
+								<div className={ `${ BLOCKNAME }__ctas` }></div>
 							</div>
 						</div>
 					</div>

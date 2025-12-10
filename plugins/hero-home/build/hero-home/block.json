@@ -23,6 +23,22 @@
     "intro": {
       "type": "string",
       "default": ""
+    },
+    "ctalinkonetext": {
+      "type": "string",
+      "default": ""
+    },
+    "ctalinkoneurl": {
+      "type": "string",
+      "default": ""
+    },
+    "ctalinktwotext": {
+      "type": "string",
+      "default": ""
+    },
+    "ctalinktwourl": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "hero-home",
