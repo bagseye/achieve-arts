@@ -110,6 +110,7 @@ export default function Edit( { attributes, setAttributes, context } ) {
 				</PanelBody>
 				{ variant === 'team-members' && (
 					<PanelBody title={ __( 'Card Link', 'team-members-item' ) }>
+						<div className={ `${ BLOCKNAME }__input-area` }>
 						<LinkControl
 							searchInputPlaceholder={ __(
 								'Search team members…',
@@ -128,6 +129,7 @@ export default function Edit( { attributes, setAttributes, context } ) {
 								} );
 							} }
 						/>
+						</div>
 					</PanelBody>
 				) }
 			</InspectorControls>
