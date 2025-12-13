@@ -17,6 +17,14 @@ return array(
 			'html' => false
 		),
 		'attributes' => array(
+			'mapLat' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'mapLong' => array(
+				'type' => 'string',
+				'default' => ''
+			),
 			'heading' => array(
 				'type' => 'string',
 				'default' => ''

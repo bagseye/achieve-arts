@@ -10,7 +10,7 @@ return array(
         'attributes' => array(
             'variant' => 'media-text',
         ),
-        'isActive'   => array('media-text')
+        'isActive'   => array('variant')
     ),
     array(
         'name'       => 'media-text-media-carousel',
@@ -20,7 +20,7 @@ return array(
         'attributes' => array(
             'variant' => 'media-text-media-carousel',
         ),
-        'isActive'   => array('media-text-media-carousel')
+        'isActive'   => array('variant')
     ),
     array(
         'name'       => 'media-text-map',
@@ -30,6 +30,6 @@ return array(
         'attributes' => array(
             'variant' => 'media-text-map',
         ),
-        'isActive'   => array('media-text-map')
+        'isActive'   => array('variant')
     ),
 );

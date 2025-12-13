@@ -37,12 +37,15 @@ export default function save( { attributes } ) {
 		borderradiustop,
 		borderradiusbottom,
 		fullwidth,
+		mapLat,
+		mapLong,
 	} = attributes;
 
 	const images = Array.isArray( attributes.images ) ? attributes.images : [];
 
 	const classes = [
 		BLOCKNAME,
+		`${BLOCKNAME}__${variant}`,
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 		variant === 'media-text-media-carousel'
@@ -61,6 +64,11 @@ export default function save( { attributes } ) {
 		className: `${ BLOCKNAME }__content-area d-typography js-anim h-animate-in-slide-up`,
 	} );
 
+	// Normalise/guard map values (strings are fine for attributes, but make sure you output something predictable)
+	const lat = ( mapLat || '' ).trim();
+	const lng = ( mapLong || '' ).trim();
+	const hasMapCoords = lat !== '' && lng !== '';
+
 	return (
 		<section { ...blockProps }>
 			<div
@@ -78,6 +86,7 @@ export default function save( { attributes } ) {
 							className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--content` }
 						>
 							<header className={ `${ BLOCKNAME }__header` }>
+								{tab && (
 								<span
 									className={ ` ${ BLOCKNAME }__tab h-tab js-anim h-animate-in-fade` }
 								>
@@ -86,6 +95,7 @@ export default function save( { attributes } ) {
 										value={ tab }
 									/>
 								</span>
+								)}
 								<RichText.Content
 									tagName="h2"
 									className={ `${ BLOCKNAME }__heading js-anim h-animate-in-slide-up` }
@@ -94,6 +104,40 @@ export default function save( { attributes } ) {
 							</header>
 							<div { ...innerBlockProps } />
 						</div>
+						{ variant === 'media-text-map' ? (
+							<div
+								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
+							>
+								<div className='wp-block-button is-style-deep-purple'>
+									<a href='' className='wp-block-button__link'>View Location</a>
+								</div>
+								<div
+									className={ `${ BLOCKNAME }__map js-google-map` }
+									{ ...( hasMapCoords
+										? {
+												'data-lat': lat,
+												'data-lng': lng,
+												'data-zoom': '14',
+										  }
+										: {} ) }
+									aria-label="Map"
+									role="application"
+								>
+									<div
+										className={ `${ BLOCKNAME }__map-canvas` }
+									/>
+									{ ! hasMapCoords && (
+										<p
+											className={ `${ BLOCKNAME }__map-fallback` }
+										>
+											Map coordinates not set.
+										</p>
+									) }
+								</div>
+							</div>
+						) : (
+							null
+						) }
 						{ variant === 'media-text-media-carousel' ? (
 							<>
 								<div
@@ -152,7 +196,9 @@ export default function save( { attributes } ) {
 									</div>
 								</div>
 							</>
-						) : mediaId && mediaUrl ? (
+						) : variant !== 'media-text-map' &&
+						  mediaId &&
+						  mediaUrl ? (
 							<div
 								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media js-anim h-animate-in-fade` }
 							>

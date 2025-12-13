@@ -12,6 +12,14 @@
     "html": false
   },
   "attributes": {
+    "mapLat": {
+      "type": "string",
+      "default": ""
+    },
+    "mapLong": {
+      "type": "string",
+      "default": ""
+    },
     "heading": {
       "type": "string",
       "default": ""

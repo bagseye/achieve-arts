@@ -16,6 +16,7 @@ import {
 	PanelBody,
 	ToggleControl,
 	SelectControl,
+	TextControl,
 } from '@wordpress/components';
 import {
 	useBlockProps,
@@ -63,12 +64,15 @@ export default function Edit( { attributes, setAttributes } ) {
 		borderradiustop,
 		borderradiusbottom,
 		fullwidth,
+		mapLat,
+		mapLong,
 	} = attributes;
 
 	const images = Array.isArray( attributes.images ) ? attributes.images : [];
 
 	const classes = [
 		BLOCKNAME,
+		`${BLOCKNAME}__${variant}`,
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 		variant === 'media-text-media-carousel'
@@ -113,6 +117,29 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
+				{ variant === 'media-text-map' && (
+					<PanelBody
+						title={ __( 'Map Location', 'media-text' ) }
+						initialOpen={ true }
+					>
+						<TextControl
+							__next40pxDefaultSize
+							label="Latitude"
+							value={ mapLat }
+							onChange={ ( value ) =>
+								setAttributes( { mapLat: value } )
+							}
+						/>
+						<TextControl
+							__next40pxDefaultSize
+							label="Longitude"
+							value={ mapLong }
+							onChange={ ( value ) =>
+								setAttributes( { mapLong: value } )
+							}
+						/>
+					</PanelBody>
+				) }
 				{ variant === 'media-text-media-carousel' ? (
 					<PanelBody
 						title={ __( 'Partner Gallery Images', 'media-text' ) }
