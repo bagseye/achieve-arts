@@ -41,10 +41,12 @@
   &__header {
     text-align: center;
     margin-bottom: var(--spacing-header);
+    padding-left: var(--container-padding-content);
+    padding-right: vr(--container-padding-content);
   }
 
   &__heading {
-    font-size: var(--font-news-feed-heading);
+    font-size: var(--font-heading-cta);
   }
 
   // &__card {

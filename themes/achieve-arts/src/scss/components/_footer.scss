@@ -3,8 +3,8 @@
 .c-footer {
   background-color: #000;
   color: #fff;
-  border-top-left-radius: 60px;
-  border-top-right-radius: 60px;
+  border-top-left-radius: var(--border-radius-large);
+  border-top-right-radius: var(--border-radius-large);
   position: relative;
   overflow: hidden;
 
@@ -47,7 +47,7 @@
   }
 
   &__items {
-    padding-top: 120px;
+    padding-top: var(--spacing-block);
   }
 
   &__item {
@@ -55,8 +55,22 @@
       display: flex;
       justify-content: space-between;
 
+      @include abstracts.respond-to('tablet') { 
+        flex-direction: column-reverse;
+      }
+
       &-left {
         width: 710px;
+
+        @include abstracts.respond-to('tablet') { 
+          width: 100%;
+        }
+      }
+
+      &-right {
+        @include abstracts.respond-to('tablet') { 
+          width: 200px;
+        }
       }
     }
 
@@ -178,7 +192,7 @@
   }
 
   .c-footer__heading {
-    font-size: var(--font-footer-heading);
+    font-size: var(--font-heading-cta);
     font-weight: 800;
 
     span {
@@ -187,7 +201,7 @@
   }
 
   .c-footer__intro {
-    font-size: var(--font-footer-intro);
+    font-size: var(--font-para-lead);
     font-weight: 400;
     margin-bottom: var(--spacing-para);
   }

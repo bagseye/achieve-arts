@@ -1,8 +1,18 @@
+@use '../abstracts';
+
 .c-news-feed__card {
     background-color: #F3E0FF;
     border-radius: var(--border-radius-small);
     overflow: hidden;
     width: 435px;
+
+    @include abstracts.respond-to('desktop') { 
+      width: 380px;
+    }
+
+    @include abstracts.respond-to('tablet') { 
+      width: 300px;
+    }
 
     &--media {
       position: relative;
