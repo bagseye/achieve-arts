@@ -423,7 +423,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										<div
 											className={ `${ BLOCKNAME }__input-area` }
 										>
-											<h4>Link to location</h4>
+											<h4 style={{color: '#000'}}>Link to location</h4>
 											<URLInputButton
 												label="Link to location"
 												url={ mapUrl }
