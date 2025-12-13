@@ -78,4 +78,42 @@
       }
     }
   }
+
+  &__images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+
+    @include abstracts.respond-to('desktop') { 
+      gap: 20px;
+    }
+
+    @include abstracts.respond-to('tablet') { 
+      gap: 15px;
+    }
+  }
+
+  &__image {
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    picture,
+    img {
+      display: block;
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+
+      @include abstracts.respond-to('desktop') { 
+        width: 120px;
+        height: 120px;
+      }
+
+      @include abstracts.respond-to('tablet') { 
+        width: 90px;
+        height: 90px;
+      }
+    }
+  }
 }

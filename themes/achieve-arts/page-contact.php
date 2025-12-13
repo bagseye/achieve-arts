@@ -42,6 +42,17 @@ get_header(); ?>
                                     <p><address>Crouch End, London, Greater London, England, United Kingdom</address></p>
                                   </li>
                                 </ul>
+                                <?php if(get_field('contact_pane_one_images')) : ?>
+                                <div class="c-contact-pane__images">
+                                  <?php foreach( get_field('contact_pane_one_images') as $image ): ?>
+                                  <div class="c-contact-pane__image">
+                                    <picture>
+                                      <?php echo wp_filter_content_tags( '<img class="wp-image-' . $image['ID'] . '" src="' . $image['sizes']['large'] . '" alt="' . $image['alt'] . '" />' ) ?>
+                                    </picture>
+                                  </div>
+                                  <?php endforeach; ?>
+                                </div>
+                                <?php endif; ?>
                               </div>
                             </div>
                           </div>
