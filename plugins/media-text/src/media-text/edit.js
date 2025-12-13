@@ -397,8 +397,10 @@ export default function Edit( { attributes, setAttributes } ) {
 										</picture>
 									) ) }
 								</div>
-							):null}
-							{variant === 'media-text' && mediaId && mediaUrl ? (
+							) : null }
+							{ variant === 'media-text' &&
+							mediaId &&
+							mediaUrl ? (
 								<div
 									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 								>
@@ -410,14 +412,16 @@ export default function Edit( { attributes, setAttributes } ) {
 										/>
 									</picture>
 								</div>
-							) : null}
-							{variant === 'media-text-map' ? (
+							) : null }
+							{ variant === 'media-text-map' ? (
 								<div
 									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 								>
-									<h4 style={{textAlign: 'center'}}>Map Will Appear Here</h4>
+									<h4 style={ { textAlign: 'center' } }>
+										Map Will Appear Here
+									</h4>
 								</div>
-							) : null}
+							) : null }
 						</div>
 					</div>
 					{ includegradient && (

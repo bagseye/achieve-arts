@@ -199,9 +199,8 @@ export default function save( { attributes } ) {
 									</div>
 								</div>
 							</>
-						) : variant !== 'media-text-map' &&
-						  mediaId &&
-						  mediaUrl ? (
+						) : null }
+						{ variant === 'media-text' && mediaId && mediaUrl ? (
 							<div
 								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media js-anim h-animate-in-fade` }
 							>
