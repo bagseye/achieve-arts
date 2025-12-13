@@ -55,11 +55,14 @@
     max-width: 1160px;
     margin-left: auto;
     margin-right: auto;
-
   }
 
   .c-team-members__heading {
     font-size: var(--font-section-heading);
+  }
+
+  &.c-team-members__team-members-grid .c-team-members__heading {
+    font-size: var(--font-heading-cta);
   }
 
   .c-team-members__subheading {
