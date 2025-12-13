@@ -10,7 +10,17 @@ return array(
         'attributes' => array(
             'variant' => 'team-members',
         ),
-        'isActive'   => array('team-members')
+        'isActive'   => array('variant')
+    ),
+    array(
+        'name'       => 'team-members-grid',
+        'title'      => 'Team Members - Grid',
+        'description' => 'Displays team member cards and images in a grid layout.',
+        'icon'       => 'businessperson',
+        'attributes' => array(
+            'variant' => 'team-members-grid',
+        ),
+        'isActive'   => array('variant')
     ),
     array(
         'name'       => 'clients',
@@ -20,6 +30,6 @@ return array(
         'attributes' => array(
             'variant' => 'clients',
         ),
-        'isActive'   => array('clients')
+        'isActive'   => array('variant')
     ),
 );

@@ -60,6 +60,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const classes = [
 		BLOCKNAME,
+		`${BLOCKNAME}__${variant}`,
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,

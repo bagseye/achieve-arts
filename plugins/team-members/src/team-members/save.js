@@ -33,13 +33,17 @@ export default function save( { attributes } ) {
 		pageurl,
 		ctabuttontext,
 		bgcolour,
+		variant
 	} = attributes;
 
 	const classes = [
 		BLOCKNAME,
+		`${BLOCKNAME}__${variant}`,
 		'full-width',
 		'no-padding__left',
 		'no-padding__right',
+		variant !== 'team-members-grid' ? 'splide' : '',
+		variant !== 'team-members-grid' ? 'js-carousel__team-members' : '',
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 		`${ BLOCKNAME }__bgcolour--${ bgcolour }`,
@@ -48,11 +52,11 @@ export default function save( { attributes } ) {
 		.join( ' ' );
 
 	const blockProps = useBlockProps.save( {
-		className: `${ classes } splide js-carousel__team-members`,
+		className: `${ classes }`,
 	} );
 
 	const innerBlockProps = useInnerBlocksProps.save( {
-		className: `${ BLOCKNAME }__items splide__list`,
+		className: `${ BLOCKNAME }__items ${variant !== 'team-members-grid' ? 'splide__list' : ''}`,
 	} );
 	return (
 		<section { ...blockProps }>
@@ -100,8 +104,9 @@ export default function save( { attributes } ) {
 					.filter( Boolean )
 					.join( ' ' ) }
 			>
-				<div className={ `${ BLOCKNAME }__container splide__track js-anim h-animate-in-fade` }>
+				<div className={ `${ BLOCKNAME }__container  ${variant !== 'team-members-grid' ? 'splide__track' : ''} js-anim h-animate-in-fade` }>
 					<div { ...innerBlockProps } />
+					{variant !== 'team-members-grid' && (
 					<div
 						className={ `${ BLOCKNAME }__arrows splide__arrows c-arrows js-anim h-animate-in-fade` }
 					>
@@ -132,6 +137,7 @@ export default function save( { attributes } ) {
 							</svg>
 						</button>
 					</div>
+					)}
 				</div>
 			</div>
 		</section>

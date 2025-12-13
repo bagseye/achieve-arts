@@ -47,6 +47,14 @@
     }
   }
 
+  &.c-team-members__team-members-grid &__items {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
+
   .c-team-members__heading {
     font-size: var(--font-section-heading);
   }
