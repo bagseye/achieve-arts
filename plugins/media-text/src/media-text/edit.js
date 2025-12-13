@@ -72,7 +72,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const classes = [
 		BLOCKNAME,
-		`${BLOCKNAME}__${variant}`,
+		`${ BLOCKNAME }__${ variant }`,
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 		variant === 'media-text-media-carousel'
@@ -178,7 +178,8 @@ export default function Edit( { attributes, setAttributes } ) {
 							</Button>
 						) }
 					</PanelBody>
-				) : (
+				) : null }
+				{ variant === 'media-text' ? (
 					<PanelBody title={ __( 'Media', 'media-text' ) }>
 						<MediaUploadCheck>
 							<MediaUpload
@@ -216,7 +217,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							) : null }
 						</MediaUploadCheck>
 					</PanelBody>
-				) }
+				) : null }
 
 				<PanelBody title={ __( 'Margin Controls', 'media-text' ) }>
 					<ToggleControl
@@ -396,7 +397,8 @@ export default function Edit( { attributes, setAttributes } ) {
 										</picture>
 									) ) }
 								</div>
-							) : mediaId && mediaUrl ? (
+							):null}
+							{variant === 'media-text' && mediaId && mediaUrl ? (
 								<div
 									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 								>
@@ -408,7 +410,14 @@ export default function Edit( { attributes, setAttributes } ) {
 										/>
 									</picture>
 								</div>
-							) : null }
+							) : null}
+							{variant === 'media-text-map' ? (
+								<div
+									className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
+								>
+									<h4 style={{textAlign: 'center'}}>Map Will Appear Here</h4>
+								</div>
+							) : null}
 						</div>
 					</div>
 					{ includegradient && (

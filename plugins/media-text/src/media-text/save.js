@@ -45,7 +45,7 @@ export default function save( { attributes } ) {
 
 	const classes = [
 		BLOCKNAME,
-		`${BLOCKNAME}__${variant}`,
+		`${ BLOCKNAME }__${ variant }`,
 		topmargin && 'margin-block__top',
 		bottommargin && 'margin-block__bottom',
 		variant === 'media-text-media-carousel'
@@ -86,16 +86,16 @@ export default function save( { attributes } ) {
 							className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--content` }
 						>
 							<header className={ `${ BLOCKNAME }__header` }>
-								{tab && (
-								<span
-									className={ ` ${ BLOCKNAME }__tab h-tab js-anim h-animate-in-fade` }
-								>
-									<RichText.Content
-										tagName="p"
-										value={ tab }
-									/>
-								</span>
-								)}
+								{ tab && (
+									<span
+										className={ ` ${ BLOCKNAME }__tab h-tab js-anim h-animate-in-fade` }
+									>
+										<RichText.Content
+											tagName="p"
+											value={ tab }
+										/>
+									</span>
+								) }
 								<RichText.Content
 									tagName="h2"
 									className={ `${ BLOCKNAME }__heading js-anim h-animate-in-slide-up` }
@@ -108,8 +108,13 @@ export default function save( { attributes } ) {
 							<div
 								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 							>
-								<div className='wp-block-button is-style-deep-purple'>
-									<a href='' className='wp-block-button__link'>View Location</a>
+								<div className="wp-block-button is-style-deep-purple">
+									<a
+										href=""
+										className="wp-block-button__link"
+									>
+										View Location
+									</a>
 								</div>
 								<div
 									className={ `${ BLOCKNAME }__map js-google-map` }
@@ -135,9 +140,7 @@ export default function save( { attributes } ) {
 									) }
 								</div>
 							</div>
-						) : (
-							null
-						) }
+						) : null }
 						{ variant === 'media-text-media-carousel' ? (
 							<>
 								<div

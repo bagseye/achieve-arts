@@ -137,6 +137,8 @@ h1, h2, h3, h4, h5, h6 {
     --font-team-members-item-heading: 28px;
     --font-team-members-item-role: 16px;
     --spacing-header: 20px;
+    --font-button: 20px;
+    --padding-button: 6px 22px;
 
 
   }
@@ -175,6 +177,8 @@ h1, h2, h3, h4, h5, h6 {
     --border-radius-small: 25px;
     --container-padding-content: 20px;
     --text-tab-margin-bottom: 25px;
+    --font-button: 18px;
+    --padding-button: 6px 18px;
   }
 
   @include abstracts.respond-to('mobile') { 

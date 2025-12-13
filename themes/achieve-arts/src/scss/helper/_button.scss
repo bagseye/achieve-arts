@@ -1,3 +1,5 @@
+@use '../abstracts';
+
 %button {
   min-height: 58px;
   min-width: 11.25rem;
@@ -17,6 +19,16 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
+
+  @include abstracts.respond-to('desktop') { 
+    min-height: 48px;
+    min-width: 180px;
+  }
+
+  @include abstracts.respond-to('tablet') { 
+    min-height: 38px;
+    min-width: 160px;
+  }
 }
 
 %button-white {
