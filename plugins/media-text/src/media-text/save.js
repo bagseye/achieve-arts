@@ -39,6 +39,7 @@ export default function save( { attributes } ) {
 		fullwidth,
 		mapLat,
 		mapLong,
+		mapUrl,
 	} = attributes;
 
 	const images = Array.isArray( attributes.images ) ? attributes.images : [];
@@ -108,14 +109,17 @@ export default function save( { attributes } ) {
 							<div
 								className={ `${ BLOCKNAME }__item ${ BLOCKNAME }__item--media` }
 							>
-								<div className="wp-block-button is-style-deep-purple">
-									<a
-										href=""
-										className="wp-block-button__link"
-									>
-										View Location
-									</a>
-								</div>
+								{ mapUrl && (
+									<div className="wp-block-button is-style-deep-purple">
+										<a
+											href={ mapUrl }
+											className="wp-block-button__link"
+											target="_blank"
+										>
+											View Location
+										</a>
+									</div>
+								) }
 								<div
 									className={ `${ BLOCKNAME }__map js-google-map` }
 									{ ...( hasMapCoords

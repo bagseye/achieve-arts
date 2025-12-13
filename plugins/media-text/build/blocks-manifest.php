@@ -25,6 +25,10 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
+			'mapUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
 			'heading' => array(
 				'type' => 'string',
 				'default' => ''

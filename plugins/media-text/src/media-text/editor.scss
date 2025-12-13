@@ -17,4 +17,20 @@
 			}
 		}
 	}
+
+	.c-media-text__input-area {
+		.block-editor-link-control,
+		.block-editor-url-input {
+			margin-left: 0;
+			margin-right: 0;
+			min-width: 100%;
+		}
+
+		.block-editor-link-control__search-item {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
 }
+
+

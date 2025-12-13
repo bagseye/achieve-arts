@@ -26,6 +26,7 @@ import {
 	MediaUpload,
 	MediaUploadCheck,
 	InspectorControls,
+	URLInputButton,
 } from '@wordpress/block-editor';
 import { useEffect } from '@wordpress/element';
 
@@ -66,6 +67,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		fullwidth,
 		mapLat,
 		mapLong,
+		mapUrl,
 	} = attributes;
 
 	const images = Array.isArray( attributes.images ) ? attributes.images : [];
@@ -117,29 +119,6 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				{ variant === 'media-text-map' && (
-					<PanelBody
-						title={ __( 'Map Location', 'media-text' ) }
-						initialOpen={ true }
-					>
-						<TextControl
-							__next40pxDefaultSize
-							label="Latitude"
-							value={ mapLat }
-							onChange={ ( value ) =>
-								setAttributes( { mapLat: value } )
-							}
-						/>
-						<TextControl
-							__next40pxDefaultSize
-							label="Longitude"
-							value={ mapLong }
-							onChange={ ( value ) =>
-								setAttributes( { mapLong: value } )
-							}
-						/>
-					</PanelBody>
-				) }
 				{ variant === 'media-text-media-carousel' ? (
 					<PanelBody
 						title={ __( 'Partner Gallery Images', 'media-text' ) }
@@ -420,6 +399,42 @@ export default function Edit( { attributes, setAttributes } ) {
 									<h4 style={ { textAlign: 'center' } }>
 										Map Will Appear Here
 									</h4>
+									<div>
+										<TextControl
+											__next40pxDefaultSize
+											label="Latitude"
+											value={ mapLat }
+											onChange={ ( value ) =>
+												setAttributes( {
+													mapLat: value,
+												} )
+											}
+										/>
+										<TextControl
+											__next40pxDefaultSize
+											label="Longitude"
+											value={ mapLong }
+											onChange={ ( value ) =>
+												setAttributes( {
+													mapLong: value,
+												} )
+											}
+										/>
+										<div
+											className={ `${ BLOCKNAME }__input-area` }
+										>
+											<h4>Link to location</h4>
+											<URLInputButton
+												label="Link to location"
+												url={ mapUrl }
+												onChange={ ( url ) =>
+													setAttributes( {
+														mapUrl: url,
+													} )
+												}
+											/>
+										</div>
+									</div>
 								</div>
 							) : null }
 						</div>
